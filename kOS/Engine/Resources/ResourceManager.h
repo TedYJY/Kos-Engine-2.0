@@ -28,6 +28,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Resources/R_Audio.h"
 #include "Resources/R_Material.h"
 #include "Resources/R_DepthMapCube.h"
+#include "Resources/R_AnimController.h"
 class ResourceManager {
 
 public:
@@ -42,6 +43,7 @@ public:
 		RegisterResourceType<R_Material>(".mat");
 		RegisterResourceType<R_DepthMapCube>(".dcm");
 		RegisterResourceType<R_DepthMapCube>(".prefab");
+		RegisterResourceType<R_AnimController>(".controller");
         //Wait for texture type
     }
 

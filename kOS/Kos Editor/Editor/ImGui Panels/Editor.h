@@ -21,6 +21,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "imgui_stdlib.h"
+#include "imgui_node_editor.h"
 #include "ImGuizmo.h"
 #include "ECS/ECS.h"
 #include "Editor/EditorReflection.h"
@@ -57,6 +58,10 @@ namespace gui {
 		ResourceManager& m_resourceManager;
 		ScriptManager& m_scriptManager;
 		Peformance& m_performance;
+
+        //Node editor plugin
+        ax::NodeEditor::EditorContext* m_animControllerContext = nullptr;
+        R_AnimController* m_activeController = nullptr;
 
     public:
         /******************************************************************/
@@ -196,6 +201,9 @@ namespace gui {
         void DrawAnimationWindow();
         void DrawAudioMixerWindow();
 
+        void DrawAnimatorControllerWindow();
+        void ShutdownAnimatorLayout();
+
         void ScriptHotReload();
 
         /***********PreferenceTab*************/
@@ -254,6 +262,8 @@ namespace gui {
             }
 
             ImGui::SaveIniSettingsToDisk(m_imgui_layout.c_str());
+
+            //SaveAnimatorLayout("../kOS/Kos Editor/Configs/AnimatorLayout.json");
         }
 
         inline void LoadLayout()
@@ -269,6 +279,8 @@ namespace gui {
             }
 
             ImGui::LoadIniSettingsFromDisk(m_imgui_layout.c_str());
+
+            //LoadAnimatorLayout("../kOS/Kos Editor/Configs/AnimatorLayout.json");
         }
 
     };
