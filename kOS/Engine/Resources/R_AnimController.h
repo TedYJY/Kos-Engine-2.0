@@ -13,6 +13,14 @@ struct AnimPin {
 	std::string name;
 };
 
+struct AnimTransition {
+	int id;
+	int fromPinId;
+	int toPinId;
+	std::string condition;
+	REFLECTABLE(AnimTransition);
+};
+
 struct AnimState {
 	int id;
 	std::vector<AnimPin> inputs;
@@ -23,23 +31,17 @@ struct AnimState {
 	float playSpeed = 1.0f;
 	bool isLooping = true;
 	bool isDefault = false;
-	std::vector<std::string> trigger;
+	std::vector<AnimTransition> transitions;
 
-	REFLECTABLE(AnimState, name, playSpeed, isLooping, trigger);
+	REFLECTABLE(AnimState, name, playSpeed, isLooping);
 };
 
-struct AnimTransition {
-	int id;
-	int fromPinId;
-	int toPinId;
-	std::string condition;
-};
 
 struct AnimControllerData
 {
 	std::string name;
 	std::unordered_map<int, AnimState> states;
-	std::vector<AnimTransition> transitions;
+	//std::vector<AnimTransition> transitions;
 	int currentStateId;
 
 	REFLECTABLE(AnimControllerData);
