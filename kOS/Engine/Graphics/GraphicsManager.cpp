@@ -438,7 +438,7 @@ void GraphicsManager::gm_FillDepthCube(const CameraData& camera, int index,glm::
 	glCullFace(GL_BACK);
 }
 
-void GraphicsManager::gm_FillDepthCube(const CameraData& camera, int index, glm::vec3 lighPos, std::vector<std::string>const& tagList) {
+void GraphicsManager::gm_FillDepthCube(const CameraData& camera, int index, glm::vec3 lighPos, std::vector<MeshData>const& meshList) {
 	Shader* pointShadowShader{ &shaderManager.engineShaders.find("PointShadowShader")->second };
 	glCullFace(GL_FRONT);
 
@@ -452,21 +452,12 @@ void GraphicsManager::gm_FillDepthCube(const CameraData& camera, int index, glm:
 	}
 	pointShadowShader->SetFloat("far_plane", lightRenderer.dcm[index].far_plane);
 	pointShadowShader->SetVec3("lightPos", lighPos);
-	for (std::vector<MeshData>& meshData : meshRenderer.meshesToDraw) {
-		for (MeshData& md : meshData)
-		{
-			pointShadowShader->SetTrans("model", md.transformation);
-			md.meshToUse->PBRDraw(*pointShadowShader, md.meshMaterial);
-		}
 
-	}
-	for (std::vector<SkinnedMeshData>& meshData : skinnedMeshRenderer.skinnedMeshesToDraw) {
-		for (SkinnedMeshData& md : meshData)
-		{
-			pointShadowShader->SetTrans("model", md.transformation);
-			md.meshToUse->PBRDraw(*pointShadowShader, md.meshMaterial);
-
-		}
+	//Draw meshes based on meshList
+	for (MeshData const& md : meshList)
+	{
+		pointShadowShader->SetTrans("model", md.transformation);
+		md.meshToUse->PBRDraw(*pointShadowShader, md.meshMaterial);
 	}
 	cubeRenderer.Render(camera, *pointShadowShader, &this->cube);
 

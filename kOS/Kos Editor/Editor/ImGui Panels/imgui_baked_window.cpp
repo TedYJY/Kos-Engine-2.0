@@ -83,7 +83,6 @@ void gui::ImGuiHandler::DrawBakedWindow() {
 		auto sceneData =m_ecs.GetSceneData(m_ecs.GetSceneByEntityID(m_clickedEntityId));
 		//Get all mesh data with tags
 		std::vector<MeshData>md;
-		std::vector<SkinnedMeshData>md;
 		for (auto& go : sceneData.sceneIDs)
 		{
 			//Check name tag
