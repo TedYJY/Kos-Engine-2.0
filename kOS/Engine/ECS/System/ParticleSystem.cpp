@@ -11,188 +11,21 @@ namespace ecs {
         onRegister.Add([&](EntityID id) {
             ParticleComponent* particle = m_ecs.GetComponent<ParticleComponent>(id);
 
-            // ---------- FleX Initialization ----------
-            NvFlexInitDesc desc = {};
-            desc.deviceIndex = 0;
-            desc.enableExtensions = true; 
-            desc.computeType = eNvFlexCUDA; 
-
-            particle->library = (void*)NvFlexInit(NV_FLEX_VERSION, nullptr, &desc);
-            
-            //============================
-            // If device does not have nvidia gpu it will ensure that 
-            // library will not include eNvFlexCUDA
-            //============================
-            if (!particle->library) {
-                NvFlexInitDesc desc = {};
-                desc.deviceIndex = 0;
-                desc.enableExtensions = false;
-                particle->library = (void*)NvFlexInit(NV_FLEX_VERSION, nullptr, &desc);
-                if (!particle->library) {
-                    LOGGING_ERROR("Failed to initialize FleX.\n");
-                    return;
-                }
-            }
-
-            NvFlexSolverDesc solverDesc;
-            NvFlexSetSolverDescDefaults(&solverDesc);
-            solverDesc.maxParticles = particle->max_Particles;
-            particle->solver = (void*)NvFlexCreateSolver((NvFlexLibrary*)particle->library, &solverDesc);
-
-            //Allocate Flex Buffer
-            /*
-            pointer 0 -> positionbuffer
-            pointer 1 -> velocitybuffer
-            pointer 2 -> phasebuffer
-            pointer 3 -> activebuff 
-            */
-            particle->pointers[0] = (void*)NvFlexAllocBuffer((NvFlexLibrary*)particle->library, particle->max_Particles, sizeof(glm::vec4), eNvFlexBufferHost);
-            particle->pointers[1] = (void*)NvFlexAllocBuffer((NvFlexLibrary*)particle->library, particle->max_Particles, sizeof(glm::vec3), eNvFlexBufferHost);
-            particle->pointers[2] = (void*)NvFlexAllocBuffer((NvFlexLibrary*)particle->library, particle->max_Particles, sizeof(int), eNvFlexBufferHost);
-            particle->pointers[3] = (void*)NvFlexAllocBuffer((NvFlexLibrary*)particle->library, particle->max_Particles, sizeof(int), eNvFlexBufferHost);
-            particle->pointers[4] = (void*)NvFlexAllocBuffer((NvFlexLibrary*)particle->library, particle->max_Particles, sizeof(float), eNvFlexBufferHost);
-            particle->pointers[5] = (void*)NvFlexAllocBuffer((NvFlexLibrary*)particle->library, particle->max_Particles, sizeof(float), eNvFlexBufferHost);
-            //Map Buffers
-            glm::vec4* positions = (glm::vec4*)NvFlexMap((NvFlexBuffer*)particle->pointers[0], eNvFlexMapWait);
-            glm::vec3* velocities = (glm::vec3*)NvFlexMap((NvFlexBuffer*)particle->pointers[1], eNvFlexMapWait);
-            int* phases = (int*)NvFlexMap((NvFlexBuffer*)particle->pointers[2], eNvFlexMapWait);
-            int* active = (int*)NvFlexMap((NvFlexBuffer*)particle->pointers[3], eNvFlexMapWait);
-            float* particleLifetime = (float*)NvFlexMap((NvFlexBuffer*)particle->pointers[4], eNvFlexMapWait);
-            float* particleLifetime_Counter = (float*)NvFlexMap((NvFlexBuffer*)particle->pointers[5], eNvFlexMapWait);
-
-            //init the maps
-            for (int i = 0; i < particle->max_Particles; ++i) {
-                positions[i] = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f); // w=0 means INACTIVE
-                velocities[i] = glm::vec3(0.0f);
-                //phases[i] = NvFlexMakePhase(0, eNvFlexPhaseSelfCollide | eNvFlexPhaseFluid);
-                phases[i] = NvFlexMakePhase(0, eNvFlexPhaseSelfCollide);
-                //phases[i] = NvFlexMakePhase(0, 0);
-                particleLifetime[i] = 0.f;
-                particleLifetime_Counter[i] = 0.f;
-                //do not need to set active over here
-            }
-
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[0]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[1]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[2]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[3]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[4]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[5]);
-
-            NvFlexSetParticles((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[0], nullptr);
-            NvFlexSetVelocities((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[1], nullptr);
-            NvFlexSetPhases((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[2], nullptr);
-            NvFlexSetActive((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[3], nullptr);
-            NvFlexSetActiveCount((NvFlexSolver*)particle->solver, 0);
-
             //init the particle velocity
-            particle->freeIndices.clear();
-            particle->freeIndices.reserve(particle->max_Particles);
-            particle->alive_Particles.clear();
-            particle->alive_Particles.reserve(particle->max_Particles);
-            particle->visualData.clear();
-            particle->visualData.resize(particle->max_Particles);
-
-            for (short i = particle->max_Particles - 1; i >= 0; --i) {
-                particle->freeIndices.push_back(i);
-            }
-
+            particle->particle_List.clear();
+            particle->particle_List.reserve(particle->max_Particles);
           
             // Initialize emitter timers
             particle->emitterTime = 0.f;
             particle->durationCounter = 0.f;
 
-            // ---------- FleX Parameters ----------
-            NvFlexParams params;
-            NvFlexGetParams((NvFlexSolver*)particle->solver, &params);
-            // Gravity settings
-            params.gravity[0] = particle->gravity.x;
-            params.gravity[1] = particle->gravity.y;  // Standard gravity
-            params.gravity[2] = particle->gravity.z;
-
-            // Particle physical properties
-            params.radius = 0.05f;
-            params.solidRestDistance = params.radius;
-            params.fluidRestDistance = params.radius * 0.55f; // Important for fluid behavior
-
-            // Friction and collision
-            params.dynamicFriction = 0.1f;
-            params.particleFriction = 0.1f;
-            params.restitution = 0.3f;
-            params.adhesion = 0.0f;
-            params.cohesion = 0.025f; // Fluid cohesion
-            params.surfaceTension = 0.0f;
-            params.viscosity = 0.001f; // Low viscosity for more fluid-like
-
-            // Solver settings
-            params.numIterations = 3;
-            params.relaxationFactor = 1.0f;
-
-            // Damping (prevents infinite motion)
-            params.damping = 0.0f; // Set to 0 for no artificial damping
-            params.drag = 0.0f;
-
-            // Collision distance
-            params.collisionDistance = params.radius * 0.5f;
-            params.shapeCollisionMargin = params.collisionDistance * 0.05f;
-
-            // Particle collision
-            params.particleCollisionMargin = params.radius * 0.05f;
-
-            // Sleep threshold (set high to prevent sleeping)
-            params.sleepThreshold = 0.0f; // Particles never sleep
-            NvFlexSetParams((NvFlexSolver*)particle->solver, &params);
-
-            LOGGING_INFO("Flex initialized successfully for entity %d\n", id);
-            LOGGING_INFO("  - Gravity: (%.2f, %.2f, %.2f)\n", params.gravity[0], params.gravity[1], params.gravity[2]);
-            LOGGING_INFO("  - Radius: %.3f\n", params.radius);
-            LOGGING_INFO("  - Free slots: %zu\n", particle->freeIndices.size());
             });
 
         onDeregister.Add([&](EntityID id) {
             auto* particle = m_ecs.GetComponent<ParticleComponent>(id);
 
-            if (particle->pointers[0]) {
-                NvFlexFreeBuffer((NvFlexBuffer*)particle->pointers[0]);
-                particle->pointers[0] = nullptr;
-            }
-            if (particle->pointers[1]) {
-                NvFlexFreeBuffer((NvFlexBuffer*)particle->pointers[1]);
-                particle->pointers[1] = nullptr;
-            }
-            if (particle->pointers[2]) {
-                NvFlexFreeBuffer((NvFlexBuffer*)particle->pointers[2]);
-                particle->pointers[2] = nullptr;
-            }
-            if (particle->pointers[3]) {
-                NvFlexFreeBuffer((NvFlexBuffer*)particle->pointers[3]);
-                particle->pointers[3] = nullptr;
-            }
-            if (particle->pointers[4]) {
-                NvFlexFreeBuffer((NvFlexBuffer*)particle->pointers[4]);
-                particle->pointers[4] = nullptr;
-            }
-
-            if (particle->pointers[5]) {
-                NvFlexFreeBuffer((NvFlexBuffer*)particle->pointers[5]);
-                particle->pointers[5] = nullptr;
-            }
-
-            // Destroy solver BEFORE library
-            if (particle->solver) {
-                NvFlexDestroySolver((NvFlexSolver*)particle->solver);
-                particle->solver = nullptr;
-            }
-
-            // Destroy library last
-            if (particle->library) {
-                NvFlexShutdown((NvFlexLibrary*)particle->library);
-                particle->library = nullptr;
-            }
-
             // Clear tracking data
-            particle->freeIndices.clear();
-            particle->alive_Particles.clear();
+            particle->particle_List.clear();
 
             });
     }
@@ -204,207 +37,316 @@ namespace ecs {
         for (EntityID id : entities) {
             ParticleComponent* particle = m_ecs.GetComponent<ParticleComponent>(id);
             TransformComponent* transform = m_ecs.GetComponent<TransformComponent>(id);
-            if (!particle || !particle->solver || !transform) {
-                return;
+            if (!particle || !transform) {
+                continue;
             }
 
-            // --- PERFORMANCE OPTIMIZATION: Map position buffer ONCE for the frame ---
-            glm::vec4* positions = (glm::vec4*)NvFlexMap((NvFlexBuffer*)particle->pointers[0], eNvFlexMapWait);
-            glm::vec3* velocity = (glm::vec3*)NvFlexMap((NvFlexBuffer*)particle->pointers[1], eNvFlexMapWait);
-            float* lifetime_list = (float*)NvFlexMap((NvFlexBuffer*)particle->pointers[4], eNvFlexMapWait);
-            float* lifetime_Counter_List = (float*)NvFlexMap((NvFlexBuffer*)particle->pointers[5], eNvFlexMapWait);
-            if (!positions) {
-                return;
+            if (particle->playback_State == PlayState::PAUSE && particle->particle_List.empty()) {
+                continue;
             }
 
             //===========================================
             // Update emitter
             //===========================================
-            UpdateEmitters(dt, id, particle, transform, positions, velocity, lifetime_list, lifetime_Counter_List);
+            UpdateEmitters(dt, id, particle, transform);
 
+            
             // ==========================================
             // Update Lifetimes (modifies alive_Particles)
             // ==========================================
-            UpdateParticleLifetimes(dt, particle, positions,velocity, lifetime_list, lifetime_Counter_List);
-
-            // ==========================================
-            // Sync Active Buffer to GPU
-            // ==========================================
-            SyncActiveBuffer(particle);
-
-            // ==========================================
-            // UPDATE GRAVITY IN REAL TIME
-            // ==========================================
-            NvFlexParams params;
-            NvFlexGetParams((NvFlexSolver*)particle->solver, &params);
-
-            // Set gravity based on user input / inspector
-            params.gravity[0] = particle->gravity.x;
-            params.gravity[1] = particle->gravity.y;
-            params.gravity[2] = particle->gravity.z;
-
-            NvFlexSetParams((NvFlexSolver*)particle->solver, &params);
-
-            // ==========================================
-            // Sync Particle Data to Flex
-            // ==========================================
-            // === UNMAP BUFFERS BEFORE GPU OPERATIONS ===
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[0]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[1]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[4]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[5]);
-
-            NvFlexSetParticles((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[0], nullptr);
-            NvFlexSetVelocities((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[1], nullptr);
-
-            // ==========================================
-            // Run Flex Simulation
-            // ==========================================
-
-            NvFlexUpdateSolver((NvFlexSolver*)particle->solver, dt, 1, false);
-
-            // ==========================================
-            // Retrieve Results
-            // ==========================================
-
-            NvFlexGetParticles((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[0], nullptr);
-            NvFlexGetVelocities((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[1], nullptr);
+            UpdateParticleLifetimes(dt, particle);
+           
             // ==========================================
             // Extract Positions for Rendering (OPTIMIZED)
             // ==========================================
-            positions = (glm::vec4*)NvFlexMap((NvFlexBuffer*)particle->pointers[0], eNvFlexMapWait);
 
             ParticleInstance sending;
-            ExtractParticleDataOptimized(particle, sending, positions);
+            ExtractParticleDataOptimized(particle, sending);
 
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[0]);
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[1]);
             // ==========================================
             // Sending over to the Graphic Pipeline to render
             // ==========================================
-            m_graphicsManager.gm_PushBasicParticleData(BasicParticleData{ sending.positions_Particle, sending.colors, sending.sizes, sending.rotates });
+
+            std::shared_ptr<R_Texture> textureResource = m_resourceManager.GetResource<R_Texture>(particle->textureGUID);
+            m_graphicsManager.gm_PushBasicParticleData(BasicParticleData{ sending.positions_Particle, sending.colors, sending.sizes, sending.rotates , textureResource.get()});
         }
     }
 
 
-    void ParticleSystem::EmitParticle(EntityID entityId, const glm::vec3& particle_position, const glm::vec3& velocity, float lifetime, ParticleComponent*& particle, glm::vec4* position, glm::vec3* velocities, float* lifetime_list, float* lifetime_Counter_list) {
+    void ParticleSystem::EmitParticle(EntityID entityId, const glm::vec3& particle_position, const glm::vec3& velocity, float lifetime, ParticleComponent*& particle) {
         // Check if we have any free slots
-        if (particle->freeIndices.empty()) {
+        if (particle->particle_List.size() >= particle->max_Particles) {
             LOGGING_WARN("No free particle slots for entity %d\n", entityId);
             return;
         }
 
-        // FIX: Get a free particle index (O(1) operation)
-        int particleIdx = particle->freeIndices.back();
-        particle->freeIndices.pop_back();
-
-        // FIX: Set particle tracking data
-        lifetime_list[particleIdx] = lifetime;
-        lifetime_Counter_list[particleIdx] = lifetime;
-        particle->alive_Particles.push_back(particleIdx);
-
-        //adding visual data
-        ParticleVisual data;
+        ParticleData pd;
+        pd.lifespan = lifetime;
+        pd.lifetime = lifetime;
+        pd.color = particle->colorModule.enabled ? RandomColourRange(particle->colorModule.start_Color, particle->colorModule.end_Color) : particle->colorModule.start_Color;
+        pd.size = glm::vec2(particle->sizeModule.enabled ? AbsRandomRange(particle->sizeModule.start_Size, particle->sizeModule.end_Size) : particle->sizeModule.start_Size);
+        pd.rotation = particle->rotationModule.enabled ? glm::radians(RandomRange(particle->rotationModule.start_Rotation, particle->rotationModule.end_Rotation)) : glm::radians(particle->rotationModule.start_Rotation);
+        pd.velocity = velocity;
+        pd.position = particle_position;
 
         //init particle data
-        data.color = particle->colorModule.enabled ? RandomColourRange(particle->colorModule.start_Color, particle->colorModule.end_Color) : particle->colorModule.start_Color;
-        data.size = particle->sizeModule.enabled ? AbsRandomRange(particle->sizeModule.start_Size, particle->sizeModule.end_Size) : particle->sizeModule.start_Size;
-        data.rotation = particle->rotationModule.enabled ? glm::radians(RandomRange(particle->rotationModule.start_Rotation, particle->rotationModule.end_Rotation)) : glm::radians(particle->rotationModule.start_Rotation);
-
-
-
-
-        particle->visualData[particleIdx] = data;
-
-        if (position && velocities) {
-            // FIX: Set position with w=1.0 to make particle ACTIVE
-            position[particleIdx] = glm::vec4(particle_position, 1.0f);
-            velocities[particleIdx] = velocity;
-        }
+        particle->particle_List.emplace_back(pd);
+        //particle->particle_List.push_back(std::move(pd));
     }
 
-    void ParticleSystem::UpdateParticleLifetimes(float dt, ParticleComponent*& particle, glm::vec4* positions,glm::vec3* velocities, float* lifetime_list, float* lifetime_Counter_list) {
-        if (!positions) {
-            return;
+    void ParticleSystem::UpdateParticleLifetimes(float dt, ParticleComponent*& particle) {
+
+        if (particle->playback_State == PlayState::PAUSE) {
+            return;  // Don't update anything when paused
         }
 
-        auto it = particle->alive_Particles.begin();
-        while (it != particle->alive_Particles.end()) {
-            short particleIdx = *it;
-            ParticleVisual& pv = particle->visualData[particleIdx];
-            float t =  1.f - (lifetime_list[particleIdx] / lifetime_Counter_list[particleIdx]);
-            t = glm::clamp(t, 0.0f, 1.0f);
 
-            //UPDATING VELOCITY
-            if (velocities) {
-                if (particle->velocityModule.enabled) {
-                    switch (particle->velocityModule.mode) {
-                    case Absolute:
-                        velocities[particleIdx] = glm::mix(velocities[particleIdx], particle->velocityModule.velocity_Modifier, t);
-                        break;
+        // === PRE-COMPUTE EVERYTHING ONCE ===
+        const bool updateSize = particle->sizeModule.enabled;
+        const bool updateColor = particle->colorModule.enabled;
+        const bool updateRotation = particle->rotationModule.enabled;
+        const bool updateVelocity = particle->velocityModule.enabled;
+        const bool updateForce = particle->forceModule.enabled;
+        const bool updateAttractor = particle->attractorModule.enabled;
+        const bool updateGravity = particle->gravityModule.enabled;
+        const bool updateTrailing = particle->trailingModule.enabled;
 
-                    case Additive:                       
-                        velocities[particleIdx] += glm::mix(glm::vec3(0), particle->velocityModule.velocity_Modifier, t) * dt;
-                        break;
+        // Pre-compute deltas
+        const float sizeDelta = updateSize ? (particle->sizeModule.end_Size - particle->sizeModule.start_Size) : 0.0f;
+        const float sizeStart = particle->sizeModule.start_Size;
 
-                    case Multiplier:
-                    {
-                        float factor = glm::mix(1.0f, glm::length(particle->velocityModule.velocity_Modifier), t);
-                        velocities[particleIdx] *= factor;
-                        break;
-                    }
-                    default:
-                        break;
-                    }
-                }
+        const glm::vec4 colorDelta = updateColor ? (particle->colorModule.end_Color - particle->colorModule.start_Color) : glm::vec4(0);
+        const glm::vec4 colorStart = particle->colorModule.start_Color;
 
-                if (particle->forceModule.enabled) {
-                    velocities[particleIdx] = velocities[particleIdx] + (particle->forceModule.force * dt);
-                }
-            }
+        const float rotModRad = glm::radians(particle->rotationModule.rotation_Modifier) * dt;
 
-            //UPDATING SIZE
-            if (particle->sizeModule.enabled) {
-                pv.size = glm::mix(particle->sizeModule.start_Size, particle->sizeModule.end_Size, t);
-            }
+        // Pre-compute attractor values
+        const glm::vec3 attractorTarget = particle->attractorModule.targetPosition;
+        const float attractStrength = particle->attractorModule.attractionStrength;
+        const float explosionStrength = particle->attractorModule.explosionStrength;
+        const float whirlpoolStrength = particle->attractorModule.whirlpoolStrength;
+        const bool useInverseFalloff = particle->attractorModule.useInverseFalloff;
 
-            //UPDATING COLOR
-            if (particle->colorModule.enabled) {
-                pv.color = glm::mix(particle->colorModule.start_Color, particle->colorModule.end_Color, t);
-            }
-            
-            //UPDATING ROTATION
-            if (particle->rotationModule.enabled) {
-                pv.rotation += glm::radians(particle->rotationModule.rotation_Modifier) * dt;
-            }
+        // Update trailing module's rotating end point
+        if (updateTrailing && particle->trailingModule.rotateEndPoint) {
+            auto& trail = particle->trailingModule;
 
-            //Updating each of the particle lifespan
-            if (lifetime_list[particleIdx] > 0.0f) {
-                lifetime_list[particleIdx] -= dt;
-               
-                if (lifetime_list[particleIdx] <= 0.0f) {
-                    positions[particleIdx].w = 0.0f;
-                    particle->freeIndices.push_back(particleIdx);
-                    it = particle->alive_Particles.erase(it);
-                }
-                else {
-                    ++it;
-                }
+            // Update rotation angle
+            float angle = trail.timeAccum * trail.rotationSpeed;
+
+            // Calculate new end point position on circular orbit
+            glm::vec3 axis = glm::normalize(trail.rotationAxis);
+
+            // Find two perpendicular vectors to the rotation axis
+            glm::vec3 perpAxis1, perpAxis2;
+            if (fabs(axis.y) > 0.9f) {
+                perpAxis1 = glm::normalize(glm::cross(axis, glm::vec3(1, 0, 0)));
             }
             else {
-                // Already dead, remove it
-                it = particle->alive_Particles.erase(it);
+                perpAxis1 = glm::normalize(glm::cross(axis, glm::vec3(0, 1, 0)));
             }
+            perpAxis2 = glm::normalize(glm::cross(axis, perpAxis1));
+
+            // Calculate rotating end point
+            trail.endPoint = trail.rotationCenter +
+                perpAxis1 * cos(angle) * trail.rotationRadius +
+                perpAxis2 * sin(angle) * trail.rotationRadius;
         }
+
+        // === OPTIMIZED LOOP ===
+        for (int i = static_cast<int>(particle->particle_List.size()) - 1; i >= 0; --i) {
+
+            ParticleData& pd = particle->particle_List[i];
+            // Fast clamp
+            float t = 1.f - (pd.lifespan / pd.lifetime);
+            t = (t < 0.0f) ? 0.0f : ((t > 1.0f) ? 1.0f : t);
+
+            if (updateVelocity) {
+                switch (particle->velocityModule.mode) {
+                    case Absolute:
+                        pd.velocity = particle->velocityModule.velocity_Modifier * t + pd.velocity * (1.0f - t);
+                        break;
+                    case Additive:
+                        pd.velocity += particle->velocityModule.velocity_Modifier * (t * dt);
+                        break;
+                    case Multiplier: {
+                        float factor = 1.0f + (glm::length(particle->velocityModule.velocity_Modifier) - 1.0f) * t;
+                        pd.velocity *= factor;
+                        break;
+                    }
+                }
+            }
+
+            if (updateGravity) {
+                pd.velocity += particle->gravityModule.gravity * dt;
+            }
+
+            if (updateForce) {
+                pd.velocity += particle->forceModule.force * dt;
+            }
+
+            // === OPTIMIZED ATTRACTORS ===
+            if (updateAttractor) {
+                glm::vec3 particlePos = pd.position;
+                glm::vec3 dir = attractorTarget - particlePos;
+                float distSq = glm::dot(dir, dir);
+
+                if (distSq > 0.000001f) {
+                    float dist = glm::sqrt(distSq);
+                    glm::vec3 dirNorm = dir / dist;
+
+                    // Attraction
+                    if (attractStrength > 0.0f) {
+                        float strength = attractStrength;
+                        if (useInverseFalloff) strength /= (distSq + 0.01f);
+                        pd.velocity += dirNorm * strength * dt;
+                    }
+
+                    // Explosion
+                    if (explosionStrength != 0.0f) {
+                        pd.velocity += -dirNorm * explosionStrength * dt;
+                    }
+
+                    // Whirlpool
+                    if (whirlpoolStrength > 0.0f) {
+                        glm::vec3 up = (glm::abs(dirNorm.y) > 0.9f) ? glm::vec3(1, 0, 0) : glm::vec3(0, 1, 0);
+                        glm::vec3 tangential = glm::normalize(glm::cross(dirNorm, up));
+
+                        float strength = whirlpoolStrength;
+                        if (useInverseFalloff) strength /= (dist + 0.1f);
+
+                        glm::vec3 force = dirNorm * (strength * 0.25f) + tangential * strength;
+                        pd.velocity += force * dt;
+                    }
+                }
+            }
+
+
+            // === OPTIMIZED VISUAL UPDATES ===
+            if (updateSize) {
+                pd.size = glm::vec2(sizeStart + sizeDelta * t);
+            }
+
+            if (updateColor) {
+                pd.color = colorStart + colorDelta * t;
+            }
+
+            if (updateRotation) {
+                pd.rotation += rotModRad;
+            }
+
+            // ENHANCED TRAILING MODULE - Twister Effect
+            if (updateTrailing) {
+                glm::vec3 start = particle->trailingModule.startPoint;
+                glm::vec3 end = particle->trailingModule.endPoint;
+
+                // ===== STEP 1: Calculate position along the straight line path =====
+                // Increment the particle's progress along the path
+                float particleAge = (pd.lifetime - pd.lifespan);
+                float pathProgress = glm::clamp(particleAge * particle->trailingModule.pathSpeed / pd.lifetime, 0.0f, 1.0f);
+
+                // Smooth easing for more natural movement
+                float easedProgress = pathProgress < 0.5f
+                    ? 2.0f * pathProgress * pathProgress
+                    : 1.0f - glm::pow(-2.0f * pathProgress + 2.0f, 2.0f) / 2.0f;
+
+                // Calculate the base position along the straight line
+                glm::vec3 basePosition = start + (end - start) * easedProgress;
+
+                // ===== STEP 2: Create spiral/helix around the line =====
+                glm::vec3 pathDirection = end - start;
+                float pathLength = glm::length(pathDirection);
+
+                if (pathLength > 0.001f) {
+                    pathDirection = glm::normalize(pathDirection);
+
+                    // Create perpendicular basis vectors for the spiral
+                    glm::vec3 perpAxis = (fabs(pathDirection.y) > 0.9f) ? glm::vec3(1, 0, 0) : glm::vec3(0, 1, 0);
+                    glm::vec3 right = glm::normalize(glm::cross(pathDirection, perpAxis));
+                    glm::vec3 up = glm::normalize(glm::cross(right, pathDirection));
+
+                    // Calculate spiral angle based on progress and frequency
+                    float spiralAngle = easedProgress * particle->trailingModule.spiralFrequency * glm::two_pi<float>()
+                        + particle->trailingModule.timeAccum; // Add time offset for rotation
+
+                    // Calculate spiral intensity (can peak in the middle or stay constant)
+                    float spiralIntensity;
+                    if (particle->trailingModule.spiralIntensityCurve > 0.01f) {
+                        // Peak in the middle, fade at start and end
+                        spiralIntensity = glm::sin(easedProgress * glm::pi<float>());
+                    }
+                    else {
+                        // Constant intensity, but fade near the end
+                        spiralIntensity = glm::clamp((1.0f - easedProgress) * 2.0f, 0.0f, 1.0f);
+                    }
+
+                    // Calculate offset from the center line
+                    glm::vec3 spiralOffset = (right * cos(spiralAngle) + up * sin(spiralAngle))
+                        * particle->trailingModule.spiralRadius
+                        * spiralIntensity;
+
+                    // ===== STEP 3: Set particle position on the helix =====
+                    pd.position = basePosition + spiralOffset;
+
+                    // ===== STEP 4: Calculate velocity for smooth spiral motion =====
+                    // Velocity along the path
+                    glm::vec3 forwardVel = pathDirection * particle->trailingModule.pathSpeed;
+
+                    // Tangential velocity for the spiral (perpendicular to radius)
+                    glm::vec3 tangentialDir = -right * sin(spiralAngle) + up * cos(spiralAngle);
+                    float tangentialSpeed = particle->trailingModule.spiralRadius
+                        * particle->trailingModule.spiralFrequency
+                        * glm::two_pi<float>()
+                        * particle->trailingModule.pathSpeed
+                        * spiralIntensity / pd.lifetime;
+
+                    glm::vec3 tangentialVel = tangentialDir * tangentialSpeed;
+
+                    // Combine forward and tangential velocity
+                    pd.velocity = forwardVel + tangentialVel;
+
+                    // ===== STEP 5: Check if particle reached the end =====
+                    float distToEnd = glm::length(end - pd.position);
+                    if (distToEnd < particle->trailingModule.arrivalThreshold || pathProgress >= 0.99f) {
+                        pd.lifespan = 0.0f; // Kill particle
+                        continue;
+                    }
+                }
+                else {
+                    // No path, just stay at start
+                    pd.position = start;
+                    pd.velocity = glm::vec3(0);
+                }
+            }
+
+            //=== LIFETIME UPDATE ===
+            pd.lifespan -= dt;
+            if(!updateTrailing) pd.position += pd.velocity * dt;
+
+            if (pd.lifespan <= 0.0f) {
+                particle->particle_List[i] = particle->particle_List.back();
+                //particle->particle_List[i] = std::move(particle->particle_List.back());
+                particle->particle_List.pop_back();
+
+            }
+        } 
     }
 
-    void ParticleSystem::UpdateEmitters(float dt,EntityID id, ParticleComponent*& particleComp,  TransformComponent* transform, glm::vec4* position, glm::vec3* velocities, float* lifetime_list, float* lifetime_Counter_list) {
-        const auto& entities = m_entities.Data();
+    void ParticleSystem::UpdateEmitters(float dt,EntityID id, ParticleComponent*& particleComp,  TransformComponent* transform) {
+        //const auto& entities = m_entities.Data();
+        if (particleComp->playback_State == PlayState::PAUSE) {
+            return;
+        }
 
         // Check if emitter should be active
         bool shouldEmit = false;
         bool particles_Alive = false;
-        if (particleComp->looping) {
+
+        if (particleComp->playback_State == PlayState::STOP) {
+            shouldEmit = false;
+        } else if (particleComp->looping) {
+            particleComp->durationCounter += dt;
+            
             if (particleComp->durationCounter >= particleComp->duration) {
                 particleComp->durationCounter = 0.f;
             }
@@ -416,6 +358,7 @@ namespace ecs {
                 shouldEmit = (particleComp->durationCounter < particleComp->duration);
             }
         }
+
         if (shouldEmit) {
             particleComp->emitterTime += dt;
             float emissionInterval = particleComp->emissionInterval;
@@ -456,72 +399,65 @@ namespace ecs {
                 // direction is already normalized, multiply by speed
                 glm::vec3 vel = emission.direction * particleComp->start_Velocity;              
                 glm::vec3 pos = transform->WorldTransformation.position + emission.positionOffset;
-                
+                particleComp->particle_Spawn_Location = transform->WorldTransformation.position;
                 //random to the lifetime
                 float particle_Lifetime = particleComp->start_Lifetime;
                 if (particleComp->lifetime_Random_Enable) {
                     particle_Lifetime = RandomRange(particleComp->start_Lifetime, particleComp->end_Lifetime);
                 }
 
-                EmitParticle(id, pos, vel, particle_Lifetime, particleComp, position, velocities, lifetime_list, lifetime_Counter_list);
+                if (particleComp->trailingModule.enabled)
+                {
+                    glm::vec3 start = particleComp->trailingModule.startPoint;
+                    glm::vec3 end = particleComp->trailingModule.endPoint;
+
+                    EmitTrailParticles(dt, particleComp, start, end, id);
+                }
+                else {
+                    EmitParticle(id, pos, vel, particle_Lifetime, particleComp);
+                }
                 particleComp->emitterTime -= emissionInterval;
             }
         }
     }
 
- 
-    void ParticleSystem::SyncActiveBuffer(ParticleComponent* particle) {
-        if (!particle) {
-            return;
-        }
-        
-        if (particle->alive_Particles.empty()) {
-            // No active particles
-            NvFlexSetActiveCount((NvFlexSolver*)particle->solver, 0);
-            return;
-        }
-        int activeCount = static_cast<int>(particle->alive_Particles.size());
-
-        int* gpu = (int*)NvFlexMap((NvFlexBuffer*)particle->pointers[3], eNvFlexMapWait);
-        if (gpu) {
-            for (short i = 0; i < activeCount; i++) {
-                gpu[i] = particle->alive_Particles[i];
-            }
-            NvFlexUnmap((NvFlexBuffer*)particle->pointers[3]);
-        }
-
-        // Update Flex
-        NvFlexSetActive((NvFlexSolver*)particle->solver, (NvFlexBuffer*)particle->pointers[3], nullptr);
-        NvFlexSetActiveCount((NvFlexSolver*)particle->solver, activeCount);
-    }
 
     // NEW: Optimized position extraction
     void ParticleSystem::ExtractParticleDataOptimized(ParticleComponent* particle,
-        ParticleInstance& data, glm::vec4* positions) {
-        if (!particle || particle->alive_Particles.empty()) {
+        ParticleInstance& data) {
+
+        if (!particle || particle->particle_List.empty()) {
             data.positions_Particle.clear();
+            data.colors.clear();
+            data.rotates.clear();
+            data.sizes.clear();
             return;
         }
 
-        // OPTIMIZATION: Only extract active particles
-        data.positions_Particle.clear();
-        data.colors.clear();
-        data.rotates.clear();
-        data.sizes.clear();
-        data.positions_Particle.reserve(particle->alive_Particles.size());
-        data.colors.reserve(particle->alive_Particles.size());
-        data.rotates.reserve(particle->alive_Particles.size());
-        data.sizes.reserve(particle->alive_Particles.size());
+        size_t aliveCount = particle->particle_List.size();
 
-        for (int idx : particle->alive_Particles) {
-            if (positions[idx].w > 0.0f) {
-                data.positions_Particle.emplace_back(positions[idx].x, positions[idx].y, positions[idx].z);
-                data.colors.emplace_back(particle->visualData[idx].color);
-                data.sizes.emplace_back(glm::vec2(particle->visualData[idx].size, particle->visualData[idx].size));
-                data.rotates.emplace_back(particle->visualData[idx].rotation);
-            }
+        // OPTIMIZATION: Reserve once to avoid reallocations
+        if (data.positions_Particle.capacity() < particle->max_Particles) {
+            data.positions_Particle.reserve(particle->max_Particles);
+            data.colors.reserve(particle->max_Particles);
+            data.rotates.reserve(particle->max_Particles);
+            data.sizes.reserve(particle->max_Particles);
         }
 
+        data.positions_Particle.resize(aliveCount);
+        data.colors.resize(aliveCount);
+        data.rotates.resize(aliveCount);
+        data.sizes.resize(aliveCount);
+
+        // Extract data from particle_List
+        for (size_t i = 0; i < aliveCount; ++i) {
+            const ParticleData& pd = particle->particle_List[i];
+
+            data.positions_Particle[i] = pd.position;
+            data.colors[i] = pd.color;
+            data.sizes[i] = pd.size;
+            data.rotates[i] = pd.rotation;
+        }
     }
     // ========================================
     // BOX EMISSION (with position offset)
@@ -704,15 +640,6 @@ namespace ecs {
         return data;
     }
 
-    void* ParticleSystem::getVoid(ParticleComponent* particle, STATE state) {
-        void* ret;
-        if (state >= STATE::counter) {
-            LOGGING_ERROR("WRONG STATE FOR PARTICLE SYSTEM");
-            return particle->pointers[0];
-        }
-        ret = particle->pointers[state];
-        return ret;
-    }
     glm::vec3 ParticleSystem::ApplyRandomDirection(const glm::vec3& direction, float randomAmount) {
         if (randomAmount <= 0.0f) {
             return direction;  // No randomness
@@ -734,5 +661,137 @@ namespace ecs {
 
         return result;
     }
+    // ========================================
+// PLAY - Start/resume particle emission and simulation
+// ========================================
+    void ParticleSystem::Play(ParticleComponent* particle) {
+        if (!particle) return;
+
+        if (particle->playback_State == PlayState::STOP) {
+            particle->emitterTime = 0.0f;
+            particle->durationCounter = 0.0f;
+        }
+        particle->playback_State = PlayState::PLAY;
+
+        LOGGING_INFO("Particle system PLAY\n");
+    }
+
+    // ========================================
+    // PAUSE - Freeze everything (emission stops, simulation stops)
+    // ========================================
+    void ParticleSystem::Pause(ParticleComponent* particle) {
+        if (!particle) return;
+
+        particle->playback_State = PlayState::PAUSE;
+
+        LOGGING_INFO("Particle system PAUSED\n");
+    }
+
+    // ========================================
+    // STOP - Stop emission, let existing particles die naturally
+    // ========================================
+    void ParticleSystem::Stop(ParticleComponent* particle) {
+        if (!particle) return;
+
+        particle->playback_State = PlayState::STOP;
+
+        // Reset timers
+        particle->emitterTime = 0.0f;
+        particle->durationCounter = 0.0f;
+
+        LOGGING_INFO("Particle system STOPPED (particles will die naturally)\n");
+    }
+
+    // ========================================
+    // RESTART - Stop and immediately play again from beginning
+    // ========================================
+    void ParticleSystem::Restart(ParticleComponent* particle) {
+        if (!particle) return;
+
+        // Clear all particles
+        Clear(particle);
+
+        // Reset timers
+        particle->emitterTime = 0.0f;
+        particle->durationCounter = 0.0f;
+
+        // Start playing
+        particle->playback_State = PlayState::PLAY;
+
+        LOGGING_INFO("Particle system RESTARTED\n");
+    }
+
+    // ========================================
+    // CLEAR - Kill all particles immediately
+    // ========================================
+    void ParticleSystem::Clear(ParticleComponent* particle) {
+        if (!particle) return;   
+        particle->particle_List.clear();  // Actually clear the particles!
+      
+        LOGGING_INFO("All particles cleared (%zu particles killed)\n", particle->particle_List.size());
+    }
+
+    // ========================================
+    // STATE QUERIES
+    // ========================================
+    bool ParticleSystem::IsPlaying(ParticleComponent* particle) {
+        return particle && particle->playback_State == PlayState::PLAY;
+    }
+
+    bool ParticleSystem::IsPaused(ParticleComponent* particle) {
+        return particle && particle->playback_State == PlayState::PAUSE;
+    }
+
+    bool ParticleSystem::IsStopped(ParticleComponent* particle) {
+        return particle && particle->playback_State == PlayState::STOP;
+    }
+
+    void ParticleSystem::EmitTrailParticles(
+        float dt,
+        ParticleComponent* particle,
+        const glm::vec3& start,
+        const glm::vec3& end,
+        EntityID id)
+    {
+        auto& trail = particle->trailingModule;
+
+        // Update time accumulator
+        trail.timeAccum += dt;
+
+        // Check if emission duration has ended
+        if (trail.timeAccum > trail.spawnDuration) {
+            return;
+        }
+
+        // Calculate number of particles to spawn this frame
+        trail.spawnAccum += trail.spawnRate * dt;
+        int count = static_cast<int>(trail.spawnAccum);
+        trail.spawnAccum -= count;
+
+        // Emit particles from the start point
+        for (int i = 0; i < count; i++) {
+            // Always spawn at start point
+            glm::vec3 pos = start;
+
+            // Initial velocity can be zero or small random - the update loop will handle motion
+            glm::vec3 vel = glm::vec3(
+                RandomRange(-0.1f, 0.1f),
+                RandomRange(-0.1f, 0.1f),
+                RandomRange(-0.1f, 0.1f)
+            );
+
+            // Random lifetime
+            float life = particle->start_Lifetime;
+            if (particle->lifetime_Random_Enable) {
+                life = RandomRange(particle->start_Lifetime, particle->end_Lifetime);
+            }
+
+            EmitParticle(id, pos, vel, life, particle);
+        }
+    }
+
+
+
+
 
 }
