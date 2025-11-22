@@ -3,6 +3,11 @@
 #include "Resource.h"
 #include "ResourceHeader.h"
 
+struct AnimState;
+struct AnimPin;
+struct AnimTransition;
+
+//The dots
 struct AnimPin {
 	int id;
 	enum PinKind
@@ -11,16 +16,22 @@ struct AnimPin {
 		Output
 	} kind;
 	std::string name;
+	int fromParentId{};
+	int toParentId{};
+	REFLECTABLE(AnimPin, id, kind, name);
 };
 
+//The lines
 struct AnimTransition {
+	
 	int id;
 	int fromPinId;
 	int toPinId;
 	std::string condition;
-	REFLECTABLE(AnimTransition);
+	REFLECTABLE(AnimTransition, id, fromPinId, toPinId, condition);
 };
 
+//The boxes
 struct AnimState {
 	int id;
 	std::vector<AnimPin> inputs;
@@ -33,18 +44,16 @@ struct AnimState {
 	bool isDefault = false;
 	std::vector<AnimTransition> transitions;
 
-	REFLECTABLE(AnimState, name, playSpeed, isLooping);
+	REFLECTABLE(AnimState, id, inputs, outputs, name, animationGUID, playSpeed, isLooping, transitions);
 };
 
 
 struct AnimControllerData
-{
+{ 
 	std::string name;
-	std::unordered_map<int, AnimState> states;
-	//std::vector<AnimTransition> transitions;
-	int currentStateId;
-
-	REFLECTABLE(AnimControllerData);
+	std::vector<AnimState> states;
+	int currentID;
+	REFLECTABLE(AnimControllerData, name, states, currentID);
 };
 
 class R_AnimController :public Resource

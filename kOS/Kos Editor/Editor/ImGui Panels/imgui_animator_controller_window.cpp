@@ -13,9 +13,9 @@ struct DisplayController {
 
 DisplayController controllerData;
 
-AnimState* FindStateFromPin(std::unordered_map<int, AnimState>& states, int pinId)
+AnimState* FindStateFromPin(std::vector<AnimState>& states, int pinId)
 {
-    for (auto& [sid, state] : states)
+    for (auto& state : states)
     {
         for (auto& p : state.inputs)
             if (p.id == pinId)
@@ -28,9 +28,9 @@ AnimState* FindStateFromPin(std::unordered_map<int, AnimState>& states, int pinI
     return nullptr;
 }
 
-AnimPin* FindPin(std::unordered_map<int, AnimState>& states, int pinId)
+AnimPin* FindPin(std::vector<AnimState>& states, int pinId)
 {
-    for (auto& [sid, state] : states)
+    for (auto& state : states)
     {
         for (auto& p : state.inputs)
             if (p.id == pinId)
@@ -66,9 +66,16 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
 {
     ImGui::Begin("Animator Controller");
 
-    static int nextId = 1;
-    static std::unordered_map<int, AnimState> states;
-    static std::vector<AnimTransition> transitions;
+    constexpr int startingStateId = 1;
+    constexpr int startingPinId = 100;
+    constexpr int startingLink = 200;
+
+    static int nextStateId = startingStateId;
+    static int nextPinId = startingPinId;
+    static int nextLinkId = startingLink;
+
+    static std::vector<AnimState> states;
+    //static std::vector<AnimTransition> transitions;
 
     // --- Context & Node Editor ---
    // static ed::EditorContext* context = nullptr;
@@ -119,21 +126,15 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
                 std::string finalName = std::string(controllerNameBuffer) + ".controller";
                 std::string filepath = m_assetManager.GetAssetManagerDirectory() + "/Animation Controller/" + finalName;
 
-                //// Create the controller
-                //m_activeController = new AnimControllerData();
-                //m_activeController->name = controllerNameBuffer;
-                //m_activeController->states.clear();
-                //m_activeController->currentStateId = -1;
-
                 // Save it
                 //serialization::WriteJsonFile(filepath, &m_activeController->controller);
 
                  ///Create controller here
-           /* std::string fileName = controllerData.name + ".controller";
-            std::string filepath = m_assetManager.GetAssetManagerDirectory() + "/Animation Controller/" + fileName;
-            serialization::WriteJsonFile(filepath, &controllerData.controller);
-            std::cout << "TEST CREATION\n";
-            LOGGING_POPUP("Animator Controller Successfully Added");*/
+                std::string fileName = controllerData.name + ".controller";
+                std::string filepath = m_assetManager.GetAssetManagerDirectory() + "/Animation Controller/" + fileName;
+                serialization::WriteJsonFile(filepath, &controllerData.controller);
+                std::cout << "TEST CREATION\n";
+                LOGGING_POPUP("Animator Controller Successfully Added");
 
                 LOGGING_POPUP("Animator Controller Created");
                 ImGui::CloseCurrentPopup();
@@ -174,29 +175,29 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
     {
         // Entry node
         AnimState entry;
-        entry.id = nextId++;
+        entry.id = nextStateId++;
         entry.name = "Entry";
-        entry.outputs.push_back({ nextId++, AnimPin::PinKind::Output, "Out" });
+        entry.outputs.push_back({ nextPinId++, AnimPin::PinKind::Output, "Out"});
         entry.isDefault = true;
-        states[entry.id] = entry;
+        states.push_back(entry);
         ed::SetNodePosition(entry.id, ImVec2(50, 150));
 
         // Any State node
         AnimState any;
-        any.id = nextId++;
+        any.id = nextStateId++;
         any.name = "Any State";
-        any.outputs.push_back({ nextId++, AnimPin::PinKind::Output, "Out" });
+        any.outputs.push_back({ nextPinId++, AnimPin::PinKind::Output, "Out" });
         any.isDefault = true;
-        states[any.id] = any;
+        states.push_back(any);
         ed::SetNodePosition(any.id, ImVec2(50, 50));
 
         // Exit node
         AnimState exit;
-        exit.id = nextId++;
+        exit.id = nextStateId++;
         exit.name = "Exit";
-        exit.inputs.push_back({ nextId++, AnimPin::PinKind::Input, "In" });
+        exit.inputs.push_back({ nextPinId++, AnimPin::PinKind::Input, "In" });
         exit.isDefault = true;
-        states[exit.id] = exit;
+        states.push_back(exit);
         ed::SetNodePosition(exit.id, ImVec2(50, 100));
     }
 
@@ -205,11 +206,11 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
     if (ImGui::Button("Add State"))
     {
         AnimState s;
-        s.id = nextId++;
-        s.name = "NewState";
-        s.inputs.push_back({ nextId++, AnimPin::PinKind::Input, "Enter" });
-        s.outputs.push_back({ nextId++, AnimPin::PinKind::Output, "Exit" });
-        states[s.id] = s;
+        s.id = nextStateId++;
+        s.name = "New State";
+        s.inputs.push_back({ nextPinId++, AnimPin::PinKind::Input, "Enter" });
+        s.outputs.push_back({ nextPinId++, AnimPin::PinKind::Output, "Exit" });
+        states.push_back(s);
         ed::SetNodePosition(s.id, ImVec2(100 + 50.0f * states.size(), 100));
     }
     ImGui::SameLine();
@@ -230,7 +231,7 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
     ImGui::Separator();
 
     // --- Draw all nodes ---
-    for (auto& [id, node] : states)
+    for (auto& node : states)
     {
         ed::BeginNode(node.id);
         ImGui::Text("%s", node.name.c_str());
@@ -261,11 +262,14 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
             if (ed::AcceptNewItem())
             {
                 AnimTransition t;
-                t.id = nextId++;
+                t.id = nextLinkId++;
                 t.fromPinId = startPin.Get();
                 t.toPinId = endPin.Get();
                 t.condition = ""; // allow editing in inspector
-                transitions.push_back(t);
+                /// store transitions
+                /// Find state by pin id
+                /// find resulting state to end pin
+                /// 
             }
         }
     }
