@@ -48,5 +48,6 @@ struct PBRMaterialList :public PBRMaterial {
 		pbrMatList = pbrList;
 		listCon = lc;
 	}
+	PBRMaterialList(){}
 	std::vector<PBRMaterial>pbrMatList;
 };

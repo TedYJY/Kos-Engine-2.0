@@ -560,18 +560,44 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 		 0.5f,  0.5f, 0.0f
 	};
 
+	// Texture coordinates matching triangle strip layout
+	static const float quadUVs[] = {
+		// U, V
+		0.0f, 0.0f,   // bottom-left
+		1.0f, 0.0f,   // bottom-right
+		0.0f, 1.0f,   // top-left
+		1.0f, 1.0f    // top-right
+	};
+
 	GLuint quadVBO;
+	GLuint uvVBO;   // NEW: UV buffer
+
 	glGenVertexArrays(1, &basicParticleMesh.vaoid);
 	glGenBuffers(1, &quadVBO);
+	glGenBuffers(1, &uvVBO);                        // NEW
 	glGenBuffers(1, &basicParticleMesh.vboid);
 
 	glBindVertexArray(basicParticleMesh.vaoid);
-	// Set up base vertex buffer (quad geometry)
+
+	//---------------------------------------------------------
+	// Position buffer (attribute 0)
+	//---------------------------------------------------------
 	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
+	//---------------------------------------------------------
+	// UV buffer (attribute 1)
+	//---------------------------------------------------------
+	glBindBuffer(GL_ARRAY_BUFFER, uvVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadUVs), quadUVs, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+
+	//---------------------------------------------------------
+	// Instance buffer
+	//---------------------------------------------------------
 	glBindBuffer(GL_ARRAY_BUFFER, basicParticleMesh.vboid);
 
 	constexpr int MAX_PARTICLES = 100000;
@@ -591,11 +617,15 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 	glEnableVertexAttribArray(5);
 	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, rotation));
 
-	// Tell OpenGL this is per-instance data
+	glEnableVertexAttribArray(6);
+	glVertexAttribPointer(6, 1, GL_INT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, textureID));
+
+	// Per instance divisor
 	glVertexAttribDivisor(2, 1);
 	glVertexAttribDivisor(3, 1);
 	glVertexAttribDivisor(4, 1);
 	glVertexAttribDivisor(5, 1);
+	glVertexAttribDivisor(6, 1);
 
 }
 
@@ -619,7 +649,12 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			std::transform(p.particlePositions.begin(), p.particlePositions.end(),
 				std::back_inserter(instancedBasicParticles),
 				[&, j = 0](const glm::vec3& pos) mutable {
-					return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++] };
+					if (p.texture_IDs != nullptr) {
+						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], p.texture_IDs->RetrieveTexture() };
+					}
+					else {
+						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], 200 }; //MAGIC NUMBER 200 to change
+					}
 				});
 		}
 		particlesToDraw.clear();
@@ -636,6 +671,25 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			std::cout << "before OpenGL Error: " << err << std::endl;
 		}
 		glEnable(GL_DEPTH_TEST);
+
+		//for (int i = 0; i < 192; i++)
+		//{
+		//	glActiveTexture(GL_TEXTURE0 + i);
+		//	glBindTexture(GL_TEXTURE_2D, i);
+		//}
+
+		GLint loc = glGetUniformLocation(shader.ID, "textures");
+		if (loc == -1)
+			std::cout << "textures uniform not found" << std::endl;
+		int units[192];
+		for (int i = 0; i < 192; i++) units[i] = i;
+		//glUniform1iv(loc, 192, units);
+
+		glActiveTexture(GL_TEXTURE0 + 31);
+		if (instancedBasicParticles[0].textureID != 200) {
+			glBindTexture(GL_TEXTURE_2D, instancedBasicParticles[0].textureID);
+		}	
+		glUniform1iv(glGetUniformLocation(shader.ID, "textures"), 192, units);
 
 
 		glBindVertexArray(basicParticleMesh.vaoid);

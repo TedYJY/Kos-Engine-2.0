@@ -437,6 +437,37 @@ void GraphicsManager::gm_FillDepthCube(const CameraData& camera, int index,glm::
 	pointShadowShader->Disuse();
 	glCullFace(GL_BACK);
 }
+
+void GraphicsManager::gm_FillDepthCube(const CameraData& camera, int index, glm::vec3 lighPos, std::vector<MeshData>const& meshList) {
+	Shader* pointShadowShader{ &shaderManager.engineShaders.find("PointShadowShader")->second };
+	glCullFace(GL_FRONT);
+
+	glViewport(0, 0, static_cast<GLsizei>(1024.f), static_cast<GLsizei>(1024.f));
+	glBindFramebuffer(GL_FRAMEBUFFER, lightRenderer.dcm[index].GetFBO());
+	glClear(GL_DEPTH_BUFFER_BIT);
+	pointShadowShader->Use();
+	lightRenderer.dcm[index].FillMap(lighPos);
+	for (unsigned int j = 0; j < 6; ++j) {
+		pointShadowShader->SetMat4("shadowMatrices[" + std::to_string(j) + "]", lightRenderer.dcm[index].shadowTransforms[j]);
+	}
+	pointShadowShader->SetFloat("far_plane", lightRenderer.dcm[index].far_plane);
+	pointShadowShader->SetVec3("lightPos", lighPos);
+
+	//Draw meshes based on meshList
+	for (MeshData const& md : meshList)
+	{
+		pointShadowShader->SetTrans("model", md.transformation);
+		md.meshToUse->PBRDraw(*pointShadowShader, md.meshMaterial);
+	}
+	cubeRenderer.Render(camera, *pointShadowShader, &this->cube);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+	pointShadowShader->Disuse();
+	glCullFace(GL_BACK);
+}
+
 void GraphicsManager::gm_DrawMaterial(const PBRMaterial& md,FrameBuffer& fb) {
 
 	//Fill g buffer first
