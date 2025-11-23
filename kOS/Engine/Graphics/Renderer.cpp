@@ -600,7 +600,7 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 	//---------------------------------------------------------
 	glBindBuffer(GL_ARRAY_BUFFER, basicParticleMesh.vboid);
 
-	constexpr int MAX_PARTICLES = 100000;
+	constexpr int MAX_PARTICLES = 10000;
 	glBufferData(GL_ARRAY_BUFFER, MAX_PARTICLES * sizeof(BasicParticleInstance), nullptr, GL_DYNAMIC_DRAW);
 
 	GLsizei stride = sizeof(BasicParticleInstance);
@@ -618,7 +618,13 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, rotation));
 
 	glEnableVertexAttribArray(6);
-	glVertexAttribPointer(6, 1, GL_INT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, textureID));
+	glVertexAttribIPointer(
+		6,                                  // location of attribute
+		1,                                  // number of components (1 int)
+		GL_INT,                             // type
+		stride,
+		(void*)offsetof(BasicParticleInstance, textureID)
+	);
 
 	// Per instance divisor
 	glVertexAttribDivisor(2, 1);
@@ -631,33 +637,44 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 
 void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 {
+	static std::vector<int> textureIDs{};
+	static std::unordered_map<int, GLuint> storedIDs; //subscript, texture ID
+
 	if (!particlesToDraw.empty())
 	{
+		textureIDs.clear();
+		storedIDs.clear();
+
 		instancedBasicParticles.reserve(std::accumulate(particlesToDraw.begin(), particlesToDraw.end(), size_t(0),
 			[](size_t sum, const BasicParticleData& p) { return sum + p.particlePositions.size(); }));
 
 		for (int i = 0; i < particlesToDraw.size(); ++i)
 		{
 			BasicParticleData& p = particlesToDraw[i];
-			//std::transform(p.particlePositions.begin(), p.particlePositions.end(),
-			//	std::back_inserter(instancedBasicParticles),
-			//	[&](const glm::vec3& pos) {
-			//		return BasicParticleInstance{ pos,p.sizes[i], p.colors[i], p.rotates[i]};
-			//	});
-
-			//CHANGES TO RENDERING LET SEAN KNOW
 			std::transform(p.particlePositions.begin(), p.particlePositions.end(),
 				std::back_inserter(instancedBasicParticles),
 				[&, j = 0](const glm::vec3& pos) mutable {
 					if (p.texture_IDs != nullptr) {
-						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], p.texture_IDs->RetrieveTexture() };
+						if (storedIDs.contains(p.texture_IDs->RetrieveTexture()))
+						{
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()]};
+						}
+						else
+						{
+							int size = textureIDs.size();
+							storedIDs[p.texture_IDs->RetrieveTexture()] = textureIDs.size();
+							textureIDs.push_back(p.texture_IDs->RetrieveTexture());
+							int currentID = storedIDs[p.texture_IDs->RetrieveTexture()];
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()] };
+						}
 					}
 					else {
-						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], 200 }; //MAGIC NUMBER 200 to change
+						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], 200 };
 					}
 				});
 		}
 		particlesToDraw.clear();
+		storedIDs.clear();
 	}
 	shader.Use();
 	shader.SetFloat("uShaderType", 2.1f);
@@ -672,25 +689,21 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 		}
 		glEnable(GL_DEPTH_TEST);
 
-		//for (int i = 0; i < 192; i++)
-		//{
-		//	glActiveTexture(GL_TEXTURE0 + i);
-		//	glBindTexture(GL_TEXTURE_2D, i);
-		//}
+		for (int i = 0; i < textureIDs.size(); i++)
+		{
+			glActiveTexture(GL_TEXTURE0 + i);
+			GLint tex = textureIDs[i];
+			glBindTexture(GL_TEXTURE_2D, tex);
+		}
 
-		GLint loc = glGetUniformLocation(shader.ID, "textures");
-		if (loc == -1)
-			std::cout << "textures uniform not found" << std::endl;
-		int units[192];
-		for (int i = 0; i < 192; i++) units[i] = i;
-		//glUniform1iv(loc, 192, units);
+		int units[32];
+		for (int i = 0; i < textureIDs.size(); i++)
+			units[i] = i; // 0..N-1 texture unit indices
 
-		glActiveTexture(GL_TEXTURE0 + 31);
-		if (instancedBasicParticles[0].textureID != 200) {
-			glBindTexture(GL_TEXTURE_2D, instancedBasicParticles[0].textureID);
-		}	
-		glUniform1iv(glGetUniformLocation(shader.ID, "textures"), 192, units);
 
+		glUniform1iv(glGetUniformLocation(shader.ID, "textures"),
+			textureIDs.size(),
+			units);
 
 		glBindVertexArray(basicParticleMesh.vaoid);
 		glBindBuffer(GL_ARRAY_BUFFER, basicParticleMesh.vboid);
@@ -712,6 +725,7 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
 			std::cout << "after 2 OpenGL Error: " << err << std::endl;
 		}
+
 		glDrawArraysInstanced(GL_TRIANGLE_STRIP, 0, 4, static_cast<GLsizei>(instancedBasicParticles.size()));
 		glDisable(GL_DEPTH_TEST);
 
