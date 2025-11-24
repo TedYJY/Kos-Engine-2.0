@@ -73,7 +73,7 @@ namespace ecs {
 			//Loop through all audio files
 			for (auto& af : audioComp->audioFiles) {
 
-				if (af.use3D && transform && af.channel) {
+				if (af.sourceType == AudioSourceType::Core && af.use3D && transform && af.channel) {
 					FMOD::Channel* ch = static_cast<FMOD::Channel*>(af.channel);
 					glm::vec3 pos = transform->WorldTransformation.position;
 
@@ -87,7 +87,7 @@ namespace ecs {
 				}
 
 				//update audio volume
-				if (af.channel) {
+				if (af.sourceType == AudioSourceType::Core && af.channel) {
 					FMOD::Channel* ch = static_cast<FMOD::Channel*>(af.channel);
 
 					bool isPlaying = false;
@@ -103,7 +103,74 @@ namespace ecs {
 					}
 				}
 
+				if (af.sourceType == AudioSourceType::Studio && af.studioInstance) {
+					auto* inst = static_cast<FMOD::Studio::EventInstance*>(af.studioInstance);
+
+					FMOD_STUDIO_PLAYBACK_STATE state{};
+					if (inst->getPlaybackState(&state) != FMOD_OK ||
+						state == FMOD_STUDIO_PLAYBACK_STOPPED) {
+						inst->release();
+
+						af.studioInstance = nullptr;
+					}
+					else if (af.volume != af.lastVolume) {
+						inst->setVolume(std::clamp(af.volume, 0.0f, 1.0f));
+						af.lastVolume = af.volume;
+					}
+
+				}
 				if (!af.requestPlay) continue;
+
+				if (af.sourceType == AudioSourceType::Studio) {
+
+					auto* studio = m_audioManager.GetStudio();
+					if (!studio) {
+						af.requestPlay = false; 
+						continue;
+					}
+
+					if (af.studioEventPath.empty()) {
+						af.requestPlay = false;
+						continue;
+					}
+
+					FMOD::Studio::EventDescription* desc = nullptr;
+					if (studio->getEvent(af.studioEventPath.c_str(), &desc) != FMOD_OK || !desc) {
+						af.requestPlay = false;
+						continue;
+					}
+
+					FMOD::Studio::EventInstance* inst = nullptr;
+					if (desc->createInstance(&inst) != FMOD_OK || !inst) {
+						af.requestPlay = false;
+						continue;
+					}
+
+					// Volume
+					inst->setVolume(std::clamp(af.volume, 0.0f, 1.0f));
+
+					if (af.use3D && transform) {
+						const glm::vec3 pos = transform->WorldTransformation.position;
+
+						FMOD_3D_ATTRIBUTES attrs{};
+						attrs.position = FMOD_VECTOR{ pos.x, pos.y, pos.z };
+						attrs.forward = FMOD_VECTOR{ 0.0f, 0.0f, 1.0f };
+						attrs.up = FMOD_VECTOR{ 0.0f, 1.0f, 0.0f };
+						attrs.velocity = FMOD_VECTOR{ 0.0f, 0.0f, 0.0f };
+
+						inst->set3DAttributes(&attrs);
+					}
+
+					inst->start();
+					//inst->release();
+
+					af.studioInstance = inst;
+					af.lastVolume = af.volume;
+					af.hasPlayed = true;
+					af.requestPlay = false;
+					continue;
+				}
+
 				if (af.audioGUID.Empty()) continue;
 
 				//Get GUID
