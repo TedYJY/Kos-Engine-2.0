@@ -661,7 +661,7 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 					if (p.texture_IDs != nullptr) {
 						if (storedIDs.contains(p.texture_IDs->RetrieveTexture()))
 						{
-							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()], p.particleType};
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], glm::vec3(p.rotates[j++]), storedIDs[p.texture_IDs->RetrieveTexture()]};
 						}
 						else
 						{
@@ -669,11 +669,11 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 							storedIDs[p.texture_IDs->RetrieveTexture()] = textureIDs.size();
 							textureIDs.push_back(p.texture_IDs->RetrieveTexture());
 							int currentID = storedIDs[p.texture_IDs->RetrieveTexture()];
-							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()], p.particleType};
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], glm::vec3(p.rotates[j++]), storedIDs[p.texture_IDs->RetrieveTexture()] };
 						}
 					}
 					else {
-						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], 200 };
+						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], glm::vec3(p.rotates[j++]), 200 };
 					}
 				});
 		}

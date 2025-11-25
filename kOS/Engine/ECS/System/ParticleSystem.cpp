@@ -68,7 +68,10 @@ namespace ecs {
             // ==========================================
 
             std::shared_ptr<R_Texture> textureResource = m_resourceManager.GetResource<R_Texture>(particle->textureGUID);
-            m_graphicsManager.gm_PushBasicParticleData(BasicParticleData{ sending.positions_Particle, sending.colors, sending.sizes, sending.rotates , 0.f,textureResource.get()});
+            float type = 0.f;
+            if (particle->particleType == ParticleComponent::ParticleType::THREE_DIMENSIONAL_ROTATION_BILLBOARD)
+                type = 1.f;
+            m_graphicsManager.gm_PushBasicParticleData(BasicParticleData{ sending.positions_Particle, sending.colors, sending.sizes, sending.rotates , textureResource.get(), 1.f});
         }
     }
 
@@ -128,30 +131,30 @@ namespace ecs {
         const bool useInverseFalloff = particle->attractorModule.useInverseFalloff;
 
         // Update trailing module's rotating end point
-        //if (updateTrailing && particle->trailingModule.rotateEndPoint) {
-        //    auto& trail = particle->trailingModule;
+        if (updateTrailing && particle->trailingModule.rotateEndPoint) {
+            auto& trail = particle->trailingModule;
 
-        //    // Update rotation angle
-        //    float angle = trail.timeAccum * trail.rotationSpeed;
+            // Update rotation angle
+            float angle = trail.timeAccum * trail.rotationSpeed;
 
-        //    // Calculate new end point position on circular orbit
-        //    glm::vec3 axis = glm::normalize(trail.rotationAxis);
+            // Calculate new end point position on circular orbit
+            glm::vec3 axis = glm::normalize(trail.rotationAxis);
 
-        //    // Find two perpendicular vectors to the rotation axis
-        //    glm::vec3 perpAxis1, perpAxis2;
-        //    if (fabs(axis.y) > 0.9f) {
-        //        perpAxis1 = glm::normalize(glm::cross(axis, glm::vec3(1, 0, 0)));
-        //    }
-        //    else {
-        //        perpAxis1 = glm::normalize(glm::cross(axis, glm::vec3(0, 1, 0)));
-        //    }
-        //    perpAxis2 = glm::normalize(glm::cross(axis, perpAxis1));
+            // Find two perpendicular vectors to the rotation axis
+            glm::vec3 perpAxis1, perpAxis2;
+            if (fabs(axis.y) > 0.9f) {
+                perpAxis1 = glm::normalize(glm::cross(axis, glm::vec3(1, 0, 0)));
+            }
+            else {
+                perpAxis1 = glm::normalize(glm::cross(axis, glm::vec3(0, 1, 0)));
+            }
+            perpAxis2 = glm::normalize(glm::cross(axis, perpAxis1));
 
-        //    // Calculate rotating end point
-        //    trail.endPoint = trail.rotationCenter +
-        //        perpAxis1 * cos(angle) * trail.rotationRadius +
-        //        perpAxis2 * sin(angle) * trail.rotationRadius;
-        //}
+            // Calculate rotating end point
+            trail.endPoint = trail.rotationCenter +
+                perpAxis1 * cos(angle) * trail.rotationRadius +
+                perpAxis2 * sin(angle) * trail.rotationRadius;
+        }
 
         // === OPTIMIZED LOOP ===
         for (int i = static_cast<int>(particle->particle_List.size()) - 1; i >= 0; --i) {
@@ -456,7 +459,7 @@ namespace ecs {
             data.positions_Particle[i] = pd.position;
             data.colors[i] = pd.color;
             data.sizes[i] = pd.size;
-            data.rotates[i] = glm::vec3(pd.rotation, 0.f,0.f);
+            data.rotates[i] = pd.rotation;
         }
     }
     // ========================================

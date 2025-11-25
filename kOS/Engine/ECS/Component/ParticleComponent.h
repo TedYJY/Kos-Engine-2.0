@@ -130,7 +130,7 @@ namespace ecs {
 	};
 
 	struct TrailingModule {
-		bool enabled = true;
+		bool enabled = false;
 
 		glm::vec3 startPoint = glm::vec3(0);     // Fixed start point
 		glm::vec3 endPoint = glm::vec3(20.f);    // Dynamic end point (will rotate)
@@ -173,8 +173,8 @@ namespace ecs {
 
 		enum ParticleType
 		{
-			TWO_DIMENSION_BILLBOARD,
-			THREE_DIMENSION_BILLBOARD
+			TWO_DIMENSIONAL_ROTATION_BILLBOARD,
+			THREE_DIMENSIONAL_ROTATION_BILLBOARD
 		} particleType;
 
 		//NO CHANGES
