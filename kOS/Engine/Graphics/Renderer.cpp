@@ -615,7 +615,7 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 	glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, color));
 
 	glEnableVertexAttribArray(5);
-	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, rotation));
+	glVertexAttribPointer(5, 3, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, rotation));
 
 	glEnableVertexAttribArray(6);
 	glVertexAttribIPointer(
@@ -626,12 +626,16 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 		(void*)offsetof(BasicParticleInstance, textureID)
 	);
 
+	glEnableVertexAttribArray(7);
+	glVertexAttribPointer(7, 1, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, particleType));
+
 	// Per instance divisor
 	glVertexAttribDivisor(2, 1);
 	glVertexAttribDivisor(3, 1);
 	glVertexAttribDivisor(4, 1);
 	glVertexAttribDivisor(5, 1);
 	glVertexAttribDivisor(6, 1);
+	glVertexAttribDivisor(7, 1);
 
 }
 
@@ -657,7 +661,7 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 					if (p.texture_IDs != nullptr) {
 						if (storedIDs.contains(p.texture_IDs->RetrieveTexture()))
 						{
-							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()]};
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()], p.particleType};
 						}
 						else
 						{
@@ -665,11 +669,11 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 							storedIDs[p.texture_IDs->RetrieveTexture()] = textureIDs.size();
 							textureIDs.push_back(p.texture_IDs->RetrieveTexture());
 							int currentID = storedIDs[p.texture_IDs->RetrieveTexture()];
-							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()] };
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()] , p.particleType };
 						}
 					}
 					else {
-						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], 200 };
+						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], 200,  p.particleType };
 					}
 				});
 		}
@@ -688,7 +692,7 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			std::cout << "before OpenGL Error: " << err << std::endl;
 		}
 		glEnable(GL_DEPTH_TEST);
-
+		glDisable(GL_CULL_FACE);  
 		for (int i = 0; i < textureIDs.size(); i++)
 		{
 			glActiveTexture(GL_TEXTURE0 + i);
@@ -734,6 +738,8 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
 			std::cout << "after 3 OpenGL Error: " << err << std::endl;
 		}
+
+		glEnable(GL_CULL_FACE);
 	}
 	shader.Disuse();
 		
