@@ -7,6 +7,7 @@
     },
     {
         "entityGUID": "13ddfe1d-908e-e46f-65f1-2be64b5dd012",
+        "AnimationTestScript": {},
         "AnimatorComponent": {
             "controllerGUID": "6b82d92a-4f0b-a3d4-14cc-d865cd6f1724",
             "m_PlaybackSpeed": 1.0,
@@ -23,12 +24,12 @@
         },
         "SkinnedMeshRendererComponent": {
             "skinnedMeshGUID": "9f89e949-6405-e326-8380-1c8f761df4a1",
-            "materialGUID": "61cfd855-ca21-6e2a-3bf8-8fc94756f547"
+            "materialGUID": "d1dc99cf-dde1-ca8b-eeda-2c33d81b557d"
         },
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": 9.991739273071289,
+                    "x": 17.78831672668457,
                     "y": -10.008426666259766,
                     "z": -14.13250732421875
                 },
@@ -45,7 +46,7 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": 9.991739273071289,
+                    "x": 17.78831672668457,
                     "y": -10.008426666259766,
                     "z": -14.13250732421875
                 },
@@ -193,6 +194,63 @@
                     "x": 0.10000007599592209,
                     "y": 0.10000000149011612,
                     "z": 0.10000007599592209
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "d1a252dd-881d-55ab-2564-ec8bfe3afd9c",
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "61cfd855-ca21-6e2a-3bf8-8fc94756f547"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "9f89e949-6405-e326-8380-1c8f761df4a1"
+        },
+        "NameComponent": {
+            "entityName": "wtf",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": false,
+            "prefabName": "",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.10000000149011612,
+                    "y": 0.10000000149011612,
+                    "z": 0.10000000149011612
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.10000000149011612,
+                    "y": 0.10000000149011612,
+                    "z": 0.10000000149011612
                 }
             }
         }

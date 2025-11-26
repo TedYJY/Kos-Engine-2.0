@@ -26,3 +26,4 @@
 #include "HealthbarUIScript.h"
 #include "WinUIScreenScript.h"
 #include "AbilityUIImageScript.h"
+#include "AnimationTestScript.h"

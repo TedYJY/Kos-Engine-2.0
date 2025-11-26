@@ -9,10 +9,11 @@ namespace ecs {
 
     public:
         utility::GUID controllerGUID{};  // Animation controller / state machine
-
         float m_PlaybackSpeed{ 1.0f };
         float m_CurrentTime{ 0.f };
         bool  m_IsPlaying{ true };
+
+        void* m_currentState{};
 
         REFLECTABLE(AnimatorComponent, controllerGUID, m_PlaybackSpeed, m_CurrentTime, m_IsPlaying);
     };

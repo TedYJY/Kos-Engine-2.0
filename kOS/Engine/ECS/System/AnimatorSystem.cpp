@@ -20,7 +20,7 @@ namespace ecs {
             NameComponent* nameComp = m_ecs.GetComponent<NameComponent>(id);
 
             // Skip entities not in this scene or hidden
-            if ( nameComp->hide)
+            if (nameComp->hide)
                 continue;
 
             R_AnimController* controller{};
@@ -29,8 +29,12 @@ namespace ecs {
             controller = m_resourceManager.GetResource<R_AnimController>(animator->controllerGUID).get();
 
             if (controller)
-                animation = m_resourceManager.GetResource<R_Animation>(controller->m_AnimControllerData.currentState->animationGUID).get();
+            {
+               if (animator->m_currentState)
+                    animation = m_resourceManager.GetResource<R_Animation>(static_cast<AnimState*>(animator->m_currentState)->animationGUID).get();
 
+            }
+                
             if (animation && animator->m_IsPlaying)
             {
                 int steps = m_physicsManager.FrameCount();

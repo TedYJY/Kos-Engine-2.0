@@ -50,6 +50,8 @@ struct AnimState {
 	bool isDefault = false;
 	std::vector<AnimTransition> outgoingTransitions;
 
+	void TriggerCondition();
+
 	REFLECTABLE(AnimState, id, inputs, outputs, name, animationGUID, playSpeed, isLooping, outgoingTransitions);
 };
 
@@ -62,8 +64,6 @@ struct AnimControllerData
 	int nextPinID{ 100 };
 	int nextLinkID{ 200 };
 
-	AnimState* currentState;
-
 	REFLECTABLE(AnimControllerData, name, states, nextStateID, nextPinID, nextLinkID);
 };
 
@@ -75,6 +75,14 @@ public:
 	void Unload() override;
 
 	AnimControllerData m_AnimControllerData;
+
+	AnimState* m_EnterState;
+	AnimState* m_AnyState;
+	AnimState* m_ExitState;
+
+	AnimState* RetrieveEntryState();
+	AnimState* FindStateFromPin(int pinId);
+	AnimPin* FindPin(int pinId);
 
 	REFLECTABLE(R_AnimController);
 };

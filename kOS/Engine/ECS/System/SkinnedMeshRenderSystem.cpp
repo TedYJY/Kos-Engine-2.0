@@ -33,6 +33,7 @@ namespace ecs
 
     void SkinnedMeshRenderSystem::Init()
     {
+        std::cout << "ENTER dadw" << std::endl;
         // Initialize skinned mesh rendering resources if needed
     }
 
@@ -70,17 +71,24 @@ namespace ecs
                 controller = m_resourceManager.GetResource<R_AnimController>(anim->controllerGUID).get();
 
                 if (controller)
-                    animation = m_resourceManager.GetResource<R_Animation>(controller->m_AnimControllerData.currentState->animationGUID).get();
+                {
+                    anim->m_currentState = controller->m_EnterState;
+                    if (anim->m_currentState)
+                        animation = m_resourceManager.GetResource<R_Animation>(static_cast<AnimState*>(anim->m_currentState)->animationGUID).get();
+                }
+                    
+                std::vector<PBRMaterial>pbrTmpList;
+                    //Initialize all materials in the list
+                    std::shared_ptr<R_Texture> diff = m_resourceManager.GetResource<R_Texture>(mat->md.diffuseMaterialGUID);
+                    std::shared_ptr<R_Texture> spec = m_resourceManager.GetResource<R_Texture>(mat->md.specularMaterialGUID);
+                    std::shared_ptr<R_Texture> norm = m_resourceManager.GetResource<R_Texture>(mat->md.normalMaterialGUID);
+                    std::shared_ptr<R_Texture> ao = m_resourceManager.GetResource<R_Texture>(mat->md.ambientOcclusionMaterialGUID);
+                    std::shared_ptr<R_Texture> rough = m_resourceManager.GetResource<R_Texture>(mat->md.roughnessMaterialGUID);
+                    pbrTmpList.push_back(PBRMaterial{ diff,spec,rough,ao,norm });
+                
 
-
-                std::shared_ptr<R_Texture> diff = m_resourceManager.GetResource<R_Texture>(mat->md.diffuseMaterialGUID);
-                std::shared_ptr<R_Texture> spec = m_resourceManager.GetResource<R_Texture>(mat->md.specularMaterialGUID);
-                std::shared_ptr<R_Texture> norm = m_resourceManager.GetResource<R_Texture>(mat->md.normalMaterialGUID);
-                std::shared_ptr<R_Texture> ao = m_resourceManager.GetResource<R_Texture>(mat->md.ambientOcclusionMaterialGUID);
-                std::shared_ptr<R_Texture> rough = m_resourceManager.GetResource<R_Texture>(mat->md.roughnessMaterialGUID);
-
-                if (mesh && animation)
-                    m_graphicsManager.gm_PushSkinnedMeshData(SkinnedMeshData{mesh, animation, std::make_shared<PBRMaterial>(PBRMaterial{diff, spec, rough, ao, norm}), transform->transformation, anim->m_CurrentTime, id});
+                if (mesh)
+                    m_graphicsManager.gm_PushSkinnedMeshData(SkinnedMeshData{mesh, animation, std::make_shared<PBRMaterialList>(pbrTmpList,true), transform->transformation, anim->m_CurrentTime, id});
             }
             // else
             //  mesh = static_cast<R_Model*>(skinnedMesh->cachedSkinnedMeshResource);
