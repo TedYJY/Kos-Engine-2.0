@@ -125,7 +125,6 @@ namespace Application {
         //float FPSCapTime = 1.f / help->m_fpsCap;
         double lastFrameTime = glfwGetTime();
         const double fixedDeltaTime = 1.0 / 60.0;
-        float accumulatedTime = 0.0;
 
         /*--------------------------------------------------------------
             GAME LOOP
