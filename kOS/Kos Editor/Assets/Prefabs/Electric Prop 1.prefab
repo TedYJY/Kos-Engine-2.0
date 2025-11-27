@@ -39,7 +39,7 @@
             "hide": false
         },
         "PowerupManagerScript": {
-            "powerupType": "lightning"
+            "powerupType": "LIGHTNING"
         },
         "TransformComponent": {
             "WorldTransformation": {

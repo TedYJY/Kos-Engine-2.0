@@ -13,7 +13,7 @@ namespace ecs {
 		glm::vec3 velocity;
 		float lifespan;
 		float lifetime;
-		float rotation;
+		glm::vec3 rotation;
 		int textureID;
 	};
 
@@ -35,25 +35,6 @@ namespace ecs {
 		SPHERE,    
 		CIRCLE,    
 		EDGE        
-	};
-	
-	struct AttractorModule{
-		bool enabled = false;
-
-		glm::vec3 targetPosition = glm::vec3(0);   // for absorption
-		float attractionStrength = 0.0f;
-
-		float explosionStrength = 0.0f;
-
-		float whirlpoolStrength = 0.0f;
-		float whirlpoolRadius = 1.0f;
-
-		bool useInverseFalloff = true;  // stronger when particles are closer (black-hole style)
-		REFLECTABLE(AttractorModule, enabled,
-			targetPosition, attractionStrength,
-			explosionStrength,
-			whirlpoolStrength, whirlpoolRadius,
-			useInverseFalloff);
 	};
 
 	struct ShapeModule {
@@ -122,9 +103,9 @@ namespace ecs {
 
 	struct RotationOverLifetimeModule {
 		bool enabled = false;
-		float start_Rotation = 0.f;
-		float end_Rotation = 0.f;
-		float rotation_Modifier = 0.f;
+		glm::vec3 start_Rotation = glm::vec3(0.f);
+		glm::vec3 end_Rotation = glm::vec3(0.f);
+		glm::vec3 rotation_Modifier = glm::vec3(0.f);
 
 		REFLECTABLE(RotationOverLifetimeModule, enabled, start_Rotation, end_Rotation, rotation_Modifier);
 	};
@@ -167,9 +148,61 @@ namespace ecs {
 	};
 
 
+	struct NoiseModule {
+		bool enabled = false;
+
+		// Noise strength
+		float strength = 1.0f;
+		glm::vec3 strengthMultiplier = glm::vec3(1.0f);
+
+		// Frequency controls how "zoomed in" the noise is
+		float frequency = 0.5f;
+
+		// Scrolling speed - animates the noise over time
+		glm::vec3 scrollSpeed = glm::vec3(0.0f);
+
+		// Damping - reduces particle velocity influence
+		bool damping = true;
+
+		// Octaves for fractal noise
+		int octaves = 1;
+		float octaveMultiplier = 0.5f;
+		float octaveScale = 2.0f;
+
+		// Quality settings
+		enum NoiseQuality {
+			LOW,
+			MEDIUM,
+			HIGH
+		};
+		NoiseQuality quality = MEDIUM;
+
+		// Remap curve
+		bool remapEnabled = false;
+		float remapCurveStart = 1.0f;
+		float remapCurveEnd = 1.0f;
+
+		// Position offset
+		glm::vec3 positionOffset = glm::vec3(0.0f);
+
+		REFLECTABLE(NoiseModule, enabled, strength, strengthMultiplier,
+			frequency, scrollSpeed, damping,
+			octaves, octaveMultiplier, octaveScale,
+			quality, remapEnabled, remapCurveStart, remapCurveEnd,
+			positionOffset);
+	};
+
+
 
 	class ParticleComponent : public Component {
 	public:
+
+		enum ParticleType
+		{
+			TWO_DIMENSIONAL_ROTATION_BILLBOARD,
+			THREE_DIMENSIONAL_ROTATION_BILLBOARD
+		} particleType;
+
 		//NO CHANGES
 		int max_Particles = 255; //max particle size
 		float duration = 5.0f;
@@ -209,10 +242,14 @@ namespace ecs {
 		RotationOverLifetimeModule rotationModule;
 
 		//Attraction MOdule
-		AttractorModule attractorModule; 
+		//AttractorModule attractorModule; 
 
 		//Trailing Module
 		TrailingModule trailingModule;
+
+		NoiseModule noiseModule;
+
+
 
 		//FOR THE ALIVE PARTICLES
 		std::vector<ParticleData> particle_List;
@@ -224,11 +261,11 @@ namespace ecs {
 		float durationCounter = 0.f;
 		float emissionInterval = 0.1f;
 
-		REFLECTABLE(ParticleComponent, duration, looping, play_On_Awake, 
+		REFLECTABLE(ParticleComponent, particleType, duration, looping, play_On_Awake, 
 					start_Lifetime, end_Lifetime, lifetime_Random_Enable,
 					textureGUID,
 					start_Velocity, playback_State,
-					velocityModule,forceModule, shapeModule, colorModule, sizeModule, rotationModule, attractorModule, gravityModule, trailingModule,
+					velocityModule,forceModule, shapeModule, colorModule, sizeModule, rotationModule, gravityModule, trailingModule, noiseModule,
 					emissionInterval);
 	};
 }

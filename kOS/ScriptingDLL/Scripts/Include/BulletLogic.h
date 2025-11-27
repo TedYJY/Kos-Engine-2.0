@@ -1,50 +1,34 @@
 #pragma once
 #include "ScriptAdapter/TemplateSC.h"
 #include "EnemyManagerScript.h"
+#include "ScoreManagerScript.h"
 
 class BulletLogic : public TemplateSC {
 public:
-	int bulletDamage = 1;
-	float bulletSpeed = 5.f;
+	int bulletDamage = 2;
+	float bulletSpeed = 100.f;
 	glm::vec3 direction;
 
 	float timeBeforeDeath = 2.5f;
 	float currentTimer = 0.f;
 
+	ScoreManagerScript* scoreManager = nullptr;
+	int scoreValue = 100;
+
 	utility::GUID enemyDeathSfxGUID; //gonna remove this when stuff are fixed
 
-	// FOR NOW UNTIL DELETE GETS IMPLEMENTED
-	bool isDead = false;
-
 	void Start() override {
-		// Raymonds Stuff
-		//physicsPtr->GetEventCallback()->OnTriggerEnter.Add([this](const physics::Collision& col) {
-		//	//if (col.thisEntityID != this->entity) { return; }
-		//	if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
-		//		if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
-		//			enemyScript->enemyHealth -= bulletDamage;
 
-		//			if (enemyScript->enemyHealth <= 0) {
-		//				//ecsPtr->DeleteEntity(col.otherEntityID);
-		//				enemyScript->isDead = true;
-		//			}
+		for (const auto& [entityID, signature] : ecsPtr->GetEntitySignatureData()) {
+			if (ecsPtr->HasComponent<ScoreManagerScript>(entityID)) {
+				scoreManager = ecsPtr->GetComponent<ScoreManagerScript>(entityID);
+				break;
+			}
+		}
 
-		//			isDead = true;
-		//			//ecsPtr->DeleteEntity(entity);
-		//			//return;
-		//		}
-		//	}
-		//});
-
-		//physicsPtr->GetEventCallback()->OnTriggerExit.Add([this](const physics::Collision& col) {
-		//	if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
-		//		physicsPtr->GetEventCallback()->OnTriggerEnter.Clear();
-		//	}
-		//	});
-
-		// Rudimentary bullets
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
+				// ADD SFX OF ENEMY DEATH HERE
 				if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
 					for (auto& af : ac->audioFiles) {
 						if (af.audioGUID == enemyDeathSfxGUID && af.isSFX) {
@@ -53,7 +37,20 @@ public:
 						}
 					}
 				}
-				ecsPtr->DeleteEntity(col.otherEntityID);
+
+				ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->enemyHealth -= bulletDamage;
+
+				if (ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->enemyHealth <= 0) {
+					if (scoreManager) {
+						scoreManager->AddScore(scoreValue); // or whatever value you want per kill
+					}
+
+					ecsPtr->DeleteEntity(col.otherEntityID);
+				}
+			}
+
+			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Ground" || ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Default") {
+				ecsPtr->DeleteEntity(entity);
 			}
 		});
 	}
@@ -66,10 +63,7 @@ public:
 		if (currentTimer < timeBeforeDeath) {
 			currentTimer += ecsPtr->m_GetDeltaTime();
 
-			//if (currentTimer >= timeBeforeDeath) {
-			//	ecsPtr->DeleteEntity(entity);
-			//}
-			if (currentTimer >= timeBeforeDeath || isDead) {
+			if (currentTimer >= timeBeforeDeath) {
 				ecsPtr->DeleteEntity(entity);
 
 			}

@@ -10,7 +10,7 @@ namespace ecs {
         std::vector<glm::vec3> positions_Particle;
         std::vector<glm::vec4> colors;
         std::vector<glm::vec2> sizes;
-        std::vector<float>     rotates;
+        std::vector<glm::vec3> rotates;
     };
     struct EmissionData {
         glm::vec3 positionOffset;  // Offset from emitter position
@@ -27,7 +27,6 @@ namespace ecs {
 
 
     class ParticleSystem : public ISystem {
-    private:
     private:
         // Fast xorshift32 RNG using only 32-bit unsigned int
         struct FastRNG {
@@ -54,6 +53,7 @@ namespace ecs {
         };
 
         FastRNG m_rng;
+        float m_noiseTime = 0.f;
     public:
         using ISystem::ISystem;
         void Init() override;
@@ -94,6 +94,34 @@ namespace ecs {
         EmissionData GenerateCircleEmission(ParticleComponent* particle);
         EmissionData GenerateEdgeEmission(ParticleComponent* particle);
 
+
+        //===========================================
+        // NOISE FUNCTIONS 
+        //===========================================
+
+        float PerlinNoise1D(float x);
+        float PerlinNoise2D(float x, float y);
+        float PerlinNoise3D(float x, float y, float z);
+        // Fractal noise (multiple octaves)
+        float FractalNoise3D(const glm::vec3& pos, int octaves, float persistence, float lacunarity);
+        // Apply noise to particle
+        glm::vec3 CalculateNoiseForce(const ParticleData& pd, const NoiseModule& noise, float time, float lifeProgress);
+
+
+        inline float Hash(float n) {
+            return glm::fract(sin(n) * 43758.5453123f);
+        }
+
+        inline float Hash2D(float x, float y) {
+            return glm::fract(sin(x * 12.9898f + y * 78.233f) * 43758.5453f);
+        }
+
+        inline float Hash3D(float x, float y, float z) {
+            float n = x * 57.0f + y * 113.0f + z * 311.0f;
+            return glm::fract(sin(n) * 43758.5453123f);
+        }
+
+
         //===========================================
         // HELPER FUNCTIONS
         //===========================================
@@ -119,8 +147,29 @@ namespace ecs {
                 1.0f
             );
         }
+
+        inline glm::vec3 RandomRange(const glm::vec3& start, const glm::vec3& end) {
+            return glm::vec3(
+                start.x + m_rng.nextFloat() * (end.x - start.x),
+                start.y + m_rng.nextFloat() * (end.y - start.y),
+                start.z + m_rng.nextFloat() * (end.z - start.z)
+            );
+        }
+
         // Apply random chaos to direction
         glm::vec3 ApplyRandomDirection(const glm::vec3& direction, float randomAmount);
+
+        void setTrailPoint(ParticleComponent* particle, const glm::vec3& start, const glm::vec3 end);
+        void updateTrailEndPoint(ParticleComponent* particle, const glm::vec3& end);
+
+        void setSize(ParticleComponent* particle, const float& start, const float& end, bool enable);
+        void setColor(ParticleComponent* particle, const glm::vec4& start, const glm::vec4 end, bool enable);
+        void setRotation(ParticleComponent* particle, const glm::vec3& start, const glm::vec3 end, const glm::vec3 modifier, bool enable);
+        void setVelocityModifier(ParticleComponent* particle, const glm::vec3& velocity_Modifier, const Velocity_Mode mode, bool enable);
+        void setForce(ParticleComponent* particle, const glm::vec3& force, bool enable);
+
+
+
 
         REFLECTABLE(ParticleSystem);
     };
