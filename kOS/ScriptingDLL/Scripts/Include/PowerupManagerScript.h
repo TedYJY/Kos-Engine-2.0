@@ -10,9 +10,7 @@ public:
 	}
 
 	void Update() override {
-		if (auto* tc = ecsPtr->GetComponent<ecs::TransformComponent>(entity)) {
 
-		}
 	}
 
 	REFLECTABLE(PowerupManagerScript, powerupType);

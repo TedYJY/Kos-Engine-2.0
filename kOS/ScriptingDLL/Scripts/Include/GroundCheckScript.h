@@ -12,12 +12,12 @@ public:
 			}
 		});
 
-		//physicsPtr->GetEventCallback()->OnTriggerExit(entity, [this](const physics::Collision& col) {
-		//	//if (col.thisEntityID != this->entity) { return; }
-		//	if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Ground") {
-		//		groundCheck = false;
-		//	}
-		//	});
+		physicsPtr->GetEventCallback()->OnTriggerExit(entity, [this](const physics::Collision& col) {
+			//if (col.thisEntityID != this->entity) { return; }
+			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Ground") {
+				groundCheck = false;
+			}
+			});
 	}
 
 	void Update() override {

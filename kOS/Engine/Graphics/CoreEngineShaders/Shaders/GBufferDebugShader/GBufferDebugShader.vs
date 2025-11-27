@@ -24,6 +24,8 @@ out vec3 ReflectDir;
 out mat3 tangentToWorld;
 out float shaderType;
 
+out flat int vTexture;
+
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;

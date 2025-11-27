@@ -11,18 +11,21 @@ public:
 	float currentTimer = 0.f;
 
 	void Start() override {
+		// ADD SFX OF LIGHTNING STRIKE HERE
+
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
-			//if (col.thisEntityID != this->entity) { return; }
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 				if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
 					enemyScript->enemyHealth -= lightningDamage;
 
 					if (enemyScript->enemyHealth <= 0) {
-						//ecsPtr->DeleteEntity(col.otherEntityID);
+						// ADD SFX OF ENEMY DEATH HERE
+
+						ecsPtr->DeleteEntity(col.otherEntityID);
 					}
 				}
 			}
-			});
+		});
 	}
 
 	void Update() override {

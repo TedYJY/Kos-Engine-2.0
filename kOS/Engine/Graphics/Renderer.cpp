@@ -339,7 +339,7 @@ void SphereRenderer::Render(const CameraData& camera, Shader& shader, Sphere* sp
 	for (SphereData& cd : spheresToDraw) {
 		//std::cout << "RENDERING SPHERE\n";
 		shader.SetTrans("model", cd.transformation);
-		shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
+		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
 		shader.SetInt("entityID", cd.entityID + 1);
 		glActiveTexture(GL_TEXTURE0); // activate proper texture unit before binding
 		shader.SetInt("texture_diffuse1", 0);
@@ -478,6 +478,7 @@ void DebugRenderer::RenderDebugFrustums(const CameraData& camera, Shader& shader
 			corners[i] = glm::vec3(w);
 		}
 		shader.SetTrans("model", glm::mat4{ 1.f });
+		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });           
 		shader.SetMat4("vp", camera.GetViewMtx());
 		shader.SetFloat("uShaderType", 2.1f);
 
@@ -539,6 +540,7 @@ void DebugRenderer::RenderDebugCapsules(const CameraData& camera, Shader& shader
 	for (size_t i = 0; i < basicDebugCapsules.size(); i++) {
 		shader.SetTrans("model", basicDebugCapsules[i].worldTransform);
 		shader.SetFloat("uShaderType", 2.1f);
+		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
 		debugCapsule.DrawMesh();
 	}
 }
@@ -560,21 +562,47 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 		 0.5f,  0.5f, 0.0f
 	};
 
+	// Texture coordinates matching triangle strip layout
+	static const float quadUVs[] = {
+		// U, V
+		0.0f, 0.0f,   // bottom-left
+		1.0f, 0.0f,   // bottom-right
+		0.0f, 1.0f,   // top-left
+		1.0f, 1.0f    // top-right
+	};
+
 	GLuint quadVBO;
+	GLuint uvVBO;   // NEW: UV buffer
+
 	glGenVertexArrays(1, &basicParticleMesh.vaoid);
 	glGenBuffers(1, &quadVBO);
+	glGenBuffers(1, &uvVBO);                        // NEW
 	glGenBuffers(1, &basicParticleMesh.vboid);
 
 	glBindVertexArray(basicParticleMesh.vaoid);
-	// Set up base vertex buffer (quad geometry)
+
+	//---------------------------------------------------------
+	// Position buffer (attribute 0)
+	//---------------------------------------------------------
 	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
+	//---------------------------------------------------------
+	// UV buffer (attribute 1)
+	//---------------------------------------------------------
+	glBindBuffer(GL_ARRAY_BUFFER, uvVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadUVs), quadUVs, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+
+	//---------------------------------------------------------
+	// Instance buffer
+	//---------------------------------------------------------
 	glBindBuffer(GL_ARRAY_BUFFER, basicParticleMesh.vboid);
 
-	constexpr int MAX_PARTICLES = 100000;
+	constexpr int MAX_PARTICLES = 10000;
 	glBufferData(GL_ARRAY_BUFFER, MAX_PARTICLES * sizeof(BasicParticleInstance), nullptr, GL_DYNAMIC_DRAW);
 
 	GLsizei stride = sizeof(BasicParticleInstance);
@@ -589,40 +617,70 @@ void ParticleRenderer::InitializeParticleRendererMeshes()
 	glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, color));
 
 	glEnableVertexAttribArray(5);
-	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, rotation));
+	glVertexAttribPointer(5, 3, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, rotation));
 
-	// Tell OpenGL this is per-instance data
+	glEnableVertexAttribArray(6);
+	glVertexAttribIPointer(
+		6,                                  // location of attribute
+		1,                                  // number of components (1 int)
+		GL_INT,                             // type
+		stride,
+		(void*)offsetof(BasicParticleInstance, textureID)
+	);
+
+	glEnableVertexAttribArray(7);
+	glVertexAttribPointer(7, 1, GL_FLOAT, GL_FALSE, stride, (void*)offsetof(BasicParticleInstance, particleType));
+
+	// Per instance divisor
 	glVertexAttribDivisor(2, 1);
 	glVertexAttribDivisor(3, 1);
 	glVertexAttribDivisor(4, 1);
 	glVertexAttribDivisor(5, 1);
+	glVertexAttribDivisor(6, 1);
+	glVertexAttribDivisor(7, 1);
 
 }
 
 void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 {
+	static std::vector<int> textureIDs{};
+	static std::unordered_map<int, GLuint> storedIDs; //subscript, texture ID
+
 	if (!particlesToDraw.empty())
 	{
+		textureIDs.clear();
+		storedIDs.clear();
+
 		instancedBasicParticles.reserve(std::accumulate(particlesToDraw.begin(), particlesToDraw.end(), size_t(0),
 			[](size_t sum, const BasicParticleData& p) { return sum + p.particlePositions.size(); }));
 
 		for (int i = 0; i < particlesToDraw.size(); ++i)
 		{
 			BasicParticleData& p = particlesToDraw[i];
-			//std::transform(p.particlePositions.begin(), p.particlePositions.end(),
-			//	std::back_inserter(instancedBasicParticles),
-			//	[&](const glm::vec3& pos) {
-			//		return BasicParticleInstance{ pos,p.sizes[i], p.colors[i], p.rotates[i]};
-			//	});
-
-			//CHANGES TO RENDERING LET SEAN KNOW
 			std::transform(p.particlePositions.begin(), p.particlePositions.end(),
 				std::back_inserter(instancedBasicParticles),
 				[&, j = 0](const glm::vec3& pos) mutable {
-					return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++] };
+					if (p.texture_IDs != nullptr) {
+						if (storedIDs.contains(p.texture_IDs->RetrieveTexture()))
+						{
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()], p.particleType};
+						}
+						else
+						{
+							int size = textureIDs.size();
+							storedIDs[p.texture_IDs->RetrieveTexture()] = textureIDs.size();
+							textureIDs.push_back(p.texture_IDs->RetrieveTexture());
+							int currentID = storedIDs[p.texture_IDs->RetrieveTexture()];
+							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()] , p.particleType };
+						}
+					}
+					else {
+						return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], 200,  p.particleType };
+					}
 				});
 		}
 		particlesToDraw.clear();
+		storedIDs.clear();
 	}
 	shader.Use();
 	shader.SetFloat("uShaderType", 2.1f);
@@ -636,7 +694,22 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			std::cout << "before OpenGL Error: " << err << std::endl;
 		}
 		glEnable(GL_DEPTH_TEST);
+		glDisable(GL_CULL_FACE);  
+		for (int i = 0; i < textureIDs.size(); i++)
+		{
+			glActiveTexture(GL_TEXTURE0 + i);
+			GLint tex = textureIDs[i];
+			glBindTexture(GL_TEXTURE_2D, tex);
+		}
 
+		int units[32];
+		for (int i = 0; i < textureIDs.size(); i++)
+			units[i] = i; // 0..N-1 texture unit indices
+
+
+		glUniform1iv(glGetUniformLocation(shader.ID, "textures"),
+			textureIDs.size(),
+			units);
 
 		glBindVertexArray(basicParticleMesh.vaoid);
 		glBindBuffer(GL_ARRAY_BUFFER, basicParticleMesh.vboid);
@@ -658,6 +731,7 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
 			std::cout << "after 2 OpenGL Error: " << err << std::endl;
 		}
+
 		glDrawArraysInstanced(GL_TRIANGLE_STRIP, 0, 4, static_cast<GLsizei>(instancedBasicParticles.size()));
 		glDisable(GL_DEPTH_TEST);
 
@@ -666,6 +740,8 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
 			std::cout << "after 3 OpenGL Error: " << err << std::endl;
 		}
+
+		glEnable(GL_CULL_FACE);
 	}
 	shader.Disuse();
 		

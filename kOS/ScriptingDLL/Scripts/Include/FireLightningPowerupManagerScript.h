@@ -10,14 +10,17 @@ public:
 	float currentTimer;
 
 	void Start() override {
+		// ADD SFX OF GROUNDSPIKES HERE
+
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
-			//if (col.thisEntityID != this->entity) { return; }
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 				if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
 					enemyScript->enemyHealth -= groundSpikesDamage;
 
 					if (enemyScript->enemyHealth <= 0) {
-						//ecsPtr->DeleteEntity(col.otherEntityID);
+						// ADD SFX OF ENEMY DEATH HERE
+
+						ecsPtr->DeleteEntity(col.otherEntityID);
 					}
 				}
 			}

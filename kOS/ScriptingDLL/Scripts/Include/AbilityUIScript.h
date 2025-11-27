@@ -17,7 +17,7 @@ public:
 
 	void Update() {
 		if (auto* tc = ecsPtr->GetComponent<ecs::TextComponent>(entity)) {
-			currAbility = ecsPtr->GetComponent<PlayerManagerScript>(playerObjectID)->currentPowerup;
+			//currAbility = ecsPtr->GetComponent<PlayerManagerScript>(playerObjectID)->currentPowerup;
 			tc->text = currAbility;
 		}
 	}

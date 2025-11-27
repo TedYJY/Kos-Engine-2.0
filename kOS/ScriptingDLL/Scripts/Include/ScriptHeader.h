@@ -25,3 +25,4 @@
 
 #include "HealthbarUIScript.h"
 #include "WinUIScreenScript.h"
+#include "AbilityUIImageScript.h"

@@ -9,20 +9,28 @@ public:
 	glm::vec3 direction;
 
 	void Start() override {
+		// ADD SFX OF FIREBALL HERE
+
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
-			//if (col.thisEntityID != this->entity) { return; }
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 				if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
+					// ADD SFX OF FIREBALL BLAST HERE
+
 					enemyScript->enemyHealth -= fireballDamage;
 
 					if (enemyScript->enemyHealth <= 0) {
-						//ecsPtr->DeleteEntity(col.otherEntityID);
+						ecsPtr->DeleteEntity(col.otherEntityID);
 					}
 
-					//ecsPtr->DeleteEntity(entity);
+					ecsPtr->DeleteEntity(entity);
 				}
 			}
-			});
+
+			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Ground" || ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Default") {
+				// ADD SFX OF FIREBALL BLAST HERE
+				ecsPtr->DeleteEntity(entity);
+			}
+		});
 	}
 
 	void Update() override {

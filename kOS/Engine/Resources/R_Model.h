@@ -181,6 +181,8 @@ public:
 	/// TEMPORARY HERE
 	/// </summary>
 	std::vector<Animation> animations;
+	// model data
+	std::vector<Mesh> meshes;
 
 	REFLECTABLE(R_Model);
 
@@ -190,8 +192,6 @@ private:
 	std::vector<Textures> textures_loaded;
 	std::unordered_map<std::string, int> bones_loaded;
 	std::vector<BoneInfo> bone_info; // Only contains the matrices of the bones not the bone itself
-	// model data
-	std::vector<Mesh> meshes;
 
 	std::string directory;
 

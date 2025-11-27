@@ -6,40 +6,42 @@ class FireAcidPowerupManagerScript : public TemplateSC {
 public:
 	int flamethrowerDamage = 1;
 	float lingerTime;
+	float timeBeforeDamageAgain;
 
 	float currentTimer = 0.f;
 
-	// REMOVE ALTER
-	bool isDead = false;
-
 	void Start() override {
-		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
-			//if (col.thisEntityID != this->entity) { return; }
+		// ADD SFX OF FLAMETHROWER HERE
+
+		physicsPtr->GetEventCallback()->OnTriggerStay(entity, [this](const physics::Collision& col) {
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 				if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
-					enemyScript->enemyHealth -= flamethrowerDamage;
+					if (enemyScript->timeBeforeDamageByFlamethrowerAgain <= 0.f) {
+						enemyScript->enemyHealth -= flamethrowerDamage;
 
-					if (enemyScript->enemyHealth <= 0) {
-						//ecsPtr->DeleteEntity(col.otherEntityID);
-						enemyScript->isDead = true;
+						enemyScript->timeBeforeDamageByFlamethrowerAgain = timeBeforeDamageAgain;
 					}
 
-					isDead = true;
+					if (enemyScript->enemyHealth <= 0) {
+						// ADD SFX OF ENEMY DEATH HERE
+
+						ecsPtr->DeleteEntity(col.otherEntityID);
+					}
 				}
 			}
-			});
+		});
 	}
 
 	void Update() override {
 		if (currentTimer <= lingerTime) {
 			currentTimer += ecsPtr->m_GetDeltaTime();
 
-			if (currentTimer >= lingerTime || isDead) {
+			if (currentTimer >= lingerTime) {
 				ecsPtr->DeleteEntity(entity);
 			}
 		}
 	}
 
 
-	REFLECTABLE(FireAcidPowerupManagerScript)
+	REFLECTABLE(FireAcidPowerupManagerScript, flamethrowerDamage, lingerTime, timeBeforeDamageAgain)
 };

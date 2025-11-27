@@ -16,7 +16,7 @@
             "hide": false
         },
         "PowerupManagerScript": {
-            "powerupType": "acid"
+            "powerupType": "ACID"
         },
         "SphereColliderComponent": {
             "isTrigger": false,

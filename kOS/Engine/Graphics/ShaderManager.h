@@ -54,7 +54,7 @@ public:
 		engineShaders.insert({ "PointShadowShader",Shader(pointShadowVS, pointShadowFS,pointShadowGS) });
 		//engineShaders.insert({ "BasicParticleShader", Shader(basicParticleVS,basicParticleFS) });
 		//Experiment with creating a particle shader
-		engineShaders.insert({ "GBufferParticleShader", Shader(basicParticleVS,gBufferDebugFS) });
+		engineShaders.insert({ "GBufferParticleShader", Shader(basicParticleVS,basicParticleFS) });
 		engineShaders.insert({ "GBufferWorldShader", Shader(worldSpriteVS,worldSpriteFS) });
 	}
 
