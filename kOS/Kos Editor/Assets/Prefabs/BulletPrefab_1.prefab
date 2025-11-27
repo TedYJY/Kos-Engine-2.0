@@ -1,0 +1,73 @@
+[
+    {
+        "entityGUID": "83dbb9b0-a6fd-1c40-3cf6-3002eb56764f",
+        "BulletLogic": {
+            "bulletDamage": 5,
+            "bulletSpeed": 200.0,
+            "enemyDeathSfxGUID": "314ec378-2be3-9009-8894-a86884eb7ccf"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "61cfd855-ca21-6e2a-3bf8-8fc94756f547"
+                }
+            ]
+        },
+        "NameComponent": {
+            "entityName": "BulletPrefab",
+            "Layer": 0,
+            "entityTag": "Bullet",
+            "isPrefab": true,
+            "prefabName": "BulletPrefab_1.prefab",
+            "hide": false
+        },
+        "SphereColliderComponent": {
+            "isTrigger": true,
+            "sphere": {
+                "center": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "radius": 0.05000000074505806
+            }
+        },
+        "SphereRendererComponent": {},
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            }
+        }
+    }
+]
