@@ -277,7 +277,7 @@ void GraphicsManager::gm_FillGBufferGame(const CameraData& camera) {
 	sphereRenderer.Render(camera, *gBufferPBRShader, &this->sphere);
 	gBufferPBRShader->Disuse();
 	//Render particles
-	gm_RenderParticles(editorCamera);
+	gm_RenderParticles(camera);
 
 	//Fill world space UI
 	spriteRenderer.RenderWorldSprites(camera, *worldSpriteShader);
