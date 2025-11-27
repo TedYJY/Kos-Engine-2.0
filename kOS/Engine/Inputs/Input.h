@@ -55,6 +55,8 @@ namespace Input {
 		bool IsKeyReleased(const keyCode key);
 		glm::vec2 GetMousePos();
 		float GetAxisRaw(std::string axisType);
+		float GetHorizontal();
+		float GetVertical();
 
 		void InputInit(GLFWwindow* window);
 		void InputUpdate(float deltaTime);

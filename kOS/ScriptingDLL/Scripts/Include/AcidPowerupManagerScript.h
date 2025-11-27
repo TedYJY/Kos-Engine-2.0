@@ -13,14 +13,17 @@ public:
 	glm::vec3 direction;
 
 	void Start() override {
+		// ADD SFX OF ACID SPRAY HERE
+
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
-			//if (col.thisEntityID != this->entity) { return; }
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 				if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
 					enemyScript->enemyHealth -= acidDamage;
 
 					if (enemyScript->enemyHealth <= 0) {
-						//ecsPtr->DeleteEntity(col.otherEntityID);
+						// ADD SFX OF ENEMY DEATH HERE
+
+						ecsPtr->DeleteEntity(col.otherEntityID);
 					}
 				}
 			}

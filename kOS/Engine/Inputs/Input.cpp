@@ -145,8 +145,6 @@ namespace Input {
 
 	float InputSystem::GetAxisRaw(std::string axisType) {
 		if (axisType == "Mouse X") {
-			//std::cout << currentMousePos.x << ", " << currentMousePos.y << std::endl;
-			//std::cout << prevMousePos.x << ", " << prevMousePos.y << std::endl;
 			glm::vec2 delta = currentMousePos - prevMousePos;
 			delta.x = glm::length2(delta) <= 0.01f ? 0.f : delta.x;
 			return (delta.x * 0.1f);
@@ -159,5 +157,27 @@ namespace Input {
 		else {
 			return 0.f;
 		}
+	}
+
+	float InputSystem::GetHorizontal() {
+		if (IsKeyPressed(keys::A)) {
+			return -1.f;
+		}
+		else if (IsKeyPressed(keys::D)) {
+			return 1.f;
+		}
+
+		return 0.f;
+	}
+
+	float InputSystem::GetVertical() {
+		if (IsKeyPressed(keys::W)) {
+			return 1.f;
+		}
+		else if (IsKeyPressed(keys::S)) {
+			return -1.f;
+		}
+
+		return 0.f;
 	}
 }
