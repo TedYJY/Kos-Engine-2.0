@@ -1,0 +1,132 @@
+[
+    {
+        "SceneData": {
+            "skyBoxGUID": [],
+            "ambientIntensity": 1.0
+        }
+    },
+    {
+        "entityGUID": "1fce2e40-84d2-75be-b60a-2a82a8547aad",
+        "NameComponent": {
+            "entityName": "FlamethrowerPrefab",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "prefabName": "FlamethrowerPrefab.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 0.6312193870544434,
+                    "y": 2.3152010440826416,
+                    "z": -1.4205105304718018
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 0.6312193870544434,
+                    "y": 2.3152010440826416,
+                    "z": -1.4205105304718018
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            }
+        },
+        "children": [
+            {
+                "entityGUID": "9b226a67-f81b-6d72-fc77-db6a46518886",
+                "BoxColliderComponent": {
+                    "isTrigger": true,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 4.0
+                        }
+                    }
+                },
+                "CubeRendererComponent": {},
+                "FireAcidPowerupManagerScript": {
+                    "flamethrowerDamage": 1,
+                    "lingerTime": 5.0,
+                    "timeBeforeDamageAgain": 0.3499999940395355
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "61cfd855-ca21-6e2a-3bf8-8fc94756f547"
+                        }
+                    ]
+                },
+                "NameComponent": {
+                    "entityName": "Flamethrower",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 0.6312193870544434,
+                            "y": 2.3152010440826416,
+                            "z": -3.4205105304718018
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": -2.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            }
+        ]
+    }
+]
