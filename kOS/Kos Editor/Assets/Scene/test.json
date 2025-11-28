@@ -145,7 +145,7 @@
         "entityGUID": "b11b8045-ba5d-3c4e-cd7d-b73208475971",
         "AnimationTestScript": {},
         "AnimatorComponent": {
-            "controllerGUID": "00000000-0000-0000-0000-000000000000",
+            "controllerGUID": "6a444739-49b3-fc56-1871-fcd64d2a8e8e",
             "m_PlaybackSpeed": 1.0,
             "m_CurrentTime": 0.0,
             "m_IsPlaying": true
@@ -159,15 +159,15 @@
             "hide": false
         },
         "SkinnedMeshRendererComponent": {
-            "skinnedMeshGUID": "cd7f4dd1-1ac1-2284-6413-970b758ab38d",
+            "skinnedMeshGUID": "f0ac4dfc-af1a-3eaf-501a-e128db4436fa",
             "materialGUID": "61cfd855-ca21-6e2a-3bf8-8fc94756f547"
         },
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": 29.636253356933594,
-                    "y": -2.3293704986572266,
-                    "z": -12.6597900390625
+                    "x": 28.499431610107422,
+                    "y": -3.5353972911834717,
+                    "z": -18.155723571777344
                 },
                 "rotation": {
                     "x": 179.9990997314453,
@@ -182,9 +182,9 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": 29.636253356933594,
-                    "y": -2.3293704986572266,
-                    "z": -12.6597900390625
+                    "x": 28.499431610107422,
+                    "y": -3.5353972911834717,
+                    "z": -18.155723571777344
                 },
                 "rotation": {
                     "x": 179.9990997314453,
