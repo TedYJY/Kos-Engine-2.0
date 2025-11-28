@@ -14,7 +14,7 @@ public:
 	void Start() override {
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Player") {
-				// ADD SFX OF PLAYER GETTING HURT HERE
+				// ADD SFX OF PLAYER GETTING HURT HERE - Done
 				if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
 					std::vector<ecs::AudioFile*> playerHurtSfxPool;
 
