@@ -8603,7 +8603,8 @@
                     "entityTag": "Default",
                     "isPrefab": false,
                     "prefabName": "",
-                    "hide": false
+                    "hide": false,
+                    "isStatic": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -8650,7 +8651,8 @@
                     "entityTag": "Default",
                     "isPrefab": true,
                     "prefabName": "",
-                    "hide": false
+                    "hide": false,
+                    "isStatic": false
                 },
                 "ParticleComponent": {
                     "particleType": 0,
@@ -9449,7 +9451,8 @@
                     "entityTag": "Default",
                     "isPrefab": false,
                     "prefabName": "",
-                    "hide": false
+                    "hide": false,
+                    "isStatic": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {

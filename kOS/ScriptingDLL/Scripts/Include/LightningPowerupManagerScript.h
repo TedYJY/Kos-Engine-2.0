@@ -15,9 +15,18 @@ public:
 	utility::GUID enemyDeathSfxGUID_3;
 	std::vector<utility::GUID> enemyDeathSfxGUIDs;
 
+	utility::GUID lightningStrikeSfxGUID;
 	void Start() override {
-		// ADD SFX OF LIGHTNING STRIKE HERE
+		// ADD SFX OF LIGHTNING STRIKE HERE - Done
+		if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
 
+			for (auto& af : ac->audioFiles) {
+				if (af.audioGUID == lightningStrikeSfxGUID && af.isSFX) {
+					af.requestPlay = true;
+					break;
+				}
+			}
+		}
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 				if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
@@ -74,5 +83,5 @@ public:
 		std::cout << "[BulletLogic] Playing enemy death SFX index " << idx << "\n";
 	}
 
-	REFLECTABLE(LightningPowerupManagerScript, lightningDamage, lingerTime, range, enemyDeathSfxGUID_1, enemyDeathSfxGUID_2, enemyDeathSfxGUID_3)
+	REFLECTABLE(LightningPowerupManagerScript, lightningDamage, lingerTime, range, enemyDeathSfxGUID_1, enemyDeathSfxGUID_2, enemyDeathSfxGUID_3, lightningStrikeSfxGUID)
 };
