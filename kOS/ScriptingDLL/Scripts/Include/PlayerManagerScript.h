@@ -89,7 +89,8 @@ public:
 	float bobbingTimer = 0.f;
 
 	// SFX
-	utility::GUID gunSfxGUID;
+	utility::GUID gunSfxGUID_1;
+	utility::GUID gunSfxGUID_2;
 
 	void Start() override {
 		playerCameraObjectID = ecsPtr->GetEntityIDFromGUID(playerCameraObject);
@@ -314,11 +315,19 @@ public:
 
 					// GUN SFX
 					if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+						std::vector<ecs::AudioFile*> playerHurtSfxPool;
+
 						for (auto& af : ac->audioFiles) {
-							if (af.audioGUID == gunSfxGUID && af.isSFX) {
-								af.requestPlay = true;
-								break;
+							if (af.isSFX) {
+								playerHurtSfxPool.push_back(&af);
 							}
+						}
+
+						if (!playerHurtSfxPool.empty()) {
+							int idx = rand() % static_cast<int>(playerHurtSfxPool.size());
+							std::cout << "[BulletLogic] Random SFX index chosen = " << idx << std::endl;
+
+							playerHurtSfxPool[idx]->requestPlay = true;
 						}
 					}
 				}
@@ -588,7 +597,7 @@ public:
 
 	REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
 				bulletPrefab, firePrefab, acidPrefab, lightningPrefab, fireAcidPrefab, fireLightningPrefab, acidLightningPrefab,
-				gunSfxGUID);
+				gunSfxGUID_1, gunSfxGUID_2);
 };
 
 

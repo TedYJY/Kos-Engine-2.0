@@ -24,7 +24,7 @@ public:
 					enemyScript->enemyHealth -= lightningDamage;
 
 					if (enemyScript->enemyHealth <= 0) {
-						// ADD SFX OF ENEMY DEATH HERE
+						// ADD SFX OF ENEMY DEATH HERE - Done
 						PlayRandomEnemyDeathSFX();
 
 						ecsPtr->DeleteEntity(col.otherEntityID);

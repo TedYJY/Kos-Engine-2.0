@@ -6159,6 +6159,7 @@
                     "textureGUID": "00000000-0000-0000-0000-000000000000",
                     "start_Velocity": 3.0,
                     "playback_State": 0,
+                    "particleFade": 1,
                     "velocityModule": {
                         "enabled": true,
                         "mode": 0,
@@ -6450,6 +6451,7 @@
                     "textureGUID": "00000000-0000-0000-0000-000000000000",
                     "start_Velocity": 3.0,
                     "playback_State": 0,
+                    "particleFade": 1,
                     "velocityModule": {
                         "enabled": true,
                         "mode": 0,
@@ -8180,6 +8182,7 @@
                     "textureGUID": "00000000-0000-0000-0000-000000000000",
                     "start_Velocity": 3.0,
                     "playback_State": 0,
+                    "particleFade": 1,
                     "velocityModule": {
                         "enabled": true,
                         "mode": 0,
@@ -8393,6 +8396,7 @@
                     "textureGUID": "00000000-0000-0000-0000-000000000000",
                     "start_Velocity": 3.0,
                     "playback_State": 0,
+                    "particleFade": 1,
                     "velocityModule": {
                         "enabled": true,
                         "mode": 0,
@@ -8608,6 +8612,7 @@
             "textureGUID": "3e1ba794-6531-9cee-0762-7a059f5e5855",
             "start_Velocity": 3.0,
             "playback_State": 0,
+            "particleFade": 1,
             "velocityModule": {
                 "enabled": true,
                 "mode": 0,
@@ -8821,6 +8826,7 @@
             "textureGUID": "3e1ba794-6531-9cee-0762-7a059f5e5855",
             "start_Velocity": 3.0,
             "playback_State": 0,
+            "particleFade": 1,
             "velocityModule": {
                 "enabled": true,
                 "mode": 0,
@@ -9332,6 +9338,42 @@
             },
             {
                 "entityGUID": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
+                "AudioComponent": {
+                    "audioFiles": [
+                        {
+                            "audioGUID": "d98d60d5-127f-8dc2-b051-dc6d6b883682",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        },
+                        {
+                            "audioGUID": "f73fbd2e-15e7-5d4b-1662-91a2f4132644",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        }
+                    ]
+                },
                 "CapsuleColliderComponent": {
                     "isTrigger": false,
                     "capsule": {
@@ -9367,7 +9409,8 @@
                     "fireAcidPrefab": "465c7d56-0555-0051-8bbe-9d7b2b4e8ede",
                     "fireLightningPrefab": "0e0349c9-02d8-f6b8-df3c-f7f6943e81bf",
                     "acidLightningPrefab": "4c9702d6-127d-fc41-6704-bc63dc2b0998",
-                    "gunSfxGUID": "5bdf561d-0450-1649-f051-3a99755974cc"
+                    "gunSfxGUID_1": "d98d60d5-127f-8dc2-b051-dc6d6b883682",
+                    "gunSfxGUID_2": "f73fbd2e-15e7-5d4b-1662-91a2f4132644"
                 },
                 "RigidbodyComponent": {
                     "mass": 1.0,
