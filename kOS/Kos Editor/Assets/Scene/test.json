@@ -6,64 +6,6 @@
         }
     },
     {
-        "entityGUID": "13ddfe1d-908e-e46f-65f1-2be64b5dd012",
-        "AnimationTestScript": {},
-        "AnimatorComponent": {
-            "controllerGUID": "c6a32901-cddf-c66f-e2f7-f242b11fbc1c",
-            "m_PlaybackSpeed": 1.0,
-            "m_CurrentTime": 4.799399375915527,
-            "m_IsPlaying": true
-        },
-        "NameComponent": {
-            "entityName": "animated mesh",
-            "Layer": 0,
-            "entityTag": "Default",
-            "isPrefab": false,
-            "prefabName": "",
-            "hide": false
-        },
-        "SkinnedMeshRendererComponent": {
-            "skinnedMeshGUID": "9f89e949-6405-e326-8380-1c8f761df4a1",
-            "materialGUID": "d1dc99cf-dde1-ca8b-eeda-2c33d81b557d"
-        },
-        "TransformComponent": {
-            "WorldTransformation": {
-                "position": {
-                    "x": -27.51503562927246,
-                    "y": -10.008426666259766,
-                    "z": -14.13250732421875
-                },
-                "rotation": {
-                    "x": 179.9990997314453,
-                    "y": 0.318505197763443,
-                    "z": 179.99989318847656
-                },
-                "scale": {
-                    "x": 0.10000007599592209,
-                    "y": 0.10000000149011612,
-                    "z": 0.10000007599592209
-                }
-            },
-            "LocalTransformation": {
-                "position": {
-                    "x": -27.51503562927246,
-                    "y": -10.008426666259766,
-                    "z": -14.13250732421875
-                },
-                "rotation": {
-                    "x": 179.9990997314453,
-                    "y": 0.3185051679611206,
-                    "z": 179.99989318847656
-                },
-                "scale": {
-                    "x": 0.10000007599592209,
-                    "y": 0.10000000149011612,
-                    "z": 0.10000007599592209
-                }
-            }
-        }
-    },
-    {
         "entityGUID": "5f5c9a86-71b9-2fb9-f7a3-7092f4f55024",
         "LightComponent": {
             "lightType": 0,
@@ -159,15 +101,15 @@
             "hide": false
         },
         "SkinnedMeshRendererComponent": {
-            "skinnedMeshGUID": "f0ac4dfc-af1a-3eaf-501a-e128db4436fa",
+            "skinnedMeshGUID": "71cf2a25-5f6e-7b8a-c908-f0c9765e15ba",
             "materialGUID": "61cfd855-ca21-6e2a-3bf8-8fc94756f547"
         },
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": 28.499431610107422,
-                    "y": -3.5353972911834717,
-                    "z": -18.155723571777344
+                    "x": 20.143701553344727,
+                    "y": 4.537611961364746,
+                    "z": -22.990188598632813
                 },
                 "rotation": {
                     "x": 179.9990997314453,
@@ -182,9 +124,9 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": 28.499431610107422,
-                    "y": -3.5353972911834717,
-                    "z": -18.155723571777344
+                    "x": 20.143701553344727,
+                    "y": 4.537611961364746,
+                    "z": -22.990188598632813
                 },
                 "rotation": {
                     "x": 179.9990997314453,

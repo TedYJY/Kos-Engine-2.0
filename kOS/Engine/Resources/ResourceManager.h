@@ -61,7 +61,7 @@ public:
 		if (m_resourceMap.find(GUID) != m_resourceMap.end()) {
 
 			auto asset = m_resourceMap.at(GUID);
-			if (asset) {
+			if (asset && asset->m_filePath.extension().string() == m_resourceExtension.at(T::classname())) {
 				return std::static_pointer_cast<T>(asset);
 			}
 		}
