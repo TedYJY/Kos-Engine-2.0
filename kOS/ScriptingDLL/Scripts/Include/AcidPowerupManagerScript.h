@@ -17,11 +17,19 @@ public:
 	utility::GUID enemyDeathSfxGUID_3;
 	std::vector<utility::GUID> enemyDeathSfxGUIDs;
 
-	utility::GUID acidSpraySfxGUID_1;
+	utility::GUID acidSpraySfxGUID;
 
 	void Start() override {
-		// ADD SFX OF ACID SPRAY HERE
+		// ADD SFX OF ACID SPRAY HERE - Done
+		if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
 
+			for (auto& af : ac->audioFiles) {
+				if (af.audioGUID == acidSpraySfxGUID && af.isSFX) {
+					af.requestPlay = true;
+					break;
+				}
+			}
+		}
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 				if (auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)) {
@@ -82,5 +90,5 @@ public:
 		std::cout << "[BulletLogic] Playing enemy death SFX index " << idx << "\n";
 	}
 
-	REFLECTABLE(AcidPowerupManagerScript, acidDamage, lingerTime, growthRate, acidBlastSpeed, enemyDeathSfxGUID_1, enemyDeathSfxGUID_2, enemyDeathSfxGUID_3)
+	REFLECTABLE(AcidPowerupManagerScript, acidDamage, lingerTime, growthRate, acidBlastSpeed, enemyDeathSfxGUID_1, enemyDeathSfxGUID_2, enemyDeathSfxGUID_3, acidSpraySfxGUID)
 };
