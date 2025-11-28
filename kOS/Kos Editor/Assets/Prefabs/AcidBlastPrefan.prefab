@@ -11,7 +11,79 @@
             "acidDamage": 5,
             "lingerTime": 1.0,
             "growthRate": 1.0299999713897705,
-            "acidBlastSpeed": 5.0
+            "acidBlastSpeed": 5.0,
+            "enemyDeathSfxGUID_1": "80bc0a18-e742-f3e7-4f21-7d88824f985b",
+            "enemyDeathSfxGUID_2": "18bde09b-18c2-4f58-5770-048caf28d1c3",
+            "enemyDeathSfxGUID_3": "ef772eb3-1923-0835-dd9b-683167c10659",
+            "acidSpraySfxGUID": "159ce546-6103-bd50-26dd-52853d054802"
+        },
+        "AudioComponent": {
+            "audioFiles": [
+                {
+                    "audioGUID": "80bc0a18-e742-f3e7-4f21-7d88824f985b",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": true,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "00000000-0000-0000-0000-000000000000",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": true,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "18bde09b-18c2-4f58-5770-048caf28d1c3",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "ef772eb3-1923-0835-dd9b-683167c10659",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": true,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "159ce546-6103-bd50-26dd-52853d054802",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": false,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                }
+            ]
         },
         "CubeRendererComponent": {},
         "MaterialComponent": {

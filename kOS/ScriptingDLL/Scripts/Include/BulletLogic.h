@@ -1,6 +1,7 @@
 #pragma once
 #include "ScriptAdapter/TemplateSC.h"
 #include "EnemyManagerScript.h"
+#include "ScoreManagerScript.h"
 
 class BulletLogic : public TemplateSC {
 public:
@@ -11,24 +12,49 @@ public:
 	float timeBeforeDeath = 2.5f;
 	float currentTimer = 0.f;
 
-	utility::GUID enemyDeathSfxGUID; //gonna remove this when stuff are fixed
+	ScoreManagerScript* scoreManager = nullptr;
+	int scoreValue = 100;
+
+	utility::GUID enemyDeathSfxGUID_1;
+	utility::GUID enemyDeathSfxGUID_2;
+	utility::GUID enemyDeathSfxGUID_3;
 
 	void Start() override {
+
+		for (const auto& [entityID, signature] : ecsPtr->GetEntitySignatureData()) {
+			if (ecsPtr->HasComponent<ScoreManagerScript>(entityID)) {
+				scoreManager = ecsPtr->GetComponent<ScoreManagerScript>(entityID);
+				break;
+			}
+		}
+
 		physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
 			if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
-				// ADD SFX OF ENEMY DEATH HERE
+				// ADD SFX OF ENEMY DEATH HERE - DONE
 				if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+					std::vector<ecs::AudioFile*> candidates;
+
 					for (auto& af : ac->audioFiles) {
-						if (af.audioGUID == enemyDeathSfxGUID && af.isSFX) {
-							af.requestPlay = true;
-							break;
+						if (af.isSFX) {               
+							candidates.push_back(&af);
 						}
+					}
+
+					if (!candidates.empty()) {
+						int idx = rand() % static_cast<int>(candidates.size());
+						std::cout << "[BulletLogic] Random SFX index chosen = " << idx << std::endl;
+
+						candidates[idx]->requestPlay = true;
 					}
 				}
 
 				ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->enemyHealth -= bulletDamage;
 
 				if (ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->enemyHealth <= 0) {
+					if (scoreManager) {
+						scoreManager->AddScore(scoreValue); // or whatever value you want per kill
+					}
+
 					ecsPtr->DeleteEntity(col.otherEntityID);
 				}
 			}
@@ -54,5 +80,5 @@ public:
 		}
 	}
 
-	REFLECTABLE(BulletLogic, bulletDamage, bulletSpeed, enemyDeathSfxGUID)
+	REFLECTABLE(BulletLogic, bulletDamage, bulletSpeed, enemyDeathSfxGUID_1, enemyDeathSfxGUID_2, enemyDeathSfxGUID_3)
 };
