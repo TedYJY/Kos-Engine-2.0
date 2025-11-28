@@ -303,7 +303,10 @@ namespace ecs {
 
             //=== LIFETIME UPDATE ===
             pd.lifespan -= dt;
-            //pd.color.a = pd.lifespan / pd.lifetime;
+
+            if (particle->particleFade == ParticleFade::Lifetime) {
+                pd.color.a = pd.lifespan / pd.lifetime;
+            }  
             if(!updateTrailing) pd.position += pd.velocity * dt;
 
             if (pd.lifespan <= 0.0f) {
