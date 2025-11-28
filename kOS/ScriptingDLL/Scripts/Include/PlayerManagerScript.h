@@ -1,5 +1,8 @@
 #pragma once
 #include "TemplateSC.h"
+#include "PauseMenuScript.h"
+#include "LoseScreenScript.h"
+#include "WinScreenScript.h"
 
 class PlayerManagerScript : public TemplateSC {
 public:
@@ -14,8 +17,9 @@ public:
 	};
 
 	// PLAYER DETAILS
-	int maxPlayerHitPoints = 10;
+	int maxPlayerHitPoints = 6;
 	int currPlayerHitPoints;
+	bool isDead = false;
 
 	float maxPlayerMovSpeed = 18.5f;
 	float currPlayerMovSpeed;
@@ -54,6 +58,10 @@ public:
 	utility::GUID playerGunModelPointObject;
 	utility::GUID playerArmModelObject;
 	utility::GUID playerGroundCheckObject;
+	utility::GUID pauseMenuManagerObject;
+	utility::GUID healthUIObject;
+	utility::GUID loseScreenCanvasObject;
+	utility::GUID winScreenCanvasObject;
 
 	ecs::EntityID playerCameraObjectID;
 	ecs::EntityID playerGunCameraObjectID;
@@ -61,6 +69,10 @@ public:
 	ecs::EntityID playerGunModelPointObjectID;
 	ecs::EntityID playerArmModelObjectID;
 	ecs::EntityID playerGroundCheckObjectID;
+	ecs::EntityID pauseMenuManagerID;
+	ecs::EntityID healthUIObjectID;
+	ecs::EntityID loseScreenCanvasID;
+	ecs::EntityID winScreenCanvasID;
 
 	utility::GUID bulletPrefab;
 
@@ -106,12 +118,33 @@ public:
 
 		playerCrouchCameraPosY = originalPlayerCrouchCameraPosY = ecsPtr->GetComponent<TransformComponent>(playerCameraObjectID)->LocalTransformation.position.y;
 		playerCrouchCameraPosY -= 0.85f;
+
+		if (pauseMenuManagerObject != utility::GUID{}) {
+			pauseMenuManagerID = ecsPtr->GetEntityIDFromGUID(pauseMenuManagerObject);
+			std::cout << "PlayerManager connected to PauseMenuManager!\n";
+		}
+		healthUIObjectID = ecsPtr->GetEntityIDFromGUID(healthUIObject);
+		loseScreenCanvasID = ecsPtr->GetEntityIDFromGUID(loseScreenCanvasObject);
+		winScreenCanvasID = ecsPtr->GetEntityIDFromGUID(winScreenCanvasObject);
+
 	}
 
 	void Update() override {	
 		PlayerMovementControls();
 		PlayerCameraControls();
 		PlayerCombatControls();
+
+		if (Input->IsKeyTriggered(keys::ESC)) {
+			if (auto* pauseManager = ecsPtr->GetComponent<PauseMenuScript>(pauseMenuManagerID)) {
+				std::cout << "PAUSE PAUSE PAUSE\n";
+				pauseManager->TogglePause();
+			}
+		}
+
+		if (Input->IsKeyTriggered(keys::UP)) {
+			std::cout << "Player takes 1 damage for testing purposes.\n"; 
+			TakeDamage(1);
+		}
 	}
 
 	void FixedUpdate() override {
@@ -538,6 +571,57 @@ public:
 		return false;
 	}
 
+	void TakeDamage(int amount) {
+		if (isDead) return;
+
+		currPlayerHitPoints -= amount;
+		if (currPlayerHitPoints < 0) currPlayerHitPoints = 0;
+
+		std::cout << "[PLAYER] Took damage: " << amount
+			<< " | Health = " << currPlayerHitPoints << std::endl;
+
+		UpdateHealthUI();
+
+		if (currPlayerHitPoints <= 0) {
+			Die();
+		}
+	}
+
+	void Die() {
+		isDead = true;
+
+		std::cout << "[PLAYER] Died!" << std::endl;
+
+		// Disable movement
+		currPlayerMovSpeed = 0.f;
+		currPlayerJumpForce = 0.f;
+
+		// Play death animation or show UI
+		//if (currPlayerHitPoints <= 0 && !WinScreenScript::isWinScreenActive) {
+		//	if (auto* loseScreen = ecsPtr->GetComponent<WinScreenScript>(winScreenCanvasID)) {
+		//		loseScreen->ShowWinScreen();
+		//		return;
+		//	}
+		//}
+
+		if (currPlayerHitPoints <= 0 && !LoseScreenScript::isLoseScreenActive) {
+			if (auto* loseScreen = ecsPtr->GetComponent<LoseScreenScript>(loseScreenCanvasID)) {
+				loseScreen->ShowLoseScreen();
+				return;
+			}
+		}
+
+
+	}
+
+
+	void UpdateHealthUI() {
+		if (auto* text = ecsPtr->GetComponent<TextComponent>(healthUIObjectID)) {
+			text->text = "HP: " + std::to_string(currPlayerHitPoints) + "/" + std::to_string(maxPlayerHitPoints);
+		}
+	}
+
+
 
 	// HELPER FUNCTIONS
 	glm::vec3 GetPlayerCameraFrontDirection() {
@@ -597,7 +681,8 @@ public:
 
 	REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
 				bulletPrefab, firePrefab, acidPrefab, lightningPrefab, fireAcidPrefab, fireLightningPrefab, acidLightningPrefab,
-				gunSfxGUID_1, gunSfxGUID_2);
+				gunSfxGUID_1, gunSfxGUID_2, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject, winScreenCanvasObject);
+
 };
 
 

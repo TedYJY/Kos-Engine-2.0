@@ -28,6 +28,8 @@
 #include "EnemyHurtboxScript.h"
 
 #include "HealthbarUIScript.h"
-#include "WinUIScreenScript.h"
 #include "AbilityUIImageScript.h"
 #include "ScoreManagerScript.h"
+#include "PauseMenuScript.h"
+#include "LoseScreenScript.h"
+#include "WinScreenScript.h"

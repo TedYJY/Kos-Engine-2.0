@@ -58,9 +58,11 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<EventColliderScript>(TemplateSC::ecsPtr);
 
 	RegisterScript<HealthBarScript>(TemplateSC::ecsPtr);
-	RegisterScript<WinSceneScript>(TemplateSC::ecsPtr);
 	RegisterScript<AbilityUIImageScript>(TemplateSC::ecsPtr);
 	RegisterScript<ScoreManagerScript>(TemplateSC::ecsPtr);
+	RegisterScript<PauseMenuScript>(TemplateSC::ecsPtr);
+	RegisterScript<LoseScreenScript>(TemplateSC::ecsPtr);
+	RegisterScript<WinScreenScript>(TemplateSC::ecsPtr);
 
 	FieldComponentTypeRegistry::CreateAllDrawers(static_cast<Fields*>(svm->field)->GetAction());
 }

@@ -22,6 +22,7 @@ public:
 
     void Start() override {
         currentScore = 0;
+        bestScore = 5000;
         mult = 1;
 
         // Convert GUIDs to ECS entity IDs
