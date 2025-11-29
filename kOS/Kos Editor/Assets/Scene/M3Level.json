@@ -1912,7 +1912,7 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -86.00837707519531,
+                                    "x": -110.00837707519531,
                                     "y": -36.14299011230469,
                                     "z": 0.04497528076171875
                                 },
@@ -1929,7 +1929,7 @@
                             },
                             "LocalTransformation": {
                                 "position": {
-                                    "x": -86.00837707519531,
+                                    "x": -110.00837707519531,
                                     "y": -36.14299011230469,
                                     "z": 0.04497528076171875
                                 },
@@ -2068,6 +2068,69 @@
                                     "x": 11.499961853027344,
                                     "y": 5.999985218048096,
                                     "z": 29.99993324279785
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "entityGUID": "cd219e6e-9ee2-178d-9a54-6f61e751bb84",
+                        "BoxColliderComponent": {
+                            "isTrigger": false,
+                            "box": {
+                                "center": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
+                                },
+                                "size": {
+                                    "x": 1.0,
+                                    "y": 1.0,
+                                    "z": 1.0
+                                }
+                            }
+                        },
+                        "NameComponent": {
+                            "entityName": "Floor Slope Collider 4",
+                            "Layer": 0,
+                            "entityTag": "Ground",
+                            "isPrefab": false,
+                            "prefabName": "",
+                            "hide": false,
+                            "isStatic": false
+                        },
+                        "TransformComponent": {
+                            "WorldTransformation": {
+                                "position": {
+                                    "x": -86.00837707519531,
+                                    "y": -36.14299011230469,
+                                    "z": 0.04497528076171875
+                                },
+                                "rotation": {
+                                    "x": -19.999988555908203,
+                                    "y": -1.2722218874358041e-14,
+                                    "z": -1.6018002213513682e-7
+                                },
+                                "scale": {
+                                    "x": 11.499999046325684,
+                                    "y": 6.0,
+                                    "z": 29.99999237060547
+                                }
+                            },
+                            "LocalTransformation": {
+                                "position": {
+                                    "x": -86.00837707519531,
+                                    "y": -36.14299011230469,
+                                    "z": 0.04497528076171875
+                                },
+                                "rotation": {
+                                    "x": -19.999988555908203,
+                                    "y": -1.2722218874358041e-14,
+                                    "z": -1.6018002213513682e-7
+                                },
+                                "scale": {
+                                    "x": 11.499999046325684,
+                                    "y": 6.0,
+                                    "z": 29.99999237060547
                                 }
                             }
                         }
@@ -6816,15 +6879,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.09303420782089233,
-                        "spawnAccum": 0.7213680744171143
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": false,
@@ -7110,15 +7169,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.09303420782089233,
-                        "spawnAccum": 0.7213680744171143
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": false,
@@ -8512,15 +8567,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.09303420782089233,
-                        "spawnAccum": 0.7213680744171143
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": false,
@@ -8727,15 +8778,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.09303420782089233,
-                        "spawnAccum": 0.7213680744171143
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": false,
@@ -9023,15 +9070,11 @@
                     "y": 1.0,
                     "z": 0.0
                 },
-                "spawnDuration": 5.0,
-                "spawnRate": 40.0,
                 "spiralRadius": 5.0,
                 "spiralFrequency": 3.0,
                 "spiralIntensityCurve": 0.5,
                 "pathSpeed": 2.0,
-                "arrivalThreshold": 0.5,
-                "timeAccum": 0.09303420782089233,
-                "spawnAccum": 0.7213680744171143
+                "arrivalThreshold": 0.5
             },
             "noiseModule": {
                 "enabled": false,
@@ -12283,15 +12326,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.0,
-                        "spawnAccum": 0.0
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": true,
@@ -12500,15 +12539,11 @@
                     "y": 1.0,
                     "z": 0.0
                 },
-                "spawnDuration": 5.0,
-                "spawnRate": 40.0,
                 "spiralRadius": 5.0,
                 "spiralFrequency": 3.0,
                 "spiralIntensityCurve": 0.5,
                 "pathSpeed": 2.0,
-                "arrivalThreshold": 0.5,
-                "timeAccum": 0.0,
-                "spawnAccum": 0.0
+                "arrivalThreshold": 0.5
             },
             "noiseModule": {
                 "enabled": true,
@@ -12715,15 +12750,11 @@
                     "y": 1.0,
                     "z": 0.0
                 },
-                "spawnDuration": 5.0,
-                "spawnRate": 40.0,
                 "spiralRadius": 5.0,
                 "spiralFrequency": 3.0,
                 "spiralIntensityCurve": 0.5,
                 "pathSpeed": 2.0,
-                "arrivalThreshold": 0.5,
-                "timeAccum": 0.0,
-                "spawnAccum": 0.0
+                "arrivalThreshold": 0.5
             },
             "noiseModule": {
                 "enabled": true,
