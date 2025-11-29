@@ -9981,10 +9981,30 @@
             },
             {
                 "entityGUID": "6e5fba01-5840-6878-28b2-c1ca60a7a7a4",
+                "AudioComponent": {
+                    "audioFiles": [
+                        {
+                            "audioGUID": "e1f55b81-5aa7-9b50-20ef-d6cd9b459e60",
+                            "volume": 0.20000000298023224,
+                            "loop": true,
+                            "playOnStart": true,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": true,
+                            "isSFX": false,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        }
+                    ]
+                },
                 "GameManager": {
                     "enemyObjectPrefab": "a3a69a24-9a78-f0fd-f0a9-744fc055ecb2",
                     "enemySpawnpoint": "5e385a2b-11e6-5250-a413-342a15395ff1",
-                    "gameBGM": "00000000-0000-0000-0000-000000000000"
+                    "gameBGM": "e1f55b81-5aa7-9b50-20ef-d6cd9b459e60"
                 },
                 "NameComponent": {
                     "entityName": "Game Manager",
