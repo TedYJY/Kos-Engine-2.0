@@ -862,7 +862,7 @@ void NavMeshManager::BuildRecastGeometry(std::string sceneName, std::shared_ptr<
 }
 
 void NavMeshManager::SaveMesh(std::string sceneName) {
-    std::string fileName(resourceManager.GetResourceDirectory() + '\\' + sceneName + ".navmesh");
+    std::string fileName("Engine\\Pathfinding\\navmeshes\\" + sceneName + ".navmesh");
     auto data = navMeshData.find(sceneName);
     if (data != navMeshData.end()) {
         data->second->saveTiles(fileName);
@@ -882,7 +882,7 @@ std::shared_ptr<Sample_TileMesh> NavMeshManager::LoadMesh(std::string sceneName)
         LOGGING_WARN("Nav Mesh Load Failed: Unable to build Geometry");
         return nullptr;
     }
-    std::string fileName(resourceManager.GetResourceDirectory() + '\\' + sceneName + ".navmesh");
+    std::string fileName("Engine\\Pathfinding\\navmeshes\\" + sceneName + ".navmesh");
     tm->loadTiles(fileName);
     SetGraphicsRenderMesh(tm);
 
