@@ -87,7 +87,7 @@ namespace ecs{
 	void ECS::Update(float DT) {
 
 		//update deltatime
-		m_deltaTime = DT;
+		m_deltaTime = DT * m_timeScale;
 
 		
 		//check for gamestate
