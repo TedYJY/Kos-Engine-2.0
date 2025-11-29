@@ -13,7 +13,7 @@ namespace ecs {
 		bool isHovered{ false };
 		bool isPressed{ false };
 
-		REFLECTABLE(ButtonComponent, normalColor, hoverColor, pressedColor, isHovered, isPressed)
+		REFLECTABLE(ButtonComponent, normalColor, hoveredColor, pressedColor, isHovered, isPressed)
 	};
 }
 
