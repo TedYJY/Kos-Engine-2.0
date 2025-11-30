@@ -2,6 +2,7 @@
     {
         "SceneData": {
             "skyBoxGUID": [],
+            "NavMeshGuid": "00000000-0000-0000-0000-0263c91f0790",
             "ambientIntensity": 1.0
         }
     },
@@ -85,7 +86,6 @@
                 }
             ]
         },
-        "CubeRendererComponent": {},
         "MaterialComponent": {
             "materialGUID": [
                 {
@@ -254,7 +254,7 @@
                         }
                     },
                     "sizeModule": {
-                        "enabled": false,
+                        "enabled": true,
                         "start_Size": 0.25,
                         "end_Size": 0.009999999776482582
                     },
@@ -309,15 +309,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.0,
-                        "spawnAccum": 0.0
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": false,
@@ -469,7 +465,7 @@
                         }
                     },
                     "sizeModule": {
-                        "enabled": false,
+                        "enabled": true,
                         "start_Size": 0.05000000074505806,
                         "end_Size": 0.009999999776482582
                     },
@@ -524,15 +520,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.0,
-                        "spawnAccum": 0.0
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": false,
@@ -684,7 +676,7 @@
                         }
                     },
                     "sizeModule": {
-                        "enabled": false,
+                        "enabled": true,
                         "start_Size": 0.05000000074505806,
                         "end_Size": 0.009999999776482582
                     },
@@ -739,15 +731,11 @@
                             "y": 1.0,
                             "z": 0.0
                         },
-                        "spawnDuration": 5.0,
-                        "spawnRate": 40.0,
                         "spiralRadius": 5.0,
                         "spiralFrequency": 3.0,
                         "spiralIntensityCurve": 0.5,
                         "pathSpeed": 2.0,
-                        "arrivalThreshold": 0.5,
-                        "timeAccum": 0.0,
-                        "spawnAccum": 0.0
+                        "arrivalThreshold": 0.5
                     },
                     "noiseModule": {
                         "enabled": false,

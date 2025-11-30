@@ -93,19 +93,7 @@ namespace Application
             sceneManager.ImmediateLoadScene(path);
         LOGGING_INFO("Load Asset Successful");
 
-
         LOGGING_INFO("Application Init Successful");
-
-        // Sean use this to test animationn serialization
-        // ResourceManager::GetInstance()->GetResource<R_Animation>("bf8a061d-e1b2-8f34-ec30-a655db0af661");
-
-
-        LOGGING_INFO("Application Init Successful");
-
-        
-
-        //Sean use this to test animationn serialization
-        //ResourceManager::GetInstance()->GetResource<R_Animation>("bf8a061d-e1b2-8f34-ec30-a655db0af661");
 
         return 0;
     }

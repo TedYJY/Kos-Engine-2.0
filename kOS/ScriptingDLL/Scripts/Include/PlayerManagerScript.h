@@ -29,7 +29,7 @@ public:
 	float maxPlayerMovSpeed = 18.5f;
 	float currPlayerMovSpeed;
 
-	float maxPlayerJumpForce = 400.f;
+	float maxPlayerJumpForce = 600.f;
 	float currPlayerJumpForce;
 
 	float playerCameraSpeedX = 0.65f;
@@ -39,7 +39,7 @@ public:
 
 	float playerSprintMultiplier = 1.35f;
 	float playerCrouchMultiplier = 0.8f;
-	float playerSlideMultiplier = 100.f;
+	float playerSlideMultiplier = 70.f;
 
 	float playerCrouchTransitionSpeed = 2.f;
 
