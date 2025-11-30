@@ -51,4 +51,6 @@ AnimState* R_AnimController::RetrieveEntryState()
     {
         return &m_AnimControllerData.states[0];
     }
+
+    return nullptr;
 }

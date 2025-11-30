@@ -213,7 +213,7 @@ public:
 		if (Input->IsKeyPressed(keys::LeftControl) && !playerIsSliding && GroundCheck()) {
 			playerIsCrouching = true;
 
-			float velocityMagnitude = glm::sqrt(glm::pow(playerRigidbody->velocity.x, 2) + glm::pow(playerRigidbody->velocity.y, 2) + glm::pow(playerRigidbody->velocity.z, 2));
+			float velocityMagnitude = (float)(glm::sqrt(glm::pow(playerRigidbody->velocity.x, 2) + glm::pow(playerRigidbody->velocity.y, 2) + glm::pow(playerRigidbody->velocity.z, 2)));
 
 			if (velocityMagnitude >= playerVelocityBeforeSlide && !playerIsSliding) {
 				playerIsSliding = true;
