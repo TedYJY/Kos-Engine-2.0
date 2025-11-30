@@ -251,8 +251,8 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
             {
                 AnimTransition t;
                 t.id = nextLinkId++;
-                t.fromPinId = startPin.Get();
-                t.toPinId = endPin.Get();
+                t.fromPinId = (int)startPin.Get();
+                t.toPinId = (int)endPin.Get();
                 AnimState* fromState = FindStateFromPin(states, t.fromPinId);
                 //AnimState* toState = FindStateFromPin(states, t.toPinId);
                 fromState->outgoingTransitions.push_back(t);
@@ -309,7 +309,7 @@ void gui::ImGuiHandler::DrawAnimatorControllerWindow()
     // --- TRANSITION INSPECTOR ---
     if (selectedLink)
     {
-        int linkId = selectedLink.Get();
+        int linkId = (int)selectedLink.Get();
 
         for (auto& state : states)
         {
