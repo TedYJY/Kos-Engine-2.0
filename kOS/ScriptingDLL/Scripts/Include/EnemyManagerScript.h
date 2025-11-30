@@ -69,10 +69,12 @@ public:
 		}
 
 		//Copy state from controller
-		if (enemyController && anim->m_currentState != &currAnimationState)
+		if (enemyController)
 		{
-			currAnimationState = *static_cast<AnimState*>(anim->m_currentState);
-			anim->m_currentState = &currAnimationState;
+			//if (anim->m_currentState != &currAnimationState) {
+			//	currAnimationState = *static_cast<AnimState*>(anim->m_currentState);
+			//	anim->m_currentState = &currAnimationState;
+			//}
 		}
 
 		// FUCK
