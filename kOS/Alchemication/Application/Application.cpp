@@ -63,6 +63,10 @@ namespace Application
         --------------------------------------------------------------*/
         graphicsManager.gm_Initialize(static_cast<float>(windowData.windowWidth), static_cast<float>(windowData.windowHeight));
         LOGGING_INFO("Load Graphic Pipeline Successful");
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 
         /*--------------------------------------------------------------
            INITIALIZE Resource Manager
@@ -93,10 +97,21 @@ namespace Application
             sceneManager.ImmediateLoadScene(path);
         LOGGING_INFO("Load Asset Successful");
 
+<<<<<<< HEAD
         LOGGING_INFO("Application Init Successful");
 
         // Sean use this to test animationn serialization
         // ResourceManager::GetInstance()->GetResource<R_Animation>("bf8a061d-e1b2-8f34-ec30-a655db0af661");
+=======
+
+
+        LOGGING_INFO("Application Init Successful");
+
+        
+
+        //Sean use this to test animationn serialization
+        //ResourceManager::GetInstance()->GetResource<R_Animation>("bf8a061d-e1b2-8f34-ec30-a655db0af661");
+>>>>>>> origin/main
         return 0;
     }
 
@@ -106,7 +121,7 @@ namespace Application
         // float FPSCapTime = 1.f / help->m_fpsCap;
         double lastFrameTime = glfwGetTime();
         const double fixedDeltaTime = 1.0 / 60.0;
-
+        
         // ScriptManager::m_GetInstance()->RunDLL();
         /*--------------------------------------------------------------
             GAME LOOP
@@ -115,13 +130,12 @@ namespace Application
         {
             static int count = 0;
 
-            if (count++ == 1)
-            {
+            if (count++ == 1) {
                 ecs.SetState(ecs::START);
             }
 
-            try
-            {
+
+            try {
                 /* Poll for and process events */
                 glfwPollEvents();
 
@@ -143,7 +157,7 @@ namespace Application
                  Update Window
                 --------------------------------------------------------------*/
                 lvWindow.Update();
-
+                
                 /*--------------------------------------------------------------
                     UPDATE ECS
                 --------------------------------------------------------------*/
