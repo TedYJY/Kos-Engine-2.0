@@ -24,7 +24,6 @@ public:
         if (auto* t = ecsPtr->GetComponent<TransformComponent>(pauseMenuCanvasID)) {
             originalCanvasPosition = t->LocalTransformation.position;
         }
-        Input->HideCursor(true);
         SetPauseMenuActive(false);
     }
 
@@ -43,14 +42,17 @@ public:
     void PauseGame() {
         isPaused = true;
         ecsPtr->SetTimeScale(0.0f);
+        ecsPtr->SetState(WAIT);
         SetPauseMenuActive(true);
         Input->HideCursor(false);
+        
         std::cout << "Game Paused\n";
     }
 
     void ResumeGame() {
         isPaused = false;
         ecsPtr->SetTimeScale(1.0f);
+        ecsPtr->SetState(RUNNING);
         SetPauseMenuActive(false);
         Input->HideCursor(true);
         std::cout << "Game Resumed\n";
@@ -59,8 +61,7 @@ public:
     void RestartGame() {
         requestRestart = true;
         isPaused = false;
-        SetPauseMenuActive(false);
-        Input->HideCursor(true);
+        SetPauseMenuActive(false);   
     }
 
     bool IsPaused() const { return isPaused; }

@@ -96,6 +96,56 @@ public:
 
 	void gm_UpdateBuffers(int width, int height);
 	void gm_RenderGameBuffer();
+	void gm_updatemouse(GLFWwindow* glwin) {
+
+		double mx, my;
+		glfwGetCursorPos(glwin, &mx, &my);
+
+		int winW, winH;
+		glfwGetWindowSize(glwin, &winW, &winH);
+
+		isButtonPressed = glfwGetMouseButton(glwin, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+		if (mx >= 0 && mx <= winW &&
+			my >= 0 && my <= winH)
+		{
+			float relX = mx / winW;
+			float relY = my / winH;
+
+			int fbW, fbH;
+			glfwGetFramebufferSize(glwin, &fbW, &fbH);
+
+			int pixelX = int(relX * fbW);
+			int pixelY = fbH - int(relY * fbH);
+
+			GLuint fbo;
+			glGenFramebuffers(1, &fbo);
+			glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+			glFramebufferTexture2D(
+				GL_FRAMEBUFFER,
+				GL_COLOR_ATTACHMENT0,
+				GL_TEXTURE_2D,
+				gm_GetFBM()->gBuffer.gMaterial,
+				0
+			);
+
+			float pixelVal;
+			glReadPixels(
+				pixelX,
+				pixelY,
+				1,
+				1,
+				GL_ALPHA,
+				GL_FLOAT,
+				&pixelVal
+			);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glDeleteFramebuffers(1, &fbo);
+
+			--pixelVal;
+			buttonID = (pixelVal < 0.0f) ? -1 : static_cast<int>(pixelVal);
+		}
+	}
 	//I want my DCMs
 	LightRenderer lightRenderer;
 

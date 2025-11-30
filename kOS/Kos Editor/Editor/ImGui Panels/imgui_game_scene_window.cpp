@@ -135,20 +135,23 @@ namespace gui
 
         auto winLoc = ImVec2(pos.x - ImGui::GetWindowPos().x, pos.y - ImGui::GetWindowPos().y);
         ImGui::SetCursorPos(winLoc);
-        if ((imageSize.x != 0 && imageSize.y != 0) && m_ecs.GetState() == GAMESTATE::RUNNING && ImGui::InvisibleButton("##GameWindowBut", imageSize, ImGuiButtonFlags_MouseButtonLeft) ) {
+        if ((m_ecs.GetState() == GAMESTATE::RUNNING) && (imageSize.x != 0 && imageSize.y != 0) && ImGui::InvisibleButton("##GameWindowBut", imageSize, ImGuiButtonFlags_MouseButtonLeft)) {
             m_input.HideCursor(true);
+            
             ImGuiIO& io = ImGui::GetIO();
             io.ConfigFlags |= ImGuiConfigFlags_NoMouse;
         }
 
         if (m_input.cursorHidden) {
             ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-            if (ImGui::IsKeyDown(ImGuiKey_Escape)) {
-                m_input.HideCursor(false);
-                ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
-                ImGuiIO& io = ImGui::GetIO();
-                io.ConfigFlags &= ~ImGuiConfigFlags_NoMouse;
-            }
+        }
+
+        if (ImGui::IsKeyDown(ImGuiKey_Escape)) {
+            
+            m_input.HideCursor(false);
+ 
+            ImGuiIO& io = ImGui::GetIO();
+            io.ConfigFlags &= ~ImGuiConfigFlags_NoMouse;
         }
 
         //ImGui::SetCursorPos(winLoc);

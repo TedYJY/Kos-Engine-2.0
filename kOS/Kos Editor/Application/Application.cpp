@@ -61,7 +61,7 @@ namespace Application {
         ecs.Init();
         LOGGING_INFO("Load ECS Successful");
 
-
+        
         /*--------------------------------------------------------------
            INITIALIZE Asset Manager - Editor
         --------------------------------------------------------------*/

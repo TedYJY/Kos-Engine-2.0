@@ -672,8 +672,8 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 						}
 						else
 						{
-							int size = textureIDs.size();
-							storedIDs[p.texture_IDs->RetrieveTexture()] = textureIDs.size();
+							int size = static_cast<int>(textureIDs.size());
+							storedIDs[p.texture_IDs->RetrieveTexture()] = static_cast<unsigned int>(textureIDs.size());
 							textureIDs.push_back(p.texture_IDs->RetrieveTexture());
 							int currentID = storedIDs[p.texture_IDs->RetrieveTexture()];
 							return BasicParticleInstance{ pos, p.sizes[j], p.colors[j], p.rotates[j++], storedIDs[p.texture_IDs->RetrieveTexture()] , p.particleType };
@@ -713,7 +713,7 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 
 
 		glUniform1iv(glGetUniformLocation(shader.ID, "textures"),
-			textureIDs.size(),
+			static_cast<GLsizei>(textureIDs.size()),
 			units);
 
 		glBindVertexArray(basicParticleMesh.vaoid);
