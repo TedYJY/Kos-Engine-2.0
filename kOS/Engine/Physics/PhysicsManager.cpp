@@ -117,7 +117,7 @@ namespace physics {
 			m_scene->fetchResults(true);
 			if (m_eventCallback) { 
 				m_eventCallback->ProcessCollisionStay();
-				m_eventCallback->ProcessTriggerStay(); 
+				m_eventCallback->ProcessTriggerStay();
 			}
 			m_accumulator -= m_fixedDeltaTime;
 			++m_frameCount;

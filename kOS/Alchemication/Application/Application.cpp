@@ -147,6 +147,11 @@ namespace Application {
                     UPDATE ECS
                 --------------------------------------------------------------*/
                 ecs.Update(deltaTime);
+                
+                /*--------------------------------------------------------------
+                    UPDATE INPUT FRAME EXIT
+                --------------------------------------------------------------*/
+                input.InputExitFrame(deltaTime);
 
                 /*--------------------------------------------------------------
                     UPDATE NAVIGATION
@@ -154,22 +159,20 @@ namespace Application {
                 navMeshManager.Update(deltaTime);
 
                 /*--------------------------------------------------------------
-                    UPDATE INPUT FRAME EXIT
-                --------------------------------------------------------------*/
-                input.InputExitFrame(deltaTime);
-
-                /*--------------------------------------------------------------
                     UPDATE Render Pipeline
                 --------------------------------------------------------------*/
                 graphicsManager.gm_UpdateBuffers(static_cast<int>(lvWindow.windowWidth), static_cast<int>(lvWindow.windowHeight));
                 graphicsManager.gm_Update();
+                graphicsManager.gm_updatemouse(lvWindow.window);
+                //if(graphicsManager.isButtonPressed)std::cout << graphicsManager.isButtonPressed << '\n';
+
 
                 /*--------------------------------------------------------------
                     Execute Render Pipeline
                 --------------------------------------------------------------*/
                 graphicsManager.gm_Render();
                 graphicsManager.gm_RenderGameBuffer();
-
+                
 
                 /*--------------------------------------------------------------
                    Reset Framebuffer

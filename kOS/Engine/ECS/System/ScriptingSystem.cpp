@@ -49,6 +49,11 @@ namespace ecs {
 					}
 
 					script->Update();
+					int steps = m_physicsManager.FrameCount();
+					for (int i = 0; i < steps; i++)
+					{
+						script->FixedUpdate();
+					}
 				}
 			}
 			catch (...) {
