@@ -113,26 +113,23 @@ namespace ecs{
 		}
 
 		
-		//loops through all the system
-		for (const auto& [systemName, system] : m_systemMap) {
-
+		//	Loops through all the system
+		for (const auto& system : m_systemList) {
+			
 			std::chrono::duration<float> systemDuration{};
 			auto start = std::chrono::steady_clock::now();
-			if (system->TestState(m_state)) { //only run state system registered in
+
+			if (system->TestState(m_state)) {	// Only run state system registered in
 				
 				for (const auto& sceneName : keys) {
-					
-
 					system->Update();
-
-
-
 				}
 
 			}
+
 			auto end = std::chrono::steady_clock::now();
 			systemDuration = (end - start);
-			m_performance.SetSystemValue(systemName, systemDuration.count());
+			m_performance.SetSystemValue(typeid(*system).name(), systemDuration.count());
 		}
 		
 	}
