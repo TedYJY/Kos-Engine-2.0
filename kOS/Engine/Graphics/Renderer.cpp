@@ -206,7 +206,7 @@ void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
 			if (mesh.animationToUse)
 			{
 				mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo());
-				mesh.meshToUse->DrawAnimation(shader, *mesh.meshMaterial, mesh.animationToUse->GetBoneFinalMatrices());
+				mesh.meshToUse->DrawAnimation(shader, mesh.meshMaterial, mesh.animationToUse->GetBoneFinalMatrices());
 			}
 			else
 			{
