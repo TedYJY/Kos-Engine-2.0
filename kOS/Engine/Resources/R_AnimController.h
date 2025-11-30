@@ -1,7 +1,6 @@
 #pragma once
 #include "Config/pch.h"
 #include "Resource.h"
-#include "ResourceHeader.h"
 
 // ---------------- CONDITION TYPE -------------------
 
