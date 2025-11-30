@@ -21,6 +21,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "imgui_stdlib.h"
+#include "imgui_node_editor.h"
 #include "ImGuizmo.h"
 #include "ECS/ECS.h"
 #include "Editor/EditorReflection.h"
@@ -36,6 +37,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Scripting/ScriptManager.h"
 #include "Debugging/Performance.h"
 #include "Audio/AudioManager.h"
+#include "Pathfinding/NavMesh.h"
 
 namespace gui {
     
@@ -59,6 +61,7 @@ namespace gui {
 		ScriptManager& m_scriptManager;
 		Peformance& m_performance;
         audio::AudioManager& m_audioManager;
+        NavMeshManager& m_navMeshManager;
 
     public:
         /******************************************************************/
@@ -71,7 +74,8 @@ namespace gui {
         ImGuiHandler(Application::AppWindow& window, AssetManager& am, GraphicsManager& gm, 
             ecs::ECS& ecs, scenes::SceneManager& sm,  serialization::Serialization& slm, 
             Fields& field, Input::InputSystem& input, physics::PhysicsManager& pm, 
-            layer::LayerStack& ls, ResourceManager& rm, ScriptManager& scriptm, Peformance& peformance, audio::AudioManager& audioM):
+            layer::LayerStack& ls, ResourceManager& rm, ScriptManager& scriptm, 
+            Peformance& peformance, audio::AudioManager& audioM, NavMeshManager& navmesh):
             m_window(window), 
             m_assetManager(am),
             m_graphicsManager(gm),
@@ -86,7 +90,8 @@ namespace gui {
 			m_resourceManager(rm),
 			m_scriptManager(scriptm),
 			m_performance(peformance),
-            m_audioManager(audioM)
+            m_audioManager(audioM),
+            m_navMeshManager(navmesh)
         {
 
 
@@ -199,7 +204,12 @@ namespace gui {
         void DrawAnimationWindow();
         void DrawAudioMixerWindow();
 
+        void DrawAnimatorControllerWindow();
+        void ShutdownAnimatorLayout();
+
         void ScriptHotReload();
+
+        void DrawNavMeshWindow();
 
         /***********PreferenceTab*************/
         bool openPreferencesTab = false;
@@ -241,6 +251,14 @@ namespace gui {
         void RegisterCallBack();
         /************************************/
 
+        /****************Node Editor****************/
+        ax::NodeEditor::EditorContext* m_animControllerContext = nullptr;
+        R_AnimController* m_activeController = nullptr;
+        utility::GUID cachedControllerGUID;
+        std::string m_layoutFilePath{};
+        bool m_nodeEditorModified = false;
+        /*******************************************/
+
 
         std::string m_imgui_layout;
 
@@ -257,6 +275,8 @@ namespace gui {
             }
 
             ImGui::SaveIniSettingsToDisk(m_imgui_layout.c_str());
+
+            //SaveAnimatorLayout("../kOS/Kos Editor/Configs/AnimatorLayout.json");
         }
 
         inline void LoadLayout()
@@ -272,6 +292,8 @@ namespace gui {
             }
 
             ImGui::LoadIniSettingsFromDisk(m_imgui_layout.c_str());
+
+            //LoadAnimatorLayout("../kOS/Kos Editor/Configs/AnimatorLayout.json");
         }
 
     };
