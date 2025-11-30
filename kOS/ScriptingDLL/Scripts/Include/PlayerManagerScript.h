@@ -167,6 +167,13 @@ public:
 			}
 		}
 
+		if (currPlayerHitPoints <= 0 && !LoseScreenScript::isLoseScreenActive) {
+			if (auto* loseScreen = ecsPtr->GetComponent<LoseScreenScript>(loseScreenCanvasID)) {
+				loseScreen->ShowLoseScreen();
+				return;
+			}
+		}
+
 		if (PauseMenuScript::isPaused ||
 			WinScreenScript::isWinScreenActive ||
 			LoseScreenScript::isLoseScreenActive)
@@ -178,10 +185,10 @@ public:
 		PlayerCameraControls();
 		PlayerCombatControls();
 
-		if (Input->IsKeyTriggered(keys::UP)) {
-			std::cout << "Player takes 1 damage for testing purposes.\n"; 
-			TakeDamage(1);
-		}
+		//if (Input->IsKeyTriggered(keys::UP)) {
+		//	std::cout << "Player takes 1 damage for testing purposes.\n"; 
+		//	TakeDamage(1);
+		//}
 	}
 
 	void FixedUpdate() override {
@@ -659,48 +666,48 @@ public:
 		return false;
 	}
 
-	void TakeDamage(int amount) {
-		if (isDead) return;
+	//void TakeDamage(int amount) {
+	//	if (isDead) return;
 
-		currPlayerHitPoints -= amount;
-		if (currPlayerHitPoints < 0) currPlayerHitPoints = 0;
+	//	currPlayerHitPoints -= amount;
+	//	if (currPlayerHitPoints < 0) currPlayerHitPoints = 0;
 
-		std::cout << "[PLAYER] Took damage: " << amount
-			<< " | Health = " << currPlayerHitPoints << std::endl;
+	//	std::cout << "[PLAYER] Took damage: " << amount
+	//		<< " | Health = " << currPlayerHitPoints << std::endl;
 
-		UpdateHealthUI();
+	//	UpdateHealthUI();
 
-		if (currPlayerHitPoints <= 0) {
-			Die();
-		}
-	}
+	//	if (currPlayerHitPoints <= 0) {
+	//		Die();
+	//	}
+	//}
 
-	void Die() {
-		isDead = true;
+	//void Die() {
+	//	isDead = true;
 
-		std::cout << "[PLAYER] Died!" << std::endl;
+	//	std::cout << "[PLAYER] Died!" << std::endl;
 
-		// Disable movement
-		currPlayerMovSpeed = 0.f;
-		currPlayerJumpForce = 0.f;
+	//	// Disable movement
+	//	currPlayerMovSpeed = 0.f;
+	//	currPlayerJumpForce = 0.f;
 
-		// Play death animation or show UI
-		//if (currPlayerHitPoints <= 0 && !WinScreenScript::isWinScreenActive) {
-		//	if (auto* loseScreen = ecsPtr->GetComponent<WinScreenScript>(winScreenCanvasID)) {
-		//		loseScreen->ShowWinScreen();
-		//		return;
-		//	}
-		//}
+	//	// Play death animation or show UI
+	//	//if (currPlayerHitPoints <= 0 && !WinScreenScript::isWinScreenActive) {
+	//	//	if (auto* loseScreen = ecsPtr->GetComponent<WinScreenScript>(winScreenCanvasID)) {
+	//	//		loseScreen->ShowWinScreen();
+	//	//		return;
+	//	//	}
+	//	//}
 
-		if (currPlayerHitPoints <= 0 && !LoseScreenScript::isLoseScreenActive) {
-			if (auto* loseScreen = ecsPtr->GetComponent<LoseScreenScript>(loseScreenCanvasID)) {
-				loseScreen->ShowLoseScreen();
-				return;
-			}
-		}
+	//	if (currPlayerHitPoints <= 0 && !LoseScreenScript::isLoseScreenActive) {
+	//		if (auto* loseScreen = ecsPtr->GetComponent<LoseScreenScript>(loseScreenCanvasID)) {
+	//			loseScreen->ShowLoseScreen();
+	//			return;
+	//		}
+	//	}
 
 
-	}
+	//}
 
 
 	void UpdateHealthUI() {
