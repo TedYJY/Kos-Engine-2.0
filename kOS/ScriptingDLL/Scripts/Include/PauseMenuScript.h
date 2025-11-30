@@ -20,11 +20,11 @@ public:
 
     void Start() override {
         pauseMenuCanvasID = ecsPtr->GetEntityIDFromGUID(pauseMenuCanvasGUID);
-
+        
         if (auto* t = ecsPtr->GetComponent<TransformComponent>(pauseMenuCanvasID)) {
             originalCanvasPosition = t->LocalTransformation.position;
         }
-
+        Input->HideCursor(true);
         SetPauseMenuActive(false);
     }
 
