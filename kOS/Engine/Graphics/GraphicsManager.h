@@ -108,8 +108,8 @@ public:
 		if (mx >= 0 && mx <= winW &&
 			my >= 0 && my <= winH)
 		{
-			float relX = mx / winW;
-			float relY = my / winH;
+			float relX = static_cast<float>(mx / winW);
+			float relY = static_cast<float>(my / winH);
 
 			int fbW, fbH;
 			glfwGetFramebufferSize(glwin, &fbW, &fbH);
