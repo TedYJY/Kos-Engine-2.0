@@ -44,7 +44,7 @@ namespace ecs{
 		RegisterComponent<ParticleComponent>();
 
 		//Allocate memory to each system
-		RegisterSystem<ScriptingSystem>(RUNNING);
+		RegisterSystem<ScriptingSystem>(RUNNING, WAIT);
 		RegisterSystem<TransformSystem, TransformComponent>();
 		RegisterSystem<CharacterControllerSystem, TransformComponent, CharacterControllerComponent>(RUNNING);
 		RegisterSystem<BoxColliderSystem, TransformComponent, BoxColliderComponent>();
