@@ -48,9 +48,9 @@ namespace ecs{
 		RegisterSystem<BoxColliderSystem, TransformComponent, BoxColliderComponent>();
 		RegisterSystem<CapsuleColliderSystem, TransformComponent, CapsuleColliderComponent>();
 		RegisterSystem<SphereColliderSystem, TransformComponent, SphereColliderComponent>();
-		RegisterSystem<RigidbodySystem, TransformComponent, RigidbodyComponent>();
-		//RegisterSystem<StaticRigidbodySystem, TransformComponent>();
-		RegisterSystem<PhysicsSystem, TransformComponent, RigidbodyComponent>();
+		RegisterSystem<RigidbodySystem, TransformComponent, RigidbodyComponent>(RUNNING);
+		RegisterSystem<StaticRigidbodySystem, TransformComponent>();
+		RegisterSystem<PhysicsSystem, TransformComponent, RigidbodyComponent>(RUNNING);
 		RegisterSystem<CameraSystem, TransformComponent, CameraComponent>();
 		RegisterSystem<MeshRenderSystem, TransformComponent,MaterialComponent, MeshFilterComponent>();
 		RegisterSystem<SkinnedMeshRenderSystem, TransformComponent, SkinnedMeshRendererComponent, AnimatorComponent>();
@@ -111,6 +111,7 @@ namespace ecs{
 			}
 			
 		}
+
 		
 		//loops through all the system
 		for (const auto& [systemName, system] : m_systemMap) {
