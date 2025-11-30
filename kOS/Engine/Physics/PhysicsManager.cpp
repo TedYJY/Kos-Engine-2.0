@@ -125,7 +125,7 @@ namespace physics {
 	}
 
 	void PhysicsManager::AddForce(void* actor, const glm::vec3& force, ForceMode mode) {
-		if (std::isnan(force.x) || std::isnan(force.y) || std::isnan(force.z)) { return; }
+		if (std::isnan(force.x) || std::isnan(force.y) || std::isnan(force.z) || actor == NULL) { return; }
 		PxRigidDynamic* rb = static_cast<PxRigidDynamic*>(actor);
 		if (!rb->getRigidBodyFlags().isSet(PxRigidBodyFlag::eKINEMATIC)) {
 			rb->addForce(PxVec3{ force.x, force.y, force.z }, ToPhysxForceMode(mode));

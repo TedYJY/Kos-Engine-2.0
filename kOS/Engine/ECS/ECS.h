@@ -217,7 +217,7 @@ namespace ecs {
 		//ENTITY DATA
 		std::unordered_map<EntityID, ComponentSignature> m_entityMap;
 		EntityID m_entityCount{};
-		std::stack<EntityID> m_availableEntityID;
+		std::deque<EntityID> m_availableEntityID;
 		std::unordered_map<utility::GUID, ecs::EntityID> m_GUIDtoEntityID;
 		std::vector<EntityID> m_deletedEntities;
 

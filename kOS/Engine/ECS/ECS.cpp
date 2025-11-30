@@ -108,7 +108,7 @@ namespace ecs{
 		//retrieve all active scenes
 		std::vector<decltype(sceneMap)::key_type> keys;
 		for (const auto& [sceneName, sceneID] : sceneMap) {
-			if (sceneID.isActive) {
+			if (sceneID.isActive && !sceneID.isPrefab) {
 				keys.push_back(sceneName);
 			}
 			
@@ -187,8 +187,8 @@ namespace ecs{
 			ID = m_entityCount++;
 		}
 		else {
-			ID = m_availableEntityID.top();
-			m_availableEntityID.pop();
+			ID = m_availableEntityID.front();
+			m_availableEntityID.pop_front();
 		}
 
 		
@@ -340,7 +340,7 @@ namespace ecs{
 
 		//delete stored entity
 		m_entityMap.erase(ID);		
-		m_availableEntityID.push(ID);
+		m_availableEntityID.push_back(ID);
 
 		return;
 	}

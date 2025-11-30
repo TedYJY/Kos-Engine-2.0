@@ -86,7 +86,7 @@ namespace Application {
         --------------------------------------------------------------*/
         //for game only
 		std::string path= resourceManager.GetResourcePath<R_Scene>(windowData.startScene);
-		if(!path.empty()) sceneManager.LoadScene(path);
+		if(!path.empty()) sceneManager.ImmediateLoadScene(path);
         LOGGING_INFO("Load Asset Successful");
 
         /*--------------------------------------------------------------

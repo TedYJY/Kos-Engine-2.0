@@ -746,7 +746,9 @@ void TileMeshConfig::Reset() {
 //}
 
 void NavMeshManager::Init() {
-    sceneManager.onSceneLoaded.Add([this](SceneData Data) {if(!Data.NavMeshGuid.Empty())LoadMesh(Data.sceneName, Data.NavMeshGuid); });
+    sceneManager.onSceneLoaded.Add([this](SceneData Data) {
+        if(!Data.NavMeshGuid.Empty())LoadMesh(Data.sceneName, Data.NavMeshGuid); 
+        });
 }
 
 void NavMeshManager::Update(float dt) {
@@ -872,7 +874,7 @@ void NavMeshManager::SaveMesh(const std::filesystem::path& filePath, const std::
 
 //TODO remove this to R_Resource
 std::shared_ptr<Sample_TileMesh> NavMeshManager::LoadMesh(const std::string& sceneName, const utility::GUID& navGUID) {
-    if (sceneName.find(".json") == std::string::npos) return nullptr; // reject if loading prefabs
+    if (sceneName.find(".prefab") != std::string::npos) return nullptr; // reject if loading prefabs
     if (navGUID.Empty()) return nullptr;
 
 

@@ -24,7 +24,6 @@ public:
         if (auto* t = ecsPtr->GetComponent<TransformComponent>(pauseMenuCanvasID)) {
             originalCanvasPosition = t->LocalTransformation.position;
         }
-        
         SetPauseMenuActive(false);
     }
 
@@ -62,9 +61,7 @@ public:
     void RestartGame() {
         requestRestart = true;
         isPaused = false;
-        SetPauseMenuActive(false);
-        Input->HideCursor(true);
-        ecsPtr->SetState(RUNNING);
+        SetPauseMenuActive(false);   
     }
 
     bool IsPaused() const { return isPaused; }

@@ -151,6 +151,13 @@ public:
 		if (Input->IsKeyReleased(keys::L)) {
 			std::cout << "L RELEASED\n";
 			Scenes->ReloadScene();
+
+			if (auto* pauseManager = ecsPtr->GetComponent<PauseMenuScript>(pauseMenuManagerID)) {
+				if (pauseManager->isPaused) {
+					pauseManager->TogglePause();		
+				}
+			}
+			
 		}
 
 		if (Input->IsKeyTriggered(keys::ESC)) {
