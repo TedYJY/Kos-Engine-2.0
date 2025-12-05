@@ -9,7 +9,7 @@ namespace ecs {
     void AnimatorSystem::Init()
     {
         // Initialize animation playback resources if needed
-        onRegister.Add([&](EntityID id) {
+       /* onRegister.Add([&](EntityID id) {
             AnimatorComponent* anim = m_ecs.GetComponent<AnimatorComponent>(id);
             if (!anim) return;
             anim->m_currentState = new AnimState{};
@@ -24,7 +24,7 @@ namespace ecs {
             if (anim->m_currentState)
             delete anim->m_currentState;
 
-            });
+            });*/
 
     }
 
@@ -47,9 +47,9 @@ namespace ecs {
 
             if (controller)
             {
-                if (animator->m_currentState)
+                if (animator->m_currentStateID)
                 {
-                    std::vector<AnimTransition>& transitions = static_cast<AnimState*>(animator->m_currentState)->outgoingTransitions;
+                    /*std::vector<AnimTransition>& transitions = static_cast<AnimState*>(animator->m_currentState)->outgoingTransitions;
                     for (const AnimTransition& transition : transitions)
                     {
                         if (static_cast<AnimState*>(animator->m_currentState)->CanTransition(transition))
@@ -61,7 +61,7 @@ namespace ecs {
                         }
                     }
                     
-                    animation = m_resourceManager.GetResource<R_Animation>(static_cast<AnimState*>(animator->m_currentState)->animationGUID).get();
+                    animation = m_resourceManager.GetResource<R_Animation>(static_cast<AnimState*>(animator->m_currentState)->animationGUID).get();*/
                 }
                    
 
@@ -72,10 +72,10 @@ namespace ecs {
                 int steps = m_physicsManager.FrameCount();
                 for (int i = 0; i < steps; i++)
                 {
-                    float add = (animation->GetTicksPerSecond() * m_physicsManager.FixedDeltaTime() * static_cast<AnimState*>(animator->m_currentState)->playSpeed) * animator->m_PlaybackSpeed * m_ecs.GetTimeScale();                   
+                 /*   float add = (animation->GetTicksPerSecond() * m_physicsManager.FixedDeltaTime() * static_cast<AnimState*>(animator->m_currentState)->playSpeed) * animator->m_PlaybackSpeed * m_ecs.GetTimeScale();                   
                     animator->m_CurrentTime += add;
                     if (static_cast<AnimState*>(animator->m_currentState)->isLooping)
-                        animator->m_CurrentTime = fmod(animator->m_CurrentTime, animation->GetDuration());
+                        animator->m_CurrentTime = fmod(animator->m_CurrentTime, animation->GetDuration());*/
                 }
             }
         }

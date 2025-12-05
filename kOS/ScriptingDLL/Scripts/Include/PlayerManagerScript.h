@@ -138,9 +138,9 @@ public:
 			playerController = resource->GetResource<R_AnimController>(anim->controllerGUID).get();
 			if (playerController)
 			{
-				currAnimationState = *playerController->m_EnterState;
+				/*currAnimationState = *playerController->m_EnterState;
 				anim->m_currentState = &currAnimationState;
-				static_cast<AnimState*>(anim->m_currentState)->SetTrigger("ForcedEntry");
+				static_cast<AnimState*>(anim->m_currentState)->SetTrigger("ForcedEntry");*/
 			}
 		}
 
@@ -360,7 +360,7 @@ public:
 		//Animation Handling
 		if (anim)
 		{
-			if (anim->m_currentState)
+			/*if (anim->m_currentState)
 			{
 
 				R_Animation* currAnim = resource->GetResource<R_Animation>(static_cast<AnimState*>(anim->m_currentState)->animationGUID).get();
@@ -370,7 +370,7 @@ public:
 					anim->m_CurrentTime = 0.f;
 				}
 
-			}
+			}*/
 		}
 
 		if (!cameraTransform) {
@@ -395,10 +395,10 @@ public:
 
 			if (anim)
 			{
-				if (anim->m_currentState)
+				/*if (anim->m_currentState)
 				{
 					static_cast<AnimState*>(anim->m_currentState)->SetTrigger("hasShot");
-				}
+				}*/
 			}
 			// ADD ATTACK ANIMATION HERE USING PLAYERISATTACKING BOOLEAN
 
@@ -652,10 +652,10 @@ public:
 			}
 			if (anim && hasAbsorbed)
 			{
-				if (anim->m_currentState)
+				/*if (anim->m_currentState)
 				{
 					static_cast<AnimState*>(anim->m_currentState)->SetTrigger("hasAbsorbed");
-				}
+				}*/
 			}
 		}
 	}

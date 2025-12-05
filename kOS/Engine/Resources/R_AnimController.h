@@ -80,39 +80,71 @@ struct AnimState {
 
 
     // Parameter storage for the state
-    std::unordered_map<std::string, AnimCondition> parameterMap;
+    ///Change this to vector, hashing is causing weird behaviour
+    //std::unordered_map<std::string, AnimCondition> parameterMap;
+
+    
 
 
     // Setters for different condition types
-    void CheckExistence(const std::string& name) { if (!parameterMap.contains(name)) parameterMap[name] = {}; };
-    void SetBool(const std::string& name, bool v) { CheckExistence(name);  parameterMap[name].boolValue = v; }
-    void SetTrigger(const std::string& name) { CheckExistence(name); parameterMap[name].triggerValue = true; }
-    void SetFloat(const std::string& name, float v) { CheckExistence(name); parameterMap[name].floatValue = v; }
-    void SetInt(const std::string& name, int v) { CheckExistence(name); parameterMap[name].intValue = v; }
-    void SetOperator(const std::string& name, AnimCondition::CompareOp op) { CheckExistence(name); parameterMap[name].op = op; };
+    //void CheckExistence(const std::string& name) { if (!parameterMap.contains(name)) parameterMap[name] = {}; };
+    //void SetBool(const std::string& name, bool v) { CheckExistence(name);  parameterMap[name].boolValue = v; }
+    //void SetTrigger(const std::string& name) { CheckExistence(name); parameterMap[name].triggerValue = true; }
+    //void SetFloat(const std::string& name, float v) { CheckExistence(name); parameterMap[name].floatValue = v; }
+    //void SetInt(const std::string& name, int v) { CheckExistence(name); parameterMap[name].intValue = v; }
+    //void SetOperator(const std::string& name, AnimCondition::CompareOp op) { CheckExistence(name); parameterMap[name].op = op; };
 
+    bool Trigger(const std::string& name) { if (CheckExistence(name)) return true; }
+    bool CompareFloatCondition(const std::string& name, float value)
+    {
+        AnimCondition* condition = nullptr;
+        if (condition = CheckExistence(name)) return false; 
+        return Compare(value, condition->floatValue, condition->op);
+    }
+    bool CompareBoolCondition(const std::string& name, bool value)
+    {
+        AnimCondition* condition = nullptr;
+        if (condition = CheckExistence(name)) return false;
+        return Compare(value, condition->boolValue, condition->op);
+    }
+    bool CompareIntCondition(const std::string& name, int value)
+    {
+        AnimCondition* condition = nullptr;
+        if (condition = CheckExistence(name)) return false;
+        return Compare(value, condition->intValue, condition->op);
+
+    }
+
+    AnimCondition* CheckExistence(const std::string& name)
+    {
+        for (int i = 0; i < outgoingTransitions.size(); i++)
+        {
+            for (int j = 0; j < outgoingTransitions[i].conditions.size(); j++)
+            {
+                if (name == outgoingTransitions[i].conditions[j].name) return &outgoingTransitions[i].conditions[j];
+            }
+        }
+        return nullptr;
+    }
+
+    bool Compare(auto a, auto b, AnimCondition::CompareOp conditionOperator)
+    {
+        switch (conditionOperator)
+        {
+            case AnimCondition::CompareOp::Equal: return a == b;
+            case AnimCondition::CompareOp::NotEqual: return a != b;
+            case AnimCondition::CompareOp::Greater: return a > b;
+            case AnimCondition::CompareOp::Less: return a < b;
+            case AnimCondition::CompareOp::GreaterEqual: return a >= b;
+            case AnimCondition::CompareOp::LessEqual: return a <= b;
+        }
+        return false;
+    };
 
     // Evaluates conditions for transitions
-    bool EvaluateCondition(const AnimCondition& c)
+
+   /* bool EvaluateCondition(const AnimCondition& c)
     {
-        auto& param = parameterMap[c.name];
-
-
-        auto compare = [&](auto a, auto b)
-            {
-                switch (c.op)
-                {
-                case AnimCondition::CompareOp::Equal: return a == b;
-                case AnimCondition::CompareOp::NotEqual: return a != b;
-                case AnimCondition::CompareOp::Greater: return a > b;
-                case AnimCondition::CompareOp::Less: return a < b;
-                case AnimCondition::CompareOp::GreaterEqual: return a >= b;
-                case AnimCondition::CompareOp::LessEqual: return a <= b;
-                }
-                return false;
-            };
-
-
         switch (c.type)
         {
         case AnimConditionType::Bool:
@@ -134,9 +166,9 @@ struct AnimState {
             return compare(param.intValue, c.intValue);
         }
         return false;
-    }
+    }*/
     // Check if a transition is valid
-    bool CanTransition(const AnimTransition& t)
+   /* bool CanTransition(const AnimTransition& t)
     {
         if (t.conditions.empty())
         {
@@ -148,7 +180,7 @@ struct AnimState {
                 return false;
         }
         return true;
-    }
+    }*/
 
 
     REFLECTABLE(AnimState, id, inputs, outputs, name, animationGUID, playSpeed, isLooping, outgoingTransitions);

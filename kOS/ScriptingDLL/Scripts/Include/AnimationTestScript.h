@@ -15,8 +15,8 @@ public:
             controller = resource->GetResource<R_AnimController>(anim->controllerGUID).get();
             if (controller)
             {
-                anim->m_currentState = controller->m_EnterState;
-                static_cast<AnimState*>(anim->m_currentState)->SetTrigger("ForcedEntry");
+               /* anim->m_currentState = controller->m_EnterState;
+                static_cast<AnimState*>(anim->m_currentState)->SetTrigger("ForcedEntry");*/
             }
         }
 
