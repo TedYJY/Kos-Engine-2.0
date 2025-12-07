@@ -212,8 +212,11 @@ namespace ecs {
 		size_t totalComponents = 0;
 
 		//SYSTEMDATA
-		std::map<std::string, std::shared_ptr<ISystem>> m_systemMap;
-		std::vector<std::shared_ptr<ISystem>> m_systemList;
+		struct SystemData{	
+			std::shared_ptr<ISystem> ptr;
+			std::string systemName;
+		};
+		std::vector<SystemData> m_systemList;
 
 		//ENTITY DATA
 		std::unordered_map<EntityID, ComponentSignature> m_entityMap;
@@ -281,9 +284,8 @@ namespace ecs {
 		(..., signature.set(GetComponentKey(Components::classname())));
 
 		std::shared_ptr<T> system = std::make_shared<T>(*this, m_graphicsManager, m_resourceManager, m_inputSystem, m_physicsManager, m_scriptManager, m_performance, m_audioManager);
-		m_systemMap[T::classname()] = system;
-		m_systemList.push_back(system);
-		m_systemMap[T::classname()]->AssignSignature(signature);
+		system->AssignSignature(signature);
+		m_systemList.emplace_back(system,T::classname());
 
 		std::bitset<GAMESTATE_COUNT> gameState;
 		if constexpr (sizeof...(states) == 0) {
@@ -293,7 +295,7 @@ namespace ecs {
 			(..., gameState.set(states));
 		}
 
-		m_systemMap[T::classname()]->SetState(gameState);
+		system->SetState(gameState);
 	}
 
 

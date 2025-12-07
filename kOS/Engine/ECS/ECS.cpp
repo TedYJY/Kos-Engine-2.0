@@ -76,8 +76,8 @@ namespace ecs{
 
 	void ECS::Init() {
 		//loops through all the system
-		for (auto& System : m_systemMap) {
-			System.second->Init();
+		for (auto& System : m_systemList) {
+			System.ptr->Init();
 		}
 
 
@@ -119,17 +119,17 @@ namespace ecs{
 			std::chrono::duration<float> systemDuration{};
 			auto start = std::chrono::steady_clock::now();
 
-			if (system->TestState(m_state)) {	// Only run state system registered in
+			if (system.ptr->TestState(m_state)) {	// Only run state system registered in
 				
 				for (const auto& sceneName : keys) {
-					system->Update();
+					system.ptr->Update();
 				}
 
 			}
 
 			auto end = std::chrono::steady_clock::now();
 			systemDuration = (end - start);
-			m_performance.SetSystemValue(typeid(*system).name(), systemDuration.count());
+			m_performance.SetSystemValue(system.systemName, systemDuration.count());
 		}
 		
 	}
@@ -156,10 +156,10 @@ namespace ecs{
 
 	void ECS::RegisterEntity(EntityID ID) {
 
-		for (auto& system : m_systemMap) {
-			if ((m_entityMap.find(ID)->second & system.second->GetSignature()) == system.second->GetSignature()) {
+		for (auto& system : m_systemList) {
+			if ((m_entityMap.find(ID)->second & system.ptr->GetSignature()) == system.ptr->GetSignature()) {
 
-				system.second->RegisterSystem(ID);
+				system.ptr->RegisterSystem(ID);
 
 			}
 		}
@@ -167,10 +167,10 @@ namespace ecs{
 
 	void ECS::DeregisterEntity(EntityID ID) {
 
-		for (auto& system : m_systemMap) {
-			if ((m_entityMap.find(ID)->second & system.second->GetSignature()) == system.second->GetSignature()) {
+		for (auto& system : m_systemList) {
+			if ((m_entityMap.find(ID)->second & system.ptr->GetSignature()) == system.ptr->GetSignature()) {
 
-				system.second->DeregisterSystem(ID);
+				system.ptr->DeregisterSystem(ID);
 
 			}
 		}
