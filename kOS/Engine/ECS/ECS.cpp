@@ -43,20 +43,29 @@ namespace ecs{
 		RegisterComponent<ParticleComponent>();
 
 		//Allocate memory to each system
+		//Level 0, Script
 		RegisterSystem<ScriptingSystem>(RUNNING, WAIT);
+
+		//Level 1, No Dependent Components
 		RegisterSystem<TransformSystem, TransformComponent>();
+
+		
+		
 		RegisterSystem<BoxColliderSystem, TransformComponent, BoxColliderComponent>();
 		RegisterSystem<CapsuleColliderSystem, TransformComponent, CapsuleColliderComponent>();
 		RegisterSystem<SphereColliderSystem, TransformComponent, SphereColliderComponent>();
 		RegisterSystem<RigidbodySystem, TransformComponent, RigidbodyComponent>(RUNNING);
-		RegisterSystem<StaticRigidbodySystem, TransformComponent>();
+		RegisterSystem<StaticRigidbodySystem, TransformComponent>();// TODO yh to split them, i cannot thread like this
 		RegisterSystem<PhysicsSystem, TransformComponent, RigidbodyComponent>(RUNNING);
+
+
+
+		//Render Level 3
 		RegisterSystem<CameraSystem, TransformComponent, CameraComponent>();
-		RegisterSystem<MeshRenderSystem, TransformComponent,MaterialComponent, MeshFilterComponent>();
+		RegisterSystem<MeshRenderSystem, TransformComponent, MaterialComponent, MeshFilterComponent>();
 		RegisterSystem<SkinnedMeshRenderSystem, TransformComponent, SkinnedMeshRendererComponent, AnimatorComponent>();
 		RegisterSystem<CubeRenderSystem, TransformComponent, MaterialComponent, CubeRendererComponent>();
 		RegisterSystem<SphereRenderSystem, TransformComponent, MaterialComponent, SphereRendererComponent>();
-
 		RegisterSystem<CanvasTextRenderSystem, TransformComponent, CanvasRendererComponent>();
 		RegisterSystem<CanvasSpriteRenderSystem, TransformComponent, CanvasRendererComponent>();
 		RegisterSystem<AnimatorSystem, TransformComponent, AnimatorComponent>(RUNNING);
