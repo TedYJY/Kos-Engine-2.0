@@ -31,15 +31,7 @@ uniform int entityID=-1;
 in vec4 vColor;
 void main()
 {          
-            if(vTexture < 32){
-                vec4 texColor = texture(textures[vTexture], TexCoords) * vColor;
-                gAlbedoSpec = texColor;
-                gMaterial.b=shaderType;
-            } else{
-                
-                gAlbedoSpec = vColor;
-                gMaterial.b=shaderType;
-            }
-            //Use frag color, bring it over to another pass..?
+    //Use frag color, bring it over to another pass..?
+    FragColor = texture(textures[vTexture], TexCoords) * vColor;
 }
 )"

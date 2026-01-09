@@ -56,6 +56,7 @@ public:
 		//Experiment with creating a particle shader
 		engineShaders.insert({ "GBufferParticleShader", Shader(basicParticleVS,basicParticleFS) });
 		engineShaders.insert({ "GBufferWorldShader", Shader(worldSpriteVS,worldSpriteFS) });
+
 	}
 
 	std::unordered_map<std::string, Shader> engineShaders;
@@ -183,5 +184,12 @@ private:
 	{
 		#include "CoreEngineShaders/Shaders/BasicParticleShader/BasicParticleShader.fs"
 	};
-
+	const char* fwdParticleVS
+	{
+		#include "CoreEngineShaders/Shaders/FowardParticleShader/FowardParticleShader.vs"
+	};
+	const char* fwdParticleFS
+	{
+		#include "CoreEngineShaders/Shaders/FowardParticleShader/FowardParticleShader.fs"
+	};
 };
