@@ -22,7 +22,6 @@
 #include "CapsuleColliderComponent.h"
 #include "SphereColliderComponent.h"
 #include "RigidbodyComponent.h"
-#include "CharacterControllerComponent.h"
 
 #include "OctreeGeneratorComponent.h"
 #include "PathfinderComponent.h"

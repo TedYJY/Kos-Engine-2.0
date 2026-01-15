@@ -33,7 +33,6 @@ namespace ecs{
 		RegisterComponent<BoxColliderComponent>();
 		RegisterComponent<CapsuleColliderComponent>();
 		RegisterComponent<SphereColliderComponent>();
-		RegisterComponent<CharacterControllerComponent>();
 		RegisterComponent<OctreeGeneratorComponent>();
 		RegisterComponent<PathfinderComponent>();
 		RegisterComponent<PathfinderTargetComponent>();
@@ -55,7 +54,6 @@ namespace ecs{
 		RegisterSystem<CapsuleColliderSystem, TransformComponent, CapsuleColliderComponent>();
 		RegisterSystem<SphereColliderSystem, TransformComponent, SphereColliderComponent>();
 		RegisterSystem<RigidbodySystem, TransformComponent, RigidbodyComponent>(RUNNING);
-		RegisterSystem<StaticRigidbodySystem, TransformComponent>();// TODO yh to split them, i cannot thread like this
 		RegisterSystem<PhysicsSystem, TransformComponent, RigidbodyComponent>(RUNNING);
 
 
