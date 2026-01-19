@@ -3,9 +3,9 @@
 using namespace CommandHistory;
 using namespace ecs;
 
-std::stack<Command> CommandHistory::commandQueue;
+//std::stack<Command> CommandHistory::commandQueue;
 
-void AddCommand(*Command cmd) {
+void CommandHistory::AddCommand(Command *cmd) {
 
 }
 

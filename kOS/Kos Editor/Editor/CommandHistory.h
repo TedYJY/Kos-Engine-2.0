@@ -15,7 +15,7 @@
 namespace CommandHistory{
 	using namespace ecs;
 
-	static std::stack<Command> commandQueue;
+	//static std::stack<Command> commandQueue;
 
 	struct Command {
 		Command(EntityID _id) : id{ _id } {}
@@ -24,6 +24,8 @@ namespace CommandHistory{
 		virtual void Undo() = 0;
 		virtual void Redo() = 0;
 	};
+
+	void AddCommand(Command *cmd);
 
 	//	- Add
 	//		- Undo -> Call DeleteEntity
