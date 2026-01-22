@@ -40,5 +40,6 @@ void main()
                 gAlbedoSpec = vColor;
                 gMaterial.b=shaderType;
             }
+            //Use frag color, bring it over to another pass..?
 }
 )"

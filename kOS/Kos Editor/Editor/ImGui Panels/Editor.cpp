@@ -95,7 +95,6 @@ namespace gui {
 		RegisterComponent<ecs::BoxColliderComponent>();
 		RegisterComponent<ecs::CapsuleColliderComponent>();
 		RegisterComponent<ecs::SphereColliderComponent>();
-		RegisterComponent<ecs::CharacterControllerComponent>();
 		RegisterComponent<ecs::ScriptComponent>();
 		RegisterComponent<ecs::AudioComponent>();
 		RegisterComponent<ecs::AudioListenerComponent>();

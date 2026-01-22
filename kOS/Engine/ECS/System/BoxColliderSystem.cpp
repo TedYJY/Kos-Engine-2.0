@@ -17,9 +17,17 @@ namespace ecs {
 			else {
 				PxRigidStatic* actor = box->actor ? static_cast<PxRigidStatic*>(box->actor) : nullptr;
 				PxShape* shape = static_cast<PxShape*>(box->shape);
-				if (actor) { actor->detachShape(*shape); }
+				if (actor) {
+					actor->detachShape(*shape);
+					if (actor->getNbShapes() == 0) {
+						PxScene* scene = actor->getScene();
+						if (scene) { scene->removeActor(*actor); }
+						actor->release();
+					}
+				}
 				shape->release();
 				box->shape = nullptr;
+				box->actor = nullptr;
 			}
 		});
 	}
@@ -62,6 +70,40 @@ namespace ecs {
 			box->box.bounds.size = box->box.size * scale;
 			box->box.bounds.min = box->box.bounds.center - box->box.bounds.extents;
 			box->box.bounds.max = box->box.bounds.center + box->box.bounds.extents;
+
+			RigidbodyComponent* rb = m_ecs.GetComponent<RigidbodyComponent>(id);
+			if (!rb) {
+				PxRigidStatic* actor = box->actor ? static_cast<PxRigidStatic*>(box->actor) : nullptr;
+				glm::vec3 pos = trans->WorldTransformation.position;
+				glm::quat rot{ glm::radians(trans->WorldTransformation.rotation) };
+				PxTransform pxTrans{ PxVec3{ pos.x, pos.y, pos.z }, PxQuat{ rot.x, rot.y, rot.z, rot.w } };
+				if (!actor) {
+					actor = m_physicsManager.GetPhysics()->createRigidStatic(pxTrans);
+					actor->userData = reinterpret_cast<void*>(static_cast<uintptr_t>(id));
+					m_physicsManager.GetScene()->addActor(*actor);
+					box->actor = actor;
+				} else { 
+					actor->setGlobalPose(pxTrans); 
+				}
+				if (!IsShapeAttachedToActor(actor, shape)) { 
+					actor->attachShape(*shape); 
+				}
+			} else { 
+				box->actor = rb->actor; 
+			}
 		}
+	}
+
+	bool BoxColliderSystem::IsShapeAttachedToActor(PxRigidActor* actor, PxShape* shape) {
+		if (!shape) { return false; }
+		PxU32 nbShapes = actor->getNbShapes();
+		std::vector<PxShape*> shapes(nbShapes);
+		actor->getShapes(shapes.data(), nbShapes);
+		for (PxU32 i = 0; i < nbShapes; ++i) {
+			if (shapes[i] == shape) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

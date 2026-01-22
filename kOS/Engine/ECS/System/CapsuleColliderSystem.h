@@ -11,6 +11,8 @@ namespace ecs {
 		void Init() override;
 		void Update() override;
 		REFLECTABLE(CapsuleColliderSystem)
+	private:
+		bool IsShapeAttachedToActor(PxRigidActor*, PxShape*);
 	};
 }
 
