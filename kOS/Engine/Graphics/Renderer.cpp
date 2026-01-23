@@ -737,8 +737,13 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 			std::cout << "after 2 OpenGL Error: " << err << std::endl;
 		}
 
+		glEnable(GL_BLEND);
+		glDepthMask(GL_FALSE);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glDrawArraysInstanced(GL_TRIANGLE_STRIP, 0, 4, static_cast<GLsizei>(instancedBasicParticles.size()));
+		glDisable(GL_BLEND);
 		glDisable(GL_DEPTH_TEST);
+		glDepthMask(GL_TRUE);
 
 		err = glGetError();
 		if (err != GL_NO_ERROR) {

@@ -24,6 +24,8 @@ out vec4 FragColor;
 void main()
 {          
     //Use frag color, bring it over to another pass..?
-    FragColor =  vColor;
+   // FragColor =  vColor;
+
+   FragColor = texture(textures[vTexture], TexCoords) * vColor;
 }
 )"
