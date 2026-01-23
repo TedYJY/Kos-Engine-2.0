@@ -12,10 +12,14 @@
 
 #include "ECS/ECS.h"
 
-namespace CommandHistory{
-	using namespace ecs;
+class CommandHistory {
+	ecs::ECS& m_ecs;
 
-	//static std::stack<Command> commandQueue;
+public:
+	CommandHistory(ecs::ECS& ecs) : m_ecs(ecs) {}
+
+	void Init();
+	void Update();
 
 	struct Command {
 		Command(EntityID _id) : id{ _id } {}
@@ -25,13 +29,27 @@ namespace CommandHistory{
 		virtual void Redo() = 0;
 	};
 
-	void AddCommand(Command *cmd);
+	class CommandWrapper {
+		CommandWrapper(Command* obj) : command{ obj } {}
+		//~CommandWrapper() { delete command; }
+
+		Command* Get() { return command; }
+	private:
+		Command* command;
+	};
+
+	// Data
+	static std::stack<CommandWrapper> commandQueue;
+	static std::stack<CommandWrapper> redoQueue;
+	static std::map<EntityID, ComponentSignature> cachedEntity;
+
+	void AddCommand(CommandWrapper cmd);
 
 	//	- Add
 	//		- Undo -> Call DeleteEntity
 	//		- Redo -> Create Entity
 	//		- Destructor -> Nothing
-	struct AddGameObject : Command{
+	struct AddGameObject : Command {
 		AddGameObject(EntityID _id);
 		void Undo();
 		void Redo();
@@ -46,7 +64,7 @@ namespace CommandHistory{
 		void Undo();
 		void Redo();
 	};
-	
+
 	//	- Delete
 	//		- Undo -> Add Back or Duplicate Entity
 	//		- Redo -> Call Delete Entity
@@ -89,4 +107,4 @@ namespace CommandHistory{
 		void Undo();
 		void Redo();
 	};
-}
+};

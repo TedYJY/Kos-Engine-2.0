@@ -834,7 +834,7 @@ void NavMeshManager::BuildRecastGeometry(std::string sceneName, std::shared_ptr<
         if (!meshComp) continue;
         
         const auto* name = m_ecs.GetComponent<NameComponent>(obj);
-        if (!name->dirty) continue;
+        if (!name->dirty) continue; // TODO: Create a NavMesh Surface Object to workaround this
 
         auto meshData = resourceManager.GetResource<R_Model>(meshComp->meshGUID);
         if (!meshData) {
