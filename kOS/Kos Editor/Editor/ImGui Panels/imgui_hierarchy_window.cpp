@@ -93,6 +93,7 @@ namespace gui
                 if (!m_activeScene.empty())
                 {
                     ecs::EntityID newEntityID = m_ecs.CreateEntity(m_activeScene);
+                    m_commandHistory.AddCommand<CommandHistory::AddGameObject>(newEntityID, m_activeScene);
 
                     // if in prefab mode, assign entity to upmost parent
                     if (m_prefabSceneMode)
@@ -536,7 +537,9 @@ namespace gui
             {
                 if (ImGui::MenuItem("Delete Entity"))
                 {
+                    m_commandHistory.AddCommand<CommandHistory::DeleteGameObject>(id, m_ecs.GetSceneByEntityID(id));
                     m_ecs.DeleteEntity(id);
+
                     m_clickedEntityId = -1;
                     ImGui::EndPopup();
                     if (open)
@@ -548,6 +551,7 @@ namespace gui
             if (ImGui::MenuItem("Duplicate Entity"))
             {
                 ecs::EntityID newid = m_ecs.DuplicateEntity(id);
+                m_commandHistory.AddCommand<CommandHistory::AddGameObject>(newid, m_activeScene);
 
                 if (m_prefabSceneMode)
                 {

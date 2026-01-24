@@ -25,44 +25,39 @@ public:
 		Command(EntityID _id) : id{ _id } {}
 
 		EntityID id;
-		virtual void Undo() = 0;
-		virtual void Redo() = 0;
+		virtual void Undo(ecs::ECS& ecs) = 0;
+		virtual void Redo(ecs::ECS& ecs) = 0;
 	};
 
 	class CommandWrapper {
-		CommandWrapper(Command* obj) : command{ obj } {}
-		//~CommandWrapper() { delete command; }
+	public: 
+		CommandWrapper(std::shared_ptr<Command> obj) : command(std::move(obj)) {}
 
-		Command* Get() { return command; }
+		std::shared_ptr<Command> Get() const { return command; }
 	private:
-		Command* command;
+		std::shared_ptr<Command> command;
 	};
 
 	// Data
 	static std::stack<CommandWrapper> commandQueue;
 	static std::stack<CommandWrapper> redoQueue;
-	static std::map<EntityID, ComponentSignature> cachedEntity;
+	
+	template<typename TCommand, typename... Args>
+	void AddCommand(Args&&... args) {
+		static_assert(std::is_base_of_v<Command, TCommand>, "TCommand must derive from Command");
+		auto cmdPtr = std::make_shared<TCommand>(std::forward<Args>(args)...);
+		commandQueue.push(CommandWrapper{ cmdPtr });
 
-	void AddCommand(CommandWrapper cmd);
+		//Clear Redo Stack
+		std::stack<CommandWrapper> empty;
+		redoQueue.swap(empty);
+	}
 
-	//	- Add
-	//		- Undo -> Call DeleteEntity
-	//		- Redo -> Create Entity
-	//		- Destructor -> Nothing
 	struct AddGameObject : Command {
-		AddGameObject(EntityID _id);
-		void Undo();
-		void Redo();
-	};
-
-	//	- Dup
-	//		- Undo -> Call DeleteEntity
-	//		- Redo -> DuplicateEntity
-	//		- Destructor -> Nothing
-	struct DuplicateGameObject : Command {
-		DuplicateGameObject(EntityID _id);
-		void Undo();
-		void Redo();
+		AddGameObject(EntityID _id, std::string _scene);
+		void Undo(ecs::ECS& ecs);
+		void Redo(ecs::ECS& ecs);
+		std::string sceneName;
 	};
 
 	//	- Delete
@@ -71,9 +66,10 @@ public:
 	//		- Store Deleted Entity and Parent?
 	//		- Destructor -> Delete Stored Entity for Command
 	struct DeleteGameObject : Command {
-		DeleteGameObject(EntityID _id);
-		void Undo();
-		void Redo();
+		DeleteGameObject(EntityID _idm, std::string _scene);
+		void Undo(ecs::ECS& ecs);
+		void Redo(ecs::ECS& ecs);
+		std::string sceneName;
 	};
 
 	//	- Parenting
@@ -82,8 +78,8 @@ public:
 	//		- Store ParentID
 	struct SetGameObjectParent : Command {
 		SetGameObjectParent(EntityID _id, EntityID parentId);
-		void Undo();
-		void Redo();
+		void Undo(ecs::ECS& ecs);
+		void Redo(ecs::ECS& ecs);
 	private:
 		EntityID prevParent;
 	};
@@ -94,8 +90,8 @@ public:
 	//		- Store ParentID 
 	struct UnparentGameObject : Command {
 		UnparentGameObject(EntityID _id);
-		void Undo();
-		void Redo();
+		void Undo(ecs::ECS& ecs);
+		void Redo(ecs::ECS& ecs);
 	private:
 		EntityID prevParent;
 	};
@@ -104,7 +100,7 @@ public:
 	//		- Store Status -> Hide or UnHide -> != currentStatus?
 	struct SetGameObjectActive : Command {
 		SetGameObjectActive(EntityID _id);
-		void Undo();
-		void Redo();
+		void Undo(ecs::ECS& ecs);
+		void Redo(ecs::ECS& ecs);
 	};
 };

@@ -139,6 +139,7 @@ namespace gui {
 		m_prefabManager.LoadAllPrefabs();
 
 		//load scene
+		m_commandHistory.Init();
 		openAndLoadSceneDialog();
 
 		//set style
@@ -174,6 +175,8 @@ namespace gui {
 		{
 
 		}
+
+		m_commandHistory.Update();
 
 		if (EditorCamera::m_editorMode)
 		{

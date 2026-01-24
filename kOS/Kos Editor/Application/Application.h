@@ -29,7 +29,6 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Reflection/Field.h"
 #include "ECS/ecs.h"
 #include "Audio/AudioManager.h"
-#include "Editor/CommandHistory.h"
 
 #include "../Editor/ImGui Panels/Editor.h"
 #include "AssetManager/AssetManager.h"
