@@ -1,3 +1,4 @@
+#pragma once
 #include "Graphics/GraphicsReferences.h"
 #include "Graphics/Shader.h"
 struct PostProcessEffect {
@@ -11,5 +12,6 @@ struct Vigniette :public PostProcessEffect {
 };
 class PostProcessingProfile {
 	public:
+	std::string profileName;
 	std::vector<std::unique_ptr<PostProcessEffect>>postProcessingEffects;
 };
