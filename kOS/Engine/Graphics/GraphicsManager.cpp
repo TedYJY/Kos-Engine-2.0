@@ -748,33 +748,25 @@ unsigned int* GraphicsManager::gm_PostProcess() {
 	glDisable(GL_DEPTH_TEST); // Crucial for post-processing
 
 	for (auto& ppe : postProcessProfile.postProcessingEffects) {
-		// --- STEP A: Render Scene -> Scratch (Apply Effect) ---
 		glBindFramebuffer(GL_FRAMEBUFFER, scratchFB->fbo);
 		glViewport(0, 0, scratchFB->width, scratchFB->height);
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		ppe->currentShader->Use();
-
-		
+		ppe->currentShader->Use();	
 		ppe->UpdateShader();
 		ppe->currentShader->SetInt("screenTexture", 0);
-
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, sceneFB->texID); 
-
+		
 		glBindVertexArray(sceneFB->vaoId);
 		glDrawElements(GL_TRIANGLE_STRIP, sceneFB->drawCount, GL_UNSIGNED_SHORT, NULL);
-
-
 		glBindFramebuffer(GL_FRAMEBUFFER, sceneFB->fbo);
 		glViewport(0, 0, sceneFB->width, sceneFB->height);
-
+		
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, scratchFB->texID); // Read from Scratch
-
+		glBindTexture(GL_TEXTURE_2D, scratchFB->texID); 
 		glDrawElements(GL_TRIANGLE_STRIP, sceneFB->drawCount, GL_UNSIGNED_SHORT, NULL);
-
 		ppe->currentShader->Disuse();
 	}
 

@@ -97,7 +97,7 @@
           }
         ]
       },
-      "profileCompiler": {
+      "postProcessingCompiler": {
         "path": "null",
         "outputExtension": ".prof",
         "inputExtensions": [
