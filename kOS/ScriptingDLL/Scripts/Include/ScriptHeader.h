@@ -10,9 +10,6 @@
 #include "EnemyManagerScript.h"
 #include "PowerupManagerScript.h"
 
-#include "FakeEnemyScript.h"
-#include "FakePlayerHealthScript.h"
-
 #include "FirePowerupManagerScript.h"
 #include "LightningPowerupManagerScript.h"
 #include "AcidPowerupManagerScript.h"
