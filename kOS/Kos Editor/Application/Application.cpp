@@ -18,10 +18,6 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 */
 /********************************************************************/
 
-
-
-
-
 #include "Application.h"
 #include "ApplicationData.h"
 #include "Scene/SceneManager.h"
@@ -29,11 +25,13 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Graphics/GraphicsManager.h"
 #include "Editor/EditorCamera.h"
 #include "AssetManager/AssetManager.h"
+#include "Resources/ResourceManager.h"
 #include "Configs/ConfigPath.h"
 #include "Debugging/Performance.h"
 #include "Scripting/ScriptManager.h"
 #include "Physics/PhysicsManager.h"
 #include "Audio/AudioManager.h"
+
 
 namespace Application {
 
@@ -109,13 +107,20 @@ namespace Application {
         Editor.Initialize(glsl_version, configpath::editorTagPath, configpath::imguiINIPath);
         LOGGING_INFO("Load ImGui Successful");
 
-
-        
+        /*--------------------------------------------------------------
+        Add Post processing function
+        --------------------------------------------------------------*/
+        sceneManager.onSceneLoaded.Add([this](SceneData Data) {
+            std::cout << "Post processing added " << Data.postProcessingProfile.GetToString() << '\n';
+            if (!Data.postProcessingProfile.Empty())graphicsManager.postProcessProfile= &resourceManager.GetResource<R_PostProcessingProfile>(Data.postProcessingProfile)->profile;
+            });
 
         LOGGING_INFO("Application Init Successful");
 
         EditorCamera::editorCamera.position.z = -50.f;
 
+   
+        
         //Sean use this to test animationn serialization
         //ResourceManager::GetInstance()->GetResource<R_Animation>("bf8a061d-e1b2-8f34-ec30-a655db0af661");
         return 0;
@@ -168,7 +173,7 @@ namespace Application {
                 /*--------------------------------------------------------------
                     Update IMGUI FRAME
                 --------------------------------------------------------------*/
-                Editor.Update();
+                PROFILE_SYSTEM(peformance, "Editor Update", Editor.Update())
 
                 /*--------------------------------------------------------------
                     UPDATE INPUT FRAME EXIT
@@ -179,22 +184,22 @@ namespace Application {
                 /*--------------------------------------------------------------
                     UPDATE Render Pipeline
                 --------------------------------------------------------------*/
-                graphicsManager.gm_Update();
+                PROFILE_SYSTEM(peformance, "graphics Update", graphicsManager.gm_Update())
 
                 /*--------------------------------------------------------------
                     UPDATE NavMesh
                 --------------------------------------------------------------*/
-                navMeshManager.Update(deltaTime);
+                PROFILE_SYSTEM(peformance, "navMeshManager Update", navMeshManager.Update(deltaTime))
 
                 /*--------------------------------------------------------------
                     Execute Render Pipeline
                 --------------------------------------------------------------*/
-                graphicsManager.gm_Render();
+                PROFILE_SYSTEM(peformance, "graphics Render", graphicsManager.gm_Render())
                 
                 /*--------------------------------------------------------------
                     Draw IMGUI FRAME
                 --------------------------------------------------------------*/
-                Editor.Render();
+                PROFILE_SYSTEM(peformance, "Editor Render", Editor.Render())
 
                 /*--------------------------------------------------------------
                    Reset Framebuffer
