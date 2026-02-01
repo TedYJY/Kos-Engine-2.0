@@ -2,17 +2,17 @@
     {
         "SceneData": {
             "skyBoxGUID": [],
-            "NavMeshGuid": "00007ffe-b093-cde4-0000-01fcc0f80000",
+            "NavMeshGuid": "00000000-0000-0000-0000-000000000000",
             "postProcessingProfile": "00000000-0000-0000-0000-000000000000",
             "ambientIntensity": 1.0
         }
     },
     {
-        "entityGUID": "83dbb9b0-a6fd-1c40-3cf6-3002eb56764f",
+        "entityGUID": "c0888182-2ed2-7a57-01dd-02ea87a22940",
         "AudioComponent": {
             "audioFiles": [
                 {
-                    "audioGUID": "80bc0a18-e742-f3e7-4f21-7d88824f985b",
+                    "audioGUID": "70b03236-6b3c-6cf5-aab8-390de14ef6a2",
                     "volume": 1.0,
                     "loop": false,
                     "playOnStart": false,
@@ -22,7 +22,7 @@
                     "isSFX": true,
                     "use3D": true,
                     "minDistance": 1.0,
-                    "maxDistance": 20.0,
+                    "maxDistance": 100.0,
                     "sourceType": 0,
                     "audioBankGUID": "00000000-0000-0000-0000-000000000000",
                     "studioEventPath": ""
@@ -38,7 +38,7 @@
                     "isSFX": true,
                     "use3D": true,
                     "minDistance": 1.0,
-                    "maxDistance": 20.0,
+                    "maxDistance": 100.0,
                     "sourceType": 0,
                     "audioBankGUID": "00000000-0000-0000-0000-000000000000",
                     "studioEventPath": ""
@@ -54,34 +54,54 @@
                     "isSFX": true,
                     "use3D": true,
                     "minDistance": 1.0,
-                    "maxDistance": 20.0,
+                    "maxDistance": 100.0,
                     "sourceType": 0,
                     "audioBankGUID": "00000000-0000-0000-0000-000000000000",
                     "studioEventPath": ""
                 }
             ]
         },
-        "BulletLogic": {
-            "bulletDamage": 5,
-            "bulletSpeed": 200.0,
-            "enemyDeathSfxGUID_1": "80bc0a18-e742-f3e7-4f21-7d88824f985b",
-            "enemyDeathSfxGUID_2": "18bde09b-18c2-4f58-5770-048caf28d1c3",
-            "enemyDeathSfxGUID_3": "ef772eb3-1923-0835-dd9b-683167c10659"
+        "EnemyBulletLogic": {
+            "bulletDamage": 1,
+            "bulletSpeed": 30.0,
+            "playerHurtSfxGUID_1": "70b03236-6b3c-6cf5-aab8-390de14ef6a2",
+            "playerHurtSfxGUID_2": "566fd594-d00c-b31e-ed77-b57eef9af2dd"
         },
         "MaterialComponent": {
             "materialGUID": [
                 {
-                    "materialGUID": "61cfd855-ca21-6e2a-3bf8-8fc94756f547"
+                    "materialGUID": "c47bcb8a-af57-706b-4154-69f26de1bc97"
                 }
             ]
         },
         "NameComponent": {
-            "entityName": "BulletPrefab",
+            "entityName": "Enemy Bullet Prefab",
             "Layer": 0,
-            "entityTag": "Bullet",
+            "entityTag": "Default",
             "isPrefab": true,
-            "prefabName": "BulletPrefab_1.prefab",
+            "prefabName": "EnemyBulletPrefab.prefab",
             "hide": false
+        },
+        "RigidbodyComponent": {
+            "mass": 1.0,
+            "drag": 0.0,
+            "angularDrag": 0.05000000074505806,
+            "useGravity": false,
+            "isKinematic": false,
+            "interpolation": 0,
+            "collisionDetection": 0,
+            "constraints": 0,
+            "speed": 0.0,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "angularVelocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
         },
         "SphereColliderComponent": {
             "isTrigger": true,
@@ -91,7 +111,7 @@
                     "y": 0.0,
                     "z": 0.0
                 },
-                "radius": 0.05000000074505806
+                "radius": 0.15000000596046448
             }
         },
         "SphereRendererComponent": {},
@@ -99,7 +119,7 @@
             "WorldTransformation": {
                 "position": {
                     "x": 0.0,
-                    "y": 0.0,
+                    "y": 10.0,
                     "z": 0.0
                 },
                 "rotation": {
@@ -108,15 +128,15 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
+                    "x": 1.5,
+                    "y": 1.5,
+                    "z": 1.5
                 }
             },
             "LocalTransformation": {
                 "position": {
                     "x": 0.0,
-                    "y": 0.0,
+                    "y": 10.0,
                     "z": 0.0
                 },
                 "rotation": {
@@ -125,9 +145,9 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
+                    "x": 1.5,
+                    "y": 1.5,
+                    "z": 1.5
                 }
             }
         }

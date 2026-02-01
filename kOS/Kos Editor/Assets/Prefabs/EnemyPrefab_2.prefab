@@ -1,14 +1,6 @@
 [
     {
-        "SceneData": {
-            "skyBoxGUID": [],
-            "NavMeshGuid": "cccccccc-cccc-cccc-cccc-cccccccccccc",
-            "postProcessingProfile": "00000000-0000-0000-0000-000000000000",
-            "ambientIntensity": 1.0
-        }
-    },
-    {
-        "entityGUID": "24c1f849-060e-20c0-28fa-472f7e043d44",
+        "entityGUID": "98867022-c7d8-5196-c6c7-7d5d3d7eeb6f",
         "CapsuleColliderComponent": {
             "isTrigger": false,
             "capsule": {
@@ -25,50 +17,29 @@
         "EnemyManagerScript": {
             "enemyHealth": 5,
             "enemyMovementSpeed": 5.0,
-            "enemyType": "Melee",
+            "enemyType": "Ranged",
             "enemyAttackRange": 2.5,
             "enemyRangedAttackRange": 15.0,
             "enemyChaseRange": 25.0,
             "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
             "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
-            "enemyBulletPrefab": "66adf257-5e24-d6e6-4321-1cf241444414",
-            "enemyHurtboxPosition": "dd847e46-a321-38fb-d037-47a47b6b1a0f"
+            "enemyBulletPrefab": "8393af65-4300-ebba-36fa-0720e42087f2",
+            "enemyHurtboxPosition": "a8ed480f-dc06-d48d-cfe7-a5be96e2fcd8"
         },
         "NameComponent": {
             "entityName": "EnemyPrefab",
             "Layer": 0,
             "entityTag": "Enemy",
             "isPrefab": true,
-            "prefabName": "EnemyPrefab.prefab",
+            "prefabName": "EnemyPrefab_2.prefab",
             "hide": false
-        },
-        "RigidbodyComponent": {
-            "mass": 1.0,
-            "drag": 0.0,
-            "angularDrag": 0.05000000074505806,
-            "useGravity": true,
-            "isKinematic": false,
-            "interpolation": 0,
-            "collisionDetection": 0,
-            "constraints": 11,
-            "speed": 0.0,
-            "velocity": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "angularVelocity": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            }
         },
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
                     "x": 23.768556594848633,
                     "y": 3.9802656173706055,
-                    "z": -15.537531852722168
+                    "z": -30.937253952026367
                 },
                 "rotation": {
                     "x": 0.0,
@@ -85,7 +56,7 @@
                 "position": {
                     "x": 23.768556594848633,
                     "y": 3.9802656173706055,
-                    "z": -15.537531852722168
+                    "z": -30.937253952026367
                 },
                 "rotation": {
                     "x": 0.0,
@@ -101,7 +72,7 @@
         },
         "children": [
             {
-                "entityGUID": "a8ed480f-dc06-d48d-cfe7-a5be96e2fcd8",
+                "entityGUID": "6ac4caf1-1df9-0909-bbf9-fe20ccb6c10f",
                 "NameComponent": {
                     "entityName": "Enemy Hurtbox Position",
                     "Layer": 0,
@@ -115,7 +86,7 @@
                         "position": {
                             "x": 23.768556594848633,
                             "y": 5.4802656173706055,
-                            "z": -15.537531852722168
+                            "z": -30.937253952026367
                         },
                         "rotation": {
                             "x": 0.0,
@@ -136,7 +107,7 @@
                         },
                         "rotation": {
                             "x": 0.0,
-                            "y": -0.0,
+                            "y": 0.0,
                             "z": 0.0
                         },
                         "scale": {
@@ -148,7 +119,7 @@
                 }
             },
             {
-                "entityGUID": "1043651a-41c8-52db-d7dc-94d18d7d6d25",
+                "entityGUID": "d1da72a6-0fc8-5697-f8fa-1f906b4de168",
                 "AnimatorComponent": {
                     "controllerGUID": "959228b7-3789-fba1-c60f-18a77dc3fc15",
                     "m_PlaybackSpeed": 1.0,
@@ -172,7 +143,7 @@
                         "position": {
                             "x": 23.768556594848633,
                             "y": 3.9802656173706055,
-                            "z": -15.537531852722168
+                            "z": -30.937253952026367
                         },
                         "rotation": {
                             "x": 0.0,
@@ -193,7 +164,7 @@
                         },
                         "rotation": {
                             "x": 0.0,
-                            "y": 0.0,
+                            "y": -0.0,
                             "z": 0.0
                         },
                         "scale": {
