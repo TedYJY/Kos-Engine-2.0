@@ -44,9 +44,10 @@ void gui::ImGuiHandler::DrawComponentWindow()
 
         
         static std::vector<const char*>componentNames;
-
-        if (componentNames.empty()) {
-            const auto& componentsString = m_ecs.GetComponentsString();
+        static const auto& componentsString = m_ecs.GetComponentsString();
+        if (componentNames.size() != componentsString.size()) {
+            
+            componentNames.clear();
             for (const auto& names : componentsString) {
                 componentNames.push_back(names.c_str());
             }
