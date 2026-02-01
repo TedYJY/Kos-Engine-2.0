@@ -246,12 +246,12 @@ void gui::ImGuiHandler::DrawMainMenuBar() {
     m_scriptManager.RunDLL();
 
     //load back scene
+    m_prefabManager.LoadAllPrefabs();
     for (const auto& scenepath : scenelist) {
-        m_sceneManager.ImmediateLoadScene(scenepath.path);
-        auto& sceneData = m_ecs.GetSceneData(scenepath.path.filename().string());
-        sceneData.isActive = scenepath.isActive;
-        if (scenepath.path.extension().string() == ".prefab") {
-            sceneData.isPrefab = true;
+        if (scenepath.path.extension().string() != ".prefab") {
+            m_sceneManager.ImmediateLoadScene(scenepath.path);
+            auto& sceneData = m_ecs.GetSceneData(scenepath.path.filename().string());
+            sceneData.isActive = scenepath.isActive;
         }
     }
 
