@@ -2,7 +2,7 @@
 #include "ScriptAdapter/TemplateSC.h"
 
 // Forward Declaration (Crucial for compiling)
-class BulletLogic;
+class EnemyBulletLogic;
 
 class EnemyManagerScript : public TemplateSC {
 public:
@@ -48,7 +48,7 @@ public:
 };
 
 // --- IMPLEMENTATION ---
-#include "BulletLogic.h"
+#include "EnemyBulletLogic.h"
 
 inline void EnemyManagerScript::Start() {
 	playerToChaseID = ecsPtr->GetEntityIDFromGUID(playerToChase);
@@ -169,7 +169,7 @@ inline void EnemyManagerScript::Update() {
 								bulletTransform->LocalTransformation.position = enemyHurtboxPositionTransform->WorldTransformation.position - glm::vec3(0.0f, 1.0f, 0.0f);
 							}
 
-							if (auto* bulletScript = ecsPtr->GetComponent<BulletLogic>(bulletID)) {
+							if (auto* bulletScript = ecsPtr->GetComponent<EnemyBulletLogic>(bulletID)) {
 								bulletScript->direction = direction;
 							}
 						}
