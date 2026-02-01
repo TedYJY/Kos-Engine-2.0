@@ -72,7 +72,11 @@ namespace scenes {
 
     void SceneManager::LoadScene(const std::filesystem::path& scene)
     {
-        m_loadQueue.push_back(scene);
+        m_loadQueue.emplace_back(scene);
+    }
+    void SceneManager::LoadScene(const utility::GUID& sceneGUID) {
+        
+        m_loadQueue.emplace_back(m_resourceManager.GetResourceDirectory() + "/" + sceneGUID.GetToString() + ".scene");
     }
 
     void SceneManager::ImmediateReloadScene()
@@ -170,6 +174,10 @@ namespace scenes {
     void SceneManager::ClearScene(const std::string& scene)
     {
         m_clearQueue.push_back(scene);
+    }
+
+    void SceneManager::ClearScene(const utility::GUID& sceneGUID) {
+        m_clearQueue.push_back(m_resourceManager.GetResourceDirectory() + "/" + sceneGUID.GetToString() + ".scene");
     }
 
     void SceneManager::SaveScene(const std::string& scene)
