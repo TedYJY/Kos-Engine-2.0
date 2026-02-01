@@ -23,6 +23,7 @@
 #include "EventColliderScript.h"
 
 #include "EnemyHurtboxScript.h"
+#include "EnemyBulletLogic.h"
 
 #include "HealthbarUIScript.h"
 #include "AnimationTestScript.h"
