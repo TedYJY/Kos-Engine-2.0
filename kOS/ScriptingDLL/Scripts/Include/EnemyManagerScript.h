@@ -165,7 +165,8 @@ inline void EnemyManagerScript::Update() {
 							ecs::EntityID bulletID = DuplicatePrefabIntoScene<R_Scene>(currentScene, enemyBulletPrefab);
 
 							if (auto* bulletTransform = ecsPtr->GetComponent<TransformComponent>(bulletID)) {
-								bulletTransform->LocalTransformation.position = enemyHurtboxPositionTransform->WorldTransformation.position;
+								// CHEESE WAY TO LOWER SHOT HEIGHT FOR NOW THE PLAYER TOO SHORTO
+								bulletTransform->LocalTransformation.position = enemyHurtboxPositionTransform->WorldTransformation.position - glm::vec3(0.0f, 1.0f, 0.0f);
 							}
 
 							if (auto* bulletScript = ecsPtr->GetComponent<BulletLogic>(bulletID)) {
