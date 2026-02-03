@@ -774,16 +774,15 @@ void VideoRenderer::Update() {
 }
 
 void VideoRenderer::Render(const CameraData& camera, Shader& shader) {
+
+	glUseProgram(shader.ID);
+	glUniform1i(glGetUniformLocation(shader.ID, "yTexture"), 0); // Bind to texture unit 0
+	glUniform1i(glGetUniformLocation(shader.ID, "uTexture"), 1); // Bind to texture unit 1
+	glUniform1i(glGetUniformLocation(shader.ID, "vTexture"), 2); // Bind to texture unit 2
+	
 	for (VideoData data : vecVideoData) {
 		
 		auto videoPtr = data.video;
-
-		glUseProgram(shader.ID);
-
-		glUniform1i(glGetUniformLocation(shader.ID, "yTexture"), 0); // Bind to texture unit 0
-		glUniform1i(glGetUniformLocation(shader.ID, "uTexture"), 1); // Bind to texture unit 1
-		glUniform1i(glGetUniformLocation(shader.ID, "vTexture"), 2); // Bind to texture unit 2
-
 		//set uniform
 		glUniformMatrix4fv(glGetUniformLocation(shader.ID, "transformation"), 1, GL_FALSE, glm::value_ptr(data.transformation));
 		glUniformMatrix4fv(glGetUniformLocation(shader.ID, "view"), 1, GL_FALSE, glm::value_ptr(camera.GetViewMtx()));
@@ -802,6 +801,7 @@ void VideoRenderer::Render(const CameraData& camera, Shader& shader) {
 		m_videoMesh.DrawMesh();
 
 	}
+	glUseProgram(0);
 }
 
 void VideoRenderer::Clear() {
