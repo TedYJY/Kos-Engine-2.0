@@ -78,8 +78,8 @@ namespace ecs {
                     {
                         if (animation->GetDuration() > animator->m_CurrentTime)
                             animator->m_CurrentTime += add;
-                        else
-                            animator->m_CurrentTime = fmod(animator->m_CurrentTime, animation->GetDuration());
+                        //else
+                           //animator->m_CurrentTime = fmod(animator->m_CurrentTime, animation->GetDuration());
 
                     }
                 }
