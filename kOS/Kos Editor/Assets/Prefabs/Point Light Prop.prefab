@@ -1,0 +1,90 @@
+[
+    {
+        "entityGUID": "cc5cdd33-5f8f-1fe5-53d3-402a2acf5303",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 2.0,
+                "y": 2.0,
+                "z": 4.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -7.828246593475342,
+                    "y": 4.80119514465332,
+                    "z": -3.471827507019043
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 89.98021697998047,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.009999999776482582,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999999776482582
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -7.828246593475342,
+                    "y": 4.80119514465332,
+                    "z": -3.471827507019043
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 89.9999771118164,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.009999999776482582,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999999776482582
+                }
+            }
+        }
+    }
+]
