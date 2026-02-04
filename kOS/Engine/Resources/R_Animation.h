@@ -50,8 +50,8 @@ public:
 	float GetDuration() const { return m_Duration; };
 	float GetTicksPerSecond() const { return m_TicksPerSecond; };
 	const NodeData& GetRootNode() const { return m_RootNode; };
-	const std::vector<glm::mat4> GetBoneFinalMatrices() const { return m_FinalBoneTransforms; };
-
+	const std::vector<glm::mat4>& GetBoneFinalMatrices() const { return m_FinalBoneTransforms; };
+	std::vector<glm::mat4>& GetBoneFinalMatrices() { return m_FinalBoneTransforms; };
 	float m_CurrentTime{};
 
 	REFLECTABLE(R_Animation);

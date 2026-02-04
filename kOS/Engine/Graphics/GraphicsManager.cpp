@@ -75,8 +75,10 @@ void GraphicsManager::gm_Initialize(float width, float height) {
 
 void GraphicsManager::gm_Update()
 {
+	skinnedMeshRenderer.Update();
 	Shader* videoShader{ &shaderManager.engineShaders.find("VideoShader")->second };
 	videoRenderer.Update(*videoShader);
+	
 }
 
 void GraphicsManager::gm_Render()
@@ -343,7 +345,7 @@ void GraphicsManager::gm_FillGBufferGame(const CameraData& camera) {
 
 	//Render all meshes
 	meshRenderer.Render(camera, *gBufferPBRShader);
-	skinnedMeshRenderer.Render(camera, *gBufferPBRShader);
+	skinnedMeshRenderer.Render(camera, *gBufferPBRShader);// is there a need to insertcamera here?
 	cubeRenderer.Render(camera, *gBufferPBRShader, &this->cube);
 	sphereRenderer.Render(camera, *gBufferPBRShader, &this->sphere);
 	gBufferPBRShader->Disuse();

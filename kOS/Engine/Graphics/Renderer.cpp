@@ -177,46 +177,92 @@ void MeshRenderer::Render(const CameraData& camera, Shader& shader)
 			mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
 		}
 	}
-
-
 }
 void MeshRenderer::Render(const CameraData& camera, Shader& shader, layer::LAYERS layer)
 {
 	shader.SetBool("isRigged", false);
 	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
+	shader.SetBool("isNotRigged", false);
 		for (MeshData& mesh : meshesToDraw[layer])
 		{
 			shader.SetTrans("model", mesh.transformation);
 			shader.SetInt("entityID", mesh.entityID + 1);
 			mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
 		}
-	
-
-
 }
-void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
+
+void BindMaterialTextures(const PBRMaterial& mat)
 {
-	shader.SetBool("isRigged", true);
-	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mat.albedo ? mat.albedo->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, mat.specular ? mat.specular->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE2);
+	glBindTexture(GL_TEXTURE_2D, mat.normal ? mat.normal->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE4);
+	glBindTexture(GL_TEXTURE_2D, mat.ao ? mat.ao->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE5);
+	glBindTexture(GL_TEXTURE_2D, mat.roughness ? mat.roughness->RetrieveTexture() : 0);
+}
+
+
+void SkinnedMeshRenderer::Update() {
 	for (std::vector<SkinnedMeshData>& meshData : skinnedMeshesToDraw) {
 		for (SkinnedMeshData& mesh : meshData)
 		{
-			shader.SetTrans("model", mesh.transformation);
-			shader.SetInt("entityID", mesh.entityID + 1);
-			if (mesh.animationToUse)
+			R_Model* model = mesh.meshToUse;
+
+			for (size_t i = 0; i < model->meshes.size(); ++i)
 			{
-				shader.SetBool("isRigged", true);
-				mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo());
-				mesh.meshToUse->DrawAnimation(shader, mesh.meshMaterial, mesh.animationToUse->GetBoneFinalMatrices());
+				SkinnedRenderItem item;
+				item.VAO = model->meshes[i].VAO;
+				item.indexCount = model->meshes[i].indices.size();
+				item.model = mesh.transformation;
+				item.material = mesh.meshMaterial; // or per-submesh material
+				item.entityID = mesh.entityID;
+				item.bones = mesh.animationToUse ? &mesh.animationToUse->GetBoneFinalMatrices() : nullptr;
+				item.isRigged = (mesh.animationToUse && !mesh.animationToUse->GetBoneFinalMatrices().empty());
+
+				skinnedRenderBatches[item.material].push_back(item);
 			}
-			else
-			{
-				shader.SetBool("isRigged", false);
-				mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
-			}
+
 
 		}
 	}
+}
+
+void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
+{
+	
+	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
+
+	for (auto& [material, items] : skinnedRenderBatches)
+	{
+		BindMaterialTextures(*material);
+
+		for (const SkinnedRenderItem& item : items)
+		{
+			shader.SetMat4("model", item.model);
+			shader.SetInt("entityID", item.entityID + 1);
+			shader.SetBool("isRigged", item.isRigged);
+
+			// Bind skeleton once if present
+			if (item.bones)
+			{
+				// Ideally, use a UBO / SSBO, not per-mat4 uniforms
+				for (size_t i = 0; i < item.bones->size(); i++)
+					shader.SetMat4("bones[" + std::to_string(i) + "]", (*item.bones)[i]);
+			}
+
+			glBindVertexArray(item.VAO);
+			glDrawElements(GL_TRIANGLES, item.indexCount, GL_UNSIGNED_INT, 0);
+		}
+	}
+	skinnedRenderBatches.clear();
 }
 
 void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader, layer::LAYERS layer)
