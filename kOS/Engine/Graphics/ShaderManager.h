@@ -61,14 +61,6 @@ public:
 		engineShaders.insert({ "FilmGrainShader",Shader(filmGrainVS,filmGrainFS) });
 		engineShaders.insert({ "ChromaticAbberrationShader",Shader(chromAbbVS,chromAbbFS) });
 		engineShaders.insert({ "VideoShader",Shader(videoVS,videoFS) });
-
-
-		Shader* gBufferPBRShader{ &engineShaders.find("GBufferPBRShader")->second };
-		gBufferPBRShader->SetInt("texture_diffuse1", 0);
-		gBufferPBRShader->SetInt("texture_specular1", 1);
-		gBufferPBRShader->SetInt("texture_normal1", 2);
-		gBufferPBRShader->SetInt("texture_ao1", 4);
-		gBufferPBRShader->SetInt("texture_roughness1", 5);
 	}
 
 	std::unordered_map<std::string, Shader> engineShaders;

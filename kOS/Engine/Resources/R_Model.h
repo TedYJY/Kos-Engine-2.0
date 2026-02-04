@@ -69,11 +69,9 @@ class R_Model : public Resource {
 		Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Textures> textures);
 		void Draw(Shader& shader);
 		void PBRDraw(Shader& shader, PBRMaterial const& mat);
-
+	private:
 		//  render data
 		unsigned int VAO, VBO, EBO;
-	private:
-		
 
 		void SetupMesh();
 	};

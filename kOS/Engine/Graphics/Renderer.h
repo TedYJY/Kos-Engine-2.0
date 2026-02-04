@@ -55,24 +55,11 @@ struct MeshRenderer : BasicRenderer
 
 struct SkinnedMeshRenderer : BasicRenderer
 {
-	struct SkinnedRenderItem
-	{
-		GLuint VAO;
-		GLsizei indexCount;
-		glm::mat4 model;
-		std::shared_ptr<PBRMaterial> material;
-		int entityID;
-		const std::vector<glm::mat4>* bones;
-		bool isRigged = false;
-	};
-
-	void Update();
 	void Render(const CameraData& camera, Shader& shader);
 	void Render(const CameraData& camera, Shader& shader, layer::LAYERS);
 	void Clear() override;
 	std::array < std::vector<SkinnedMeshData>, layer::MAXLAYER> skinnedMeshesToDraw{};
 	std::unordered_map<unsigned int, SkinnedMeshData*> skinnedMeshLookup{}; //Entity ID, Skinned Mesh Pointer
-	std::unordered_map<std::shared_ptr<PBRMaterial>, std::vector<SkinnedRenderItem>> skinnedRenderBatches;
 };
 
 struct CubeRenderer : BasicRenderer
