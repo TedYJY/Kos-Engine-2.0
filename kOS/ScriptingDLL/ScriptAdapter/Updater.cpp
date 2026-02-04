@@ -45,6 +45,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<FireLightningPowerupManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<FireAcidPowerupManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<LightningAcidPowerupManagerScript>(TemplateSC::ecsPtr);
+	RegisterScript<FireDashVfxScript>(TemplateSC::ecsPtr);
 
 	RegisterScript<GroundCheckScript>(TemplateSC::ecsPtr);
 	RegisterScript<PlayerManagerScript>(TemplateSC::ecsPtr);
@@ -72,6 +73,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<UIButtonScript>(TemplateSC::ecsPtr);
 	RegisterScript<NEWHealthBarScript>(TemplateSC::ecsPtr);
 	RegisterScript<CutSceneScript>(TemplateSC::ecsPtr);
+
 
 	FieldComponentTypeRegistry::CreateAllDrawers(static_cast<Fields*>(svm->field)->GetAction());
 }
