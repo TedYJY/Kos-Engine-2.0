@@ -39,21 +39,16 @@ void TextRenderer::InitializeTextRendererMeshes()
 
 void TextRenderer::RenderScreenFonts(const CameraData& camera, Shader& shader)
 {
-
-	Shader& fontShader{ shader };
-	fontShader.Use();
-	fontShader.SetMat3("projection", camera.GetUIOrthoMtx()); // Orthographic Projection
-	constexpr float radianConversion = 3.1451f / 180.f;
-	constexpr float loadedFontSize = 48.f;
-
 	if (!screenTextToDraw.empty() && camera.size.y != 0 && camera.size.x != 0) // Need to check for camera size
 	{
 		for (ScreenTextData& textData : screenTextToDraw)
 		{
 			//if (!textData.fontToUse)continue;;
 			// Activate corresponding render state
-
+			Shader& fontShader{ shader };
+			fontShader.Use();
 			glm::vec3 point = textData.position;
+			constexpr float radianConversion = 3.1451f / 180.f;
 			float angle = textData.rotation * radianConversion;
 
 			glm::mat3 rotationMatrix = {
@@ -61,6 +56,7 @@ void TextRenderer::RenderScreenFonts(const CameraData& camera, Shader& shader)
 			sin(angle), cos(angle),  0.0f,
 			0.0f,       0.0f,       1.0 };
 
+			fontShader.SetMat3("projection", camera.GetUIOrthoMtx()); // Orthographic Projection
 			fontShader.SetMat3("rotate", rotationMatrix);
 			fontShader.SetVec3("point", point);
 			fontShader.SetVec4("textColor", textData.color);
@@ -71,6 +67,7 @@ void TextRenderer::RenderScreenFonts(const CameraData& camera, Shader& shader)
 			float originX{ textData.position.x };
 			float originY{ textData.position.y };
 
+			constexpr float loadedFontSize = 48.f;
 			const float textXScalar = textData.scale.x * textData.fontSize / loadedFontSize;
 			const float textYScalar = textData.scale.y * textData.fontSize / loadedFontSize;
 
@@ -172,12 +169,6 @@ void MeshRenderer::Render(const CameraData& camera, Shader& shader)
 {
 	shader.SetBool("isRigged", false);
 	shader.SetVec3("color", glm::vec3{1.f,1.f,1.f});
-	shader.SetInt("texture_diffuse1", 0);
-	shader.SetInt("texture_specular1", 1);
-	shader.SetInt("texture_normal1", 2);
-	shader.SetInt("texture_ao1", 4);
-	shader.SetInt("texture_roughness1", 5);
-
 	for (std::vector<MeshData>& meshData : meshesToDraw) {
 		for (MeshData& mesh : meshData)
 		{
@@ -205,13 +196,13 @@ void MeshRenderer::Render(const CameraData& camera, Shader& shader, layer::LAYER
 }
 void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
 {
-	shader.SetBool("isRigged", true);
-	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
 	shader.SetInt("texture_diffuse1", 0);
 	shader.SetInt("texture_specular1", 1);
 	shader.SetInt("texture_normal1", 2);
 	shader.SetInt("texture_ao1", 4);
 	shader.SetInt("texture_roughness1", 5);
+	shader.SetBool("isRigged", true);
+	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
 	for (std::vector<SkinnedMeshData>& meshData : skinnedMeshesToDraw) {
 		for (SkinnedMeshData& mesh : meshData)
 		{
@@ -220,7 +211,8 @@ void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
 			if (mesh.animationToUse)
 			{
 				shader.SetBool("isRigged", true);
-				mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo());
+				size_t boneCount = mesh.meshToUse->GetBoneInfo().size();
+				mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo(), boneCount);
 				mesh.meshToUse->DrawAnimation(shader, mesh.meshMaterial, mesh.animationToUse->GetBoneFinalMatrices());
 			}
 			else
@@ -268,6 +260,9 @@ void LightRenderer::RenderAllLights(const CameraData& camera, Shader& shader)
 	for (size_t i = 0; i < pointLightsToDraw.size(); i++)
 	{
 		PointLightData& pointLight = pointLightsToDraw[i];
+		if (pointLight.shadowCon) {
+			//FIll up with uniform data
+		}
 		pointLight.SetUniform(&shader, i);
 		//pointLight.SetShaderMtrx(&shader, i);
 
@@ -310,36 +305,41 @@ void SkinnedMeshRenderer::Clear()
 	}
 }
 void CubeRenderer::Render(const CameraData& camera, Shader& shader, Cube* cubePtr) {
-	shader.SetBool("isRigged", false);
 	shader.SetInt("texture_diffuse1", 0);
 	shader.SetInt("texture_specular1", 1);
 	shader.SetInt("texture_normal1", 2);
 	shader.SetInt("texture_ao1", 4);
 	shader.SetInt("texture_roughness1", 5);
 
+	shader.SetBool("isRigged", false);
 	for (CubeData& cd : cubesToDraw) {
 		shader.SetTrans("model", cd.transformation);
 		shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
 
 		shader.SetInt("entityID", cd.entityID + 1);
 		glActiveTexture(GL_TEXTURE0); // activate proper texture unit before binding
+		
 		unsigned int currentTexture = 0;
 		currentTexture = (cd.meshMaterial.albedo) ? cd.meshMaterial.albedo->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind sepcular
 		glActiveTexture(GL_TEXTURE1); // activate proper texture unit before binding
+		
 		currentTexture = (cd.meshMaterial.specular) ? cd.meshMaterial.specular->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind normal
 		glActiveTexture(GL_TEXTURE2); // activate proper texture unit before binding
+		
 		currentTexture = (cd.meshMaterial.normal) ? cd.meshMaterial.normal->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind Metallic map
 		glActiveTexture(GL_TEXTURE4); // activate proper texture unit before binding
+		
 		currentTexture = (cd.meshMaterial.ao) ? cd.meshMaterial.ao->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind roughness
 		glActiveTexture(GL_TEXTURE5); // activate proper texture unit before binding
+		
 		currentTexture = (cd.meshMaterial.roughness) ? cd.meshMaterial.roughness->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//std::cout << "RENDERING MESH\n";
@@ -352,16 +352,16 @@ void CubeRenderer::Clear() {
 }
 
 void SphereRenderer::Render(const CameraData& camera, Shader& shader, Sphere* spherePtr) {
-	shader.SetBool("isRigged", false);
 	shader.SetInt("texture_diffuse1", 0);
 	shader.SetInt("texture_specular1", 1);
 	shader.SetInt("texture_normal1", 2);
 	shader.SetInt("texture_ao1", 4);
 	shader.SetInt("texture_roughness1", 5);
-	shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
+	shader.SetBool("isRigged", false);
 	for (SphereData& cd : spheresToDraw) {
 		//std::cout << "RENDERING SPHERE\n";
 		shader.SetTrans("model", cd.transformation);
+		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
 		shader.SetInt("entityID", cd.entityID + 1);
 		glActiveTexture(GL_TEXTURE0); // activate proper texture unit before binding
 		unsigned int currentTexture = 0;
@@ -437,7 +437,6 @@ void DebugRenderer::Render(const CameraData& camera, Shader& shader) {
 }
 //Replace model with sphere positional data later
 void DebugRenderer::RenderPointLightDebug(const CameraData& camera, Shader& shader, std::vector<PointLightData> pointLights) {
-	shader.SetFloat("uShaderType", 2.1f);
 	for (size_t i = 0; i < pointLights.size(); i++)
 	{
 		glm::mat4 model = glm::mat4(1.0f);
@@ -458,12 +457,16 @@ void DebugRenderer::RenderPointLightDebug(const CameraData& camera, Shader& shad
 		trS = glm::translate(trS, centerPrime) * glm::scale(trS, glm::vec3(radiusPrime, radiusPrime, radiusPrime)) * DebugCircle::RotateZtoV(camera.position - pointLights[i].position);
 
 		shader.SetTrans("model", model);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		shader.SetTrans("model", trY);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		shader.SetTrans("model", trX);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		shader.SetTrans("model", trS);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 	}
 
@@ -471,9 +474,6 @@ void DebugRenderer::RenderPointLightDebug(const CameraData& camera, Shader& shad
 void DebugRenderer::RenderDebugFrustums(const CameraData& camera, Shader& shader, const std::vector<CameraData>& debugFrustums)
 {
 	shader.Use();
-	shader.SetFloat("uShaderType", 2.1f);
-	shader.SetTrans("model", glm::mat4{ 1.f });
-	shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
 	for (const CameraData& cam : debugFrustums)
 	{
 		glm::mat4 proj = cam.GetPerspMtx();   // or OrthoMtx()
@@ -493,8 +493,10 @@ void DebugRenderer::RenderDebugFrustums(const CameraData& camera, Shader& shader
 			w /= w.w;
 			corners[i] = glm::vec3(w);
 		}
-         
+		shader.SetTrans("model", glm::mat4{ 1.f });
+		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });           
 		shader.SetMat4("vp", camera.GetViewMtx());
+		shader.SetFloat("uShaderType", 2.1f);
 
 		glBindBuffer(GL_ARRAY_BUFFER, debugFrustum.vboId);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(glm::vec3) * 8, corners.data());
@@ -516,8 +518,10 @@ void DebugRenderer::RenderDebugCubes(const CameraData& camera, Shader& shader)
 	//glm::quat rot = glm::vec3(glm::radians(0.f), glm::radians(0.f), glm::radians(0.f));
 	//glm::vec3 sca = glm::vec3(20.f, 20.f, 20.f);
 	//model = glm::translate(model, pos) * glm::mat4_cast(rot) * glm::scale(model, sca);
+
 	for (size_t i = 0; i < basicDebugCubes.size(); i++)
 	{
+		shader.SetFloat("uShaderType", 2.1f);
 		shader.SetTrans("model", basicDebugCubes[i].worldTransform);
 		shader.SetVec3("color", basicDebugCubes[i].color);
 		debugCube.DrawMesh();
@@ -531,24 +535,40 @@ void DebugRenderer::RenderDebugSpheres(const CameraData& camera, Shader& shader)
 		glm::mat4 model{ 1.0f };
 		model = glm::translate(model, pos) * glm::scale(model, glm::vec3{ radius });
 		shader.SetTrans("model", model);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		glm::mat4 trY = model * glm::rotate(glm::mat4{ 1.0f }, glm::radians(90.0f), glm::vec3{ 0.0f, 1.0f, 0.0f });
 		shader.SetTrans("model", trY);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		glm::mat4 trX = model * glm::rotate(glm::mat4{ 1.0f }, glm::radians(90.0f), glm::vec3{ 1.0f, 0.0f, 0.0f });
 		shader.SetTrans("model", trX);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		glm::vec3 viewDirection = camera.position - pos;
 		glm::mat4 trS = glm::translate(glm::mat4{ 1.0f }, pos) * glm::scale(glm::mat4{ 1.0f }, glm::vec3{ radius }) * DebugCircle::RotateZtoV(viewDirection);
 		shader.SetTrans("model", trS);
+		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 	}
 }
 
 void DebugRenderer::RenderDebugCapsules(const CameraData& camera, Shader& shader) {
-	shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
+	static float lastRadius = -1.0f;
+	static float lastHeight = -1.0f;
+	const float cEpsilon = 1e-5f;
 	for (size_t i = 0; i < basicDebugCapsules.size(); i++) {
-		shader.SetTrans("model", basicDebugCapsules[i].worldTransform);
+		const auto& c = basicDebugCapsules[i];
+		if (fabs(lastRadius - c.radius) > cEpsilon || fabs(lastHeight - c.height) > cEpsilon) {
+			lastRadius = c.radius;
+			lastHeight = c.height;
+			debugCapsule.radius = c.radius;
+			debugCapsule.height = c.height;
+			debugCapsule.CreateMesh();
+		}
+		shader.SetTrans("model", c.worldTransform);
+		shader.SetFloat("uShaderType", 2.1f);
+		shader.SetVec3("color", c.color);
 		debugCapsule.DrawMesh();
 	}
 }
@@ -696,8 +716,11 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 	shader.SetTrans("view", camera.GetViewMtx());
 	if (!instancedBasicParticles.empty())
 	{
-		//GLenum err = glGetError();
-
+		GLenum err = glGetError();
+		if (err != GL_NO_ERROR) {
+			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
+			std::cout << "before OpenGL Error: " << err << std::endl;
+		}
 		glEnable(GL_DEPTH_TEST);
 		glDisable(GL_CULL_FACE);  
 		for (int i = 0; i < textureIDs.size(); i++)
@@ -725,17 +748,17 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 		///std::cout << "Bound VBO ID: " << boundBuffer
 		///	<< " expected: " << basicParticleMesh.vboid << std::endl;
 
-		//err = glGetError();
-		//if (err != GL_NO_ERROR) {
-		//	//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
-		//std::cout << "after 1 OpenGL Error: " << err << std::endl;
-		//}
+		err = glGetError();
+		if (err != GL_NO_ERROR) {
+			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
+		std::cout << "after 1 OpenGL Error: " << err << std::endl;
+		}
 		glBufferSubData(GL_ARRAY_BUFFER, 0, instancedBasicParticles.size() * sizeof(BasicParticleInstance), instancedBasicParticles.data());
-		//err = glGetError();
-		//if (err != GL_NO_ERROR) {
-		//	//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
-		//	std::cout << "after 2 OpenGL Error: " << err << std::endl;
-		//}
+		err = glGetError();
+		if (err != GL_NO_ERROR) {
+			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
+			std::cout << "after 2 OpenGL Error: " << err << std::endl;
+		}
 
 		glEnable(GL_BLEND);
 		glDepthMask(GL_FALSE);
@@ -745,11 +768,11 @@ void ParticleRenderer::Render(const CameraData& camera, Shader& shader)
 		glDisable(GL_DEPTH_TEST);
 		glDepthMask(GL_TRUE);
 
-		//err = glGetError();
-		//if (err != GL_NO_ERROR) {
-		//	//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
-		//	std::cout << "after 3 OpenGL Error: " << err << std::endl;
-		//}
+		err = glGetError();
+		if (err != GL_NO_ERROR) {
+			//LOGGING_ERROR("First OpenGL Error: 0x%X", err);h
+			std::cout << "after 3 OpenGL Error: " << err << std::endl;
+		}
 
 		glEnable(GL_CULL_FACE);
 	}
