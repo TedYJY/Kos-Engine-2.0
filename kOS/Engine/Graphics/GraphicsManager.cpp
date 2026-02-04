@@ -227,17 +227,15 @@ void GraphicsManager::gm_RenderToGameFrameBuffer()
 		
 		if(!i)gm_RenderCubeMap(cd);
 		gm_RenderDeferredObjects(cd);
-		glEnable(GL_DEPTH_TEST);
-		gm_RenderParticles(cd);
-		glDisable(GL_DEPTH_TEST);
-		glDisable(GL_CULL_FACE);
-		gm_RenderVideo(cd);
-		glEnable(GL_CULL_FACE);
+
+
 	}
 	glEnable(GL_DEPTH_TEST);
 	gm_RenderParticles(gameCameras[0]);
 	glDisable(GL_DEPTH_TEST);
-
+	glDisable(GL_CULL_FACE);
+	gm_RenderVideo(gameCameras[0]);
+	glEnable(GL_CULL_FACE);
 	//TEMPORARY CODE WARNING WARNING WARNING DELETE BEFORE M4 IF NOT DIE hi Sean
 /*	Vigniette vig;
 	vig.extent = 0.19;
