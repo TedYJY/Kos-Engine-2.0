@@ -32,6 +32,9 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Resources/R_Font.h"
 #include "Resources/R_Model.h"
 
+void BindMaterialTextures(const PBRMaterial& mat);
+
+
 void TextRenderer::InitializeTextRendererMeshes()
 {
 	screenTextMesh.CreateMesh();
@@ -177,43 +180,37 @@ void MeshRenderer::Render(const CameraData& camera, Shader& shader)
 			mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
 		}
 	}
+
+
 }
 void MeshRenderer::Render(const CameraData& camera, Shader& shader, layer::LAYERS layer)
 {
 	shader.SetBool("isRigged", false);
 	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
 	shader.SetBool("isNotRigged", false);
-		for (MeshData& mesh : meshesToDraw[layer])
-		{
-			shader.SetTrans("model", mesh.transformation);
-			shader.SetInt("entityID", mesh.entityID + 1);
-			mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
-		}
+	for (MeshData& mesh : meshesToDraw[layer])
+	{
+		shader.SetTrans("model", mesh.transformation);
+		shader.SetInt("entityID", mesh.entityID + 1);
+		mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
+	}
+
+
 }
 
-void BindMaterialTextures(const PBRMaterial& mat)
-{
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mat.albedo ? mat.albedo->RetrieveTexture() : 0);
 
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, mat.specular ? mat.specular->RetrieveTexture() : 0);
-
-	glActiveTexture(GL_TEXTURE2);
-	glBindTexture(GL_TEXTURE_2D, mat.normal ? mat.normal->RetrieveTexture() : 0);
-
-	glActiveTexture(GL_TEXTURE4);
-	glBindTexture(GL_TEXTURE_2D, mat.ao ? mat.ao->RetrieveTexture() : 0);
-
-	glActiveTexture(GL_TEXTURE5);
-	glBindTexture(GL_TEXTURE_2D, mat.roughness ? mat.roughness->RetrieveTexture() : 0);
-}
 
 
 void SkinnedMeshRenderer::Update() {
-	for (std::vector<SkinnedMeshData>& meshData : skinnedMeshesToDraw) {
+	for (size_t layer{}; layer < skinnedMeshesToDraw.size() ; ++layer) {
+		std::vector<SkinnedMeshData>& meshData = skinnedMeshesToDraw[layer];
 		for (SkinnedMeshData& mesh : meshData)
 		{
+
+			if (mesh.animationToUse) {
+				mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo());
+			}
+
 			R_Model* model = mesh.meshToUse;
 
 			for (size_t i = 0; i < model->meshes.size(); ++i)
@@ -225,9 +222,9 @@ void SkinnedMeshRenderer::Update() {
 				item.material = mesh.meshMaterial; // or per-submesh material
 				item.entityID = mesh.entityID;
 				item.bones = mesh.animationToUse ? &mesh.animationToUse->GetBoneFinalMatrices() : nullptr;
-				item.isRigged = (mesh.animationToUse && !mesh.animationToUse->GetBoneFinalMatrices().empty());
+				item.isRigged = (item.bones != nullptr);
 
-				skinnedRenderBatches[item.material].push_back(item);
+				skinnedRenderBatches[item.material][layer].push_back(item);
 			}
 
 
@@ -237,23 +234,46 @@ void SkinnedMeshRenderer::Update() {
 
 void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
 {
-	
 	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
 
-	for (auto& [material, items] : skinnedRenderBatches)
+	for (auto& [material, layerItem] : skinnedRenderBatches)
 	{
 		BindMaterialTextures(*material);
 
-		for (const SkinnedRenderItem& item : items)
+		for (auto& [layer, items] : layerItem)
 		{
+			for (auto& item: items) {
+				shader.SetMat4("model", item.model);
+				shader.SetInt("entityID", item.entityID + 1);
+				shader.SetBool("isRigged", item.isRigged);
+
+				if (item.isRigged && item.bones)
+				{
+					for (size_t i = 0; i < item.bones->size(); i++)
+						shader.SetMat4("bones[" + std::to_string(i) + "]", (*item.bones)[i]);
+				}
+
+				glBindVertexArray(item.VAO);
+				glDrawElements(GL_TRIANGLES, item.indexCount, GL_UNSIGNED_INT, 0);
+			}
+		}
+	}
+}
+void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader, layer::LAYERS layer)
+{
+	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
+
+	for (auto& [material, layerItem] : skinnedRenderBatches)
+	{
+		BindMaterialTextures(*material);
+
+		for (auto& item : layerItem[layer]) {
 			shader.SetMat4("model", item.model);
 			shader.SetInt("entityID", item.entityID + 1);
 			shader.SetBool("isRigged", item.isRigged);
 
-			// Bind skeleton once if present
-			if (item.bones)
+			if (item.isRigged && item.bones)
 			{
-				// Ideally, use a UBO / SSBO, not per-mat4 uniforms
 				for (size_t i = 0; i < item.bones->size(); i++)
 					shader.SetMat4("bones[" + std::to_string(i) + "]", (*item.bones)[i]);
 			}
@@ -261,20 +281,6 @@ void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
 			glBindVertexArray(item.VAO);
 			glDrawElements(GL_TRIANGLES, item.indexCount, GL_UNSIGNED_INT, 0);
 		}
-	}
-	skinnedRenderBatches.clear();
-}
-
-void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader, layer::LAYERS layer)
-{
-	///Might wanna check on this if this gives bugs
-	shader.SetBool("isRigged", false);
-	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
-	for (SkinnedMeshData& mesh : skinnedMeshesToDraw[layer])
-	{
-		shader.SetTrans("model", mesh.transformation);
-		shader.SetInt("entityID", mesh.entityID + 1);
-		mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
 	}
 }
 
@@ -343,37 +349,33 @@ void SkinnedMeshRenderer::Clear()
 	for (std::vector<SkinnedMeshData>& md : skinnedMeshesToDraw) {
 		md.clear();
 	}
+	skinnedRenderBatches.clear();
 }
 void CubeRenderer::Render(const CameraData& camera, Shader& shader, Cube* cubePtr) {
 	shader.SetBool("isRigged", false);
 	for (CubeData& cd : cubesToDraw) {
 		shader.SetTrans("model", cd.transformation);
 		shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
-
 		shader.SetInt("entityID", cd.entityID + 1);
+
 		glActiveTexture(GL_TEXTURE0); // activate proper texture unit before binding
-		shader.SetInt("texture_diffuse1", 0);
 		unsigned int currentTexture = 0;
 		currentTexture = (cd.meshMaterial.albedo) ? cd.meshMaterial.albedo->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind sepcular
 		glActiveTexture(GL_TEXTURE1); // activate proper texture unit before binding
-		shader.SetInt("texture_specular1", 1);
 		currentTexture = (cd.meshMaterial.specular) ? cd.meshMaterial.specular->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind normal
 		glActiveTexture(GL_TEXTURE2); // activate proper texture unit before binding
-		shader.SetInt("texture_normal1", 2);
 		currentTexture = (cd.meshMaterial.normal) ? cd.meshMaterial.normal->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind Metallic map
 		glActiveTexture(GL_TEXTURE4); // activate proper texture unit before binding
-		shader.SetInt("texture_ao1", 4);
 		currentTexture = (cd.meshMaterial.ao) ? cd.meshMaterial.ao->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind roughness
 		glActiveTexture(GL_TEXTURE5); // activate proper texture unit before binding
-		shader.SetInt("texture_roughness1", 5);
 		currentTexture = (cd.meshMaterial.roughness) ? cd.meshMaterial.roughness->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//std::cout << "RENDERING MESH\n";
@@ -393,28 +395,23 @@ void SphereRenderer::Render(const CameraData& camera, Shader& shader, Sphere* sp
 		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
 		shader.SetInt("entityID", cd.entityID + 1);
 		glActiveTexture(GL_TEXTURE0); // activate proper texture unit before binding
-		shader.SetInt("texture_diffuse1", 0);
 		unsigned int currentTexture = 0;
 		currentTexture = (cd.meshMaterial.albedo) ? cd.meshMaterial.albedo->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind sepcular
 		glActiveTexture(GL_TEXTURE1); // activate proper texture unit before binding
-		shader.SetInt("texture_specular1", 1);
 		currentTexture = (cd.meshMaterial.specular) ? cd.meshMaterial.specular->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind normal
 		glActiveTexture(GL_TEXTURE2); // activate proper texture unit before binding
-		shader.SetInt("texture_normal1", 2);
 		currentTexture = (cd.meshMaterial.normal) ? cd.meshMaterial.normal->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind Metallic map
 		glActiveTexture(GL_TEXTURE4); // activate proper texture unit before binding
-		shader.SetInt("texture_ao1", 4);
 		currentTexture = (cd.meshMaterial.ao) ? cd.meshMaterial.ao->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind roughness
 		glActiveTexture(GL_TEXTURE5); // activate proper texture unit before binding
-		shader.SetInt("texture_roughness1", 5);
 		currentTexture = (cd.meshMaterial.roughness) ? cd.meshMaterial.roughness->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//std::cout << "RENDERING MESH\n";
@@ -471,6 +468,8 @@ void DebugRenderer::Render(const CameraData& camera, Shader& shader) {
 }
 //Replace model with sphere positional data later
 void DebugRenderer::RenderPointLightDebug(const CameraData& camera, Shader& shader, std::vector<PointLightData> pointLights) {
+	
+	shader.SetFloat("uShaderType", 2.1f);
 	for (size_t i = 0; i < pointLights.size(); i++)
 	{
 		glm::mat4 model = glm::mat4(1.0f);
@@ -491,16 +490,13 @@ void DebugRenderer::RenderPointLightDebug(const CameraData& camera, Shader& shad
 		trS = glm::translate(trS, centerPrime) * glm::scale(trS, glm::vec3(radiusPrime, radiusPrime, radiusPrime)) * DebugCircle::RotateZtoV(camera.position - pointLights[i].position);
 
 		shader.SetTrans("model", model);
-		shader.SetFloat("uShaderType", 2.1f);
+		
 		debugCircle.DrawMesh();
 		shader.SetTrans("model", trY);
-		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		shader.SetTrans("model", trX);
-		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		shader.SetTrans("model", trS);
-		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 	}
 
@@ -552,10 +548,10 @@ void DebugRenderer::RenderDebugCubes(const CameraData& camera, Shader& shader)
 	//glm::quat rot = glm::vec3(glm::radians(0.f), glm::radians(0.f), glm::radians(0.f));
 	//glm::vec3 sca = glm::vec3(20.f, 20.f, 20.f);
 	//model = glm::translate(model, pos) * glm::mat4_cast(rot) * glm::scale(model, sca);
-
+	shader.SetFloat("uShaderType", 2.1f);
 	for (size_t i = 0; i < basicDebugCubes.size(); i++)
 	{
-		shader.SetFloat("uShaderType", 2.1f);
+		
 		shader.SetTrans("model", basicDebugCubes[i].worldTransform);
 		shader.SetVec3("color", basicDebugCubes[i].color);
 		debugCube.DrawMesh();
@@ -563,26 +559,24 @@ void DebugRenderer::RenderDebugCubes(const CameraData& camera, Shader& shader)
 }
 
 void DebugRenderer::RenderDebugSpheres(const CameraData& camera, Shader& shader) {
+
+	shader.SetFloat("uShaderType", 2.1f);
 	for (size_t i = 0; i < basicDebugSpheres.size(); ++i) {
 		glm::vec3 pos = glm::vec3{ basicDebugSpheres[i].worldTransform[3] };
 		float radius = glm::length(glm::vec3{ basicDebugSpheres[i].worldTransform[0] });
 		glm::mat4 model{ 1.0f };
 		model = glm::translate(model, pos) * glm::scale(model, glm::vec3{ radius });
 		shader.SetTrans("model", model);
-		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		glm::mat4 trY = model * glm::rotate(glm::mat4{ 1.0f }, glm::radians(90.0f), glm::vec3{ 0.0f, 1.0f, 0.0f });
 		shader.SetTrans("model", trY);
-		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		glm::mat4 trX = model * glm::rotate(glm::mat4{ 1.0f }, glm::radians(90.0f), glm::vec3{ 1.0f, 0.0f, 0.0f });
 		shader.SetTrans("model", trX);
-		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 		glm::vec3 viewDirection = camera.position - pos;
 		glm::mat4 trS = glm::translate(glm::mat4{ 1.0f }, pos) * glm::scale(glm::mat4{ 1.0f }, glm::vec3{ radius }) * DebugCircle::RotateZtoV(viewDirection);
 		shader.SetTrans("model", trS);
-		shader.SetFloat("uShaderType", 2.1f);
 		debugCircle.DrawMesh();
 	}
 }
@@ -852,4 +846,22 @@ void VideoRenderer::Render(const CameraData& camera, Shader& shader) {
 
 void VideoRenderer::Clear() {
 	vecVideoData.clear();
+}
+
+void BindMaterialTextures(const PBRMaterial& mat)
+{
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mat.albedo ? mat.albedo->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, mat.specular ? mat.specular->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE2);
+	glBindTexture(GL_TEXTURE_2D, mat.normal ? mat.normal->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE4);
+	glBindTexture(GL_TEXTURE_2D, mat.ao ? mat.ao->RetrieveTexture() : 0);
+
+	glActiveTexture(GL_TEXTURE5);
+	glBindTexture(GL_TEXTURE_2D, mat.roughness ? mat.roughness->RetrieveTexture() : 0);
 }

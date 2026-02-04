@@ -188,8 +188,8 @@ void R_Animation::Load() {
     }
     this->m_RootNode = NodeDataParser(serialized, offset);
 
-    const int MAX_BONES{ 200 };
-    m_FinalBoneTransforms.resize(MAX_BONES, glm::mat4(1.0f));
+    size_t boneNumber = { 84 };
+    m_FinalBoneTransforms.resize( boneNumber, glm::mat4(1.0f) );
 }
 
 void R_Animation::Update(float currentTime, const glm::mat4& parentTransform, const glm::mat4& globalInverse,
