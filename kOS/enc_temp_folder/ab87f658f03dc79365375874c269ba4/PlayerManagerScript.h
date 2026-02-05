@@ -148,7 +148,6 @@ public:
 	// BACKEND PLAYER DETAILS
 	float playerRotationX = 0.f, playerRotationY = 0.f;
 
-	bool isMoving = false;
 	bool playerIsWalking = false;
 	bool playerIsSprinting = false;
 	bool playerIsCrouching = false;
@@ -447,7 +446,7 @@ inline void PlayerManagerScript::PlayerMovementControls() {
 
 	// Determine target speed based on movement state
 	float targetSpeed = 0.f;
-	isMoving = (std::abs(Input->GetHorizontal()) > 0.1f || std::abs(Input->GetVertical()) > 0.1f);
+	bool isMoving = (std::abs(Input->GetHorizontal()) > 0.1f || std::abs(Input->GetVertical()) > 0.1f);
 
 	// SPRINTING
 	if (Input->IsKeyPressed(keys::LeftShift) && Input->GetVertical() > 0.f && GroundCheck() && !playerIsCrouching) {
@@ -601,7 +600,7 @@ inline void PlayerManagerScript::PlayerCameraControls() {
 	glm::vec3 bobPosition = playerGunModelPointTransform->LocalTransformation.position;
 	float playerGunModelBobbingSpeed = playerIsSprinting ? playerGunModelSprintBobbingSpeed : playerGunModelWalkBobbingSpeed;
 
-	if (isMoving) {
+	if (playerIsWalking || playerIsSprinting) {
 		bobbingTimer += ecsPtr->m_GetDeltaTime() * playerGunModelBobbingSpeed;
 
 		float offsetY = std::sin(bobbingTimer) * playerGunModelBobbingIntensity;
