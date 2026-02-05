@@ -19,7 +19,7 @@
 #include "FireLightningPowerupManagerScript.h"
 #include "FireAcidPowerupManagerScript.h"
 #include "LightningAcidPowerupManagerScript.h"
-
+#include "FireDashVfxScript.h"
 #include "GroundCheckScript.h"
 #include "PlayerManagerScript.h"
 #include "AbilityUIScript.h"
@@ -37,3 +37,7 @@
 #include "WinScreenScript.h"
 #include "UIButtonScript.h"
 #include "NEW_HealthBarUIScript.h"
+#include "CutSceneScript.h"
+#include "ManaUIScript.h"
+#include "AmmoUIScript.h"
+#include "NextSceneEventColliderScript.h"

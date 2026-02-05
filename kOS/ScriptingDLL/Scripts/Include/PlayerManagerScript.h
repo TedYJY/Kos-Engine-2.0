@@ -152,6 +152,10 @@ public:
 	bool playerIsCrouching = false;
 	bool playerIsSliding = false;
 
+	bool isDashing = false;
+	float dashDuration = 0.25f; // How long the player can't be controlled during dash?
+	float currentDashTimer = 0.0f;
+
 	float originalPlayerCrouchCameraPosY;
 	float playerCrouchCameraPosY;
 
@@ -316,18 +320,7 @@ inline void PlayerManagerScript::Start() {
 			if (auto* currAnimState = playerController->RetrieveStateByID(animComp->m_currentStateID))
 				currAnimState->Trigger("ForcedEntry", animComp, playerController);
 		}
-	}
-
-	std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
-	ecs::EntityID fireDashID = DuplicatePrefabIntoScene<R_Scene>(currentScene, fireDashPrefab);
-	ecs::EntityID parentID = entity;
-	ecsPtr->SetParent(parentID, fireDashID, false);
-	if (auto* vfxTf = ecsPtr->GetComponent<TransformComponent>(fireDashID))
-	{
-		vfxTf->LocalTransformation.position = glm::vec3(1.f, 1.f, 0.f);  // offset
-		vfxTf->LocalTransformation.rotation = glm::vec3(0.f, 0.f, 0.f);
-	}
-	ecsPtr->SetActive(fireDashID, false);
+	};
 }
 
 inline void PlayerManagerScript::Update() {
@@ -402,7 +395,20 @@ inline void PlayerManagerScript::Update() {
 		if (fireCurrMeleeCooldown < 0.0f)
 			fireCurrMeleeCooldown = 0.0f;
 	}
-	PlayerMovementControls();
+
+	// Dashing cooldown
+	if (isDashing) {
+		currentDashTimer -= ecsPtr->m_GetDeltaTime();
+		if (currentDashTimer <= 0.0f) {
+			isDashing = false;
+		}
+	}
+
+	if (!isDashing) {
+		PlayerMovementControls(); // Look at me
+	}
+
+	// PlayerMovementControls(); I removed dis to disable movement while dashing, if anyone wants there to be more control during a dash need to look here
 	PlayerCameraControls();
 	PlayerCombatControls();
 
@@ -1125,7 +1131,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 
 				if (auto* lightningLMBScript = ecsPtr->GetComponent<LightningLMB>(lightningLMBID)) {
-					//fireLMBScript->direction = GetPlayerCameraFrontDirection();
+					lightningLMBScript->direction = GetPlayerCameraFrontDirection();
 				}
 			}
 
@@ -1203,11 +1209,24 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 		if (!playerRigidbody) return;
 
 		if (playerPowerupHeld == Powerup::FIRE && currMana >= fireMovementCost && fireCurrMovementCooldown <= 0.f) {
-			
+		
+			std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
+			ecs::EntityID fireDashID = DuplicatePrefabIntoScene<R_Scene>(currentScene, fireDashPrefab);
+			ecs::EntityID parentID = entity;
+			ecsPtr->SetParent(parentID, fireDashID, false);
+			if (auto* vfxTf = ecsPtr->GetComponent<TransformComponent>(fireDashID))
+			{
+				vfxTf->LocalTransformation.position = glm::vec3(1.f, 1.f, 0.f);  // offset
+				vfxTf->LocalTransformation.rotation = glm::vec3(0.f, 0.f, 0.f);
+			}
+
 			//fireDashVfxTimer = fireDashVfxDuration;
 			//ecsPtr->SetActive(fireDashID, true);
 
 			physicsPtr->AddForce(playerRigidbody->actor, GetPlayerFrontDirection() * 50.f, ForceMode::Impulse);
+
+			isDashing = true;
+			currentDashTimer = dashDuration;
 
 			currMana -= fireMovementCost;
 			fireCurrMovementCooldown = fireMovementCooldown;
@@ -1228,6 +1247,9 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			glm::vec3 force = Input->GetVertical() * GetPlayerFrontDirection() + Input->GetHorizontal() * GetPlayerRightDirection();
 			force = glm::normalize(force);
 			physicsPtr->AddForce(playerRigidbody->actor, force * 25.f, ForceMode::Impulse);
+
+			isDashing = true;
+			currentDashTimer = dashDuration;
 
 			currMana -= lightningMovementCost;
 			lightningCurrMovementCooldown = lightningMovementCooldown;

@@ -9430,12 +9430,13 @@
                     "playerArmModelObject": "0a59d88b-df5b-7a8a-b91f-d75191180ea9",
                     "playerGroundCheckObject": "a9d14e21-9b8b-1578-244a-be23e797468f",
                     "bulletPrefab": "66adf257-5e24-d6e6-4321-1cf241444414",
-                    "fireLMBPrefab": "f9191889-b383-4649-c9b2-a713008788c6",
+                    "fireLMBPrefab": "17452ee3-e461-b31d-e44e-5e1c5c80f383",
                     "acidLMBPrefab": "00000000-0000-0000-0000-000000000000",
-                    "lightningLMBPrefab": "00000000-0000-0000-0000-000000000000",
+                    "lightningLMBPrefab": "22008401-4fad-4af8-e998-498349593039",
                     "firePrefab": "a489a9c4-2ad1-24e0-9ad5-f1b1ef81e4b7",
                     "acidPrefab": "df217809-aa63-539d-4bb6-d7ffde283b90",
                     "lightningPrefab": "ea36b838-cef9-7c8c-584a-29654652024a",
+                    "fireDashPrefab": "2c08aaf0-6347-63db-2c50-728bcb1fff62",
                     "gunSfxGUID_1": "d98d60d5-127f-8dc2-b051-dc6d6b883682",
                     "gunSfxGUID_2": "f73fbd2e-15e7-5d4b-1662-91a2f4132644",
                     "pauseMenuManagerObject": "155ba76a-ab15-3655-61d0-3eb0d2bccb85",
@@ -10575,6 +10576,7 @@
                     "actionType": 2,
                     "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                     "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
+                    "useKeyboardShortcuts": true,
                     "wasPressed": false
                 }
             }
@@ -11077,6 +11079,7 @@
                     "actionType": 2,
                     "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                     "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
+                    "useKeyboardShortcuts": true,
                     "wasPressed": false
                 }
             }
@@ -11464,6 +11467,7 @@
                     "actionType": 2,
                     "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                     "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
+                    "useKeyboardShortcuts": true,
                     "wasPressed": false
                 }
             }
@@ -11478,8 +11482,8 @@
             "entityName": "Game UI Canvas",
             "Layer": 0,
             "entityTag": "Default",
-            "isPrefab": false,
-            "prefabName": "",
+            "isPrefab": true,
+            "prefabName": "Game UI Canvas.prefab",
             "hide": false
         },
         "TransformComponent": {
@@ -11525,7 +11529,7 @@
                     "entityName": "Crosshair UI",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -11590,7 +11594,7 @@
                     "entityName": "Ability UI Base",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -11651,16 +11655,24 @@
             },
             {
                 "entityGUID": "7c0bd0dc-3713-353f-81c9-fd2484078e68",
+                "AbilityUIImageScript": {
+                    "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
+                    "playerObjectID": 0,
+                    "noneSprite": "00000000-0000-0000-0000-000000000000",
+                    "fireSprite": "17c10dc5-af0f-c7c6-7091-40ccefac22f3",
+                    "lightningSprite": "14c5711b-fe4a-5700-2e1d-de43bdf6ab37",
+                    "acidSprite": "00000000-0000-0000-0000-000000000000"
+                },
                 "NameComponent": {
                     "entityName": "Ability UI",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
                 "SpriteComponent": {
-                    "spriteGUID": "14c5711b-fe4a-5700-2e1d-de43bdf6ab37",
+                    "spriteGUID": "00000000-0000-0000-0000-000000000000",
                     "color": {
                         "x": 1.0,
                         "y": 1.0,
@@ -11720,7 +11732,7 @@
                     "entityName": "Health UI Base",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -11782,8 +11794,9 @@
             {
                 "entityGUID": "414ecb47-209a-a544-9177-c8c600321e68",
                 "NEWHealthBarScript": {
+                    "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
+                    "playerObjectID": 0,
                     "healthbarSprite": "1a14f824-3722-53b3-58dc-6baf513e5964",
-                    "testHealthPercentage": 100.0,
                     "originalScale": {
                         "x": 1.0,
                         "y": 1.0,
@@ -11800,7 +11813,7 @@
                     "entityName": "Health Bar",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -11865,7 +11878,7 @@
                     "entityName": "Mana Bar Base",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -11926,11 +11939,27 @@
             },
             {
                 "entityGUID": "7d7afda0-2b34-01f8-11f2-48f9b39d6a4d",
+                "ManaUIScript": {
+                    "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
+                    "playerObjectID": 0,
+                    "manabarSprite": "355f979b-0a4a-12d1-8f0e-4cb33e820630",
+                    "originalScale": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "originalPosition": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "initialized": false
+                },
                 "NameComponent": {
                     "entityName": "Mana Bar",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -11995,7 +12024,7 @@
                     "entityName": "Ability 1",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -12060,7 +12089,7 @@
                     "entityName": "Ability 2",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -12125,7 +12154,7 @@
                     "entityName": "Ability 3",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -12186,11 +12215,22 @@
             },
             {
                 "entityGUID": "a25eaf3d-f379-830f-bfd9-a4b26c3d2f12",
+                "AmmoUIScript": {
+                    "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
+                    "playerObjectID": 0,
+                    "ammo0Sprite": "47c8a01a-8fe7-9a82-059f-9098a98f4961",
+                    "ammo1Sprite": "15982aa4-070d-c3da-6479-c35ff3fcbca4",
+                    "ammo2Sprite": "bf4358f3-adac-a488-5dea-2ad5bcc0b96d",
+                    "ammo3Sprite": "2865a210-991b-7fa6-ba38-d254d502425c",
+                    "ammo4Sprite": "b58bf2ab-102e-7ece-5fb0-35425c5f5d6b",
+                    "ammo5Sprite": "5e1cb9c6-9879-43fe-9d66-fb0359bc8234",
+                    "ammo6Sprite": "2d0349a7-3c22-e0ae-c79d-94fbea70823f"
+                },
                 "NameComponent": {
                     "entityName": "Ammo",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
@@ -14419,12 +14459,6 @@
                 }
             }
         },
-        "EventColliderScript": {
-            "winUIObject": "dc86b705-19e8-4cfd-3b8f-7e29a330eac3",
-            "winUIObjectID": 0,
-            "timer": 0.0,
-            "winScreenCanvasObject": "dd420147-13cd-2a52-32b4-107bc917a44d"
-        },
         "NameComponent": {
             "entityName": "Win Object",
             "Layer": 0,
@@ -14432,6 +14466,12 @@
             "isPrefab": false,
             "prefabName": "",
             "hide": false
+        },
+        "NextSceneColliderScript": {
+            "nextSceneGUID": "9560c56e-90e7-6a41-2af7-5840600a6c9f",
+            "minActivationTime": 2.0,
+            "timer": 0.0,
+            "hasTriggered": false
         },
         "TransformComponent": {
             "WorldTransformation": {
@@ -14929,5 +14969,73 @@
                 }
             }
         ]
+    },
+    {
+        "entityGUID": "6370e936-226e-c90f-4519-065de273bd34",
+        "BoxColliderComponent": {
+            "isTrigger": true,
+            "box": {
+                "center": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "size": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            }
+        },
+        "NameComponent": {
+            "entityName": "Win Object",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": false,
+            "prefabName": "",
+            "hide": false
+        },
+        "NextSceneColliderScript": {
+            "nextSceneGUID": "9560c56e-90e7-6a41-2af7-5840600a6c9f",
+            "minActivationTime": 2.0,
+            "timer": 0.0,
+            "hasTriggered": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 72.04826354980469,
+                    "y": 1.6018038988113403,
+                    "z": -35.79609298706055
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 2.0,
+                    "y": 2.0,
+                    "z": 2.0
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 72.04826354980469,
+                    "y": 1.6018038988113403,
+                    "z": -35.79609298706055
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 2.0,
+                    "y": 2.0,
+                    "z": 2.0
+                }
+            }
+        }
     }
 ]

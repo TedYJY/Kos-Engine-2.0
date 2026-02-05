@@ -196,6 +196,11 @@ void MeshRenderer::Render(const CameraData& camera, Shader& shader, layer::LAYER
 }
 void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
 {
+	shader.SetInt("texture_diffuse1", 0);
+	shader.SetInt("texture_specular1", 1);
+	shader.SetInt("texture_normal1", 2);
+	shader.SetInt("texture_ao1", 4);
+	shader.SetInt("texture_roughness1", 5);
 	shader.SetBool("isRigged", true);
 	shader.SetVec3("color", glm::vec3{ 1.f,1.f,1.f });
 	for (std::vector<SkinnedMeshData>& meshData : skinnedMeshesToDraw) {
@@ -206,7 +211,8 @@ void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader)
 			if (mesh.animationToUse)
 			{
 				shader.SetBool("isRigged", true);
-				mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo());
+				size_t boneCount = mesh.meshToUse->GetBoneInfo().size();
+				mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo(), boneCount);
 				mesh.meshToUse->DrawAnimation(shader, mesh.meshMaterial, mesh.animationToUse->GetBoneFinalMatrices());
 			}
 			else
@@ -299,6 +305,12 @@ void SkinnedMeshRenderer::Clear()
 	}
 }
 void CubeRenderer::Render(const CameraData& camera, Shader& shader, Cube* cubePtr) {
+	shader.SetInt("texture_diffuse1", 0);
+	shader.SetInt("texture_specular1", 1);
+	shader.SetInt("texture_normal1", 2);
+	shader.SetInt("texture_ao1", 4);
+	shader.SetInt("texture_roughness1", 5);
+
 	shader.SetBool("isRigged", false);
 	for (CubeData& cd : cubesToDraw) {
 		shader.SetTrans("model", cd.transformation);
@@ -306,28 +318,28 @@ void CubeRenderer::Render(const CameraData& camera, Shader& shader, Cube* cubePt
 
 		shader.SetInt("entityID", cd.entityID + 1);
 		glActiveTexture(GL_TEXTURE0); // activate proper texture unit before binding
-		shader.SetInt("texture_diffuse1", 0);
+		
 		unsigned int currentTexture = 0;
 		currentTexture = (cd.meshMaterial.albedo) ? cd.meshMaterial.albedo->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind sepcular
 		glActiveTexture(GL_TEXTURE1); // activate proper texture unit before binding
-		shader.SetInt("texture_specular1", 1);
+		
 		currentTexture = (cd.meshMaterial.specular) ? cd.meshMaterial.specular->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind normal
 		glActiveTexture(GL_TEXTURE2); // activate proper texture unit before binding
-		shader.SetInt("texture_normal1", 2);
+		
 		currentTexture = (cd.meshMaterial.normal) ? cd.meshMaterial.normal->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind Metallic map
 		glActiveTexture(GL_TEXTURE4); // activate proper texture unit before binding
-		shader.SetInt("texture_ao1", 4);
+		
 		currentTexture = (cd.meshMaterial.ao) ? cd.meshMaterial.ao->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind roughness
 		glActiveTexture(GL_TEXTURE5); // activate proper texture unit before binding
-		shader.SetInt("texture_roughness1", 5);
+		
 		currentTexture = (cd.meshMaterial.roughness) ? cd.meshMaterial.roughness->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//std::cout << "RENDERING MESH\n";
@@ -340,6 +352,11 @@ void CubeRenderer::Clear() {
 }
 
 void SphereRenderer::Render(const CameraData& camera, Shader& shader, Sphere* spherePtr) {
+	shader.SetInt("texture_diffuse1", 0);
+	shader.SetInt("texture_specular1", 1);
+	shader.SetInt("texture_normal1", 2);
+	shader.SetInt("texture_ao1", 4);
+	shader.SetInt("texture_roughness1", 5);
 	shader.SetBool("isRigged", false);
 	for (SphereData& cd : spheresToDraw) {
 		//std::cout << "RENDERING SPHERE\n";
@@ -347,28 +364,23 @@ void SphereRenderer::Render(const CameraData& camera, Shader& shader, Sphere* sp
 		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
 		shader.SetInt("entityID", cd.entityID + 1);
 		glActiveTexture(GL_TEXTURE0); // activate proper texture unit before binding
-		shader.SetInt("texture_diffuse1", 0);
 		unsigned int currentTexture = 0;
 		currentTexture = (cd.meshMaterial.albedo) ? cd.meshMaterial.albedo->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind sepcular
 		glActiveTexture(GL_TEXTURE1); // activate proper texture unit before binding
-		shader.SetInt("texture_specular1", 1);
 		currentTexture = (cd.meshMaterial.specular) ? cd.meshMaterial.specular->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind normal
 		glActiveTexture(GL_TEXTURE2); // activate proper texture unit before binding
-		shader.SetInt("texture_normal1", 2);
 		currentTexture = (cd.meshMaterial.normal) ? cd.meshMaterial.normal->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind Metallic map
 		glActiveTexture(GL_TEXTURE4); // activate proper texture unit before binding
-		shader.SetInt("texture_ao1", 4);
 		currentTexture = (cd.meshMaterial.ao) ? cd.meshMaterial.ao->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//Bind roughness
 		glActiveTexture(GL_TEXTURE5); // activate proper texture unit before binding
-		shader.SetInt("texture_roughness1", 5);
 		currentTexture = (cd.meshMaterial.roughness) ? cd.meshMaterial.roughness->RetrieveTexture() : 0;
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		//std::cout << "RENDERING MESH\n";
@@ -542,10 +554,21 @@ void DebugRenderer::RenderDebugSpheres(const CameraData& camera, Shader& shader)
 }
 
 void DebugRenderer::RenderDebugCapsules(const CameraData& camera, Shader& shader) {
+	static float lastRadius = -1.0f;
+	static float lastHeight = -1.0f;
+	const float cEpsilon = 1e-5f;
 	for (size_t i = 0; i < basicDebugCapsules.size(); i++) {
-		shader.SetTrans("model", basicDebugCapsules[i].worldTransform);
+		const auto& c = basicDebugCapsules[i];
+		if (fabs(lastRadius - c.radius) > cEpsilon || fabs(lastHeight - c.height) > cEpsilon) {
+			lastRadius = c.radius;
+			lastHeight = c.height;
+			debugCapsule.radius = c.radius;
+			debugCapsule.height = c.height;
+			debugCapsule.CreateMesh();
+		}
+		shader.SetTrans("model", c.worldTransform);
 		shader.SetFloat("uShaderType", 2.1f);
-		shader.SetVec3("color", glm::vec3{ 0.f,1.f,0.f });
+		shader.SetVec3("color", c.color);
 		debugCapsule.DrawMesh();
 	}
 }

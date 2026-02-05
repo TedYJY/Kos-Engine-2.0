@@ -2,31 +2,45 @@
 #include "ECS/Component/Component.h"
 #include "Config/pch.h"
 #include "ScriptAdapter/TemplateSC.h"
+#include "PlayerManagerScript.h"
 
 class NEWHealthBarScript : public TemplateSC {
 public:
-    // Single health bar sprite
+    // Reference to the player object to read health from
+    utility::GUID playerObject;
+    ecs::EntityID playerObjectID;
+
+    // Health bar sprite
     utility::GUID healthbarSprite;
 
-    // Test slider for manually adjusting health percentage (0-100)
-    float testHealthPercentage = 100.0f;
-
     void Start() override {
-        // Initialize with full health
-        UpdateHealthBarSprite(testHealthPercentage);
+        // Resolve the player entity ID
+        playerObjectID = ecsPtr->GetEntityIDFromGUID(playerObject);
+
+        // Initialize with current health
+        if (auto* playerMgr = ecsPtr->GetComponent<PlayerManagerScript>(playerObjectID)) {
+            float healthPercentage = ((float)playerMgr->currPlayerHitPoints / (float)playerMgr->maxPlayerHitPoints) * 100.0f;
+            UpdateHealthBarSprite(healthPercentage);
+        }
     }
 
     void Update() override {
-        // Clamp percentage between 0 and 100
-        float healthPercentage = std::clamp(testHealthPercentage, 0.0f, 100.0f);
+        // Read health from PlayerManagerScript
+        if (auto* playerMgr = ecsPtr->GetComponent<PlayerManagerScript>(playerObjectID)) {
+            // Calculate health percentage
+            float healthPercentage = ((float)playerMgr->currPlayerHitPoints / (float)playerMgr->maxPlayerHitPoints) * 100.0f;
 
-        // Update the sprite every frame based on slider
-        UpdateHealthBarSprite(healthPercentage);
+            // Clamp between 0 and 100
+            healthPercentage = std::clamp(healthPercentage, 0.0f, 100.0f);
+
+            // Update the sprite based on health percentage
+            UpdateHealthBarSprite(healthPercentage);
+        }
     }
 
 private:
-    glm::vec3 originalScale = glm::vec3(1.0f); // Store original scale
-    glm::vec3 originalPosition = glm::vec3(0.0f); // Store original position
+    glm::vec3 originalScale = glm::vec3(1.0f);      // Store original scale
+    glm::vec3 originalPosition = glm::vec3(0.0f);   // Store original position
     bool initialized = false;
 
     void UpdateHealthBarSprite(float healthPercentage) {
@@ -73,6 +87,6 @@ private:
     }
 
 public:
-    REFLECTABLE(NEWHealthBarScript, healthbarSprite, testHealthPercentage,
+    REFLECTABLE(NEWHealthBarScript, playerObject, playerObjectID, healthbarSprite,
         originalScale, originalPosition, initialized);
 };
