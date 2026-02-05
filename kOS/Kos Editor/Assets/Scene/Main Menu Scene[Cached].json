@@ -343,7 +343,7 @@
                     "actionType": 1,
                     "currentSceneGUID": "873145a3-c01e-82b3-a4f5-d837cb0a0c51",
                     "targetSceneGUID": "2f4dc450-3563-7399-23f3-38b816ea2631",
-                    "useKeyboardShortcut": true,
+                    "useKeyboardShortcuts": true,
                     "wasPressed": false
                 }
             },
@@ -437,7 +437,7 @@
                     "actionType": 2,
                     "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                     "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
-                    "useKeyboardShortcut": true,
+                    "useKeyboardShortcuts": true,
                     "wasPressed": false
                 }
             }

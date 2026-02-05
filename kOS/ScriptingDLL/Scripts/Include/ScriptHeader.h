@@ -40,3 +40,4 @@
 #include "CutSceneScript.h"
 #include "ManaUIScript.h"
 #include "AmmoUIScript.h"
+#include "NextSceneEventColliderScript.h"
