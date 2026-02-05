@@ -339,7 +339,7 @@ inline void PlayerManagerScript::Start() {
 
 inline void PlayerManagerScript::Update() {
 
-	if (Input->IsKeyReleased(keys::L)) {
+	if (Input->IsKeyTriggered(keys::L)) {
 		//std::cout << "L RELEASED\n";
 		Scenes->ReloadScene();
 
