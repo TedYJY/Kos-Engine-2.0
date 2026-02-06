@@ -84,6 +84,7 @@ public:
 		void Undo(ecs::ECS& ecs, CommandHistory* hist);
 		void Redo(ecs::ECS& ecs, CommandHistory* hist);
 		std::string sceneName;
+		EntityID parent;
 	};
 
 	//	- Parenting
