@@ -3,7 +3,7 @@
         "SceneData": {
             "skyBoxGUID": [],
             "NavMeshGuid": "fae9b942-a51c-90d8-668f-b8c5230daecc",
-            "postProcessingProfile": "00000000-0000-0000-0000-000000000000",
+            "postProcessingProfile": "c3a79a26-21f4-7f96-81b0-a3d406909579",
             "ambientIntensity": 1.0
         }
     },
@@ -14782,7 +14782,7 @@
                 },
                 "SkinnedMeshRendererComponent": {
                     "skinnedMeshGUID": "0c44c479-520e-8c24-acf1-0ef17cfe8e58",
-                    "materialGUID": "23e7b1cb-3d50-e7e5-20f9-515b8bddebf5"
+                    "materialGUID": "f1b9bde6-c466-e0fd-0906-2f78d0241c5b"
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
