@@ -994,6 +994,15 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					<< currInteractCooldown << "s\n";*/
 
 				// ADD SFX
+
+				if (animComp && hasAbsorbed)
+				{
+					if (animComp->m_currentStateID)
+					{
+						playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("hasAbsorbed", animComp, playerController);
+						hasAbsorbed = false;
+					}
+				}
 			}
 		}
 	}
