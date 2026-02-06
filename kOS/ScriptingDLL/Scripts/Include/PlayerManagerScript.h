@@ -456,7 +456,6 @@ inline void PlayerManagerScript::PlayerMovementControls() {
 	if (Input->IsKeyPressed(keys::LeftShift) && Input->GetVertical() > 0.f && GroundCheck() && !playerIsCrouching) {
 		playerIsSprinting = true;
 		targetSpeed = maxPlayerMovSpeed * playerSprintMultiplier; // 15 m/s
-		std::cout << "SPRINTING";
 	}
 
 	// CROUCHING (not sliding)
