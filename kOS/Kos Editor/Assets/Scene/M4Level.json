@@ -2543,7 +2543,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
-                            "volume": 0.10000000149011612,
+                            "volume": 0.15000000596046448,
                             "loop": true,
                             "playOnStart": true,
                             "hasPlayed": false,
@@ -2614,6 +2614,22 @@
                 "AudioComponent": {
                     "audioFiles": [
                         {
+                            "audioGUID": "c93d030f-e7bf-2ee7-0425-c1f5f04d6483",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        },
+                        {
                             "audioGUID": "f73fbd2e-15e7-5d4b-1662-91a2f4132644",
                             "volume": 1.0,
                             "loop": false,
@@ -2630,7 +2646,39 @@
                             "studioEventPath": ""
                         },
                         {
-                            "audioGUID": "c93d030f-e7bf-2ee7-0425-c1f5f04d6483",
+                            "audioGUID": "690a4f94-6928-a1a0-d76c-2e8f12929489",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        },
+                        {
+                            "audioGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        },
+                        {
+                            "audioGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
                             "volume": 1.0,
                             "loop": false,
                             "playOnStart": false,
@@ -2683,8 +2731,13 @@
                     "acidPrefab": "df217809-aa63-539d-4bb6-d7ffde283b90",
                     "lightningPrefab": "ea36b838-cef9-7c8c-584a-29654652024a",
                     "fireDashPrefab": "2c08aaf0-6347-63db-2c50-728bcb1fff62",
-                    "gunSfxGUID_1": "d98d60d5-127f-8dc2-b051-dc6d6b883682",
+                    "lightningDashPrefab": "00000000-0000-0000-0000-000000000000",
+                    "gunSfxGUID_1": "f73fbd2e-15e7-5d4b-1662-91a2f4132644",
                     "gunReloadSfxGUID": "c93d030f-e7bf-2ee7-0425-c1f5f04d6483",
+                    "fireSlashSfxGUID": "690a4f94-6928-a1a0-d76c-2e8f12929489",
+                    "fireDashSfxGUID": "4ef03ed6-765a-ed95-b9bb-eafe53b75669",
+                    "lightningDashSfxGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
+                    "lightningGunSfxGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
                     "pauseMenuManagerObject": "155ba76a-ab15-3655-61d0-3eb0d2bccb85",
                     "healthUIObject": "cbe9e70e-4c76-3f9b-ffd8-30620d0fc09d",
                     "loseScreenCanvasObject": "23dd4708-96d5-34e7-3d95-b85965156d5d",
@@ -4528,8 +4581,8 @@
                     "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                     "playerObjectID": 0,
                     "noneSprite": "00000000-0000-0000-0000-000000000000",
-                    "fireSprite": "17c10dc5-af0f-c7c6-7091-40ccefac22f3",
-                    "lightningSprite": "14c5711b-fe4a-5700-2e1d-de43bdf6ab37",
+                    "fireSprite": "cd9e54fb-640b-77da-ef32-2fcb21d6c6fc",
+                    "lightningSprite": "ce09219a-2df6-a249-4d8f-374276ea05a7",
                     "acidSprite": "00000000-0000-0000-0000-000000000000"
                 },
                 "NameComponent": {
@@ -4561,8 +4614,8 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -1.5803189277648926,
-                            "y": 0.8780645132064819,
+                            "x": -1.5825897455215454,
+                            "y": 0.8740806579589844,
                             "z": 0.0
                         },
                         "rotation": {
@@ -4571,15 +4624,15 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.27300000190734863,
-                            "y": 0.2800000011920929,
+                            "x": 0.23000000417232513,
+                            "y": 0.23999999463558197,
                             "z": 1.0
                         }
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": -1.5803189277648926,
-                            "y": 0.8780645132064819,
+                            "x": -1.5825897455215454,
+                            "y": 0.8740806579589844,
                             "z": 0.0
                         },
                         "rotation": {
@@ -4588,8 +4641,8 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.27300000190734863,
-                            "y": 0.2800000011920929,
+                            "x": 0.23000000417232513,
+                            "y": 0.23999999463558197,
                             "z": 1.0
                         }
                     }
@@ -5824,7 +5877,7 @@
         "EventColliderScript": {
             "winUIObject": "dc86b705-19e8-4cfd-3b8f-7e29a330eac3",
             "winUIObjectID": 0,
-            "timer": 0.0,
+            "timer": 2.0,
             "winScreenCanvasObject": "dd420147-13cd-2a52-32b4-107bc917a44d"
         },
         "NameComponent": {
@@ -5838,9 +5891,9 @@
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": -126.44210815429688,
-                    "y": -37.20917892456055,
-                    "z": -22.20804786682129
+                    "x": -45.9094123840332,
+                    "y": 21.138734817504883,
+                    "z": 86.42768096923828
                 },
                 "rotation": {
                     "x": 0.0,
@@ -5848,16 +5901,16 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 2.0,
-                    "y": 2.0,
-                    "z": 2.0
+                    "x": 4.0,
+                    "y": 4.0,
+                    "z": 4.0
                 }
             },
             "LocalTransformation": {
                 "position": {
-                    "x": -126.44210815429688,
-                    "y": -37.20917892456055,
-                    "z": -22.20804786682129
+                    "x": -45.9094123840332,
+                    "y": 21.138734817504883,
+                    "z": 86.42768096923828
                 },
                 "rotation": {
                     "x": 0.0,
@@ -5865,9 +5918,9 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 2.0,
-                    "y": 2.0,
-                    "z": 2.0
+                    "x": 4.0,
+                    "y": 4.0,
+                    "z": 4.0
                 }
             }
         }
@@ -23256,5 +23309,253 @@
                 }
             }
         ]
+    },
+    {
+        "entityGUID": "7745a7cc-455c-1925-1115-2013f6e5cbd3",
+        "BoxColliderComponent": {
+            "isTrigger": false,
+            "box": {
+                "center": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "size": {
+                    "x": 0.10000000149011612,
+                    "y": 14.800000190734863,
+                    "z": 8.0
+                }
+            }
+        },
+        "NameComponent": {
+            "entityName": "Chimney Wall",
+            "Layer": 8,
+            "entityTag": "Wall",
+            "isPrefab": false,
+            "prefabName": "",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 7.818024158477783,
+                    "y": 15.875,
+                    "z": -4.022087097167969
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 7.818024158477783,
+                    "y": 15.875,
+                    "z": -4.022087097167969
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "92bbd719-f17c-69fb-418a-e3044e3666ab",
+        "BoxColliderComponent": {
+            "isTrigger": false,
+            "box": {
+                "center": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "size": {
+                    "x": 0.10000000149011612,
+                    "y": 14.800000190734863,
+                    "z": 8.0
+                }
+            }
+        },
+        "NameComponent": {
+            "entityName": "Chimney Wall",
+            "Layer": 8,
+            "entityTag": "Wall",
+            "isPrefab": false,
+            "prefabName": "",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -7.853525161743164,
+                    "y": 15.875,
+                    "z": -4.022087097167969
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -7.853525161743164,
+                    "y": 15.875,
+                    "z": -4.022087097167969
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "40d440a9-d5b8-c9d0-430d-d31056dcaf84",
+        "BoxColliderComponent": {
+            "isTrigger": false,
+            "box": {
+                "center": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "size": {
+                    "x": 16.100000381469727,
+                    "y": 14.800000190734863,
+                    "z": 0.10000000149011612
+                }
+            }
+        },
+        "NameComponent": {
+            "entityName": "Chimney Wall",
+            "Layer": 8,
+            "entityTag": "Wall",
+            "isPrefab": false,
+            "prefabName": "",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 0.07081747055053711,
+                    "y": 15.875,
+                    "z": 0.024735569953918457
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 0.07081747055053711,
+                    "y": 15.875,
+                    "z": 0.024735569953918457
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "33a10efa-44db-d335-b05c-e7b2e7d8f50f",
+        "BoxColliderComponent": {
+            "isTrigger": false,
+            "box": {
+                "center": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "size": {
+                    "x": 16.100000381469727,
+                    "y": 14.800000190734863,
+                    "z": 0.10000000149011612
+                }
+            }
+        },
+        "NameComponent": {
+            "entityName": "Chimney Wall",
+            "Layer": 8,
+            "entityTag": "Wall",
+            "isPrefab": false,
+            "prefabName": "",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 0.07081747055053711,
+                    "y": 15.875,
+                    "z": -8.059782028198242
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 0.07081747055053711,
+                    "y": 15.875,
+                    "z": -8.059782028198242
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0000001192092896,
+                    "y": 1.0,
+                    "z": 1.099384069442749
+                }
+            }
+        }
     }
 ]

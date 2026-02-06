@@ -13,8 +13,8 @@
             "lightType": 0,
             "color": {
                 "x": 1.0,
-                "y": -0.4000000059604645,
-                "z": 1.7000000476837158
+                "y": 1.0,
+                "z": 1.0
             },
             "diffuseStrength": {
                 "x": 1.0,
@@ -35,7 +35,7 @@
             },
             "cutOff": 5.5,
             "outerCutOff": 10.5,
-            "intesnity": 1.0,
+            "intesnity": 0.699999988079071,
             "shadowCast": false,
             "bakedLighting": false,
             "depthMapGUID": "00000000-0000-0000-0000-000000000000"
@@ -51,7 +51,7 @@
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": 0.0,
+                    "x": 2.176853656768799,
                     "y": 0.0,
                     "z": 0.0
                 },
@@ -68,13 +68,13 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": 0.0,
+                    "x": 2.176853656768799,
                     "y": 0.0,
                     "z": 0.0
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": 0.0,
+                    "y": -0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -6066,8 +6066,8 @@
                         "y": 1.0,
                         "z": 1.0
                     },
-                    "linear": -13.90999984741211,
-                    "quadratic": 0.5299999713897705,
+                    "linear": -13.3100004196167,
+                    "quadratic": 0.8299999833106995,
                     "direction": {
                         "x": 1.0,
                         "y": 1.0,
@@ -6075,7 +6075,7 @@
                     },
                     "cutOff": 6.800000190734863,
                     "outerCutOff": 15.0,
-                    "intesnity": 151.5,
+                    "intesnity": 130.89999389648438,
                     "shadowCast": false,
                     "bakedLighting": false,
                     "depthMapGUID": "00000000-0000-0000-0000-000000000000"
@@ -6091,9 +6091,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 73.2584228515625,
+                            "x": 73.4292221069336,
                             "y": 4.730682373046875,
-                            "z": -37.30760955810547
+                            "z": -37.196678161621094
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6108,9 +6108,9 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 73.2584228515625,
+                            "x": 73.4292221069336,
                             "y": 4.730682373046875,
-                            "z": -36.13957977294922
+                            "z": -36.028648376464844
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6171,7 +6171,7 @@
                         "position": {
                             "x": -11.107760429382324,
                             "y": 4.140429496765137,
-                            "z": -5.341512680053711
+                            "z": 27.426593780517578
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6188,7 +6188,7 @@
                         "position": {
                             "x": -11.107760429382324,
                             "y": 4.140429496765137,
-                            "z": -4.173484802246094
+                            "z": 28.594621658325195
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6247,9 +6247,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 7.824814319610596,
-                            "y": 1.30076003074646,
-                            "z": 45.703651428222656
+                            "x": 5.216852188110352,
+                            "y": -0.6534962058067322,
+                            "z": -23.714691162109375
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6264,9 +6264,9 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 7.824814319610596,
-                            "y": 1.30076003074646,
-                            "z": 46.871681213378906
+                            "x": 5.216852188110352,
+                            "y": -0.6534962058067322,
+                            "z": -22.546663284301758
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6325,9 +6325,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 9.611699104309082,
-                            "y": -1.294579267501831,
-                            "z": 11.369733810424805
+                            "x": 9.442204475402832,
+                            "y": -1.2357606887817383,
+                            "z": 12.891653060913086
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6342,9 +6342,9 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 9.611699104309082,
-                            "y": -1.294579267501831,
-                            "z": 12.537761688232422
+                            "x": 9.442204475402832,
+                            "y": -1.2357606887817383,
+                            "z": 14.059680938720703
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6501,6 +6501,318 @@
                             "x": -100.02062225341797,
                             "y": -26.638565063476563,
                             "z": -20.659868240356445
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "88ac2c2a-e121-290e-c94b-4019690ba424",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 1.0,
+                        "y": -2.799999952316284,
+                        "z": 0.5
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": -13.90999984741211,
+                    "quadratic": 0.5299999713897705,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 6.800000190734863,
+                    "outerCutOff": 15.0,
+                    "intesnity": 132.10000610351563,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -11.107760429382324,
+                            "y": 4.140429496765137,
+                            "z": -5.341512680053711
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -11.107760429382324,
+                            "y": 4.140429496765137,
+                            "z": -4.173484802246094
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "c9f77208-ff98-730f-3dfd-37deb04698eb",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 1.0,
+                        "y": -2.799999952316284,
+                        "z": 0.5
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": -11.609999656677246,
+                    "quadratic": 0.5299999713897705,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 6.800000190734863,
+                    "outerCutOff": 22.600000381469727,
+                    "intesnity": 134.1999969482422,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 5.684328079223633,
+                            "y": 1.0083494186401367,
+                            "z": 46.87700271606445
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 5.684328079223633,
+                            "y": 1.0083494186401367,
+                            "z": 48.0450325012207
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "f41c7d0e-8317-e6fb-6f9b-50ee958172fe",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 1.0,
+                        "y": -2.799999952316284,
+                        "z": 0.5
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": -11.609999656677246,
+                    "quadratic": 0.5299999713897705,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 6.800000190734863,
+                    "outerCutOff": 22.600000381469727,
+                    "intesnity": 134.1999969482422,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.6156120300293,
+                            "y": 3.888035774230957,
+                            "z": 30.153242111206055
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.6156120300293,
+                            "y": 3.888035774230957,
+                            "z": 31.321269989013672
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "a3a9865e-33f0-bd65-fdd4-167f7f81208e",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 1.0,
+                        "y": -2.799999952316284,
+                        "z": 0.5
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": -13.90999984741211,
+                    "quadratic": 0.5299999713897705,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 6.800000190734863,
+                    "outerCutOff": 15.0,
+                    "intesnity": 112.0,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -48.09636306762695,
+                            "y": -13.677932739257813,
+                            "z": -21.04962158203125
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -48.09636306762695,
+                            "y": -13.677932739257813,
+                            "z": -19.881593704223633
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6893,7 +7205,7 @@
                     "WorldTransformation": {
                         "position": {
                             "x": 17.216249465942383,
-                            "y": 3.6344103813171387,
+                            "y": 4.013842582702637,
                             "z": -19.938215255737305
                         },
                         "rotation": {
@@ -6910,7 +7222,7 @@
                     "LocalTransformation": {
                         "position": {
                             "x": 17.216249465942383,
-                            "y": 3.6344103813171387,
+                            "y": 4.013842582702637,
                             "z": -19.938215255737305
                         },
                         "rotation": {
@@ -7608,36 +7920,36 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 7.740945816040039,
+                            "x": 7.747734546661377,
                             "y": 0.2572554349899292,
                             "z": 16.34990692138672
                         },
                         "rotation": {
-                            "x": -158.3000030517578,
-                            "y": -0.0000012806605127479997,
-                            "z": -158.0
+                            "x": -158.2999725341797,
+                            "y": -0.000008537736903235782,
+                            "z": -157.99990844726563
                         },
                         "scale": {
-                            "x": 0.014999998733401299,
-                            "y": 0.01499999687075615,
-                            "z": 0.014999995939433575
+                            "x": 0.014999878592789173,
+                            "y": 0.014999997802078724,
+                            "z": 0.01499997265636921
                         }
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 7.740945816040039,
+                            "x": 7.747734546661377,
                             "y": 0.2572554349899292,
                             "z": 16.34990692138672
                         },
                         "rotation": {
-                            "x": 201.6999969482422,
-                            "y": 0.0,
-                            "z": 202.0
+                            "x": -158.2999725341797,
+                            "y": -0.000008537736903235782,
+                            "z": -157.99990844726563
                         },
                         "scale": {
-                            "x": 0.014999999664723873,
-                            "y": 0.01499999687075615,
-                            "z": 0.014999997802078724
+                            "x": 0.014999880455434322,
+                            "y": 0.014999997802078724,
+                            "z": 0.01499997265636921
                         }
                     }
                 }
@@ -7755,6 +8067,420 @@
                         }
                     }
                 }
+            },
+            {
+                "entityGUID": "fd0d53b4-2cf1-5304-7e35-5d4b36cfc38f",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "e9ece6d7-4ed7-73b3-9309-ec58d5d77a07"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Lightbulb",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -48.94266128540039,
+                            "y": -12.60666275024414,
+                            "z": -17.36962127685547
+                        },
+                        "rotation": {
+                            "x": -158.2999725341797,
+                            "y": -0.000008537736903235782,
+                            "z": -157.99990844726563
+                        },
+                        "scale": {
+                            "x": 0.014995849691331387,
+                            "y": 0.014999997802078724,
+                            "z": 0.01499997265636921
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -48.94266128540039,
+                            "y": -12.60666275024414,
+                            "z": -17.36962127685547
+                        },
+                        "rotation": {
+                            "x": -158.2999725341797,
+                            "y": -0.000008537736903235782,
+                            "z": -157.99990844726563
+                        },
+                        "scale": {
+                            "x": 0.014995851553976536,
+                            "y": 0.014999997802078724,
+                            "z": 0.01499997265636921
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "d041126c-ef2a-742f-9cee-7cae2cdd22c6",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "4860e0d0-6363-fc37-45b7-74aa8fccc691"
+                        },
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "824d152d-be2f-bbb9-9482-090d580683ff"
+                },
+                "NameComponent": {
+                    "entityName": "Prop Barrel",
+                    "Layer": 0,
+                    "entityTag": "Wall",
+                    "isPrefab": false,
+                    "prefabName": "Fire Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 60.60211181640625,
+                            "y": 5.024388313293457,
+                            "z": -31.565114974975586
+                        },
+                        "rotation": {
+                            "x": 90.00048065185547,
+                            "y": -46.410003662109375,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.025001753121614456,
+                            "y": 0.025000102818012238,
+                            "z": 0.024999964982271194
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 60.60211181640625,
+                            "y": 5.024388313293457,
+                            "z": -31.565114974975586
+                        },
+                        "rotation": {
+                            "x": 90.00048065185547,
+                            "y": -46.40999984741211,
+                            "z": 179.9998779296875
+                        },
+                        "scale": {
+                            "x": 0.025001754984259605,
+                            "y": 0.025000102818012238,
+                            "z": 0.024999964982271194
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "52a1d35a-af3d-b311-c961-6af15d5352f9",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "4860e0d0-6363-fc37-45b7-74aa8fccc691"
+                        },
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "824d152d-be2f-bbb9-9482-090d580683ff"
+                },
+                "NameComponent": {
+                    "entityName": "Prop Barrel",
+                    "Layer": 0,
+                    "entityTag": "Wall",
+                    "isPrefab": false,
+                    "prefabName": "Fire Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -14.559188842773438,
+                            "y": 5.735962867736816,
+                            "z": 9.131292343139648
+                        },
+                        "rotation": {
+                            "x": 90.0,
+                            "y": -89.9720230102539,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.02499946393072605,
+                            "y": 0.024997606873512268,
+                            "z": 0.024998176842927933
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -14.559188842773438,
+                            "y": 5.735962867736816,
+                            "z": 9.131292343139648
+                        },
+                        "rotation": {
+                            "x": 90.0,
+                            "y": -89.98021697998047,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.0249994657933712,
+                            "y": 0.024997608736157417,
+                            "z": 0.024998176842927933
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "6c112277-0c36-d82f-4ff0-cb4d21012027",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "4860e0d0-6363-fc37-45b7-74aa8fccc691"
+                        },
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "824d152d-be2f-bbb9-9482-090d580683ff"
+                },
+                "NameComponent": {
+                    "entityName": "Prop Barrel",
+                    "Layer": 0,
+                    "entityTag": "Wall",
+                    "isPrefab": false,
+                    "prefabName": "Fire Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 23.444562911987305,
+                            "y": 5.216211318969727,
+                            "z": -38.26625061035156
+                        },
+                        "rotation": {
+                            "x": -89.99998474121094,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.05000000074505806,
+                            "y": 0.0499957799911499,
+                            "z": 0.0499957799911499
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 23.444562911987305,
+                            "y": 5.216211318969727,
+                            "z": -38.26625061035156
+                        },
+                        "rotation": {
+                            "x": -89.99998474121094,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.05000000074505806,
+                            "y": 0.0499957837164402,
+                            "z": 0.0499957837164402
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "6e2cac4a-2288-2cdb-2225-d6ea0dd7761b",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "4860e0d0-6363-fc37-45b7-74aa8fccc691"
+                        },
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "824d152d-be2f-bbb9-9482-090d580683ff"
+                },
+                "NameComponent": {
+                    "entityName": "Prop Barrel",
+                    "Layer": 0,
+                    "entityTag": "Wall",
+                    "isPrefab": false,
+                    "prefabName": "Fire Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 71.47038269042969,
+                            "y": 12.137480735778809,
+                            "z": -33.575008392333984
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -48.28997039794922,
+                            "z": -0.00004106182313989848
+                        },
+                        "scale": {
+                            "x": 0.029999999329447746,
+                            "y": 0.02999960072338581,
+                            "z": 0.029999999329447746
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 71.47038269042969,
+                            "y": 12.137480735778809,
+                            "z": -33.575008392333984
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -48.28997039794922,
+                            "z": -0.00004106182313989848
+                        },
+                        "scale": {
+                            "x": 0.029999999329447746,
+                            "y": 0.02999960072338581,
+                            "z": 0.029999999329447746
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "482d853c-257c-c592-cae7-2a3ab1b384e1",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "4860e0d0-6363-fc37-45b7-74aa8fccc691"
+                        },
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "824d152d-be2f-bbb9-9482-090d580683ff"
+                },
+                "NameComponent": {
+                    "entityName": "Prop Barrel",
+                    "Layer": 0,
+                    "entityTag": "Wall",
+                    "isPrefab": false,
+                    "prefabName": "Fire Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 23.707942962646484,
+                            "y": 12.651193618774414,
+                            "z": -24.102413177490234
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -48.28997039794922,
+                            "z": -0.00004106148116989061
+                        },
+                        "scale": {
+                            "x": 0.03999999910593033,
+                            "y": 0.03999999910593033,
+                            "z": 0.03999999910593033
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 23.707942962646484,
+                            "y": 12.651193618774414,
+                            "z": -24.102413177490234
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -48.28997039794922,
+                            "z": -0.00004106148116989061
+                        },
+                        "scale": {
+                            "x": 0.03999999910593033,
+                            "y": 0.03999999910593033,
+                            "z": 0.03999999910593033
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "a6ca9d6a-dd51-f72e-106d-a3627da9a9dd",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "c47bcb8a-af57-706b-4154-69f26de1bc97"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "660b9bb0-6212-77a4-c1f4-dc40ea8cce28"
+                },
+                "NameComponent": {
+                    "entityName": "Multiple Barrel Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "Acid Prop Holder.prefab",
+                    "hide": true
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -18.91685676574707,
+                            "y": 1.0216410160064697,
+                            "z": -21.30239486694336
+                        },
+                        "rotation": {
+                            "x": -0.00026412808801978827,
+                            "y": -18.566165924072266,
+                            "z": 0.000014484470739262179
+                        },
+                        "scale": {
+                            "x": 0.020000014454126358,
+                            "y": 0.019999999552965164,
+                            "z": 0.020000014454126358
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -18.91685676574707,
+                            "y": 1.0216410160064697,
+                            "z": -21.30239486694336
+                        },
+                        "rotation": {
+                            "x": -0.00026412808801978827,
+                            "y": -18.566165924072266,
+                            "z": 0.000014484470739262179
+                        },
+                        "scale": {
+                            "x": 0.020000014454126358,
+                            "y": 0.019999999552965164,
+                            "z": 0.020000014454126358
+                        }
+                    }
+                }
             }
         ]
     },
@@ -7766,7 +8492,7 @@
             "entityTag": "Powerup",
             "isPrefab": true,
             "prefabName": "Acid Prop Holder.prefab",
-            "hide": false
+            "hide": true
         },
         "PowerupManagerScript": {
             "powerupType": "ACID"
@@ -7837,7 +8563,7 @@
                     "entityTag": "Default",
                     "isPrefab": true,
                     "prefabName": "Acid Prop Holder.prefab",
-                    "hide": false
+                    "hide": true
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -7917,7 +8643,7 @@
             "entityTag": "Default",
             "isPrefab": false,
             "prefabName": "",
-            "hide": false
+            "hide": true
         },
         "TransformComponent": {
             "WorldTransformation": {
@@ -8198,9 +8924,9 @@
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": -88.41058349609375,
+                    "x": -115.74038696289063,
                     "y": -39.39260482788086,
-                    "z": 7.788888931274414
+                    "z": 14.584304809570313
                 },
                 "rotation": {
                     "x": 0.0,
@@ -8215,9 +8941,9 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": -88.41058349609375,
+                    "x": -115.74038696289063,
                     "y": -39.39260482788086,
-                    "z": 7.788888931274414
+                    "z": 14.584304809570313
                 },
                 "rotation": {
                     "x": 0.0,
@@ -8271,9 +8997,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -71.24482727050781,
+                            "x": -98.57463073730469,
                             "y": -38.35926055908203,
-                            "z": -12.03091812133789
+                            "z": -5.235502243041992
                         },
                         "rotation": {
                             "x": 0.0,
@@ -8288,8 +9014,8 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 17.165754318237305,
-                            "y": 1.0333423614501953,
+                            "x": 17.165756225585938,
+                            "y": 1.0333442687988281,
                             "z": -19.819807052612305
                         },
                         "rotation": {
@@ -8482,9 +9208,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -71.330078125,
+                            "x": -98.65988159179688,
                             "y": -35.87194061279297,
-                            "z": -11.97292709350586
+                            "z": -5.177511215209961
                         },
                         "rotation": {
                             "x": 0.0,
@@ -8693,9 +9419,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -71.39434051513672,
+                            "x": -98.7241439819336,
                             "y": -36.08666229248047,
-                            "z": -11.917131423950195
+                            "z": -5.121715545654297
                         },
                         "rotation": {
                             "x": 0.0,
@@ -8771,9 +9497,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -70.90630340576172,
+                            "x": -98.2361068725586,
                             "y": -35.3655891418457,
-                            "z": -11.938215255737305
+                            "z": -5.142799377441406
                         },
                         "rotation": {
                             "x": 0.0,
@@ -8815,7 +9541,7 @@
             "entityTag": "Default",
             "isPrefab": true,
             "prefabName": "",
-            "hide": false
+            "hide": true
         },
         "ParticleComponent": {
             "particleType": 0,
@@ -9297,7 +10023,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
-                            "volume": 0.10000000149011612,
+                            "volume": 0.15000000596046448,
                             "loop": true,
                             "playOnStart": true,
                             "hasPlayed": false,
@@ -9398,6 +10124,70 @@
                             "sourceType": 0,
                             "audioBankGUID": "00000000-0000-0000-0000-000000000000",
                             "studioEventPath": ""
+                        },
+                        {
+                            "audioGUID": "690a4f94-6928-a1a0-d76c-2e8f12929489",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        },
+                        {
+                            "audioGUID": "4ef03ed6-765a-ed95-b9bb-eafe53b75669",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        },
+                        {
+                            "audioGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
+                            "volume": 1.0,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
+                        },
+                        {
+                            "audioGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
+                            "volume": 5.099999904632568,
+                            "loop": false,
+                            "playOnStart": false,
+                            "hasPlayed": false,
+                            "pan": 0.0,
+                            "isBGM": false,
+                            "isSFX": true,
+                            "use3D": false,
+                            "minDistance": 1.0,
+                            "maxDistance": 20.0,
+                            "sourceType": 0,
+                            "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                            "studioEventPath": ""
                         }
                     ]
                 },
@@ -9437,8 +10227,13 @@
                     "acidPrefab": "df217809-aa63-539d-4bb6-d7ffde283b90",
                     "lightningPrefab": "ea36b838-cef9-7c8c-584a-29654652024a",
                     "fireDashPrefab": "2c08aaf0-6347-63db-2c50-728bcb1fff62",
+                    "lightningDashPrefab": "7d805a6f-3abc-f50f-1cf6-dcbf5d720904",
                     "gunSfxGUID_1": "f73fbd2e-15e7-5d4b-1662-91a2f4132644",
                     "gunReloadSfxGUID": "c93d030f-e7bf-2ee7-0425-c1f5f04d6483",
+                    "fireSlashSfxGUID": "690a4f94-6928-a1a0-d76c-2e8f12929489",
+                    "fireDashSfxGUID": "4ef03ed6-765a-ed95-b9bb-eafe53b75669",
+                    "lightningDashSfxGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
+                    "lightningGunSfxGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
                     "pauseMenuManagerObject": "155ba76a-ab15-3655-61d0-3eb0d2bccb85",
                     "healthUIObject": "cbe9e70e-4c76-3f9b-ffd8-30620d0fc09d",
                     "loseScreenCanvasObject": "23dd4708-96d5-34e7-3d95-b85965156d5d",
@@ -10957,8 +11752,8 @@
                     "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                     "playerObjectID": 0,
                     "noneSprite": "00000000-0000-0000-0000-000000000000",
-                    "fireSprite": "17c10dc5-af0f-c7c6-7091-40ccefac22f3",
-                    "lightningSprite": "14c5711b-fe4a-5700-2e1d-de43bdf6ab37",
+                    "fireSprite": "cd9e54fb-640b-77da-ef32-2fcb21d6c6fc",
+                    "lightningSprite": "ce09219a-2df6-a249-4d8f-374276ea05a7",
                     "acidSprite": "00000000-0000-0000-0000-000000000000"
                 },
                 "NameComponent": {
@@ -10991,7 +11786,7 @@
                     "WorldTransformation": {
                         "position": {
                             "x": -1.5803189277648926,
-                            "y": 0.8780645132064819,
+                            "y": 0.8799999952316284,
                             "z": 0.0
                         },
                         "rotation": {
@@ -11000,15 +11795,15 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.27300000190734863,
-                            "y": 0.2800000011920929,
+                            "x": 0.23000000417232513,
+                            "y": 0.25,
                             "z": 1.0
                         }
                     },
                     "LocalTransformation": {
                         "position": {
                             "x": -1.5803189277648926,
-                            "y": 0.8780645132064819,
+                            "y": 0.8799999952316284,
                             "z": 0.0
                         },
                         "rotation": {
@@ -11017,8 +11812,8 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.27300000190734863,
-                            "y": 0.2800000011920929,
+                            "x": 0.23000000417232513,
+                            "y": 0.25,
                             "z": 1.0
                         }
                     }
@@ -11817,12 +12612,12 @@
             "isTrigger": false,
             "capsule": {
                 "center": {
-                    "x": -82.80000305175781,
-                    "y": 84.0,
-                    "z": -4.599999904632568
+                    "x": 14.300000190734863,
+                    "y": 120.80000305175781,
+                    "z": -81.30000305175781
                 },
                 "radius": 61.599998474121094,
-                "height": 161.1999969482422,
+                "height": 192.8000030517578,
                 "capsuleDirection": 1
             }
         },
@@ -11837,11 +12632,11 @@
             "meshGUID": "d99f9522-9e6b-105a-4ef2-7e2b63bcc074"
         },
         "NameComponent": {
-            "entityName": "Electric Prop 1",
+            "entityName": "Electric Prop",
             "Layer": 0,
             "entityTag": "Powerup",
             "isPrefab": true,
-            "prefabName": "Electric Prop 1.prefab",
+            "prefabName": "Electric Prop.prefab",
             "hide": false
         },
         "PowerupManagerScript": {
@@ -11850,36 +12645,36 @@
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": -66.95050811767578,
+                    "x": -98.22635650634766,
                     "y": -39.0,
-                    "z": -29.0
+                    "z": -37.15234375
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": 0.000005008955668017734,
+                    "y": -89.98021697998047,
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 0.019999999552965164,
+                    "x": 0.019999993965029716,
                     "y": 0.019999999552965164,
-                    "z": 0.019999999552965164
+                    "z": 0.019999993965029716
                 }
             },
             "LocalTransformation": {
                 "position": {
-                    "x": -66.95050811767578,
+                    "x": -98.22635650634766,
                     "y": -39.0,
-                    "z": -29.0
+                    "z": -37.15234375
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": 0.000005008955668017734,
+                    "y": -89.9999771118164,
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 0.019999999552965164,
+                    "x": 0.019999993965029716,
                     "y": 0.019999999552965164,
-                    "z": 0.019999999552965164
+                    "z": 0.019999993965029716
                 }
             }
         },
@@ -11921,43 +12716,254 @@
                     "entityName": "Electric Point Light",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "prefabName": "",
                     "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -70.17443084716797,
-                            "y": -35.616485595703125,
-                            "z": -28.999982833862305
+                            "x": -98.22637939453125,
+                            "y": -35.6164665222168,
+                            "z": -37.274940490722656
                         },
                         "rotation": {
-                            "x": 1.2506448134053105e-11,
-                            "y": 0.000005008955213270383,
-                            "z": -1.2506448134053105e-11
+                            "x": 0.0071935574524104595,
+                            "y": -89.98021697998047,
+                            "z": -0.007193575147539377
+                        },
+                        "scale": {
+                            "x": 0.9999995231628418,
+                            "y": 1.0,
+                            "z": 0.9999995231628418
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -6.1297607421875,
+                            "y": 169.1767578125,
+                            "z": 0.0009765625
+                        },
+                        "rotation": {
+                            "x": -1.650767345040549e-8,
+                            "y": 0.00001707547198748216,
+                            "z": -4.7164805394572795e-9
+                        },
+                        "scale": {
+                            "x": 49.99999237060547,
+                            "y": 50.0,
+                            "z": 49.99999237060547
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "c3486486-56cd-f544-7285-af4969fee0d1",
+                "NameComponent": {
+                    "entityName": "Electric Prop VFX",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "prefabName": "Electric Prop 1.prefab",
+                    "hide": false
+                },
+                "ParticleComponent": {
+                    "particleType": 0,
+                    "duration": 1.0,
+                    "looping": true,
+                    "play_On_Awake": true,
+                    "start_Lifetime": 0.15000000596046448,
+                    "end_Lifetime": 0.20000000298023224,
+                    "lifetime_Random_Enable": true,
+                    "textureGUID": "00000000-0000-0000-0000-000000000000",
+                    "start_Velocity": 2.0,
+                    "playback_State": 0,
+                    "particleFade": 1,
+                    "velocityModule": {
+                        "enabled": true,
+                        "mode": 1,
+                        "velocity_Modifier": {
+                            "x": 0.0,
+                            "y": 6.0,
+                            "z": 0.0
+                        }
+                    },
+                    "forceModule": {
+                        "enabled": false,
+                        "force": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "shapeModule": {
+                        "type": 0,
+                        "emission_Direction": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "box_Size": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "sphere_Radius": 0.0,
+                        "emit_From_Shell": false,
+                        "cone_Angle": 0.0,
+                        "cone_Direction": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "cone_Radius": 0.0,
+                        "circle_Radius": 0.0,
+                        "circle_Arc": 0.0,
+                        "emit_From_Edge": false,
+                        "edge_Length": 0.0,
+                        "random_Direction_Amount": 0.0
+                    },
+                    "colorModule": {
+                        "enabled": true,
+                        "start_Color": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0,
+                            "w": 1.0
+                        },
+                        "end_Color": {
+                            "x": 0.20000000298023224,
+                            "y": 0.6000000238418579,
+                            "z": 1.0,
+                            "w": 0.0
+                        }
+                    },
+                    "sizeModule": {
+                        "enabled": true,
+                        "start_Size": 0.11999999731779099,
+                        "end_Size": 0.05999999865889549
+                    },
+                    "rotationModule": {
+                        "enabled": false,
+                        "start_Rotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "end_Rotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "rotation_Modifier": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "gravityModule": {
+                        "enabled": true,
+                        "gravity": {
+                            "x": 0.0,
+                            "y": -12.0,
+                            "z": 0.0
+                        }
+                    },
+                    "trailingModule": {
+                        "enabled": false,
+                        "startPoint": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "endPoint": {
+                            "x": 20.0,
+                            "y": 20.0,
+                            "z": 20.0
+                        },
+                        "rotateEndPoint": true,
+                        "rotationSpeed": 2.0,
+                        "rotationRadius": 5.0,
+                        "rotationCenter": {
+                            "x": 20.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "rotationAxis": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "spiralRadius": 5.0,
+                        "spiralFrequency": 3.0,
+                        "spiralIntensityCurve": 0.5,
+                        "pathSpeed": 2.0,
+                        "arrivalThreshold": 0.5
+                    },
+                    "noiseModule": {
+                        "enabled": true,
+                        "strength": 35.0,
+                        "strengthMultiplier": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "frequency": 6.0,
+                        "scrollSpeed": {
+                            "x": 0.0,
+                            "y": 120.0,
+                            "z": 0.0
+                        },
+                        "damping": false,
+                        "octaves": 3,
+                        "octaveMultiplier": 0.5,
+                        "octaveScale": 2.0,
+                        "quality": 2,
+                        "remapEnabled": false,
+                        "remapCurveStart": 1.0,
+                        "remapCurveEnd": 1.0,
+                        "positionOffset": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "emissionInterval": 0.05000000074505806,
+                    "no_Of_Particles": 50
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -97.99040985107422,
+                            "y": -35.03156661987305,
+                            "z": -38.85847473144531
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -89.98021697998047,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.019999993965029716,
+                            "y": 0.019999999552965164,
+                            "z": 0.019999993965029716
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -85.306640625,
+                            "y": 198.4217529296875,
+                            "z": -11.79736328125
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.000005008955668017734,
+                            "z": 0.0
                         },
                         "scale": {
                             "x": 1.0,
                             "y": 1.0,
                             "z": 1.0
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": -161.196044921875,
-                            "y": 169.1756591796875,
-                            "z": 0.0008544921875
-                        },
-                        "rotation": {
-                            "x": 1.2506449001414843e-11,
-                            "y": -5.211020959357271e-13,
-                            "z": -1.2506449001414843e-11
-                        },
-                        "scale": {
-                            "x": 50.0,
-                            "y": 50.0,
-                            "z": 50.0
                         }
                     }
                 }
@@ -12447,217 +13453,6 @@
                     "x": 46.02145767211914,
                     "y": 3.6784961223602295,
                     "z": 47.01390838623047
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": -0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.019999999552965164,
-                    "y": 0.019999999552965164,
-                    "z": 0.019999999552965164
-                }
-            }
-        }
-    },
-    {
-        "entityGUID": "c3486486-56cd-f544-7285-af4969fee0d1",
-        "NameComponent": {
-            "entityName": "Electric Prop VFX",
-            "Layer": 0,
-            "entityTag": "Default",
-            "isPrefab": false,
-            "prefabName": "Electric Prop 1.prefab",
-            "hide": false
-        },
-        "ParticleComponent": {
-            "particleType": 0,
-            "duration": 1.0,
-            "looping": true,
-            "play_On_Awake": true,
-            "start_Lifetime": 0.15000000596046448,
-            "end_Lifetime": 0.20000000298023224,
-            "lifetime_Random_Enable": true,
-            "textureGUID": "00000000-0000-0000-0000-000000000000",
-            "start_Velocity": 2.0,
-            "playback_State": 0,
-            "particleFade": 1,
-            "velocityModule": {
-                "enabled": true,
-                "mode": 1,
-                "velocity_Modifier": {
-                    "x": 0.0,
-                    "y": 6.0,
-                    "z": 0.0
-                }
-            },
-            "forceModule": {
-                "enabled": false,
-                "force": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                }
-            },
-            "shapeModule": {
-                "type": 0,
-                "emission_Direction": {
-                    "x": 0.0,
-                    "y": 1.0,
-                    "z": 0.0
-                },
-                "box_Size": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "sphere_Radius": 0.0,
-                "emit_From_Shell": false,
-                "cone_Angle": 0.0,
-                "cone_Direction": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "cone_Radius": 0.0,
-                "circle_Radius": 0.0,
-                "circle_Arc": 0.0,
-                "emit_From_Edge": false,
-                "edge_Length": 0.0,
-                "random_Direction_Amount": 0.0
-            },
-            "colorModule": {
-                "enabled": true,
-                "start_Color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0,
-                    "w": 1.0
-                },
-                "end_Color": {
-                    "x": 0.20000000298023224,
-                    "y": 0.6000000238418579,
-                    "z": 1.0,
-                    "w": 0.0
-                }
-            },
-            "sizeModule": {
-                "enabled": true,
-                "start_Size": 0.11999999731779099,
-                "end_Size": 0.05999999865889549
-            },
-            "rotationModule": {
-                "enabled": false,
-                "start_Rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "end_Rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "rotation_Modifier": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                }
-            },
-            "gravityModule": {
-                "enabled": true,
-                "gravity": {
-                    "x": 0.0,
-                    "y": -12.0,
-                    "z": 0.0
-                }
-            },
-            "trailingModule": {
-                "enabled": false,
-                "startPoint": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "endPoint": {
-                    "x": 20.0,
-                    "y": 20.0,
-                    "z": 20.0
-                },
-                "rotateEndPoint": true,
-                "rotationSpeed": 2.0,
-                "rotationRadius": 5.0,
-                "rotationCenter": {
-                    "x": 20.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "rotationAxis": {
-                    "x": 0.0,
-                    "y": 1.0,
-                    "z": 0.0
-                },
-                "spiralRadius": 5.0,
-                "spiralFrequency": 3.0,
-                "spiralIntensityCurve": 0.5,
-                "pathSpeed": 2.0,
-                "arrivalThreshold": 0.5
-            },
-            "noiseModule": {
-                "enabled": true,
-                "strength": 35.0,
-                "strengthMultiplier": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "frequency": 6.0,
-                "scrollSpeed": {
-                    "x": 0.0,
-                    "y": 120.0,
-                    "z": 0.0
-                },
-                "damping": false,
-                "octaves": 3,
-                "octaveMultiplier": 0.5,
-                "octaveScale": 2.0,
-                "quality": 2,
-                "remapEnabled": false,
-                "remapCurveStart": 1.0,
-                "remapCurveEnd": 1.0,
-                "positionOffset": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                }
-            },
-            "emissionInterval": 0.05000000074505806,
-            "no_Of_Particles": 50
-        },
-        "TransformComponent": {
-            "WorldTransformation": {
-                "position": {
-                    "x": -68.6566390991211,
-                    "y": -35.03156280517578,
-                    "z": -29.23594856262207
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": -0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.019999999552965164,
-                    "y": 0.019999999552965164,
-                    "z": 0.019999999552965164
-                }
-            },
-            "LocalTransformation": {
-                "position": {
-                    "x": -68.6566390991211,
-                    "y": -35.03156280517578,
-                    "z": -29.23594856262207
                 },
                 "rotation": {
                     "x": 0.0,
@@ -13809,89 +14604,6 @@
         }
     },
     {
-        "entityGUID": "98d4d86f-0816-c4a4-b145-50daff208ec4",
-        "BoxColliderComponent": {
-            "isTrigger": false,
-            "box": {
-                "center": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "size": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                }
-            }
-        },
-        "NameComponent": {
-            "entityName": "Crate",
-            "Layer": 0,
-            "entityTag": "Enemy",
-            "isPrefab": false,
-            "prefabName": "",
-            "hide": false
-        },
-        "RigidbodyComponent": {
-            "mass": 1.0,
-            "drag": 0.0,
-            "angularDrag": 0.05000000074505806,
-            "useGravity": true,
-            "isKinematic": false,
-            "interpolation": 0,
-            "collisionDetection": 0,
-            "constraints": 0,
-            "speed": 0.0,
-            "velocity": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "angularVelocity": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            }
-        },
-        "TransformComponent": {
-            "WorldTransformation": {
-                "position": {
-                    "x": 80.39474487304688,
-                    "y": 4.155155658721924,
-                    "z": -46.98785400390625
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": -0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                }
-            },
-            "LocalTransformation": {
-                "position": {
-                    "x": 80.39474487304688,
-                    "y": 4.155155658721924,
-                    "z": -46.98785400390625
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": -0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                }
-            }
-        }
-    },
-    {
         "entityGUID": "4b21f4a3-0ff3-503e-2ae9-048804d7eccc",
         "CapsuleColliderComponent": {
             "isTrigger": false,
@@ -14241,6 +14953,1196 @@
                             "x": 0.014999999664723873,
                             "y": 0.014999999664723873,
                             "z": 0.014999999664723873
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "entityGUID": "cd8e0837-1e1e-39ae-5f60-fafc47d7236d",
+        "NameComponent": {
+            "entityName": "Fire Barrel",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "prefabName": "Fire Barrel.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -46.140987396240234,
+                    "y": -16.645938873291016,
+                    "z": -0.6200306415557861
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -46.140987396240234,
+                    "y": -16.645938873291016,
+                    "z": -0.6200306415557861
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            }
+        },
+        "children": [
+            {
+                "entityGUID": "09144352-5180-332b-3d46-216cf4f4f633",
+                "CapsuleColliderComponent": {
+                    "isTrigger": false,
+                    "capsule": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 69.19999694824219,
+                            "z": 0.0
+                        },
+                        "radius": 90.0,
+                        "height": 134.8000030517578,
+                        "capsuleDirection": 1
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "2e16031c-9593-31cb-ec41-58220ebbb736"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "824d152d-be2f-bbb9-9482-090d580683ff"
+                },
+                "NameComponent": {
+                    "entityName": "Fire Barrel Model",
+                    "Layer": 0,
+                    "entityTag": "Powerup",
+                    "isPrefab": false,
+                    "prefabName": "Fire Prop.prefab",
+                    "hide": false
+                },
+                "PowerupManagerScript": {
+                    "powerupType": "FIRE"
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -28.975231170654297,
+                            "y": -15.612594604492188,
+                            "z": -20.439838409423828
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.019999999552965164,
+                            "y": 0.019999999552965164,
+                            "z": 0.019999999552965164
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 17.165756225585938,
+                            "y": 1.0333442687988281,
+                            "z": -19.819807052612305
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.019999999552965164,
+                            "y": 0.019999999552965164,
+                            "z": 0.019999999552965164
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "9c980286-0838-10f7-1e55-590a779849ed",
+                "NameComponent": {
+                    "entityName": "Particle Flame",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "ParticleComponent": {
+                    "particleType": 0,
+                    "duration": 5.0,
+                    "looping": true,
+                    "play_On_Awake": true,
+                    "start_Lifetime": 0.5,
+                    "end_Lifetime": 2.0,
+                    "lifetime_Random_Enable": false,
+                    "textureGUID": "00000000-0000-0000-0000-000000000000",
+                    "start_Velocity": 3.0,
+                    "playback_State": 0,
+                    "particleFade": 1,
+                    "velocityModule": {
+                        "enabled": true,
+                        "mode": 0,
+                        "velocity_Modifier": {
+                            "x": 0.0,
+                            "y": 3.299999952316284,
+                            "z": 0.0
+                        }
+                    },
+                    "forceModule": {
+                        "enabled": true,
+                        "force": {
+                            "x": 1.7000000476837158,
+                            "y": 0.0,
+                            "z": 1.7000000476837158
+                        }
+                    },
+                    "shapeModule": {
+                        "type": 0,
+                        "emission_Direction": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "box_Size": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "sphere_Radius": 3.0,
+                        "emit_From_Shell": false,
+                        "cone_Angle": 30.600000381469727,
+                        "cone_Direction": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "cone_Radius": 0.0,
+                        "circle_Radius": 0.0,
+                        "circle_Arc": 0.0,
+                        "emit_From_Edge": false,
+                        "edge_Length": 0.0,
+                        "random_Direction_Amount": 0.0
+                    },
+                    "colorModule": {
+                        "enabled": true,
+                        "start_Color": {
+                            "x": 12.0,
+                            "y": 0.699999988079071,
+                            "z": -12.699999809265137,
+                            "w": 0.8999999761581421
+                        },
+                        "end_Color": {
+                            "x": 12.0,
+                            "y": -1.7000000476837158,
+                            "z": -12.0,
+                            "w": 0.0
+                        }
+                    },
+                    "sizeModule": {
+                        "enabled": true,
+                        "start_Size": 0.8999999761581421,
+                        "end_Size": 0.0
+                    },
+                    "rotationModule": {
+                        "enabled": false,
+                        "start_Rotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "end_Rotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "rotation_Modifier": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "gravityModule": {
+                        "enabled": false,
+                        "gravity": {
+                            "x": 0.0,
+                            "y": -5.0,
+                            "z": 0.0
+                        }
+                    },
+                    "trailingModule": {
+                        "enabled": false,
+                        "startPoint": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "endPoint": {
+                            "x": 19.075016021728516,
+                            "y": 0.0,
+                            "z": -4.913695812225342
+                        },
+                        "rotateEndPoint": true,
+                        "rotationSpeed": 2.0,
+                        "rotationRadius": 5.0,
+                        "rotationCenter": {
+                            "x": 20.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "rotationAxis": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "spiralRadius": 5.0,
+                        "spiralFrequency": 3.0,
+                        "spiralIntensityCurve": 0.5,
+                        "pathSpeed": 2.0,
+                        "arrivalThreshold": 0.5
+                    },
+                    "noiseModule": {
+                        "enabled": false,
+                        "strength": 1.0,
+                        "strengthMultiplier": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "frequency": 0.5,
+                        "scrollSpeed": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "damping": true,
+                        "octaves": 1,
+                        "octaveMultiplier": 0.5,
+                        "octaveScale": 2.0,
+                        "quality": 1,
+                        "remapEnabled": false,
+                        "remapCurveStart": 1.0,
+                        "remapCurveEnd": 1.0,
+                        "positionOffset": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "emissionInterval": 0.10000000149011612,
+                    "no_Of_Particles": 50
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -29.06048011779785,
+                            "y": -13.125274658203125,
+                            "z": -20.381847381591797
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 17.080507278442383,
+                            "y": 3.5206644535064697,
+                            "z": -19.761816024780273
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "5d9940de-8b1e-a5e5-448b-6161b3a40834",
+                "NameComponent": {
+                    "entityName": "Particle Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "ParticleComponent": {
+                    "particleType": 0,
+                    "duration": 5.0,
+                    "looping": true,
+                    "play_On_Awake": true,
+                    "start_Lifetime": 0.5,
+                    "end_Lifetime": 2.0,
+                    "lifetime_Random_Enable": false,
+                    "textureGUID": "00000000-0000-0000-0000-000000000000",
+                    "start_Velocity": 3.0,
+                    "playback_State": 0,
+                    "particleFade": 1,
+                    "velocityModule": {
+                        "enabled": true,
+                        "mode": 0,
+                        "velocity_Modifier": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "forceModule": {
+                        "enabled": true,
+                        "force": {
+                            "x": 1.7000000476837158,
+                            "y": 0.0,
+                            "z": 1.7000000476837158
+                        }
+                    },
+                    "shapeModule": {
+                        "type": 0,
+                        "emission_Direction": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "box_Size": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "sphere_Radius": 3.0,
+                        "emit_From_Shell": false,
+                        "cone_Angle": 30.600000381469727,
+                        "cone_Direction": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "cone_Radius": 0.0,
+                        "circle_Radius": 0.0,
+                        "circle_Arc": 0.0,
+                        "emit_From_Edge": false,
+                        "edge_Length": 0.0,
+                        "random_Direction_Amount": 0.0
+                    },
+                    "colorModule": {
+                        "enabled": true,
+                        "start_Color": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 0.0,
+                            "w": 0.8999999761581421
+                        },
+                        "end_Color": {
+                            "x": 4.5,
+                            "y": 4.099999904632568,
+                            "z": 1.0,
+                            "w": 0.0
+                        }
+                    },
+                    "sizeModule": {
+                        "enabled": true,
+                        "start_Size": 0.800000011920929,
+                        "end_Size": 0.20000000298023224
+                    },
+                    "rotationModule": {
+                        "enabled": false,
+                        "start_Rotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "end_Rotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "rotation_Modifier": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "gravityModule": {
+                        "enabled": false,
+                        "gravity": {
+                            "x": 0.0,
+                            "y": -5.0,
+                            "z": 0.0
+                        }
+                    },
+                    "trailingModule": {
+                        "enabled": false,
+                        "startPoint": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "endPoint": {
+                            "x": 19.075016021728516,
+                            "y": 0.0,
+                            "z": -4.913695812225342
+                        },
+                        "rotateEndPoint": true,
+                        "rotationSpeed": 2.0,
+                        "rotationRadius": 5.0,
+                        "rotationCenter": {
+                            "x": 20.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "rotationAxis": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "spiralRadius": 5.0,
+                        "spiralFrequency": 3.0,
+                        "spiralIntensityCurve": 0.5,
+                        "pathSpeed": 2.0,
+                        "arrivalThreshold": 0.5
+                    },
+                    "noiseModule": {
+                        "enabled": false,
+                        "strength": 1.0,
+                        "strengthMultiplier": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "frequency": 0.5,
+                        "scrollSpeed": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "damping": true,
+                        "octaves": 1,
+                        "octaveMultiplier": 0.5,
+                        "octaveScale": 2.0,
+                        "quality": 1,
+                        "remapEnabled": false,
+                        "remapCurveStart": 1.0,
+                        "remapCurveEnd": 1.0,
+                        "positionOffset": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    },
+                    "emissionInterval": 0.10000000149011612,
+                    "no_Of_Particles": 50
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -29.12474250793457,
+                            "y": -13.339997291564941,
+                            "z": -20.326051712036133
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 17.016244888305664,
+                            "y": 3.305941581726074,
+                            "z": -19.70602035522461
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "56e5ff03-4aa3-921b-0c20-50a0d1a25d8c",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 2.0999999046325684,
+                        "y": 1.0,
+                        "z": 0.10000000149011612
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 10.989999771118164,
+                    "quadratic": -0.27000001072883606,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.599999904632568,
+                    "outerCutOff": 25.799999237060547,
+                    "intesnity": 15.0,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Fire Point Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -28.636707305908203,
+                            "y": -12.61892318725586,
+                            "z": -20.347135543823242
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 17.50428009033203,
+                            "y": 4.027015686035156,
+                            "z": -19.72710418701172
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "entityGUID": "e1347b3e-e3ed-fd07-f9e3-3e3141cd74e3",
+        "NameComponent": {
+            "entityName": "Decals",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": false,
+            "prefabName": "",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            }
+        },
+        "children": [
+            {
+                "entityGUID": "c0969032-cbd1-5ffa-2d5e-13d330ee55f4",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "6ff85da2-a58f-22b4-4ff0-a66118a033a3"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f7467516-41a4-75ee-2e5c-ed3caf8f7e1a"
+                },
+                "NameComponent": {
+                    "entityName": "Absorb 1",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 19.294837951660156,
+                            "y": 4.666001319885254,
+                            "z": -15.310059547424316
+                        },
+                        "rotation": {
+                            "x": -179.3000030517578,
+                            "y": 2.6680426756797715e-8,
+                            "z": 158.89999389648438
+                        },
+                        "scale": {
+                            "x": 0.010000627487897873,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999997913837433
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 19.294837951660156,
+                            "y": 4.666001319885254,
+                            "z": -15.310059547424316
+                        },
+                        "rotation": {
+                            "x": 180.6999969482422,
+                            "y": 0.0,
+                            "z": 158.89999389648438
+                        },
+                        "scale": {
+                            "x": 0.010000628419220448,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "af40115e-387c-a747-0e8a-8f60b19b1aad",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 3.5,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Decal Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 19.769760131835938,
+                            "y": 4.1566314697265625,
+                            "z": -15.617671966552734
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 19.769760131835938,
+                            "y": 4.1566314697265625,
+                            "z": -15.617671966552734
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "a5f0b5a9-3821-5d4a-bd57-e6c59e000984",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "cc4839c6-bfba-45d1-03b7-3ff2dba50b9f"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f7467516-41a4-75ee-2e5c-ed3caf8f7e1a"
+                },
+                "NameComponent": {
+                    "entityName": "Dash Decal",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 8.392973899841309,
+                            "y": 3.9757819175720215,
+                            "z": -18.945634841918945
+                        },
+                        "rotation": {
+                            "x": -1.6230281008056124e-10,
+                            "y": -87.69990539550781,
+                            "z": -0.00010903007932938635
+                        },
+                        "scale": {
+                            "x": 0.010000310838222504,
+                            "y": 0.009999999776482582,
+                            "z": 0.010000319220125675
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 8.392973899841309,
+                            "y": 3.9757819175720215,
+                            "z": -18.945634841918945
+                        },
+                        "rotation": {
+                            "x": -1.6230196353550497e-10,
+                            "y": -87.69990539550781,
+                            "z": -0.00010903016664087772
+                        },
+                        "scale": {
+                            "x": 0.010000310838222504,
+                            "y": 0.009999999776482582,
+                            "z": 0.010000319220125675
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "36d40443-4d48-cde7-2b32-954bdc2eab09",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b1a57d-a4ef-6f1c-6906-64e48f1e1dd6"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f7467516-41a4-75ee-2e5c-ed3caf8f7e1a"
+                },
+                "NameComponent": {
+                    "entityName": "Run Decal",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -22.642488479614258,
+                            "y": 6.127671241760254,
+                            "z": -23.141096115112305
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -0.000005008955668017734,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.014999999664723873,
+                            "y": 0.014999999664723873,
+                            "z": 0.014999999664723873
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -22.642488479614258,
+                            "y": 6.127671241760254,
+                            "z": -23.141096115112305
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -0.000005008955668017734,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.014999999664723873,
+                            "y": 0.014999999664723873,
+                            "z": 0.014999999664723873
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "8502b894-94ea-21c8-eb24-6b8cdd084df5",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "69ec2ef7-1059-3c62-d6f9-7e79ca63d76a"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f7467516-41a4-75ee-2e5c-ed3caf8f7e1a"
+                },
+                "NameComponent": {
+                    "entityName": "Arrow Left Decal",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -22.709115982055664,
+                            "y": 2.786661386489868,
+                            "z": -23.1552734375
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -0.000005008955668017734,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.014999999664723873,
+                            "y": 0.014999999664723873,
+                            "z": 0.014999999664723873
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -22.709115982055664,
+                            "y": 2.786661386489868,
+                            "z": -23.1552734375
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -0.000005008955668017734,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.014999999664723873,
+                            "y": 0.014999999664723873,
+                            "z": 0.014999999664723873
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "fc0bfb8e-907c-f348-c72b-c37fd6e8b45e",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 1.0,
+                        "y": -2.799999952316284,
+                        "z": 0.5
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.0,
+                    "quadratic": 2.5299999713897705,
+                    "direction": {
+                        "x": 7.400000095367432,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 7.300000190734863,
+                    "outerCutOff": 0.0,
+                    "intesnity": 6.300000190734863,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Decal Light 2",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -21.583194732666016,
+                            "y": 5.176219940185547,
+                            "z": -23.271461486816406
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -21.583194732666016,
+                            "y": 5.176219940185547,
+                            "z": -23.271461486816406
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "bfbbecd0-0d64-3f51-2ebe-f8387f6f4c1f",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "c928d8eb-d2a4-6114-f70f-6f2abb17995a"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f7467516-41a4-75ee-2e5c-ed3caf8f7e1a"
+                },
+                "NameComponent": {
+                    "entityName": "OverHere Decal",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -2.945284128189087,
+                            "y": 4.374310493469238,
+                            "z": 51.0926513671875
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -86.69992065429688,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.015000002458691597,
+                            "y": 0.014999999664723873,
+                            "z": 0.015000002458691597
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -2.945284128189087,
+                            "y": 4.374310493469238,
+                            "z": 51.0926513671875
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -86.69992065429688,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.015000002458691597,
+                            "y": 0.014999999664723873,
+                            "z": 0.015000002458691597
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "add2f3ee-e24c-d3bb-5257-0a9e3593997c",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 1.0,
+                        "y": -2.799999952316284,
+                        "z": 0.5
+                    },
+                    "diffuseStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 5.300000190734863,
+                    "shadowCast": false,
+                    "bakedLighting": false,
+                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                },
+                "NameComponent": {
+                    "entityName": "Decal Light",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -3.631256103515625,
+                            "y": 3.7176342010498047,
+                            "z": 49.74094772338867
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -3.631256103515625,
+                            "y": 3.7176342010498047,
+                            "z": 49.74094772338867
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
                         }
                     }
                 }

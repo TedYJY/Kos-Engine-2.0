@@ -71,6 +71,8 @@ namespace Input {
 
 	void InputSystem::InputUpdate(float deltaTime) {
 		for (std::pair<const int, Key>& key : keysRegistered) {
+			//Reset releaseed state
+
 			int state;
 			if (key.first == keys::LMB || key.first == keys::RMB || key.first == keys::MMB) {
 				state = glfwGetMouseButton(inputWindow, key.first);
@@ -78,6 +80,9 @@ namespace Input {
 				state = glfwGetKey(inputWindow, key.first);
 			}
 			key.second.prevKeyState = key.second.currKeyState;
+			if (key.second.currKeyState = KeyState::RELEASED) {
+				key.second.currKeyState = KeyState::UNUSED;
+			}
 			if (state == GLFW_PRESS) {
 				if (key.second.prevKeyState == KeyState::UNUSED ||
 					key.second.prevKeyState == KeyState::RELEASED) {

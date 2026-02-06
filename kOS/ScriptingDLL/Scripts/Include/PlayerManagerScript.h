@@ -143,10 +143,12 @@ public:
 	utility::GUID lightningPrefab;
 
 	utility::GUID fireDashPrefab;
+	utility::GUID lightningDashPrefab;
 
 	// BACKEND PLAYER DETAILS
 	float playerRotationX = 0.f, playerRotationY = 0.f;
 
+	bool isMoving = false;
 	bool playerIsWalking = false;
 	bool playerIsSprinting = false;
 	bool playerIsCrouching = false;
@@ -243,9 +245,13 @@ public:
 
 	// SFX
 	utility::GUID gunSfxGUID_1;
-	//utility::GUID gunSfxGUID_2;
 	utility::GUID gunReloadSfxGUID;
-	
+	utility::GUID fireSlashSfxGUID;
+	utility::GUID fireDashSfxGUID;
+
+	utility::GUID lightningDashSfxGUID;
+	utility::GUID lightningGunSfxGUID;
+
 	//Dash VFX Timer
 	float fireDashVfxTimer = 0.0f;
 	float fireDashVfxDuration = 30.0f;
@@ -273,8 +279,8 @@ public:
 	glm::vec3 GetPlayerRightDirection();
 
 	REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
-		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, acidPrefab, lightningPrefab, fireDashPrefab,
-		gunSfxGUID_1,gunReloadSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject, winScreenCanvasObject);
+		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, acidPrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab,
+		gunSfxGUID_1,gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, lightningDashSfxGUID, lightningGunSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject, winScreenCanvasObject);
 };
 
 // --- LATE INCLUDES & IMPLEMENTATION ---
@@ -335,7 +341,7 @@ inline void PlayerManagerScript::Start() {
 
 inline void PlayerManagerScript::Update() {
 
-	if (Input->IsKeyReleased(keys::L)) {
+	if (Input->IsKeyTriggered(keys::L)) {
 		//std::cout << "L RELEASED\n";
 		Scenes->ReloadScene();
 
@@ -443,7 +449,7 @@ inline void PlayerManagerScript::PlayerMovementControls() {
 
 	// Determine target speed based on movement state
 	float targetSpeed = 0.f;
-	bool isMoving = (std::abs(Input->GetHorizontal()) > 0.1f || std::abs(Input->GetVertical()) > 0.1f);
+	isMoving = (std::abs(Input->GetHorizontal()) > 0.1f || std::abs(Input->GetVertical()) > 0.1f);
 
 	// SPRINTING
 	if (Input->IsKeyPressed(keys::LeftShift) && Input->GetVertical() > 0.f && GroundCheck() && !playerIsCrouching) {
@@ -597,7 +603,7 @@ inline void PlayerManagerScript::PlayerCameraControls() {
 	glm::vec3 bobPosition = playerGunModelPointTransform->LocalTransformation.position;
 	float playerGunModelBobbingSpeed = playerIsSprinting ? playerGunModelSprintBobbingSpeed : playerGunModelWalkBobbingSpeed;
 
-	if (playerIsWalking || playerIsSprinting) {
+	if (isMoving) {
 		bobbingTimer += ecsPtr->m_GetDeltaTime() * playerGunModelBobbingSpeed;
 
 		float offsetY = std::sin(bobbingTimer) * playerGunModelBobbingIntensity;
@@ -1118,7 +1124,18 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					fireLMBScript->direction = dir; 
 				}
 
+				if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+
+					for (auto& af : ac->audioFiles) {
+						if (af.audioGUID == fireSlashSfxGUID && af.isSFX) {
+							af.requestPlay = true;
+							break;
+						}
+					}
+				}
+
 			}
+
 
 			// ADD SFX
 		}
@@ -1157,13 +1174,24 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 			}
 
+			if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+
+				for (auto& af : ac->audioFiles) {
+					if (af.audioGUID == lightningGunSfxGUID && af.isSFX) {
+						af.requestPlay = true;
+						break;
+					}
+				}
+			}
+
+
 			// ADD SFX
 		}
 	}
 
 	// ABILITY
 	if (Input->IsKeyTriggered(keys::RMB)) {
-		if (playerPowerupHeld == Powerup::FIRE && currMana >= fireAbilityCost) {
+		if (playerPowerupHeld == Powerup::FIRE ) {
 			std::shared_ptr<R_Scene> fireball = resource->GetResource<R_Scene>(firePrefab);
 
 			if (fireball) {
@@ -1183,7 +1211,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 			// ADD SFX
 		}
-		else if (playerPowerupHeld == Powerup::ACID && currMana >= acidAbilityCost) {
+		else if (playerPowerupHeld == Powerup::ACID) {
 			std::shared_ptr<R_Scene> acidCloud = resource->GetResource<R_Scene>(acidPrefab);
 
 			if (acidCloud) {
@@ -1203,7 +1231,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 			// ADD SFX
 		}
-		else if (playerPowerupHeld == Powerup::LIGHTNING && currMana >= lightningAbilityCost) {
+		else if (playerPowerupHeld == Powerup::LIGHTNING ) {
 			std::shared_ptr<R_Scene> railgun = resource->GetResource<R_Scene>(lightningPrefab);
 
 			if (railgun) {
@@ -1230,7 +1258,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 		auto* playerRigidbody = ecsPtr->GetComponent<ecs::RigidbodyComponent>(entity);
 		if (!playerRigidbody) return;
 
-		if (playerPowerupHeld == Powerup::FIRE && currMana >= fireMovementCost && fireCurrMovementCooldown <= 0.f) {
+		if (playerPowerupHeld == Powerup::FIRE && fireCurrMovementCooldown <= 0.f) {
 		
 			std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
 			ecs::EntityID fireDashID = DuplicatePrefabIntoScene<R_Scene>(currentScene, fireDashPrefab);
@@ -1253,9 +1281,19 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			currMana -= fireMovementCost;
 			fireCurrMovementCooldown = fireMovementCooldown;
 
+			if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+
+				for (auto& af : ac->audioFiles) {
+					if (af.audioGUID == fireDashSfxGUID && af.isSFX) {
+						af.requestPlay = true;
+						break;
+					}
+				}
+			}
 			// ADD SFX
 		}
-		else if (playerPowerupHeld == Powerup::ACID && currMana >= acidMovementCost && acidCurrMovementCooldown <= 0.f) {
+		else if (playerPowerupHeld == Powerup::ACID && acidCurrMovementCooldown <= 0.f) {
+
 
 			physicsPtr->AddForce(playerRigidbody->actor, GetPlayerFrontDirection() * 25.f, ForceMode::Impulse);
 
@@ -1264,11 +1302,23 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 			// ADD SFX
 		}
-		else if (playerPowerupHeld == Powerup::LIGHTNING && currMana >= lightningMovementCost && lightningCurrMovementCooldown <= 0.f) {
+		else if (playerPowerupHeld == Powerup::LIGHTNING && lightningCurrMovementCooldown <= 0.f) {
 
 			glm::vec3 force = Input->GetVertical() * GetPlayerFrontDirection() + Input->GetHorizontal() * GetPlayerRightDirection();
 			force = glm::normalize(force);
+
+			std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
+			ecs::EntityID lightningDashID = DuplicatePrefabIntoScene<R_Scene>(currentScene, lightningDashPrefab);
+			ecs::EntityID parentID = entity;
+			ecsPtr->SetParent(parentID, lightningDashID, false);
+			if (auto* vfxTf = ecsPtr->GetComponent<TransformComponent>(lightningDashID))
+			{
+				vfxTf->LocalTransformation.position = glm::vec3(1.f, 1.f, 0.f);  // offset
+				vfxTf->LocalTransformation.rotation = glm::vec3(0.f, 0.f, 0.f);
+			}
+
 			physicsPtr->AddForce(playerRigidbody->actor, force * 25.f, ForceMode::Impulse);
+
 
 			isDashing = true;
 			currentDashTimer = dashDuration;
@@ -1276,6 +1326,15 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			currMana -= lightningMovementCost;
 			lightningCurrMovementCooldown = lightningMovementCooldown;
 
+			if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+
+				for (auto& af : ac->audioFiles) {
+					if (af.audioGUID == lightningDashSfxGUID && af.isSFX) {
+						af.requestPlay = true;
+						break;
+					}
+				}
+			}
 			// ADD SFX
 		}
 	}
