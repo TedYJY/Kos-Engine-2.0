@@ -83,6 +83,10 @@ void CommandHistory::AddGameObject::Redo(ecs::ECS& ecs, CommandHistory* hist) {
 
 CommandHistory::DeleteGameObject::DeleteGameObject(EntityID _id, std::string _scene, ecs::ECS& ecs, CommandHistory* hist) 
 	: Command(_id), sceneName(_scene) {
+	if (ecs.GetParent(_id).has_value()) {
+		parent = ecs.GetParent(_id).value();
+	}
+	ecs.RemoveParent(_id);
 	EntityID newID = ecs.DuplicateEntity(_id, CACHEDSCENE);
 	hist->RegisterRemapID(id, newID);
 	ecs.SetActive(newID, false);
@@ -91,6 +95,9 @@ CommandHistory::DeleteGameObject::DeleteGameObject(EntityID _id, std::string _sc
 void CommandHistory::DeleteGameObject::Undo(ecs::ECS& ecs, CommandHistory* hist) {
 	EntityID currentID = hist->GetCurrentID(id);
 	EntityID newID = ecs.DuplicateEntity(currentID, sceneName);
+	if (parent >= 0) {
+		ecs.SetParent(parent, newID, false);
+	}
 	ecs.DeleteEntity(currentID);
 	hist->RegisterRemapID(id, newID);
 	ecs.SetActive(newID, true);
@@ -98,6 +105,10 @@ void CommandHistory::DeleteGameObject::Undo(ecs::ECS& ecs, CommandHistory* hist)
 
 void CommandHistory::DeleteGameObject::Redo(ecs::ECS& ecs, CommandHistory* hist) {
 	EntityID currentID = hist->GetCurrentID(id);
+	if (ecs.GetParent(currentID).has_value()) {
+		parent = ecs.GetParent(currentID).value();
+	}
+	ecs.RemoveParent(currentID);
 	EntityID newID = ecs.DuplicateEntity(currentID, CACHEDSCENE);
 	ecs.DeleteEntity(currentID);
 	hist->RegisterRemapID(id, newID);

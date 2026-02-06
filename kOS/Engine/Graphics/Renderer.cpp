@@ -39,6 +39,7 @@ void TextRenderer::InitializeTextRendererMeshes()
 
 void TextRenderer::RenderScreenFonts(const CameraData& camera, Shader& shader)
 {
+
 	if (!screenTextToDraw.empty() && camera.size.y != 0 && camera.size.x != 0) // Need to check for camera size
 	{
 		for (ScreenTextData& textData : screenTextToDraw)
@@ -234,7 +235,18 @@ void SkinnedMeshRenderer::Render(const CameraData& camera, Shader& shader, layer
 	{
 		shader.SetTrans("model", mesh.transformation);
 		shader.SetInt("entityID", mesh.entityID + 1);
-		mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
+		if (mesh.animationToUse)
+		{
+			shader.SetBool("isRigged", true);
+			size_t boneCount = mesh.meshToUse->GetBoneInfo().size();
+			mesh.animationToUse->Update(mesh.currentDuration, glm::mat4(1.f), glm::mat4(1.f), mesh.meshToUse->GetBoneMap(), mesh.meshToUse->GetBoneInfo(), boneCount);
+			mesh.meshToUse->DrawAnimation(shader, mesh.meshMaterial, mesh.animationToUse->GetBoneFinalMatrices());
+		}
+		else
+		{
+			shader.SetBool("isRigged", false);
+			mesh.meshToUse->PBRDraw(shader, mesh.meshMaterial);
+		}
 	}
 }
 
@@ -397,7 +409,9 @@ void SpriteRenderer::InitializeSpriteRendererMeshes()
 }
 
 void SpriteRenderer::RenderScreenSprites(const CameraData& camera, Shader& shader)
-{
+{	//Set buffer to write to first
+	//Important to not remove, if not chibaboom 
+
 	for (const ScreenSpriteData& screenSprite : screenSpritesToDraw)
 	{
 		screenSpriteMesh.DrawMesh(screenSprite, shader, camera);
@@ -405,6 +419,7 @@ void SpriteRenderer::RenderScreenSprites(const CameraData& camera, Shader& shade
 }
 
 void SpriteRenderer::RenderWorldSprites(const CameraData& camera, Shader& shader) {
+	//shader.SetInt("gMaterial", 1);
 	for (const ScreenSpriteData& screenSprite : worldSpriteToDraw)
 	{
 		screenSpriteMesh.DrawMeshWorld(screenSprite, shader, camera);

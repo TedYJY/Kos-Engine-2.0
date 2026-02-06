@@ -17,16 +17,21 @@
                     "y": 2.0,
                     "z": 0.0
                 },
-                "radius": 1.0,
-                "height": 2.0,
+                "radius": 0.5,
+                "height": 3.0,
                 "capsuleDirection": 1
             }
         },
         "EnemyManagerScript": {
             "enemyHealth": 5,
             "enemyMovementSpeed": 5.0,
+            "enemyType": "Melee",
+            "enemyAttackRange": 2.5,
+            "enemyRangedAttackRange": 2.5,
+            "enemyChaseRange": 25.0,
             "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
             "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
+            "enemyBulletPrefab": "00000000-0000-0000-0000-000000000000",
             "enemyHurtboxPosition": "a8ed480f-dc06-d48d-cfe7-a5be96e2fcd8"
         },
         "NameComponent": {

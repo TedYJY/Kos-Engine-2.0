@@ -85,7 +85,7 @@ public:
 	inline void gm_PushSkinnedMeshData(SkinnedMeshData&& skinnedMeshData,layer::LAYERS layer) {
 		skinnedMeshRenderer.skinnedMeshesToDraw[layer].emplace_back(std::move(skinnedMeshData));
 		skinnedMeshRenderer.skinnedMeshLookup[skinnedMeshRenderer.skinnedMeshesToDraw[layer].back().entityID]
-			= &skinnedMeshRenderer.skinnedMeshesToDraw[0].back();
+			= &skinnedMeshRenderer.skinnedMeshesToDraw[layer].back();
 	};
 	inline void gm_PushBasicParticleData(BasicParticleData&& basicParticleData) { particleRenderer.particlesToDraw.emplace_back(std::move(basicParticleData)); };
 	

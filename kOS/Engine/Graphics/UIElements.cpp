@@ -134,6 +134,7 @@ void ScreenSpriteMesh::DrawMesh(const ScreenSpriteData& spriteData, Shader& shad
 
     // CRITICAL: Enable alpha blending for transparency
     glEnable(GL_BLEND);
+    glDisablei(GL_BLEND, 1);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBindVertexArray(this->vaoID);
