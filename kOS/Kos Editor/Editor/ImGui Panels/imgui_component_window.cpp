@@ -115,8 +115,8 @@ void gui::ImGuiHandler::DrawComponentWindow()
 				m_ecs.SetActive(entityID, !hidden);
             }
 
-            //ImGui::SameLine();
-            //ImGui::Checkbox("Static", &nc->isStatic);
+            ImGui::SameLine();
+            ImGui::Checkbox("Static", &nc->isStatic);
 
             ImGui::TextDisabled(std::string("Entity ID: " + std::to_string(entityID)).c_str());
             if (!nc->entityGUID.Empty()) {

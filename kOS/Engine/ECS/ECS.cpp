@@ -34,9 +34,6 @@ namespace ecs{
 		RegisterComponent<BoxColliderComponent>();
 		RegisterComponent<CapsuleColliderComponent>();
 		RegisterComponent<SphereColliderComponent>();
-		RegisterComponent<OctreeGeneratorComponent>();
-		RegisterComponent<PathfinderComponent>();
-		RegisterComponent<PathfinderTargetComponent>();
 		RegisterComponent<CubeRendererComponent>();
 		RegisterComponent<SphereRendererComponent>();
 		RegisterComponent<ButtonComponent>();

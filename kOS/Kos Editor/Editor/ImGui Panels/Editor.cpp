@@ -98,9 +98,6 @@ namespace gui {
 		RegisterComponent<ecs::ScriptComponent>();
 		RegisterComponent<ecs::AudioComponent>();
 		RegisterComponent<ecs::AudioListenerComponent>();
-		RegisterComponent<ecs::OctreeGeneratorComponent>();
-		RegisterComponent<ecs::PathfinderComponent>();
-		RegisterComponent<ecs::PathfinderTargetComponent>();
 		RegisterComponent<ecs::CubeRendererComponent>();
 		RegisterComponent<ecs::ParticleComponent>();
 		RegisterComponent<ecs::AnimatorComponent>();
