@@ -84,7 +84,7 @@ void GraphicsManager::gm_Render()
 	glViewport(0, 0, static_cast<GLsizei>(windowWidth), static_cast<GLsizei>(windowHeight));
 
 	//Force only first camera to be active for now
-	currentGameCameraIndex = 0;
+
 	//Iterate through game cameras and render each of them,
 	if (currentGameCameraIndex + 1 <= gameCameras.size()) {
 		gm_RenderToGameFrameBuffer();
@@ -93,6 +93,9 @@ void GraphicsManager::gm_Render()
 	}
 	if (editorCameraActive) {
 		gm_RenderToEditorFrameBuffer();
+
+		//Compute fustrum
+		// 
 		/*		std::vector<float> alpha(1920 * 1080);
 				glBindTexture(GL_TEXTURE_2D, framebufferManager.gBuffer.gMaterial);
 				glGetTexImage(GL_TEXTURE_2D, 0, GL_ALPHA, GL_FLOAT, alpha.data());
@@ -147,7 +150,7 @@ void GraphicsManager::gm_RenderToEditorFrameBuffer()
 {
 	gm_FillDataBuffers(editorCamera);
 	//lightRenderer.dcm[0]=lightRenderer.testDCM;
-
+	editorCamera.ComputeFustrum();
 	framebufferManager.sceneBuffer.BindForDrawing();
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, framebufferManager.gBuffer.RetrieveBuffer());
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, framebufferManager.sceneBuffer.fbo);
@@ -196,6 +199,7 @@ void GraphicsManager::gm_RenderToGameFrameBuffer()
 	framebufferManager.sceneBuffer.BindForDrawing();
 	//gm_RenderCubeMap(cd);
 	for (CameraData& cd : gameCameras) {
+		cd.ComputeFustrum();
 		//Clear G buffer at the start maybe
 		//Bind and clear g buffer
 		if (!cd.culling) {
