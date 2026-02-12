@@ -166,9 +166,9 @@ void TextRenderer::Clear()
 	screenTextToDraw.clear();
 }
 //Frustim
-bool InFrustum(glm::vec3 center, glm::vec3 extents, Fustrum const& fust) {
+bool InFrustum(glm::vec3 center, glm::vec3 extents, utility::Fustrum const& fust) {
 	for (int i = 0; i < 6; i++) {
-		Plane const& plane = fust.planes[i];
+		utility::Plane const& plane = fust.planes[i];
 		float dist = glm::dot(plane.normal, center) - plane.distance;
 		float radius = glm::dot(extents, glm::abs(plane.normal));
 		// If completely behind this plane, cull it

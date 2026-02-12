@@ -28,28 +28,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "GraphicsReferences.h"
 #include "ECS/LayerData.h"
 
-struct Plane {
-	glm::vec3 normal{ 0.f,1.f,0.f };
-	float distance;
-	Plane() = default;
-	Plane(const glm::vec3& p, const glm::vec3& n)
-		: normal(glm::normalize(n)),
-		distance(glm::dot(normal, p)) {}
-};
-struct Fustrum {
-	union {
-		struct {
-			Plane nearFace;
-			Plane farFace;
-			Plane rightFace;
-			Plane leftFace;
-			Plane topFace;
-			Plane bottomFace;
-		};
-		Plane planes[6];
-	};
-	Fustrum():planes{} {}
-};
+
 class CameraData {
 public:  
 
@@ -83,7 +62,7 @@ public:
 	float r{ glm::length(position) };
 	float alpha{ glm::asin(position.y / r) };
 	float betta{ std::atan2(position.x, position.z) };
-	Fustrum viewFrustum;
+	utility::Fustrum viewFrustum;
 protected:
 	glm::mat4 viewMtx{ 1.0f };
 	glm::mat4 perspMtx{ 1.0f };
