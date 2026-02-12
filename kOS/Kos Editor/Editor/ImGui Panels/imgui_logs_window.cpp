@@ -32,23 +32,26 @@ void gui::ImGuiHandler::DrawLogsWindow() {
     // We take advantage of a rarely used feature: multiple calls to Begin()/End() are appending to the _same_ window.
     // Most of the contents of the window will be added by the log.Draw() call.
     //ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver);
-    ImGui::Begin("Log", &open);
-    std::vector<std::string> log_Entries = logging::Logger::m_GetInstance().m_GetLogList();
-    //for (size_t i = 0; i < log_Entries.size(); ++i) {
-    //    ImGui::Text(log_Entries[i].c_str());
-    //}
-    for (size_t i = log_Entries.size(); i > 0; --i) {
-        if (log_Entries[i - 1][1] == 'I') {
-            //ImGui::TextColored(ImGuiBlack, log_Entries[i - 1].c_str());
-            ImGui::Text(log_Entries[i - 1].c_str());
-        }
-        else if (log_Entries[i - 1][1] == 'W') {
-            ImGui::TextColored(ImGuiOrange, log_Entries[i - 1].c_str());
-        }
-        else if (log_Entries[i - 1][1] == 'E') {
-            ImGui::TextColored(ImGuiRed, log_Entries[i - 1].c_str());
+    if (ImGui::Begin("Log", &open)) {
+
+        std::vector<std::string> log_Entries = logging::Logger::m_GetInstance().m_GetLogList();
+        //for (size_t i = 0; i < log_Entries.size(); ++i) {
+        //    ImGui::Text(log_Entries[i].c_str());
+        //}
+        for (size_t i = log_Entries.size(); i > 0; --i) {
+            if (log_Entries[i - 1][1] == 'I') {
+                //ImGui::TextColored(ImGuiBlack, log_Entries[i - 1].c_str());
+                ImGui::Text(log_Entries[i - 1].c_str());
+            }
+            else if (log_Entries[i - 1][1] == 'W') {
+                ImGui::TextColored(ImGuiOrange, log_Entries[i - 1].c_str());
+            }
+            else if (log_Entries[i - 1][1] == 'E') {
+                ImGui::TextColored(ImGuiRed, log_Entries[i - 1].c_str());
+            }
         }
     }
+
 
     ImGui::End();
 

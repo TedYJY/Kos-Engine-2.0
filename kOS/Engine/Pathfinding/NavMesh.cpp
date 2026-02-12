@@ -1,17 +1,9 @@
-#include <vector>
-#include <cstring>
-#include <cmath>
-#include <algorithm>
-#include <cassert>
-#include <iostream>
-#include <glm/glm.hpp>
-
 #include "NavMesh.h"
 #include "ECS/ECS.h"
-#include "../Include/DetourRecast/Recast.h"
-#include "../Include/DetourRecast/RecastDebugDraw.h"
-#include "../Include/DetourRecast/InputGeom.h"
-#include "../Include/DetourRecast/DetourCrowd.h"
+#include "DetourRecast/Recast.h"
+#include "DetourRecast/RecastDebugDraw.h"
+#include "DetourRecast/InputGeom.h"
+#include "DetourRecast/DetourCrowd.h"
 
 // NOTE: This .cpp aims to be a practical, drop-in implementation for the
 // TileMesh.h header provided earlier. It uses a simplified approach for

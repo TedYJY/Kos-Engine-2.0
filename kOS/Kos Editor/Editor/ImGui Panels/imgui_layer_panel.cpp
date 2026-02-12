@@ -44,104 +44,82 @@ void DrawVerticalLabel(const std::string& text, float x, float y)
 }
 
 void gui::ImGuiHandler::DrawLayerWindow() {
-    ImGui::Begin("Layer Panel", nullptr, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_MenuBar);
+    if (ImGui::Begin("Layer Panel", nullptr, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_MenuBar)) {
 
-    //static bool flag = false;
-    //for (size_t n{}; n < m_layerManager.m_layerMap.size(); n++) {
 
-    //    ImGui::Text(m_layerManager.m_layerMap[(layer::LAYERS)n].first.c_str());
-    //    ImGui::SameLine();
-    //    std::string title = "##2" +  m_layerManager.m_layerMap[(layer::LAYERS)n].first;
-    //    
-    //    if (m_layerManager.m_layerBitSet.test((layer::LAYERS)n)) {
-    //        flag = true;
-    //    }
-    //    else flag = false;
+        const float cellWidth = 25.0f; // Adjust width as needed
+        const float labelWidth = 120.0f; // Width for the row labels
+        //const float verticalTextOffsetY = 10.0f; // Adjust as needed for better alignment
 
-    //    if (ImGui::Checkbox(title.c_str(), &flag)) {
-    //        if (flag == true) {
-    //            m_layerManager.m_EnableLayer((layer::LAYERS)n);
-    //        }
-    //        else {
-    //            m_layerManager.m_DisableLayer((layer::LAYERS)n);
-    //        }
-    //    }
-    //}
-	
-    //ImGui::NewLine();
-    //ImGui::Separator();
-
-    const float cellWidth = 25.0f; // Adjust width as needed
-    const float labelWidth = 120.0f; // Width for the row labels
-    //const float verticalTextOffsetY = 10.0f; // Adjust as needed for better alignment
-    
-    // Draw the header row with vertical text
-    ImGui::SetCursorPosX(labelWidth); // Align column headers to start after row labels
-    ImGui::AlignTextToFramePadding();
-    //for (int col = layerCount-1; col >= 0; --col)
-    for (int col = 0; col < layerCount; ++col)
-    {
-        ImGui::SetCursorPosX(labelWidth + col * cellWidth); // Position the vertical text over each column
-        auto it = m_layerManager.m_layerMap.find(static_cast<layer::LAYERS>(col));
-        if (it != m_layerManager.m_layerMap.end()) {
-            DrawVerticalLabel(it->second, 0.0f, 0.0f); // Adjust x and y offsets as needed
-        }
-        else {
-            LOGGING_ERROR_NO_SOURCE_LOCATION("NO SUCH NAME");
-        }
-    }
-
-    ImGui::NewLine();
-    ImGui::NewLine();
-    ImGui::NewLine();
-    ImGui::NewLine();
-    ImGui::NewLine();
-    ImGui::NewLine();
-
-    // Draw the matrix rows
-    for (int row = 0; row < layerCount; ++row)
-    {
-        ImGui::SetCursorPosX(0.5f);
-        // Draw row label with fixed width
-
-        ImGui::Text("%*s", (int)(labelWidth / ImGui::GetFontSize()), (m_layerManager.m_layerMap[static_cast<layer::LAYERS>(row)]).c_str()); // Adjust label width for alignment
-
-        // Draw checkboxes for this row
-        for (int col = 0; col < row + 1; ++col)
+        // Draw the header row with vertical text
+        ImGui::SetCursorPosX(labelWidth); // Align column headers to start after row labels
+        ImGui::AlignTextToFramePadding();
+        //for (int col = layerCount-1; col >= 0; --col)
+        for (int col = 0; col < layerCount; ++col)
         {
-            ImGui::SameLine();
-            ImGui::SetCursorPosX(labelWidth + col * cellWidth);
-            ImGui::PushID(row * layerCount + col);  // Unique ID for each checkbox
-
-            // Get the current value from the collision matrix in PhysicsLayer
-            bool isChecked = m_physicsManager.layers.m_GetCollide(row, col);
-            if (isChecked) {
-                ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 255, 0, 100)); // Green background for checked
-                ImGui::PushStyleColor(ImGuiCol_CheckMark, IM_COL32(0, 255, 0, 255)); // Green checkmark color
+            ImGui::SetCursorPosX(labelWidth + col * cellWidth); // Position the vertical text over each column
+            auto it = m_layerManager.m_layerMap.find(static_cast<layer::LAYERS>(col));
+            if (it != m_layerManager.m_layerMap.end()) {
+                DrawVerticalLabel(it->second, 0.0f, 0.0f); // Adjust x and y offsets as needed
             }
             else {
-                ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(255, 0, 0, 100)); // Red background for unchecked
-                ImGui::PushStyleColor(ImGuiCol_CheckMark, IM_COL32(255, 0, 0, 255)); // Red checkmark color
+                LOGGING_ERROR_NO_SOURCE_LOCATION("NO SUCH NAME");
             }
-
-            if (ImGui::Checkbox("##hidden", &isChecked))
-            {
-                // Update the PhysicsLayer collision matrix when the checkbox is toggled
-                m_physicsManager.layers.m_SetCollision(row, col, isChecked);
-
-            }
-            ImGui::PopStyleColor(2);
-            ImGui::PopID();
         }
 
+        ImGui::NewLine();
+        ImGui::NewLine();
+        ImGui::NewLine();
+        ImGui::NewLine();
+        ImGui::NewLine();
+        ImGui::NewLine();
+
+        // Draw the matrix rows
+        for (int row = 0; row < layerCount; ++row)
+        {
+            ImGui::SetCursorPosX(0.5f);
+            // Draw row label with fixed width
+
+            ImGui::Text("%*s", (int)(labelWidth / ImGui::GetFontSize()), (m_layerManager.m_layerMap[static_cast<layer::LAYERS>(row)]).c_str()); // Adjust label width for alignment
+
+            // Draw checkboxes for this row
+            for (int col = 0; col < row + 1; ++col)
+            {
+                ImGui::SameLine();
+                ImGui::SetCursorPosX(labelWidth + col * cellWidth);
+                ImGui::PushID(row * layerCount + col);  // Unique ID for each checkbox
+
+                // Get the current value from the collision matrix in PhysicsLayer
+                bool isChecked = m_physicsManager.layers.m_GetCollide(row, col);
+                if (isChecked) {
+                    ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 255, 0, 100)); // Green background for checked
+                    ImGui::PushStyleColor(ImGuiCol_CheckMark, IM_COL32(0, 255, 0, 255)); // Green checkmark color
+                }
+                else {
+                    ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(255, 0, 0, 100)); // Red background for unchecked
+                    ImGui::PushStyleColor(ImGuiCol_CheckMark, IM_COL32(255, 0, 0, 255)); // Red checkmark color
+                }
+
+                if (ImGui::Checkbox("##hidden", &isChecked))
+                {
+                    // Update the PhysicsLayer collision matrix when the checkbox is toggled
+                    m_physicsManager.layers.m_SetCollision(row, col, isChecked);
+
+                }
+                ImGui::PopStyleColor(2);
+                ImGui::PopID();
+            }
+
+        }
+
+        float windowWidth = ImGui::GetContentRegionAvail().x; // Available width inside window
+        float buttonWidth = 100.0f; // Width of your button
+
+        ImGui::SetCursorPosX((windowWidth - buttonWidth) * 0.5f); // Center horizontally
+        if (ImGui::Button("Save", ImVec2(buttonWidth, 0))) {
+            m_physicsManager.layers.SaveCollisionLayer();
+        }
     }
 
-    float windowWidth = ImGui::GetContentRegionAvail().x; // Available width inside window
-    float buttonWidth = 100.0f; // Width of your button
-
-    ImGui::SetCursorPosX((windowWidth - buttonWidth) * 0.5f); // Center horizontally
-    if (ImGui::Button("Save", ImVec2(buttonWidth, 0))) {
-        m_physicsManager.layers.SaveCollisionLayer();
-    }
     ImGui::End();
 }

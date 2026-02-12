@@ -390,10 +390,10 @@ namespace ecs {
 	T* ECS::GetComponent(EntityID ID) {
 		T* component = std::static_pointer_cast<SparseSet<T>>(m_combinedComponentPool.at(T::classname()))->Get(ID);
 
-		if (component) {
-			//to set component dirty flag to true
-			component->dirty = true;
-		}
+		//if (component) {
+		//	//to set component dirty flag to true
+		//	component->dirty = true;
+		//}
 
 		return component;
 	}

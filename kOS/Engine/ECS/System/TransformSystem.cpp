@@ -22,19 +22,30 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 namespace ecs {
 	
 	void TransformSystem::Init(){
-
+		// this doesnt work cause entity have not finish serailizing child
+		//onRegister.Add([&](EntityID id) {
+		//	TransformComponent* transformComp = m_ecs.GetComponent<TransformComponent>(id);
+		//	NameComponent* namecomp = m_ecs.GetComponent<NameComponent>(id);
+		//	if (namecomp->isStatic) {
+		//		CalculateAllTransform(m_ecs, transformComp);
+		//	}
+		//	});
 
 	}
 
 	void TransformSystem::Update() {
 		const auto& entities = m_entities.Data();
 		for (const EntityID id : entities) {
+			//NameComponent* namecomp = m_ecs.GetComponent<NameComponent>(id);
 			TransformComponent* transformComp = m_ecs.GetComponent<TransformComponent>(id);
-			if (transformComp->m_haveParent || !transformComp->dirty) continue;
+			//if (namecomp->isStatic) {
+			//	return;
+			//}
+
+			
 			
 			CalculateAllTransform(m_ecs, transformComp);
 
-			transformComp->dirty = false;
 		}
 
 		//m_ecs.GetWorkers().ParallelFor(entities.begin(), entities.end(),

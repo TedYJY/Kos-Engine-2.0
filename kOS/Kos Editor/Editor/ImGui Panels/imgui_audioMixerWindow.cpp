@@ -381,8 +381,8 @@ void gui::ImGuiHandler::DrawAudioMixerWindow() {
 	FmodEnsureInit();
 	FmodUpdatePerFrame();
 
-	ImGui::Begin("Audio Mixer");
-	{
+	
+	if(ImGui::Begin("Audio Mixer")){
 		// File Path Load
 		ImGui::TextUnformatted("Path:");
 		ImGui::SameLine();

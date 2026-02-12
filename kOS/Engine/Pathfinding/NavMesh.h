@@ -2,13 +2,13 @@
 #define NAVMESH_H
 
 #include <cstdint>
-#include "./DetourRecast/Recast.h"
-#include "./DetourRecast/DetourNavMesh.h"
-#include "./DetourRecast/DetourNavMeshBuilder.h"
-#include "./DetourRecast/DetourNavMeshQuery.h"
-#include "./DetourRecast/TileMesh.h"
-#include "./ECS/ECS.h"
-#include "./Resources/ResourceManager.h"
+#include "DetourRecast/Recast.h"
+#include "DetourRecast/DetourNavMesh.h"
+#include "DetourRecast/DetourNavMeshBuilder.h"
+#include "DetourRecast/DetourNavMeshQuery.h"
+#include "DetourRecast/TileMesh.h"
+#include "ECS/ECS.h"
+#include "Resources/ResourceManager.h"
 #include "Scene/SceneManager.h"
 
 namespace ecs { class ECS; }

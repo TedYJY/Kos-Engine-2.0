@@ -29,40 +29,42 @@ void gui::ImGuiHandler::DrawAssetInspector() {
 
     
     
-    ImGui::Begin("Asset Inspector");
+    if (ImGui::Begin("Asset Inspector")) {
 
-    if(!AssetPath.empty()) {
+        if (!AssetPath.empty()) {
 
-        ImGui::TextDisabled("Selected File %s", AssetPath.filename().string().c_str());
-        selectedAsset.ApplyFunction(DrawComponents{ selectedAsset.Names() });
-        
-        //TODO automate this function for other asset types
-        if (selectedAsset.Type == R_Texture::classname()) {
-			textureCompilerData.ApplyFunction(DrawComponents{ textureCompilerData.Names() });
-        }
-
-
-
-
-
-
-
-
-        float windowWidth = ImGui::GetContentRegionAvail().x; // Available width inside window
-        float buttonWidth = 100.0f; // Width of your button
-
-        ImGui::SetCursorPosX((windowWidth - buttonWidth) * 0.5f); // Center horizontally
-        if (ImGui::Button("Save", ImVec2(buttonWidth, 0))) {
-            // Button clicked
-            serialization::WriteJsonFile(AssetPath.string(), &selectedAsset);
+            ImGui::TextDisabled("Selected File %s", AssetPath.filename().string().c_str());
+            selectedAsset.ApplyFunction(DrawComponents{ selectedAsset.Names() });
 
             //TODO automate this function for other asset types
             if (selectedAsset.Type == R_Texture::classname()) {
-                serialization::WriteJsonFile(AssetPath.string(), &textureCompilerData, true);
+                textureCompilerData.ApplyFunction(DrawComponents{ textureCompilerData.Names() });
             }
-        }
 
-	}
+
+
+
+
+
+
+
+            float windowWidth = ImGui::GetContentRegionAvail().x; // Available width inside window
+            float buttonWidth = 100.0f; // Width of your button
+
+            ImGui::SetCursorPosX((windowWidth - buttonWidth) * 0.5f); // Center horizontally
+            if (ImGui::Button("Save", ImVec2(buttonWidth, 0))) {
+                // Button clicked
+                serialization::WriteJsonFile(AssetPath.string(), &selectedAsset);
+
+                //TODO automate this function for other asset types
+                if (selectedAsset.Type == R_Texture::classname()) {
+                    serialization::WriteJsonFile(AssetPath.string(), &textureCompilerData, true);
+                }
+            }
+
+        }
+    }
+
 
 
 

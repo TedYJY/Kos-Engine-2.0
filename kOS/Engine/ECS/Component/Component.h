@@ -34,7 +34,6 @@ namespace ecs {
 
 		//Store Entity ID
 		EntityID entity{};
-		bool dirty = true;
 
 	};
 

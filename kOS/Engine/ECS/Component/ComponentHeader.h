@@ -23,9 +23,5 @@
 #include "CapsuleColliderComponent.h"
 #include "SphereColliderComponent.h"
 #include "RigidbodyComponent.h"
-
-#include "OctreeGeneratorComponent.h"
-#include "PathfinderComponent.h"
-#include "PathfinderTargetComponent.h"
 #include "ParticleComponent.h"
 #include "NavMeshComponent.h"
