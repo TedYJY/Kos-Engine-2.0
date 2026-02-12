@@ -152,7 +152,7 @@ void R_Model::LoadMesh(std::string meshFile) {
     // std::cout << "Mesh  size is " << meshCount << '\n';
 
     //Get min and max vertex
-    glm::vec3 minVertex, maxVertex;
+    glm::vec3 minVertex{}, maxVertex{};
     for (unsigned int i{ 0 }; i < meshCount; i++) {
         //Load each vertex and indice in the thingy
         std::vector<Vertex> newVert;
