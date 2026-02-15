@@ -167,7 +167,13 @@ void EditorCamera::SnapToAxis(AxisView view, float distanceOverride) {
     else up = glm::vec3(0, 1, 0);
     direction = glm::normalize(forward);
 }
-
+void EditorCamera::SetTargetFront() {
+    rotation.y = glm::degrees(atan2(direction.z, direction.x));
+    rotation.x = glm::degrees(asin(direction.y));
+    up = glm::normalize(rotation * glm::vec3(0.f, 1.f, 0.f));
+    float targetDistance = 25.f;
+    target = position + direction * targetDistance;
+}
 //float EditorCamera::m_aspectRatio{};
 //int EditorCamera::m_windowWidth{};
 //int EditorCamera::m_windowHeight{};

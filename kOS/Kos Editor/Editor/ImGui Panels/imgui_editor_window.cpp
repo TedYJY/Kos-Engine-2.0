@@ -104,8 +104,15 @@ void gui::ImGuiHandler::DrawRenderScreenWindow(unsigned int windowWidth, unsigne
             ImVec2(0, 1), ImVec2(1, 0));
 
         //Get mouse position
+        static bool lAltPressed{false};
         ImVec2 mousePos = ImGui::GetIO().MousePos;
-        if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered() && !ImGuizmo::IsOver()) {
+        if (ImGui::IsKeyPressed(ImGuiKey_LeftAlt)) {
+            lAltPressed = true;
+        }
+        else if (ImGui::IsKeyReleased(ImGuiKey_LeftAlt)) {
+            lAltPressed = false;
+        }
+        if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered() && !ImGuizmo::IsOver()&&!lAltPressed) {
             // Mouse click relative to image
             float relX = (mousePos.x - pos.x) / (pMax.x - pos.x);
             float relY = (mousePos.y - pos.y) / (pMax.y - pos.y);
@@ -211,7 +218,7 @@ void gui::ImGuiHandler::DrawRenderScreenWindow(unsigned int windowWidth, unsigne
         static bool mouseCon = false;
         static ImVec2 lastMousePos = ImVec2(0, 0);
         static bool firstMouseInput = true;
-
+        static bool lAltReleased = false;
         if ((ImGui::IsMouseClicked(ImGuiMouseButton_Right) || ImGui::IsMouseClicked(ImGuiMouseButton_Middle)) && ImGui::IsWindowHovered())
         {
             mouseCon = true;
@@ -222,6 +229,31 @@ void gui::ImGuiHandler::DrawRenderScreenWindow(unsigned int windowWidth, unsigne
         {
             mouseCon = false;
         }
+        if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered&&lAltPressed) {
+            mouseCon = true;
+            firstMouseInput = true;
+            lastMousePos = ImGui::GetMousePos();
+            EditorCamera::editorCamera.SetTargetFront();
+
+            // Initialize spherical coordinates based on current position/target
+            glm::vec3 offset = EditorCamera::editorCamera.position - EditorCamera::editorCamera.target;
+            EditorCamera::editorCamera.r = glm::length(offset);
+            if (EditorCamera::editorCamera.r < 0.001f) EditorCamera::editorCamera.r = 5.0f;
+
+            glm::vec3 offsetNorm = glm::normalize(offset);
+            EditorCamera::editorCamera.alpha = asin(offsetNorm.y);
+            EditorCamera::editorCamera.betta = atan2(offsetNorm.x, offsetNorm.z);
+
+            EditorCamera::editorCamera.orbitMode = true;
+            lAltReleased = true;
+        }
+        else if(ImGui::IsMouseReleased(ImGuiMouseButton_Left)&&lAltReleased) {
+            EditorCamera::editorCamera.direction = glm::normalize(EditorCamera::editorCamera.target - EditorCamera::editorCamera.position);
+            EditorCamera::editorCamera.SwitchMode(false);
+            mouseCon = false;
+            lAltReleased = false;
+        }
+        //Do alt left click
 
         if (mouseCon)
         {
@@ -272,6 +304,9 @@ void gui::ImGuiHandler::DrawRenderScreenWindow(unsigned int windowWidth, unsigne
                         glm::vec3 up = glm::normalize(glm::cross(forward, right));
                         EditorCamera::editorCamera.position += (deltaX * right + deltaY * up) * cameraSpeed;
                     }
+                }
+                else if (ImGui::IsMouseDown(ImGuiMouseButton_Left)&&lAltPressed) {
+                    EditorCamera::editorCamera.onCursor(deltaX, deltaY);
                 }
             }
             lastMousePos = currentMousePos;
