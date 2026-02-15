@@ -29,7 +29,7 @@ public:
 	~rcMeshLoaderObj();
 	
 	bool load(const std::string& fileName);
-	bool load(std::shared_ptr<R_Model> model);
+	bool load(std::vector<std::shared_ptr<R_Model>> model);
 
 	const float* getVerts() const { return m_verts; }
 	const float* getNormals() const { return m_normals; }
