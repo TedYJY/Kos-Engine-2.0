@@ -58,6 +58,7 @@ public:
     void SwitchMode(bool orbMode);
     void onCursor(double xoffset, double yoffset) override;
     void onScroll(double xoffset, double yoffset) override;
+    void SetTargetFront();
     glm::mat4 CalculateViewMtx() override;
     enum class AxisView { PosX, NegX, PosY, NegY, PosZ, NegZ };
     void SnapToAxis(AxisView view, float distanceOverride = -1.0f);
