@@ -282,7 +282,7 @@ void AssetManager::RenameFile(const std::filesystem::path& oldFile, const std::f
         }
     }
 
-    LOGGING_INFO("Rename Successful")
+    LOGGING_INFO("Rename Successful");
 }
 
 
