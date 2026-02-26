@@ -64,6 +64,9 @@ public:
     void SnapToAxis(AxisView view, float distanceOverride = -1.0f);
     float targetDist{25.f};
     glm::vec2 minmaxTargetDist{ 5.f,50.f };
+
+    //Sensitivity
+    float orbitSens{ 0.15f }, sens{0.15f};
 };
     //class EditorCamera
     //{

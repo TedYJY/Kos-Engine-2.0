@@ -128,7 +128,7 @@ namespace gui {
 		if (DeserializeProfile() == false) {
 			SetStyle();
 		}
-
+		DeserializeCameraSetting();
 		// Setup Platform/Renderer bindings
 		ImGui_ImplGlfw_InitForOpenGL(m_window.window, true);
 		ImGui_ImplOpenGL3_Init(glsl_version);
