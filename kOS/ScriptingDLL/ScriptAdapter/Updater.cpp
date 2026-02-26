@@ -51,7 +51,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 
 	RegisterScript<GroundCheckScript>(TemplateSC::ecsPtr);
 	RegisterScript<PlayerManagerScript>(TemplateSC::ecsPtr);
-	RegisterScript<AbilityUIScript>(TemplateSC::ecsPtr);
+	//RegisterScript<AbilityUIScript>(TemplateSC::ecsPtr);
 
 	RegisterScript<GameManager>(TemplateSC::ecsPtr);
 

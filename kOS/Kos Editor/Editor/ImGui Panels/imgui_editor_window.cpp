@@ -229,7 +229,7 @@ void gui::ImGuiHandler::DrawRenderScreenWindow(unsigned int windowWidth, unsigne
         {
             mouseCon = false;
         }
-        if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered&&lAltPressed) {
+        if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered() && lAltPressed) {
             mouseCon = true;
             firstMouseInput = true;
             lastMousePos = ImGui::GetMousePos();

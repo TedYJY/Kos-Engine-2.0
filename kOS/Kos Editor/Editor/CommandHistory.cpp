@@ -9,7 +9,7 @@ static bool onSceneLoadedDel = false;
 void CommandHistory::Init() {
 	m_ecs.AddScene(CACHEDSCENE, SceneData());
 	m_ecs.sceneMap[CACHEDSCENE].isPrefab = true;
-	m_sceneManager.SetSceneActive(CACHEDSCENE, false);
+	m_sceneManager.SetSceneActive(CACHEDSCENE, true);
 
 	if (!onSceneLoadedDel) {
 		m_sceneManager.onSceneLoaded.Add([this](SceneData Data) {	Clear(); });
