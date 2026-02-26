@@ -202,6 +202,7 @@ namespace gui {
         void openAndLoadSceneDialog();
 
         bool DeserializeProfile();
+        void DeserializeCameraSetting();
         void DrawPreferencesWindow();
 
         void DrawAnimationWindow();
@@ -302,6 +303,8 @@ namespace gui {
             ImGui::LoadIniSettingsFromDisk(m_imgui_layout.c_str());
 
             //LoadAnimatorLayout("../kOS/Kos Editor/Configs/AnimatorLayout.json");
+            
+            //Load camera profile if it exists
         }
 
     };
