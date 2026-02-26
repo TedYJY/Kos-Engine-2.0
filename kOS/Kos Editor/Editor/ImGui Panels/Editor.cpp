@@ -61,10 +61,43 @@ namespace gui {
 			if (m_prefabSceneMode) {
 				m_prefabManager.UpdateAllPrefab(m_activeScene);
 			}
+		});
 
+		onDelete.Add([&]() {
+			if (m_lastClickedEntityId >= 0) {
+				for (auto e : m_selectedEntities) {
+					m_ecs.DeleteEntity(e);
+					m_commandHistory.AddCommand<CommandHistory::DeleteGameObject>(e, m_ecs.GetSceneByEntityID(e), m_ecs, &m_commandHistory);
+				}
 
-	});
+				m_selectedEntities.clear();
+				m_lastClickedEntityId = -1;
+			}
 
+		});
+		onDuplicate.Add([&]() {
+			for (auto e : m_selectedEntities) {
+				ecs::EntityID newID = m_ecs.DuplicateEntity(e);
+				m_commandHistory.AddCommand<CommandHistory::AddGameObject>(newID, m_activeScene);
+
+				if (m_prefabSceneMode)
+				{
+					const auto& parent = m_ecs.GetParent(e);
+					// if id does not have parent, make it the parent
+					if (!parent.has_value())
+					{
+						m_ecs.SetParent(e, newID);
+					}
+					else
+					{
+						m_ecs.SetParent(parent.value(), newID);
+					}
+				}
+			}
+
+			m_selectedEntities.clear();
+
+		});
 	}
 
 
@@ -198,8 +231,8 @@ namespace gui {
 			}
 
 			//check if selected entityid is loaded
-			if (m_ecs.GetEntitySignatureData().find(m_clickedEntityId) == m_ecs.GetEntitySignatureData().end()) {
-				m_clickedEntityId = -1;
+			if (m_ecs.GetEntitySignatureData().find(m_lastClickedEntityId) == m_ecs.GetEntitySignatureData().end()) {
+				m_lastClickedEntityId = -1;
 			}
 
 			ImVec2 windowSize = ImGui::GetIO().DisplaySize;
@@ -308,6 +341,18 @@ namespace gui {
 			relativeMousePos.y *= yScale;
 			m_input.currentMousePos = relativeMousePos;
 		}
+
+		//delete entity
+		if (ImGui::IsKeyPressed(ImGuiKey_Delete)) {
+			onDelete.Invoke();
+		}
+
+		//Duplicate Entity
+		if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsKeyPressed(ImGuiKey_D)) {
+			if (m_lastClickedEntityId >= 0 && !m_prefabSceneMode) {
+				onDuplicate.Invoke();
+			}
+		}
 	}
 
 	void ImGuiHandler::openAndLoadSceneDialog()
@@ -329,7 +374,7 @@ namespace gui {
 				m_ecs.sceneMap.find(path.filename().string())->second.isActive = false;
 				m_savedSceneState[path.filename().string()] = true;
 			}
-			m_clickedEntityId = -1;
+			m_lastClickedEntityId = -1;
 		}
 		else {
 			LOGGING_POPUP("No Scene loaded");
