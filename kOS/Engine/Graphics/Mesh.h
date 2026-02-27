@@ -92,8 +92,11 @@ struct DebugCapsule : BasicMesh {
 	float radius{ 1.0f };
 	float height{ 2.0f };
 	float lineWidth{ 2.0f };
+	GLuint vboId{ 0 };
+	GLuint eboId{ 0 };
 	void CreateMesh();
 	void DrawMesh();
+	void DeleteMesh();
 };
 
 struct DebugFrustum : BasicMesh {
@@ -107,8 +110,11 @@ struct DebugMesh : BasicMesh {
 	float lineWidth{ 2.0f };
 	std::vector<glm::vec3> vertices;
 	std::vector<unsigned short> indices;
+	GLuint vboId{ 0 };
+	GLuint eboId{ 0 };
 	void CreateMesh();
 	void DrawMesh();
+	void DeleteMesh();
 };
 
 struct DebugVertex {
