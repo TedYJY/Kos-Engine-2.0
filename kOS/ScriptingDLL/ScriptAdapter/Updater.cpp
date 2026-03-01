@@ -39,11 +39,13 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<EnemyManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<PowerupManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<FireballSplash>(TemplateSC::ecsPtr);
+	RegisterScript<AcidAirBlast>(TemplateSC::ecsPtr);
 
 	RegisterScript<FirePowerupManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<LightningPowerupManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<AcidPowerupManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<AcidShield>(TemplateSC::ecsPtr);
+	//RegisterScript<AcidGas>(TemplateSC::ecsPtr);
 
 	RegisterScript<FireLightningPowerupManagerScript>(TemplateSC::ecsPtr);
 	RegisterScript<FireAcidPowerupManagerScript>(TemplateSC::ecsPtr);

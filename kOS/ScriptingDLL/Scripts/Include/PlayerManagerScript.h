@@ -145,6 +145,7 @@ public:
 	utility::GUID fireDashPrefab;
 	utility::GUID lightningDashPrefab;
 	utility::GUID acidShieldPrefab;
+	utility::GUID airBlastPrefab;
 
 	// BACKEND PLAYER DETAILS
 	float playerRotationX = 0.f, playerRotationY = 0.f;
@@ -294,7 +295,7 @@ public:
 	glm::vec3 GetPlayerRightDirection();
 
 	REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
-		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, acidPrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab,
+		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, acidPrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab, airBlastPrefab,
 		gunSfxGUID_1,gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, lightningDashSfxGUID, lightningGunSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject, winScreenCanvasObject);
 };
 
@@ -1195,18 +1196,21 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
 				ecs::EntityID acidLMBID = DuplicatePrefabIntoScene<R_Scene>(currentScene, acidLMBPrefab);
 
-				if (auto* acidLMBTransform = ecsPtr->GetComponent<TransformComponent>(acidLMBID)) {
-					acidLMBTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
-				}
+				auto* spawnTf = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID);
+				auto* acidLMBTf = ecsPtr->GetComponent<TransformComponent>(acidLMBID);
+				if (!spawnTf || !acidLMBTf) return;
+
+				acidLMBTf->LocalTransformation.position = spawnTf->WorldTransformation.position;
 
 				if (auto* acidLMBScript = ecsPtr->GetComponent<AcidLMB>(acidLMBID)) {
-					//fireLMBScript->direction = GetPlayerCameraFrontDirection();
+					glm::vec3 launchVel = GetPlayerCameraFrontDirection() * acidLMBScript->launchSpeed;
+					launchVel.y += acidLMBScript->arcUpwardKick;
+					acidLMBScript->velocity = launchVel;
 				}
-
 			}
-
 			// ADD SFX
-		}
+}
+
 		else if (playerPowerupHeld == Powerup::LIGHTNING) {
 			std::shared_ptr<R_Scene> lightningLMB = resource->GetResource<R_Scene>(lightningLMBPrefab);
 
@@ -1261,22 +1265,26 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 			// ADD SFX
 		}
+
+		//Acid Blast
 		else if (playerPowerupHeld == Powerup::ACID) {
-			std::shared_ptr<R_Scene> acidCloud = resource->GetResource<R_Scene>(acidPrefab);
 
-			if (acidCloud) {
+			if (currMana < acidAbilityCost) return;
+
+			std::shared_ptr<R_Scene> airBlast = resource->GetResource<R_Scene>(airBlastPrefab);
+
+			if (airBlast) {
 				std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
-				ecs::EntityID acidCloudID = DuplicatePrefabIntoScene<R_Scene>(currentScene, acidPrefab);
+				ecs::EntityID airBlastID = DuplicatePrefabIntoScene<R_Scene>(currentScene, airBlastPrefab);
 
-				if (auto* acidCloudTransform = ecsPtr->GetComponent<TransformComponent>(acidCloudID)) {
-					acidCloudTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
-				}
-
-				if (auto* acidCloudScript = ecsPtr->GetComponent<AcidPowerupManagerScript>(acidCloudID)) {
-					acidCloudScript->direction = GetPlayerCameraFrontDirection();
+				if (auto* airBlastTransform = ecsPtr->GetComponent<TransformComponent>(airBlastID)) {
+					airBlastTransform->LocalTransformation.position =
+						ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
 				}
 
 				currMana -= acidAbilityCost;
+
+				std::cout << "[AirBlast] Spawned | Mana left: " << currMana << "\n";
 			}
 
 			// ADD SFX
