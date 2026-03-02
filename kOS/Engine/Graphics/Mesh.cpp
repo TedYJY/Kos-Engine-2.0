@@ -456,19 +456,18 @@ void DebugCapsule::CreateMesh() {
         AddHemisphere(false);
     }
 
-    GLuint VBO, EBO;
     glGenVertexArrays(1, &vaoId);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
+    glGenBuffers(1, &vboId);
+    glGenBuffers(1, &eboId);
 
     glBindVertexArray(vaoId);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, vboId);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
 
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void*)0);
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboId);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), indices.data(), GL_STATIC_DRAW);
 
     glBindVertexArray(0);
@@ -486,22 +485,67 @@ void DebugCapsule::DrawMesh() {
     glBindVertexArray(0);
 }
 
+void DebugCapsule::DeleteMesh()
+{
+    if (eboId != 0)
+    {
+        glDeleteBuffers(1, &eboId);
+        eboId = 0;
+    }
+
+    if (vboId != 0)
+    {
+        glDeleteBuffers(1, &vboId);
+        vboId = 0;
+    }
+
+    if (vaoId != 0)
+    {
+        glDeleteVertexArrays(1, &vaoId);
+        vaoId = 0;
+    }
+
+    drawCount = 0;
+}
+
 void DebugMesh::CreateMesh() {
     if (vertices.empty() || indices.empty()) { return; }
-    GLuint VBO, EBO;
     glGenVertexArrays(1, &vaoId);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
+    glGenBuffers(1, &vboId);
+    glGenBuffers(1, &eboId);
     glBindVertexArray(vaoId);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, vboId);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void*)0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboId);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), indices.data(), GL_STATIC_DRAW);
     glBindVertexArray(0);
     primitiveType = GL_TRIANGLES;
     drawCount = static_cast<GLint>(indices.size());
+}
+
+void DebugMesh::DeleteMesh()
+{
+    if (eboId != 0)
+    {
+        glDeleteBuffers(1, &eboId);
+        eboId = 0;
+    }
+
+    if (vboId != 0)
+    {
+        glDeleteBuffers(1, &vboId);
+        vboId = 0;
+    }
+
+    if (vaoId != 0)
+    {
+        glDeleteVertexArrays(1, &vaoId);
+        vaoId = 0;
+    }
+
+    drawCount = 0;
 }
 
 void DebugMesh::DrawMesh() {

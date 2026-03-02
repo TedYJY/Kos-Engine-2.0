@@ -176,3 +176,15 @@ private:
 	unsigned int uiBuffer;
 	unsigned int rboDepth;
 };
+
+class BloomBuffer {
+public:
+	void InitializeBloomBuffer(int width, int height);
+	void Update(int width, int height);
+	void BindForDrawing();
+	unsigned int RetrieveBuffer() { return bloomBuffer; }
+private:
+	int width{}, height{};
+	unsigned int bloomBuffer;
+	unsigned int rboDepth;
+};

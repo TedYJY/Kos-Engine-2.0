@@ -637,6 +637,7 @@ void DebugRenderer::RenderDebugCapsules(const CameraData& camera, Shader& shader
 		shader.SetFloat("uShaderType", 2.1f);
 		shader.SetVec3("color", c.color);
 		debugCapsule.DrawMesh();
+		debugCapsule.DeleteMesh();
 	}
 }
 
@@ -650,6 +651,7 @@ void DebugRenderer::RenderDebugMeshes(const CameraData& camera, Shader& shader) 
 		shader.SetFloat("uShaderType", 2.1f);
 		shader.SetVec3("color", data.color);
 		debugMesh.DrawMesh();
+		debugMesh.DeleteMesh();
 	}
 }
 

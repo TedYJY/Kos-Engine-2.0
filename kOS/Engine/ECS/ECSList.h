@@ -18,7 +18,7 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 
 namespace ecs {
 
-	constexpr size_t MAXCOMPONENT = 64;
+	constexpr size_t MAXCOMPONENT = 128;
 	constexpr size_t MAXSYSTEM = 64;
 	using EntityID = int;
 	using ComponentSignature = std::bitset<MAXCOMPONENT>;

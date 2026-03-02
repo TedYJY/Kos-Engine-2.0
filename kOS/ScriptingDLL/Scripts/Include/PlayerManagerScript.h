@@ -145,6 +145,7 @@ public:
 	utility::GUID fireDashPrefab;
 	utility::GUID lightningDashPrefab;
 	utility::GUID acidShieldPrefab;
+	utility::GUID airBlastPrefab;
 
 	// BACKEND PLAYER DETAILS
 	float playerRotationX = 0.f, playerRotationY = 0.f;
@@ -179,6 +180,15 @@ public:
 	float acidShieldCost = 10.f; 
 	float acidShieldCooldown = 6.f; 
 	float acidCurrShieldCooldown = 0.f;
+
+	// LIGHTNING LMB - TIMESLOW PREFS
+	float lightningTimeslowDuration = 2.0f;
+	float lightningTimeslowCost = 10.0f;
+	float lightningTimeslowCooldown = 4.0f;
+	float lightningCurrTimeslowCooldown = 0.0f;
+	float lightningCurrTimeslowTimer = 0.0f;
+	bool  isTimeslowActive = false;
+
 
 	inline int GetMaxBulletsForCurrentWeapon() const {
 		switch (playerPowerupHeld) {
@@ -285,7 +295,7 @@ public:
 	glm::vec3 GetPlayerRightDirection();
 
 	REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
-		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, acidPrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab,
+		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, acidPrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab, airBlastPrefab,
 		gunSfxGUID_1,gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, lightningDashSfxGUID, lightningGunSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject, winScreenCanvasObject);
 };
 
@@ -445,6 +455,23 @@ inline void PlayerManagerScript::Update() {
 	if (Input->IsKeyPressed(keys::SPACE)) {
 		//std::cout << "[DEBUG] Space pressed - Grounded: " << GroundCheck() << std::endl;
 	}
+
+	// Timeslow countdown 
+	if (isTimeslowActive) {
+		lightningCurrTimeslowTimer -= ecsPtr->m_GetDeltaTime();
+		if (lightningCurrTimeslowTimer <= 0.0f) {
+			isTimeslowActive = false;
+			lightningCurrTimeslowTimer = 0.0f;
+			ecsPtr->SetTimeScale(1.0f);
+		}
+	}
+
+	if (lightningCurrTimeslowCooldown > 0.f) {
+		lightningCurrTimeslowCooldown -= ecsPtr->m_GetDeltaTime();
+		if (lightningCurrTimeslowCooldown < 0.f)
+			lightningCurrTimeslowCooldown = 0.f;
+	}
+
 
 }
 
@@ -1169,18 +1196,21 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
 				ecs::EntityID acidLMBID = DuplicatePrefabIntoScene<R_Scene>(currentScene, acidLMBPrefab);
 
-				if (auto* acidLMBTransform = ecsPtr->GetComponent<TransformComponent>(acidLMBID)) {
-					acidLMBTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
-				}
+				auto* spawnTf = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID);
+				auto* acidLMBTf = ecsPtr->GetComponent<TransformComponent>(acidLMBID);
+				if (!spawnTf || !acidLMBTf) return;
+
+				acidLMBTf->LocalTransformation.position = spawnTf->WorldTransformation.position;
 
 				if (auto* acidLMBScript = ecsPtr->GetComponent<AcidLMB>(acidLMBID)) {
-					//fireLMBScript->direction = GetPlayerCameraFrontDirection();
+					glm::vec3 launchVel = GetPlayerCameraFrontDirection() * acidLMBScript->launchSpeed;
+					launchVel.y += acidLMBScript->arcUpwardKick;
+					acidLMBScript->velocity = launchVel;
 				}
-
 			}
-
 			// ADD SFX
-		}
+}
+
 		else if (playerPowerupHeld == Powerup::LIGHTNING) {
 			std::shared_ptr<R_Scene> lightningLMB = resource->GetResource<R_Scene>(lightningLMBPrefab);
 
@@ -1207,8 +1237,9 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 			}
 
+			ecsPtr->SetTimeScale(0.5f);
 
-			// ADD SFX
+
 		}
 	}
 
@@ -1234,22 +1265,26 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 			// ADD SFX
 		}
+
+		//Acid Blast
 		else if (playerPowerupHeld == Powerup::ACID) {
-			std::shared_ptr<R_Scene> acidCloud = resource->GetResource<R_Scene>(acidPrefab);
 
-			if (acidCloud) {
+			if (currMana < acidAbilityCost) return;
+
+			std::shared_ptr<R_Scene> airBlast = resource->GetResource<R_Scene>(airBlastPrefab);
+
+			if (airBlast) {
 				std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
-				ecs::EntityID acidCloudID = DuplicatePrefabIntoScene<R_Scene>(currentScene, acidPrefab);
+				ecs::EntityID airBlastID = DuplicatePrefabIntoScene<R_Scene>(currentScene, airBlastPrefab);
 
-				if (auto* acidCloudTransform = ecsPtr->GetComponent<TransformComponent>(acidCloudID)) {
-					acidCloudTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
-				}
-
-				if (auto* acidCloudScript = ecsPtr->GetComponent<AcidPowerupManagerScript>(acidCloudID)) {
-					acidCloudScript->direction = GetPlayerCameraFrontDirection();
+				if (auto* airBlastTransform = ecsPtr->GetComponent<TransformComponent>(airBlastID)) {
+					airBlastTransform->LocalTransformation.position =
+						ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
 				}
 
 				currMana -= acidAbilityCost;
+
+				std::cout << "[AirBlast] Spawned | Mana left: " << currMana << "\n";
 			}
 
 			// ADD SFX
@@ -1352,31 +1387,24 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			// ADD SFX
 		}
 
+		//Time slow
+		else if (playerPowerupHeld == Powerup::LIGHTNING) {
+			//Add VFX here?
 
-		else if (playerPowerupHeld == Powerup::LIGHTNING && lightningCurrMovementCooldown <= 0.f) {
+			if (lightningCurrTimeslowCooldown > 0.f) return;
+			if (currMana < lightningTimeslowCost)    return;
+			if (isTimeslowActive)                    return;
 
-			glm::vec3 force = Input->GetVertical() * GetPlayerFrontDirection() + Input->GetHorizontal() * GetPlayerRightDirection();
-			force = glm::normalize(force);
+			ecsPtr->SetTimeScale(0.5f);
 
-			std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
-			ecs::EntityID lightningDashID = DuplicatePrefabIntoScene<R_Scene>(currentScene, lightningDashPrefab);
-			ecs::EntityID parentID = entity;
-			ecsPtr->SetParent(parentID, lightningDashID, false);
-			if (auto* vfxTf = ecsPtr->GetComponent<TransformComponent>(lightningDashID))
-			{
-				vfxTf->LocalTransformation.position = glm::vec3(1.f, 1.f, 0.f);  // offset
-				vfxTf->LocalTransformation.rotation = glm::vec3(0.f, 0.f, 0.f);
-			}
+			isTimeslowActive = true;
 
-			physicsPtr->AddForce(playerRigidbody->actor, force * 25.f, ForceMode::Impulse);
+			lightningCurrTimeslowTimer = lightningTimeslowDuration;
+			lightningCurrTimeslowCooldown = lightningTimeslowCooldown;
 
+			currMana -= lightningTimeslowCost;
 
-			isDashing = true;
-			currentDashTimer = dashDuration;
-
-			currMana -= lightningMovementCost;
-			lightningCurrMovementCooldown = lightningMovementCooldown;
-
+			// ADD SFX HERE 
 			if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
 
 				for (auto& af : ac->audioFiles) {
@@ -1386,10 +1414,11 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					}
 				}
 			}
-			// ADD SFX
 		}
+
 	}
 }
+
 
 inline bool PlayerManagerScript::GroundCheck() {
 	if (auto* groundCheck = ecsPtr->GetComponent<GroundCheckScript>(playerGroundCheckObjectID)) {
