@@ -162,7 +162,7 @@ bool InputGeom::loadMesh(rcContext* ctx, const std::string& filepath)
 	return true;
 }
 
-bool InputGeom::loadMesh(rcContext* ctx, std::shared_ptr<R_Model> model, float scale)
+bool InputGeom::loadMesh(rcContext* ctx, std::vector<std::shared_ptr<R_Model>> model, float scale)
 {
 	if (m_mesh)
 	{

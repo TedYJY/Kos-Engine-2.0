@@ -244,7 +244,7 @@ bool rcMeshLoaderObj::load(const std::string& filename)
 	return true;
 }
 
-bool rcMeshLoaderObj::load(std::shared_ptr<R_Model> model)
+bool rcMeshLoaderObj::load(std::vector<std::shared_ptr<R_Model>> model)
 {
 	//m_vertCount = 0;
 	//m_triCount = 0;
@@ -252,47 +252,50 @@ bool rcMeshLoaderObj::load(std::shared_ptr<R_Model> model)
 	int tcap = 0;
 	int vertexBase = 0;
 
-	auto meshes = model->GetMeshes();
-	for (auto& m : meshes)
-		for (int i = 0; i < m.vertices.size(); i ++) {
-			addVertex(m.vertices[i].Position.x, m.vertices[i].Position.y, m.vertices[i].Position.z, vcap);
-		}
-
-	for (auto& m : meshes) {
-		for (int i = 0; i < m.indices.size() - 2; i += 3) {
-			int a = vertexBase + m.indices[i + 0];
-			int b = vertexBase + m.indices[i + 1];
-			int c = vertexBase + m.indices[i + 2];
-			if (a < 0 || a >= m_vertCount || b < 0 || b >= m_vertCount || c < 0 || c >= m_vertCount)
-				continue;
-			addTriangle(a, b, c, tcap);
-		}
-		vertexBase += static_cast<int>(m.vertices.size());
-	}
-
 	delete[] m_normals;
-	m_normals = new float[m_triCount * 3];
 
-	for (int i = 0; i < m_triCount * 3; i += 3)
-	{
-		const float* v0 = &m_verts[m_tris[i] * 3];
-		const float* v1 = &m_verts[m_tris[i + 1] * 3];
-		const float* v2 = &m_verts[m_tris[i + 2] * 3];
+	for (int i = 0; i < model.size(); i++) {
+		auto mesh = model[i]->GetMeshes();
+		for (auto& m : mesh)
+			for (int i = 0; i < m.vertices.size(); i++) {
+				addVertex(m.vertices[i].Position.x, m.vertices[i].Position.y, m.vertices[i].Position.z, vcap);
+			}
 
-		float e0[3] = { v1[0] - v0[0], v1[1] - v0[1], v1[2] - v0[2] };
-		float e1[3] = { v2[0] - v0[0], v2[1] - v0[1], v2[2] - v0[2] };
+		for (auto& m : mesh) {
+			for (int i = 0; i < m.indices.size() - 2; i += 3) {
+				int a = vertexBase + m.indices[i + 0];
+				int b = vertexBase + m.indices[i + 1];
+				int c = vertexBase + m.indices[i + 2];
+				if (a < 0 || a >= m_vertCount || b < 0 || b >= m_vertCount || c < 0 || c >= m_vertCount)
+					continue;
+				addTriangle(a, b, c, tcap);
+			}
+			vertexBase += static_cast<int>(m.vertices.size());
+		}
 
-		float* n = &m_normals[i];
-		n[0] = e0[1] * e1[2] - e0[2] * e1[1];
-		n[1] = e0[2] * e1[0] - e0[0] * e1[2];
-		n[2] = e0[0] * e1[1] - e0[1] * e1[0];
+		m_normals = new float[m_triCount * 3]; // ## TODO REALLOC normals
 
-		float len = sqrtf(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
-		if (len > 0.00001f)	{
-			float inv = 1.0f / len;
-			n[0] *= inv;
-			n[1] *= inv;
-			n[2] *= inv;
+		for (int i = 0; i < m_triCount * 3; i += 3)
+		{
+			const float* v0 = &m_verts[m_tris[i] * 3];
+			const float* v1 = &m_verts[m_tris[i + 1] * 3];
+			const float* v2 = &m_verts[m_tris[i + 2] * 3];
+
+			float e0[3] = { v1[0] - v0[0], v1[1] - v0[1], v1[2] - v0[2] };
+			float e1[3] = { v2[0] - v0[0], v2[1] - v0[1], v2[2] - v0[2] };
+
+			float* n = &m_normals[i];
+			n[0] = e0[1] * e1[2] - e0[2] * e1[1];
+			n[1] = e0[2] * e1[0] - e0[0] * e1[2];
+			n[2] = e0[0] * e1[1] - e0[1] * e1[0];
+
+			float len = sqrtf(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
+			if (len > 0.00001f) {
+				float inv = 1.0f / len;
+				n[0] *= inv;
+				n[1] *= inv;
+				n[2] *= inv;
+			}
 		}
 	}
 	return true;

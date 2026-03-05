@@ -826,10 +826,8 @@ void NavMeshManager::Build(std::string sceneName, std::shared_ptr<Sample_TileMes
 
 void NavMeshManager::BuildRecastGeometry(std::string sceneName, std::shared_ptr<Sample_TileMesh>& tileMesh) {
     const auto& entities = m_ecs.GetSceneData(sceneName);
-    std::vector<float> rcVerts;
-    std::vector<int> rcTris;
-    glm::vec3 min(std::numeric_limits<float>::max()), max(std::numeric_limits<float>::lowest());
     std::vector<std::shared_ptr<R_Model>> models;
+    float scaleRef = 0.f;
     for (auto obj : entities.sceneIDs)
     {
         const auto* navComp = m_ecs.GetComponent<NavMeshComponent>(obj);
@@ -844,32 +842,32 @@ void NavMeshManager::BuildRecastGeometry(std::string sceneName, std::shared_ptr<
             LOGGING_WARN("Unable to find meshData of " + name->entityName);
             continue;
         }
-  /*      else {
+        else {
             models.push_back(meshData);
+
+            auto trans = m_ecs.GetComponent<TransformComponent>(obj);
+            scaleRef = trans->WorldTransformation.scale.x;
         }
     }
-    for (auto iter : models) {*/
-        auto trans = m_ecs.GetComponent<TransformComponent>(obj);
-        InputGeom* newGeom = new InputGeom;
-        if (!newGeom->loadMesh(&ctx, meshData, trans->WorldTransformation.scale.x)) {
-            const auto* name = m_ecs.GetComponent<NameComponent>(obj);
-            delete newGeom;
-            ctx.dumpLog("Geom load log %s:", name->entityName);
-            return;
-        }
-        LOGGING_INFO("Loading Mesh Process Completed");
-        if (!tileMesh)
-            tileMesh = std::make_shared<Sample_TileMesh>();
 
-        tileMesh->setContext(&ctx);
-        if (tileMesh && newGeom) {
-            tileMesh->handleMeshChanged(newGeom);
-        }
+    InputGeom* newGeom = new InputGeom;
+    if (!newGeom->loadMesh(&ctx, models, scaleRef)) {
+        delete newGeom;
+        ctx.dumpLog("Geom load log %s: Error");
+        return;
+    }
+    LOGGING_INFO("Loading Mesh Process Completed");
+    if (!tileMesh)
+        tileMesh = std::make_shared<Sample_TileMesh>();
 
-        if (navMeshData.find(sceneName) == navMeshData.end()) {
-            auto result = navMeshData.emplace(sceneName, tileMesh);
-            LOGGING_INFO(sceneName + " geometry has been added to scene: " + sceneName);
-        }
+    tileMesh->setContext(&ctx);
+    if (tileMesh && newGeom) {
+        tileMesh->handleMeshChanged(newGeom);
+    }
+
+    if (navMeshData.find(sceneName) == navMeshData.end()) {
+        auto result = navMeshData.emplace(sceneName, tileMesh);
+        LOGGING_INFO(sceneName + " geometry has been added to scene: " + sceneName);
     }
 }
 
