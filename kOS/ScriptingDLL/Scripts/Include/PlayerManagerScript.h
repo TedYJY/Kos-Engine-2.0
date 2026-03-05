@@ -197,6 +197,22 @@ public:
 	float maxAirSpeed = 20.f;
 	float jumpForce = 12.f;
 
+
+	float cameraTiltMaxAngle = 10.f;	// Max roll degrees left/right
+	float cameraTiltSpeed = 8.f;		// How fast it lerps to target
+	float cameraTiltReturnSpeed = 10.f; // How fast it returns to 0
+	float cameraCurrTiltZ = 0.f;		//current Z roll
+
+	float cameraShakeIntensity = 0.f;
+	float cameraShakeDuration = 0.f;
+	float cameraShakeTimer = 0.f;
+	float cameraShakeDelay = 0.f;
+	float cameraShakeElapsed = 0.f;
+	bool  isCameraShaking = false;
+	glm::vec3 cameraShakeOriginalPos = glm::vec3(0.f);
+	glm::vec3 cameraShakeOffset = glm::vec3(0.f); // ✅ ADD THIS
+
+
 	inline int GetMaxBulletsForCurrentWeapon() const {
 		switch (playerPowerupHeld) {
 		case Powerup::LIGHTNING: return lightningMaxBullets;
@@ -292,6 +308,7 @@ public:
 	void PlayerMovementControls();
 	void PlayerCameraControls();
 	void PlayerCombatControls();
+	void CameraShake(float intensity, float duration);
 
 	bool GroundCheck();
 	//void TakeDamage(int amount); // Commented out in original
@@ -458,6 +475,17 @@ inline void PlayerManagerScript::Update() {
 	if (!isDashing) {
 		PlayerMovementControls(); // Look at me
 	}
+
+	if (Input->IsKeyTriggered(keys::T)) {
+		CameraShake(0.3f, 0.5f);   // flat-ass light shake
+	}
+	if (Input->IsKeyTriggered(keys::Y)) {
+		CameraShake(0.6f, 0.4f);   // mid medium shake
+	}
+	if (Input->IsKeyTriggered(keys::U)) {
+		CameraShake(1.2f, 0.6f);   // nicki minaj ass heavy shake
+	}
+
 
 	// PlayerMovementControls(); I removed dis to disable movement while dashing, if anyone wants there to be more control during a dash need to look here
 	PlayerCameraControls();
@@ -745,8 +773,67 @@ inline void PlayerManagerScript::PlayerCameraControls() {
 	playerRotationY += mouseRotationY;
 	playerRotationX = glm::clamp(playerRotationX, -90.f, 90.f);
 
-	playerCameraTransform->LocalTransformation.rotation = glm::vec3(playerRotationX, playerRotationY, 0.f);
-	playerGunCameraTransform->LocalTransformation.rotation = glm::vec3(playerRotationX, playerRotationY, 0.f);
+	//playerCameraTransform->LocalTransformation.rotation = glm::vec3(playerRotationX, playerRotationY, 0.f);
+	//playerGunCameraTransform->LocalTransformation.rotation = glm::vec3(playerRotationX, playerRotationY, 0.f);
+
+
+	// CAMERA TILT
+	float horizontalInput = Input->GetHorizontal();
+
+	float targetTiltZ = -horizontalInput * cameraTiltMaxAngle;
+
+	float tiltBlend = (std::abs(horizontalInput) > 0.05f)
+		? cameraTiltSpeed
+		: cameraTiltReturnSpeed;
+
+	cameraCurrTiltZ = glm::mix(cameraCurrTiltZ, targetTiltZ, tiltBlend * ecsPtr->m_GetDeltaTime());
+
+	// CAMERA SHAKE
+	if (isCameraShaking) {
+		cameraShakeElapsed += ecsPtr->m_GetDeltaTime();
+
+		if (cameraShakeElapsed >= cameraShakeDelay) {
+			float t = (cameraShakeElapsed - cameraShakeDelay) / cameraShakeDuration;
+
+			if (t >= 1.f) {
+				playerCameraTransform->LocalTransformation.position = cameraShakeOriginalPos;
+				isCameraShaking = false;
+				cameraShakeElapsed = 0.f;
+				cameraShakeOffset = glm::vec3(0.f);
+			}
+			else {
+				float curveValue = 1.f - t;
+				float currentIntensity = cameraShakeIntensity * curveValue;
+
+				auto randF = [](float range) -> float {
+					return ((float)rand() / (float)RAND_MAX) * 2.f * range - range;
+					};
+
+				glm::vec3 randomOffset = glm::vec3(
+					randF(currentIntensity),
+					randF(currentIntensity),
+					0.f
+				);
+
+				float yaw = glm::radians(playerRotationY);
+				float pitch = glm::radians(playerRotationX);
+
+				glm::mat4 rotMat = glm::rotate(glm::mat4(1.f), yaw, glm::vec3(0, 1, 0))
+					* glm::rotate(glm::mat4(1.f), pitch, glm::vec3(1, 0, 0));
+
+				cameraShakeOffset = glm::vec3(rotMat * glm::vec4(randomOffset, 0.f));
+			}
+		}
+	}
+
+
+	playerCameraTransform->LocalTransformation.rotation = glm::vec3(playerRotationX, playerRotationY, cameraCurrTiltZ);
+	playerGunCameraTransform->LocalTransformation.rotation = glm::vec3(playerRotationX, playerRotationY, cameraCurrTiltZ);
+
+
+
+
+
 
 	// PLAYER CROUCHING
 	if (playerIsCrouching) {
@@ -755,6 +842,15 @@ inline void PlayerManagerScript::PlayerCameraControls() {
 	else {
 		ecsPtr->GetComponent<TransformComponent>(playerCameraObjectID)->LocalTransformation.position.y = glm::mix(ecsPtr->GetComponent<TransformComponent>(playerCameraObjectID)->LocalTransformation.position.y, originalPlayerCrouchCameraPosY, playerCrouchTransitionSpeed * ecsPtr->m_GetDeltaTime());
 	}
+
+	//if (cameraShakeTimer > 0.f) {
+	//	playerCameraTransform->LocalTransformation.position += cameraShakeOffset;
+	//}
+
+	if (isCameraShaking && cameraShakeElapsed >= cameraShakeDelay) {
+		playerCameraTransform->LocalTransformation.position = cameraShakeOriginalPos + cameraShakeOffset;
+	}
+
 
 	// PLAYER SPRINTING
 	auto* cameraComp = ecsPtr->GetComponent<CameraComponent>(playerCameraObjectID);
@@ -1630,4 +1726,23 @@ inline glm::vec3 PlayerManagerScript::GetPlayerRightDirection() {
 	glm::vec3 dir(std::sin(glm::radians(-cameraRotationY)), 0.f, std::cos(glm::radians(-cameraRotationY)));
 
 	return dir;
+}
+
+inline void PlayerManagerScript::CameraShake(float intensity, float duration) {
+	// Save curr position
+	auto* cam = ecsPtr->GetComponent<ecs::TransformComponent>(playerCameraObjectID);
+	if (!cam) return;
+
+	// If already shaking, restore first 
+	if (isCameraShaking) {
+		cam->LocalTransformation.position = cameraShakeOriginalPos;
+	}
+
+	cameraShakeOriginalPos = cam->LocalTransformation.position;
+	cameraShakeIntensity = intensity;
+	cameraShakeDuration = duration;
+	cameraShakeDelay = 0.f;   // set to non-zero if you want delay support
+	cameraShakeElapsed = 0.f;
+	cameraShakeOffset = glm::vec3(0.f);
+	isCameraShaking = true;
 }
