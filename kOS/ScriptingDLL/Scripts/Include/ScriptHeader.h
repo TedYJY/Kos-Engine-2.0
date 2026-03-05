@@ -27,7 +27,7 @@
 #include "PlayerManagerScript.h"
 #include "AcidAirBlast.h"
 #include "AcidGas.h"
-
+#include "RoomLockScript.h"
 //#include "AbilityUIScript.h"
 #include "EventColliderScript.h"
 

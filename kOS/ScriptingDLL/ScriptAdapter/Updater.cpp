@@ -83,5 +83,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<NextSceneColliderScript>(TemplateSC::ecsPtr);
 	RegisterScript<Ability1Script>(TemplateSC::ecsPtr);
 
+	RegisterScript<RoomLockScript>(TemplateSC::ecsPtr);
+
 	FieldComponentTypeRegistry::CreateAllDrawers(static_cast<Fields*>(svm->field)->GetAction());
 }
