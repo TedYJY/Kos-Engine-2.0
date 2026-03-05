@@ -205,7 +205,7 @@ void GraphicsManager::gm_RenderToEditorFrameBuffer()
 	//Render UI
 	framebufferManager.UIBuffer.BindForDrawing();
 	//glBindTexture(GL_TEXTURE_2D, framebufferManager.gBuffer.gMaterial);
-	//gm_RenderUIObjects(editorCamera);
+	gm_RenderUIObjects(editorCamera);
 
 	Shader* fboCompositeShader{ &shaderManager.engineShaders.find("FBOCompositeShader")->second };
 	framebufferManager.ComposeBuffers(framebufferManager.sceneBuffer.texID, framebufferManager.UIBuffer.texID,
