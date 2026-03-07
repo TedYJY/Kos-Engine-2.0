@@ -360,6 +360,9 @@ void gui::ImGuiHandler::DrawFieldComponent(ecs::Component* component, const std:
             else if (field.IsType<utility::GUID>()) {
                 draw(field.AsType<utility::GUID>());
             }
+            else if (field.IsType<std::vector<utility::GUID>>()) {
+                draw(field.AsType<std::vector<utility::GUID>>());
+            }
             else {
                 draw.count++;
             }
