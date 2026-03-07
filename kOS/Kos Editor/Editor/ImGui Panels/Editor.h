@@ -216,7 +216,8 @@ namespace gui {
         void DrawNavMeshWindow();
         bool ImageButton(const std::filesystem::path& directoryString);
 
-        void DrawEntityChanges(std::map<EntityID, ComponentSignature>& result, ecs::EntityID entityID);
+        void DrawEntityChanges(std::map<EntityID, std::pair<EntityID, ecs::ComponentSignature>>& result, ecs::EntityID entityID, ecs::EntityID root);
+        void DrawChanges(std::map<EntityID, std::pair<EntityID, ecs::ComponentSignature>>& result, ecs::EntityID entityID, ecs::EntityID root);
         /***********PreferenceTab*************/
         bool openPreferencesTab = false;
         /*************************************/
