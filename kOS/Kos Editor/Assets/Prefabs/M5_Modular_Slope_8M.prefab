@@ -1,0 +1,64 @@
+[
+    {
+        "entityGUID": "a67bcac0-b5d0-565d-b51d-2be3bae19b8c",
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "1c2841fd-3d4b-9ec4-3919-c52f053697ff"
+                }
+            ]
+        },
+        "MeshColliderComponent": {
+            "isTrigger": false,
+            "convex": false
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "a5b1fa71-9ad1-0c5d-2032-d2e9d6d31118"
+        },
+        "NameComponent": {
+            "entityName": "M5_Modular_Slope_8M",
+            "Layer": 0,
+            "entityTag": "Ground",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "M5_Modular_Slope_8M.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": -0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.009999999776482582,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999999776482582
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.009999999776482582,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999999776482582
+                }
+            }
+        }
+    }
+]
