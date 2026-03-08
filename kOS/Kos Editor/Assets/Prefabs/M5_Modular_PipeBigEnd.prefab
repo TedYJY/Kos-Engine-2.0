@@ -1,18 +1,10 @@
 [
     {
-        "SceneData": {
-            "skyBoxGUID": [],
-            "NavMeshGuid": "00000000-0000-0000-0000-000000000000",
-            "postProcessingProfile": "00000000-0000-0000-0000-000000000000",
-            "ambientIntensity": 1.0
-        }
-    },
-    {
-        "entityGUID": "ac6d0936-420e-30eb-8def-ceb5b45f8f8e",
+        "entityGUID": "d2b569f8-2772-0781-8c88-9aa22175ac04",
         "MaterialComponent": {
             "materialGUID": [
                 {
-                    "materialGUID": "67097cf5-fb54-c4f8-16cc-8f2fc2fb5b45"
+                    "materialGUID": "ecfb8242-aeb2-1a35-0690-d4e0c0305036"
                 }
             ]
         },
@@ -21,18 +13,17 @@
             "convex": false
         },
         "MeshFilterComponent": {
-            "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+            "meshGUID": "62eda833-a747-1567-1551-f7b927ec272f"
         },
         "NameComponent": {
-            "entityName": "M5_Modular_Pillar_B",
+            "entityName": "M5_Modular_PipeBigEnd",
             "Layer": 0,
             "entityTag": "Default",
             "isPrefab": true,
             "isStatic": false,
-            "prefabName": "M5_Modular_Pillar_B.prefab",
+            "prefabName": "M5_Modular_PipeBigEnd.prefab",
             "hide": false
         },
-        "NavMeshComponent": {},
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
@@ -59,7 +50,7 @@
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.0,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {

@@ -8,11 +8,11 @@
         }
     },
     {
-        "entityGUID": "ac6d0936-420e-30eb-8def-ceb5b45f8f8e",
+        "entityGUID": "6da7649c-8a7c-5c9a-ae19-f1e26be90b6d",
         "MaterialComponent": {
             "materialGUID": [
                 {
-                    "materialGUID": "67097cf5-fb54-c4f8-16cc-8f2fc2fb5b45"
+                    "materialGUID": "58def78d-f524-66d9-837a-a98343bfa595"
                 }
             ]
         },
@@ -21,18 +21,17 @@
             "convex": false
         },
         "MeshFilterComponent": {
-            "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+            "meshGUID": "2c1a0cde-5787-a314-4381-02b50604b726"
         },
         "NameComponent": {
-            "entityName": "M5_Modular_Pillar_B",
+            "entityName": "M5_Modular_Pipe",
             "Layer": 0,
             "entityTag": "Default",
             "isPrefab": true,
             "isStatic": false,
-            "prefabName": "M5_Modular_Pillar_B.prefab",
+            "prefabName": "M5_Modular_Pipe.prefab",
             "hide": false
         },
-        "NavMeshComponent": {},
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
@@ -59,7 +58,7 @@
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.0,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {

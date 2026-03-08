@@ -8,7 +8,7 @@
         }
     },
     {
-        "entityGUID": "ac6d0936-420e-30eb-8def-ceb5b45f8f8e",
+        "entityGUID": "142c59ab-43c4-5a33-4764-511c81b86fc7",
         "MaterialComponent": {
             "materialGUID": [
                 {
@@ -24,12 +24,12 @@
             "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
         },
         "NameComponent": {
-            "entityName": "M5_Modular_Pillar_B",
+            "entityName": "M5_Modular_Pillar_18M_D",
             "Layer": 0,
             "entityTag": "Default",
             "isPrefab": true,
             "isStatic": false,
-            "prefabName": "M5_Modular_Pillar_B.prefab",
+            "prefabName": "M5_Modular_Pillar_18M_D.prefab",
             "hide": false
         },
         "NavMeshComponent": {},
