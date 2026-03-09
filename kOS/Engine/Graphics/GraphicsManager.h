@@ -89,7 +89,7 @@ public:
 			= &skinnedMeshRenderer.skinnedMeshesToDraw[layer].back();
 	};
 	inline void gm_PushBasicParticleData(BasicParticleData&& basicParticleData) { particleRenderer.particlesToDraw.emplace_back(std::move(basicParticleData)); };
-	
+	inline void gm_PushBasicTrailData(TrailRenderer::BasicTrailData&& basicTrailData) { trailRenderer.trailData.emplace_back( std::move(basicTrailData)); };
 
 
 	//Accessors

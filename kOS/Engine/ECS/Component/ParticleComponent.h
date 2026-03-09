@@ -18,15 +18,16 @@ namespace ecs {
 		int trailID = -1;
 	};
 
-	struct TrailPoint
+	/*struct TrailPoint
 	{
 		glm::vec3 position;
 		float lifetime;
-	};
+	};*/
 
 	struct TrailData
 	{
-		std::vector<TrailPoint> points;
+		std::vector<glm::vec3> points;
+		std::vector<float> lifetimes;
 
 		float maxLifetime = 1.0f;
 		float minDistance = 0.05f;
@@ -248,6 +249,7 @@ namespace ecs {
 		float duration = 5.0f;
 		bool looping = true;
 		bool play_On_Awake = true;
+		bool dynamicTrailingEnabled = false;
 		glm::vec3 particle_Spawn_Location = glm::vec3(0.f);
 
 		//Lifetime
@@ -302,7 +304,7 @@ namespace ecs {
 		std::vector<ParticleData> particle_List;
 		std::vector<TrailData> trail_List;
 
-		bool dynamicTrailingEnabled = false;
+		
 
 		//EMISSTION RATE
 		float emitterTime = 0.f;

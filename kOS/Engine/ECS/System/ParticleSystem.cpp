@@ -82,7 +82,11 @@ namespace ecs {
             if (particle->particleType == ParticleComponent::ParticleType::THREE_DIMENSIONAL_ROTATION_BILLBOARD)
                 type = 1.f;
             m_graphicsManager.gm_PushBasicParticleData(BasicParticleData{ sending.positions_Particle, sending.colors, sending.sizes, sending.rotates, textureResource.get(), type });
-            particle->trail_List;
+
+            for (int i = 0; i < particle->trail_List.size(); i++)
+                m_graphicsManager.gm_PushBasicTrailData(TrailRenderer::BasicTrailData{ particle->trail_List[i].points, particle->trail_List[i].lifetimes,particle->trail_List[i].maxLifetime,
+                    particle->trail_List[i].width, particle->trail_List[i].color, particle->trail_List[i].lastPosition });
+
         }
     }
 
@@ -121,7 +125,8 @@ namespace ecs {
         pd.rotation = particle->rotationModule.enabled ? glm::radians(RandomRange(particle->rotationModule.start_Rotation, particle->rotationModule.end_Rotation)) : glm::radians(particle->rotationModule.start_Rotation);
         if (particle->dynamicTrailingEnabled)
         {
-
+            if (pd.trailID < 0 || pd.trailID >= particle->trail_List.size())
+                pd.trailID = CreateTrail(pd.position, particle);
         }
         
 
@@ -458,8 +463,24 @@ namespace ecs {
                 //particle->particle_List[i] = std::move(particle->particle_List.back());
                 particle->particle_List.pop_back();
 
+                if (pd.trailID >= 0 && pd.trailID < particle->trail_List.size())
+                {
+                    particle->trail_List[pd.trailID].points.clear();
+                    particle->trail_List[pd.trailID].lifetimes.clear();
+                }
+
+            }
+
+            //Trail Update
+            if (particle->dynamicTrailingEnabled)
+            {
+                //for (int i = 0; i < particle->trail_List.size(); i++)
+                UpdateTrail(pd.trailID, dt, pd.position, particle->trail_List);
+               
             }
         } 
+        AgeTrails(dt, particle->trail_List);
+        CleanupDeadTrails(particle->trail_List);
     }
 
     void ParticleSystem::UpdateEmitters(float dt,EntityID id, ParticleComponent*& particleComp,  TransformComponent*& transform) {

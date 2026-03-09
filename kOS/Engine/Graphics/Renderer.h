@@ -152,26 +152,68 @@ public:
 	{
 		std::vector<float> vertexBuffer;
 		std::vector<unsigned int> indexBuffer;
-	};
 
-	struct TrailPoint
-	{
-		glm::vec3 position;
-		float lifetime;
+		unsigned int vao = 0;
+		unsigned int vbo = 0;
+		unsigned int ebo = 0;
+
+		bool initialized = false;
+
+		void InitGL()
+		{
+			if (initialized) return; // only once
+			glGenVertexArrays(1, &vao);
+			glGenBuffers(1, &vbo);
+			glGenBuffers(1, &ebo);
+
+			glBindVertexArray(vao);
+
+			glBindBuffer(GL_ARRAY_BUFFER, vbo);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+
+			// Vertex layout: pos(3) + color(4)
+			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)0);
+			glEnableVertexAttribArray(0);
+			glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)(3 * sizeof(float)));
+			glEnableVertexAttribArray(1);
+
+			glBindVertexArray(0);
+			initialized = true;
+		}
+
+		void UpdateBuffers()
+		{
+			glBindBuffer(GL_ARRAY_BUFFER, vbo);
+			glBufferData(GL_ARRAY_BUFFER, vertexBuffer.size() * sizeof(float),
+				vertexBuffer.data(), GL_DYNAMIC_DRAW);
+
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBuffer.size() * sizeof(unsigned int),
+				indexBuffer.data(), GL_DYNAMIC_DRAW);
+		}
+
+		void Cleanup()
+		{
+			if (!initialized) return;
+			glDeleteVertexArrays(1, &vao);
+			glDeleteBuffers(1, &vbo);
+			glDeleteBuffers(1, &ebo);
+			vao = vbo = ebo = 0;
+			initialized = false;
+			vertexBuffer.clear();
+			indexBuffer.clear();
+		}
 	};
 
 	struct BasicTrailData
 	{
-		std::vector<TrailPoint> points;
+		std::vector<glm::vec3> points;
+		std::vector<float> lifetimes;
 
-		float maxLifetime = 1.0f;
-		float minDistance = 0.05f;
-		float width = 0.2f;
-
+		float maxLifetime = 5.0f;
+		float width = 10.f;
 		glm::vec4 color{ 1.0f };
-
 		glm::vec3 lastPosition{};
-		bool firstFrame = true;
 	};
 
 	unsigned int vao{};
@@ -180,20 +222,17 @@ public:
 
 	std::vector<BasicTrailData> trailData{};
 	std::vector<TrailInstance> trailsToDraw{};
-	std::vector<float> vertexBuffer{};
-	std::vector<unsigned int> indexBuffer{};
-
 
 	void InitTrailRendererMeshes();
-	void BuildTrailMesh(const std::vector<BasicTrailData>& trails, const glm::vec3& cameraPos);
-	void Render(Shader& shader);
+	//void BuildTrailMesh(const std::vector<BasicTrailData>& trails, const glm::vec3& cameraPos);
+	TrailInstance BuildOrUpdateTrailInstance(const TrailRenderer::BasicTrailData& trail, const glm::vec3& cameraPos, TrailInstance* existingInstance = nullptr);
+	void RebuildTrailInstances(const glm::vec3& cameraPos);
+	void Render(Shader& shader, const CameraData& camera);
 
 	void Clear() override
 	{
 		trailData.clear();
 		trailsToDraw.clear();
-		vertexBuffer.clear();
-		indexBuffer.clear();
 	};
 };
 

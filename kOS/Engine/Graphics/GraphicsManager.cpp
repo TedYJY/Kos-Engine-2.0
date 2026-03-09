@@ -753,7 +753,9 @@ void GraphicsManager::gm_RenderParticles(const CameraData& camera)
 	
 	// 3. Render trails
 	Shader* trailShader{ &shaderManager.engineShaders.find("TrailShader")->second };
-	trailRenderer.Render(*trailShader);
+
+	/// transfer basic trail data to other container
+	trailRenderer.Render(*trailShader, camera);
 	glDisable(GL_BLEND);
 }
 
