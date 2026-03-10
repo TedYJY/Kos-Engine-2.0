@@ -4,6 +4,7 @@
 #include "ScriptAdapter/TemplateSC.h"
 #include "LoseScreenScript.h"
 #include "WinScreenScript.h"
+#include "LevelCompleteScript.h"
 
 class PauseMenuScript : public TemplateSC {
 public:
@@ -33,7 +34,7 @@ public:
     }
 
     void TogglePause() {
-        if (LoseScreenScript::isLoseScreenActive || WinScreenScript::isWinScreenActive) return;
+        if (LoseScreenScript::isLoseScreenActive || WinScreenScript::isWinScreenActive || LevelCompleteScript::isLevelCompleteActive) return;
         isPaused ? ResumeGame() : PauseGame();
     }
 
