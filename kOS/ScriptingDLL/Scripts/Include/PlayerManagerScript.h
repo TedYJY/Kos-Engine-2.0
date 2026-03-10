@@ -1350,6 +1350,8 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 				if (powerupComp->powerupType == "FIRE") {
 					playerPowerupHeld = Powerup::FIRE;
+
+					//ecsPtr->SetActive()
 				}
 				else if (powerupComp->powerupType == "ACID") {
 					playerPowerupHeld = Powerup::ACID;
