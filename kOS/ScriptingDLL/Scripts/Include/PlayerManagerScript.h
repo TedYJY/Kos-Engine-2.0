@@ -660,6 +660,7 @@ inline void PlayerManagerScript::PlayerMovementControls()
 	glm::vec3 tempVelocity = playerRigidbody->velocity;
 
 	auto* playerTransform = ecsPtr->GetComponent<ecs::TransformComponent>(entity);
+	auto* playerCollider = ecsPtr->GetComponent<ecs::CapsuleColliderComponent>(entity);
 
 	jumpGraceTime -= dt;
 
@@ -674,7 +675,7 @@ inline void PlayerManagerScript::PlayerMovementControls()
 		glm::vec3 playerPos = playerTransform->WorldTransformation.position;
 
 		RaycastHit hitInfo;
-		float rayDistance = 1.8f;
+		float rayDistance = (playerCollider->capsule.height / 2.f) + 0.3f;
 		grounded = physicsPtr->Raycast(
 			playerPos,
 			glm::vec3(0.f, -1.f, 0.f),
