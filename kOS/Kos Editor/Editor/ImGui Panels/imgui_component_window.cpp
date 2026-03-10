@@ -245,6 +245,7 @@ void gui::ImGuiHandler::DrawComponentWindow()
 
                                     if (allPrefabsNamesInScene.size() > 0) {
                                         for (auto& sceneName : allPrefabsNamesInScene) {
+                                            if (sceneName == "Game Package.prefab" || sceneName == "LockRoomPrefab.prefab") continue;
                                             m_prefabManager.UpdateAllPrefab(sceneName);
                                         }
                                     }
