@@ -396,14 +396,44 @@ inline void PlayerManagerScript::Start() {
 	playerArmModelObjectID = ecsPtr->GetEntityIDFromGUID(playerArmModelObject);
 	playerGroundCheckObjectID = ecsPtr->GetEntityIDFromGUID(playerGroundCheckObject);
 	absorbVFXSpawnObjectID = ecsPtr->GetEntityIDFromGUID(absorbingVFXSpawnPoint);
-	pistolModelID = ecsPtr->GetEntityIDFromGUID(pistolModelObject);
-	fireSwordModelID = ecsPtr->GetEntityIDFromGUID(fireSwordModelObject);
-	lightningModelObjectID = ecsPtr->GetEntityIDFromGUID(lightningModelObject);
-	acidModelObjectID = ecsPtr->GetEntityIDFromGUID(acidModelObject);
+	
+	// PISTOL
+	if (pistolModelObject != utility::GUID{}) {
+		pistolModelID = ecsPtr->GetEntityIDFromGUID(pistolModelObject);
+	}
+	else {
+		pistolModelID = 0;
+	}
 
-	// Start with pistol visible, sword hidden
-	ecsPtr->SetActive(pistolModelID, true);
-	ecsPtr->SetActive(fireSwordModelID, false);
+	// FIRE SWORD
+	if (fireSwordModelObject != utility::GUID{}) {
+		fireSwordModelID = ecsPtr->GetEntityIDFromGUID(fireSwordModelObject);
+	}
+	else {
+		fireSwordModelID = 0;
+	}
+
+	// LIGHTNING
+	if (lightningModelObject != utility::GUID{}) {
+		lightningModelObjectID = ecsPtr->GetEntityIDFromGUID(lightningModelObject);
+	}
+	else {
+		lightningModelObjectID = 0;
+	}
+
+	// ACID
+	if (acidModelObject != utility::GUID{}) {
+		acidModelObjectID = ecsPtr->GetEntityIDFromGUID(acidModelObject);
+	}
+	else {
+		acidModelObjectID = 0;
+	}
+
+	if (pistolModelID != 0)    ecsPtr->SetActive(pistolModelID, true);
+	if (fireSwordModelID != 0) ecsPtr->SetActive(fireSwordModelID, false);
+	if (lightningModelObjectID != 0) ecsPtr->SetActive(lightningModelObjectID, false);
+	if (acidModelObjectID != 0) ecsPtr->SetActive(acidModelObjectID, false);
+
 
 	currPlayerHitPoints = maxPlayerHitPoints;
 	currPlayerMovSpeed = maxPlayerMovSpeed;
@@ -1751,14 +1781,14 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					airBlastTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
 
 					glm::vec3 dir = glm::normalize(GetPlayerCameraFrontDirection());
-					float yaw = glm::degrees(atan2(dir.x, dir.z)) + 180.f;
+					float yaw = glm::degrees(atan2(dir.x, dir.z)) + 90.f;
 					float pitch = glm::degrees(asin(-dir.y));
 					float roll = 0.f;
 
 					glm::vec3 rotationDegrees = glm::vec3(-pitch, yaw, roll);
 
-					if (auto* railgunTransform = ecsPtr->GetComponent<TransformComponent>(airBlastID)) {
-						railgunTransform->LocalTransformation.rotation = rotationDegrees;
+					if (auto* airBlastTransform = ecsPtr->GetComponent<TransformComponent>(airBlastID)) {
+						airBlastTransform->LocalTransformation.rotation = rotationDegrees;
 					}
 
 					std::vector<EntityID> children = ecsPtr->GetChild(airBlastID).value();
@@ -1770,7 +1800,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 					if (children[1]) {
 						ecsPtr->GetComponent<TransformComponent>(children[1])->LocalTransformation.rotation = glm::vec3(-pitch, yaw, 90.f);
-						ecsPtr->GetComponent<ParticleComponent>(children[0])->velocityModule.velocity_Modifier = dir * 10.f;
+						ecsPtr->GetComponent<ParticleComponent>(children[1])->velocityModule.velocity_Modifier = dir * 10.f;
 					}
 				}
 
@@ -2003,14 +2033,14 @@ inline void  PlayerManagerScript::SwapWeaponModel(Powerup newPowerup) {
 		ecsPtr->SetActive(lightningModelObjectID, false);
 		ecsPtr->SetActive(acidModelObjectID, false);
 	}
-	if (newPowerup == Powerup::ACID) {
+	else if (newPowerup == Powerup::ACID) {
 		ecsPtr->SetActive(pistolModelID, false);
 		ecsPtr->SetActive(fireSwordModelID, false);
 		ecsPtr->SetActive(lightningModelObjectID, false);
 		ecsPtr->SetActive(acidModelObjectID, true);
 
 	}
-	if (newPowerup == Powerup::LIGHTNING) {
+	else if (newPowerup == Powerup::LIGHTNING) {
 		ecsPtr->SetActive(pistolModelID, false);
 		ecsPtr->SetActive(fireSwordModelID, false);
 		ecsPtr->SetActive(lightningModelObjectID, true);

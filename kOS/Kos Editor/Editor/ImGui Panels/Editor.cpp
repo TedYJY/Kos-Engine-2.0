@@ -95,7 +95,7 @@ namespace gui {
 				}
 			}
 
-			m_selectedEntities.clear();
+			//m_selectedEntities.clear();
 
 		});
 	}
@@ -106,6 +106,9 @@ namespace gui {
 
 
 		m_imgui_layout = imguiINI;
+
+		//initialize reflectable
+		LoadPtrIntoReflection(&m_assetManager, &m_ecs);
 
 		
 		//Initialize Debug Systems
@@ -345,12 +348,12 @@ namespace gui {
 		}
 
 		//delete entity
-		if (ImGui::IsKeyPressed(ImGuiKey_Delete)) {
+		if (ImGui::IsKeyReleased(ImGuiKey_Delete)) {
 			onDelete.Invoke();
 		}
 
 		//Duplicate Entity
-		if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsKeyPressed(ImGuiKey_D)) {
+		if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsKeyPressed(ImGuiKey_D, false)) {
 			if (m_lastClickedEntityId >= 0 && !m_prefabSceneMode) {
 				onDuplicate.Invoke();
 			}

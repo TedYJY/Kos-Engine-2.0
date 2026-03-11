@@ -17,10 +17,27 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 /******************************************************************/
 #pragma once
 #include "config/pch.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+#include "imgui_stdlib.h"
+#include "imgui_node_editor.h"
+#include "ImGuizmo.h"
+#include "AssetManager/AssetManager.h"
 #include "Editor/Payload.h"
 
 constexpr float sameLineParam = 200.0f; //Padding for the slider
 
+namespace ReflectionEditor {
+    extern AssetManager* assetManagerPtr;
+    extern ecs::ECS* ecsPtr;
+}
+
+
+static void LoadPtrIntoReflection(AssetManager* am, ecs::ECS* ecs) {
+    ReflectionEditor::assetManagerPtr = am;
+    ReflectionEditor::ecsPtr = ecs;
+}
 
 template <typename T>
 struct DrawComponents {
@@ -227,37 +244,90 @@ struct DrawComponents {
     void operator()(utility::GUID& _args) {
         ImGui::Text(m_Array[count].c_str());
         ImGui::SameLine(sameLineParam);
-        std::string title = "##" + m_Array[count];
 
+        ImGui::PushID(count);
 
-        static char buffer[256];
-        std::strncpy(buffer, _args.GetToString().c_str(), sizeof(buffer));
-        buffer[sizeof(buffer) - 1] = '\0';
+        // 1. Get a globally unique ID for THIS specific property
+        ImGuiID currentID = ImGui::GetID("GUID_edit");
 
-        // InputText returns true only when Enter is pressed
+        // 2. Store the unique ImGuiID instead of 'count'
+        static ImGuiID activeEditID = 0;
+        static bool requestFocus = false;
+
+        // Check if THIS specific widget is the active one
+        bool isEditing = (activeEditID == currentID);
+
         ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
-        if (ImGui::InputText(title.c_str(), buffer, sizeof(buffer), ImGuiInputTextFlags_EnterReturnsTrue)) {
-            // Update your string only once
-            _args.SetFromString(buffer);
+
+        if (isEditing) {
+            // ==========================================
+            // EDIT MODE
+            // ==========================================
+            char buffer[256] = { 0 };
+            std::string guidStr = _args.GetToString();
+            std::strncpy(buffer, guidStr.c_str(), sizeof(buffer) - 1);
+
+            if (requestFocus) {
+                ImGui::SetKeyboardFocusHere();
+                requestFocus = false;
+            }
+
+            if (ImGui::InputText("##input", buffer, sizeof(buffer), ImGuiInputTextFlags_EnterReturnsTrue)) {
+                _args.SetFromString(buffer);
+                activeEditID = 0; // Exit edit mode
+            }
+
+            // Exit edit mode if the user clicks away
+            if (ImGui::IsItemDeactivated()) {
+                activeEditID = 0;
+            }
+        }
+        else {
+            // ==========================================
+            // DISPLAY MODE
+            // ==========================================
+            std::string displayStr = _args.GetToString();
+
+            if (ReflectionEditor::assetManagerPtr) {
+                auto filePath = ReflectionEditor::assetManagerPtr->GetFileFromGUID(_args);
+                if (!filePath.empty()) {
+                    displayStr = filePath.filename().string();
+                }
+                else {
+                    if (ReflectionEditor::ecsPtr) {
+                       EntityID id = ReflectionEditor::ecsPtr->GetEntityIDFromGUID(_args);
+                       if (id >= 0) {
+                           displayStr = ReflectionEditor::ecsPtr->GetComponent<NameComponent>(id)->entityName;
+                       }
+                    }
+                }
+            }
+            
+
+            if (ImGui::Selectable(displayStr.c_str(), false, ImGuiSelectableFlags_AllowDoubleClick)) {
+                if (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
+                    activeEditID = currentID; // Set this specific ID as active
+                    requestFocus = true;
+                }
+            }
         }
 
-        count++;
-
+        // --- Drag and Drop Logic ---
         if (ImGui::BeginDragDropTarget()) {
             if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("file")) {
                 IM_ASSERT(payload->DataSize == sizeof(AssetPayload));
                 const AssetPayload* data = static_cast<const AssetPayload*>(payload->Data);
-
-                _args = data->GUID;    
+                _args = data->GUID;
             }
             if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("EntityPayload")) {
                 IM_ASSERT(payload->DataSize == sizeof(EntityPayload));
-
                 _args = static_cast<const EntityPayload*>(payload->Data)->guid;
             }
-
             ImGui::EndDragDropTarget();
         }
+
+        ImGui::PopID();
+        count++;
     }
 
     template <typename U>

@@ -13,6 +13,7 @@
 *.ipdb
 *.ini
 *.set
+.ini
 .vs
 .tmp
 .github

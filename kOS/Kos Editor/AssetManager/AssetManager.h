@@ -51,6 +51,17 @@ public:
         return m_assetWatcher.get();
     }
 
+    const std::filesystem::path GetFileFromGUID(const utility::GUID& guid) {
+        auto it = m_GUIDtoFilePath.find(guid);
+
+        if (it != m_GUIDtoFilePath.end()) {
+            return it->second;
+        }
+
+        // Log an error so you know WHICH guid failed
+        return {}; // Return empty path instead of crashing
+    }
+
 private:
 
     //template<typename T, typename... U>
