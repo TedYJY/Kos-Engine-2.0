@@ -159,6 +159,33 @@ public:
     AnimState* RetrieveStateByID(int stateID);
     AnimState* FindStateFromPin(int pinId);
     AnimPin* FindPin(int pinId);
+    AnimState* FindStateByName(const std::string& name);  // needed for lookup below
+
+    template <typename T>
+    void PlayOverlay(const std::string& stateName, T entity,
+        float fadeIn = 0.1f, float fadeOut = 0.2f,
+        std::vector<std::string> boneMask = {})
+    {
+        AnimState* state = FindStateByName(stateName);
+        if (!state) return;
+
+        entity->m_overlayStateID = state->id;
+        entity->m_overlayTime = 0.f;
+        entity->m_overlayWeight = 0.f;
+        entity->m_overlayFadeIn = fadeIn;
+        entity->m_overlayFadeOut = fadeOut;
+        entity->m_overlayFadingOut = false;
+        entity->m_overlayBoneMask = std::move(boneMask);
+    }
+
+    template <typename T>
+    void SetState(const std::string& stateName, T entity)
+    {
+        AnimState* state = FindStateByName(stateName);
+        if (!state) return;
+
+        entity->m_transitioningStateID = state->id;
+    }
 
     REFLECTABLE(R_AnimController);
 };

@@ -459,7 +459,8 @@ inline void EnemyManagerScript::TriggerStagger(float duration) {
 	{
 		if (animComp->m_currentStateID)
 		{
-			enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Staggered", animComp, enemyController);
+			//enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Staggered", animComp, enemyController);
+			enemyController->PlayOverlay("Stagger", animComp, 0.2f, 0.8f);
 		}
 	}
 
@@ -509,11 +510,14 @@ inline void EnemyManagerScript::Die() {
 	// ADD DEATH ANIM HERE
 	if (animComp)
 	{
-		if (animComp->m_currentStateID)
+		/*if (animComp->m_currentStateID)
 		{
 			enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Dead", animComp, enemyController);
-		}
+		}*/
+		enemyController->SetState("Death", animComp);
 	}
+
+	
 
 	isDead = true;
 

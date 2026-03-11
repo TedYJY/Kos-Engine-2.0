@@ -6620,7 +6620,7 @@
         }
     },
     {
-        "entityGUID": "75f69277-ca57-5fbe-71a3-e38c8230573b",
+        "entityGUID": "0caccf02-367f-432e-dbe0-d2728801b616",
         "CapsuleColliderComponent": {
             "isTrigger": false,
             "capsule": {
@@ -6724,7 +6724,7 @@
         },
         "children": [
             {
-                "entityGUID": "60558666-5cca-89f1-975b-8a0a9e857c18",
+                "entityGUID": "e68718a2-8bbb-4f7e-676a-9648777416ba",
                 "NameComponent": {
                     "entityName": "Enemy Hurtbox Position",
                     "Layer": 0,
@@ -6772,7 +6772,7 @@
                 }
             },
             {
-                "entityGUID": "71c22612-d626-29d9-932f-1e563d362027",
+                "entityGUID": "f574d892-a4d1-690f-68bd-b34ff013eb4a",
                 "AnimatorComponent": {
                     "controllerGUID": "a8151059-f46f-1edd-8b81-a36f705c15fb",
                     "m_PlaybackSpeed": 1.0,
@@ -6832,7 +6832,7 @@
                 }
             },
             {
-                "entityGUID": "b2e19715-89eb-939c-2fd3-1ff3b5602789",
+                "entityGUID": "81b00c6a-8b4d-cc12-bd1a-c8613c0570e6",
                 "MaterialComponent": {
                     "materialGUID": [
                         {
