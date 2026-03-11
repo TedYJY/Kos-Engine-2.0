@@ -421,10 +421,6 @@ inline void PlayerManagerScript::Start() {
 		playerController = resource->GetResource<R_AnimController>(animComp->controllerGUID).get();
 		if (playerController)
 		{
-			// COMMENTED OUT FOR ANIM
-			/*currAnimationState = *playerController->m_EnterState;
-			anim->m_currentState = &currAnimationState;
-			static_cast<AnimState*>(anim->m_currentState)->SetTrigger("ForcedEntry");*/
 			animComp->m_currentStateID = playerController->m_EnterState->id;
 			if (auto* currAnimState = playerController->RetrieveStateByID(animComp->m_currentStateID))
 				currAnimState->Trigger("ForcedEntry", animComp, playerController);
@@ -1382,6 +1378,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 		if (currMana <= 0.0f){
 			currMana = 0.0f;
 			SwapWeaponModel(Powerup::NONE);
+			///PLAY SWAP TO DEFAULT WEAPON ANIMATION HERE
 			playerPowerupHeld = Powerup::NONE;
 		}
 	}
@@ -1651,6 +1648,10 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 			}
 			// ADD SFX
+
+			///ADD ACID LEFT CLICK ANIMATION HERE
+			if (animComp && animComp->m_currentStateID)
+				playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("AcidShot", animComp, playerController);
 }
 
 		else if (playerPowerupHeld == Powerup::LIGHTNING) {
@@ -1679,7 +1680,8 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 			}
 
-
+			if (animComp && animComp->m_currentStateID)
+				playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("LightningShot", animComp, playerController);
 
 		}
 	}
@@ -1702,6 +1704,9 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 
 				currMana -= fireAbilityCost;
+
+
+				///ADD FIRE RIGHT CLICK ANIMATION HERE
 			}
 
 			// ADD SFX
@@ -1761,6 +1766,8 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 				currMana -= acidAbilityCost;
 
+				/// ADD ACID RIGHT CLOCK ANIMATION HERE
+
 				std::cout << "[AirBlast] Spawned | Mana left: " << currMana << "\n";
 			}
 
@@ -1806,6 +1813,8 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 
 				currMana -= lightningAbilityCost;
+
+				///ADD LIGHTNING RIGHT CLOCK ANIMATION HERE
 			}
 
 			// ADD SFX
