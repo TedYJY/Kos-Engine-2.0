@@ -95,7 +95,7 @@ namespace gui {
 				}
 			}
 
-			m_selectedEntities.clear();
+			//m_selectedEntities.clear();
 
 		});
 	}
@@ -345,12 +345,12 @@ namespace gui {
 		}
 
 		//delete entity
-		if (ImGui::IsKeyPressed(ImGuiKey_Delete)) {
+		if (ImGui::IsKeyReleased(ImGuiKey_Delete)) {
 			onDelete.Invoke();
 		}
 
 		//Duplicate Entity
-		if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsKeyPressed(ImGuiKey_D)) {
+		if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsKeyReleased(ImGuiKey_D)) {
 			if (m_lastClickedEntityId >= 0 && !m_prefabSceneMode) {
 				onDuplicate.Invoke();
 			}
