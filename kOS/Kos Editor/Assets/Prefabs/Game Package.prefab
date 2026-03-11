@@ -14,6 +14,7 @@
             "Layer": 0,
             "entityTag": "Default",
             "isPrefab": true,
+            "isStatic": false,
             "prefabName": "Game Package.prefab",
             "hide": false
         },
@@ -80,6 +81,7 @@
                     "Layer": 1,
                     "entityTag": "Default",
                     "isPrefab": true,
+                    "isStatic": false,
                     "prefabName": "",
                     "hide": false
                 },
@@ -127,6 +129,7 @@
                     "Layer": 0,
                     "entityTag": "Default",
                     "isPrefab": true,
+                    "isStatic": false,
                     "prefabName": "",
                     "hide": false
                 },
@@ -173,7 +176,9 @@
                             "controllerGUID": "9149963b-fa24-7dbc-6d95-cf2d7ffad332",
                             "m_PlaybackSpeed": 1.0,
                             "m_CurrentTime": 0.0,
-                            "m_IsPlaying": true
+                            "m_IsPlaying": true,
+                            "m_currentStateID": 0,
+                            "m_transitioningStateID": 0
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -190,6 +195,7 @@
                             "Layer": 1,
                             "entityTag": "Default",
                             "isPrefab": true,
+                            "isStatic": false,
                             "prefabName": "",
                             "hide": false
                         },
@@ -243,6 +249,7 @@
                     "Layer": 0,
                     "entityTag": "Default",
                     "isPrefab": true,
+                    "isStatic": false,
                     "prefabName": "",
                     "hide": false
                 },
@@ -315,6 +322,7 @@
                     "Layer": 0,
                     "entityTag": "Default",
                     "isPrefab": true,
+                    "isStatic": false,
                     "prefabName": "",
                     "hide": false
                 },
@@ -411,6 +419,7 @@
                     "Layer": 0,
                     "entityTag": "Player",
                     "isPrefab": true,
+                    "isStatic": false,
                     "prefabName": "",
                     "hide": false
                 },
@@ -422,18 +431,33 @@
                     "playerArmModelObject": "0a59d88b-df5b-7a8a-b91f-d75191180ea9",
                     "playerGroundCheckObject": "a9d14e21-9b8b-1578-244a-be23e797468f",
                     "bulletPrefab": "66adf257-5e24-d6e6-4321-1cf241444414",
+                    "fireLMBPrefab": "00000000-0000-0000-0000-000000000000",
+                    "acidLMBPrefab": "00000000-0000-0000-0000-000000000000",
+                    "lightningLMBPrefab": "00000000-0000-0000-0000-000000000000",
                     "firePrefab": "a489a9c4-2ad1-24e0-9ad5-f1b1ef81e4b7",
-                    "acidPrefab": "df217809-aa63-539d-4bb6-d7ffde283b90",
                     "lightningPrefab": "ea36b838-cef9-7c8c-584a-29654652024a",
-                    "fireAcidPrefab": "465c7d56-0555-0051-8bbe-9d7b2b4e8ede",
-                    "fireLightningPrefab": "0e0349c9-02d8-f6b8-df3c-f7f6943e81bf",
-                    "acidLightningPrefab": "a489a9c4-2ad1-24e0-9ad5-f1b1ef81e4b7",
+                    "fireDashPrefab": "00000000-0000-0000-0000-000000000000",
+                    "lightningDashPrefab": "00000000-0000-0000-0000-000000000000",
+                    "acidShieldPrefab": "00000000-0000-0000-0000-000000000000",
+                    "airBlastPrefab": "00000000-0000-0000-0000-000000000000",
                     "gunSfxGUID_1": "d98d60d5-127f-8dc2-b051-dc6d6b883682",
-                    "gunSfxGUID_2": "f73fbd2e-15e7-5d4b-1662-91a2f4132644",
+                    "gunReloadSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "fireSlashSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "fireDashSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "lightningSlowSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "lightningGunSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "acidGrenadeGunSfxGUID": "00000000-0000-0000-0000-000000000000",
                     "pauseMenuManagerObject": "00000000-0000-0000-0000-000000000000",
                     "healthUIObject": "00000000-0000-0000-0000-000000000000",
                     "loseScreenCanvasObject": "00000000-0000-0000-0000-000000000000",
-                    "winScreenCanvasObject": "00000000-0000-0000-0000-000000000000"
+                    "winScreenCanvasObject": "00000000-0000-0000-0000-000000000000",
+                    "absorbFireVFXPrefab": "00000000-0000-0000-0000-000000000000",
+                    "absorbLightningVFXPrefab": "00000000-0000-0000-0000-000000000000",
+                    "absorbAcidVFXPrefab": "00000000-0000-0000-0000-000000000000",
+                    "absorbingVFXSpawnPoint": "00000000-0000-0000-0000-000000000000",
+                    "muzzleFlashGUID": "00000000-0000-0000-0000-000000000000",
+                    "pistolModelObject": "00000000-0000-0000-0000-000000000000",
+                    "fireSwordModelObject": "00000000-0000-0000-0000-000000000000"
                 },
                 "RigidbodyComponent": {
                     "mass": 1.0,
@@ -522,6 +546,7 @@
                             "Layer": 1,
                             "entityTag": "Default",
                             "isPrefab": true,
+                            "isStatic": false,
                             "prefabName": "",
                             "hide": false
                         },
@@ -570,6 +595,7 @@
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
+                            "isStatic": false,
                             "prefabName": "",
                             "hide": false
                         },
@@ -649,6 +675,7 @@
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
+                            "isStatic": false,
                             "prefabName": "",
                             "hide": false
                         },

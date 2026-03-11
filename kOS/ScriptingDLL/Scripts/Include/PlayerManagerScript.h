@@ -239,8 +239,12 @@ public:
 	//Weapon spawn here
 	utility::GUID pistolModelObject;
 	utility::GUID fireSwordModelObject;
+	utility::GUID acidModelObject;
+	utility::GUID lightningModelObject;
 
 	ecs::EntityID pistolModelID = 0;
+	ecs::EntityID acidModelObjectID = 0;
+	ecs::EntityID lightningModelObjectID = 0;
 	ecs::EntityID fireSwordModelID = 0;
 
 
@@ -364,7 +368,7 @@ public:
 	REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
 		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab, airBlastPrefab,
 		gunSfxGUID_1, gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, lightningSlowSfxGUID, lightningGunSfxGUID, acidGrenadeGunSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject,
-		winScreenCanvasObject, absorbFireVFXPrefab, absorbLightningVFXPrefab, absorbAcidVFXPrefab, absorbingVFXSpawnPoint, muzzleFlashGUID, pistolModelObject, fireSwordModelObject)
+		winScreenCanvasObject, absorbFireVFXPrefab, absorbLightningVFXPrefab, absorbAcidVFXPrefab, absorbingVFXSpawnPoint, muzzleFlashGUID, pistolModelObject, fireSwordModelObject, lightningModelObject, acidModelObject)
 	
 };
 
@@ -394,6 +398,8 @@ inline void PlayerManagerScript::Start() {
 	absorbVFXSpawnObjectID = ecsPtr->GetEntityIDFromGUID(absorbingVFXSpawnPoint);
 	pistolModelID = ecsPtr->GetEntityIDFromGUID(pistolModelObject);
 	fireSwordModelID = ecsPtr->GetEntityIDFromGUID(fireSwordModelObject);
+	lightningModelObjectID = ecsPtr->GetEntityIDFromGUID(lightningModelObject);
+	acidModelObjectID = ecsPtr->GetEntityIDFromGUID(acidModelObject);
 
 	// Start with pistol visible, sword hidden
 	ecsPtr->SetActive(pistolModelID, true);
@@ -450,10 +456,22 @@ inline void PlayerManagerScript::Update() {
 
 	if (Input->IsKeyTriggered(keys::ESC)) {
 		if (auto* pauseManager = ecsPtr->GetComponent<PauseMenuScript>(pauseMenuManagerID)) {
-			//std::cout << "PAUSE PAUSE PAUSE\n";
 			pauseManager->TogglePause();
+
+			if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+				for (auto& af : ac->audioFiles) {
+					if (af.audioGUID == gunSfxGUID_1) {
+						if (af.channel) {
+							FMOD::Channel* ch = static_cast<FMOD::Channel*>(af.channel);
+							ch->setPaused(pauseManager->isPaused); // true = pause, false = resume
+						}
+						break;
+					}
+				}
+			}
 		}
 	}
+
 
 	if (currPlayerHitPoints <= 0 && !LoseScreenScript::isLoseScreenActive) {
 		if (auto* loseScreen = ecsPtr->GetComponent<LoseScreenScript>(loseScreenCanvasID)) {
@@ -1407,9 +1425,13 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 				else if (powerupComp->powerupType == "ACID") {
 					playerPowerupHeld = Powerup::ACID;
+					SwapWeaponModel(Powerup::ACID);
+
 				}
 				else if (powerupComp->powerupType == "LIGHTNING") {
 					playerPowerupHeld = Powerup::LIGHTNING;
+					SwapWeaponModel(Powerup::LIGHTNING);
+
 				}
 				
 				currMana = maxMana;
@@ -1741,14 +1763,14 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					airBlastTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
 
 					glm::vec3 dir = glm::normalize(GetPlayerCameraFrontDirection());
-					float yaw = glm::degrees(atan2(dir.x, dir.z)) + 180.f;
+					float yaw = glm::degrees(atan2(dir.x, dir.z)) + 90.f;
 					float pitch = glm::degrees(asin(-dir.y));
 					float roll = 0.f;
 
 					glm::vec3 rotationDegrees = glm::vec3(-pitch, yaw, roll);
 
-					if (auto* railgunTransform = ecsPtr->GetComponent<TransformComponent>(airBlastID)) {
-						railgunTransform->LocalTransformation.rotation = rotationDegrees;
+					if (auto* airBlastTransform = ecsPtr->GetComponent<TransformComponent>(airBlastID)) {
+						airBlastTransform->LocalTransformation.rotation = rotationDegrees;
 					}
 
 					std::vector<EntityID> children = ecsPtr->GetChild(airBlastID).value();
@@ -1760,7 +1782,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 					if (children[1]) {
 						ecsPtr->GetComponent<TransformComponent>(children[1])->LocalTransformation.rotation = glm::vec3(-pitch, yaw, 90.f);
-						ecsPtr->GetComponent<ParticleComponent>(children[0])->velocityModule.velocity_Modifier = dir * 10.f;
+						ecsPtr->GetComponent<ParticleComponent>(children[1])->velocityModule.velocity_Modifier = dir * 10.f;
 					}
 				}
 
@@ -1989,14 +2011,31 @@ inline void PlayerManagerScript::CameraShake(float intensity, float duration) {
 }
 
 inline void  PlayerManagerScript::SwapWeaponModel(Powerup newPowerup) {
-	if (pistolModelID == 0 || fireSwordModelID == 0) return;
+	if (pistolModelID == 0 || fireSwordModelID == 0 || lightningModelObjectID==0 || acidModelObjectID == 0) return;
 
 	if (newPowerup == Powerup::FIRE) {
 		ecsPtr->SetActive(pistolModelID, false);
 		ecsPtr->SetActive(fireSwordModelID, true);
+		ecsPtr->SetActive(lightningModelObjectID, false);
+		ecsPtr->SetActive(acidModelObjectID, false);
+	}
+	else if (newPowerup == Powerup::ACID) {
+		ecsPtr->SetActive(pistolModelID, false);
+		ecsPtr->SetActive(fireSwordModelID, false);
+		ecsPtr->SetActive(lightningModelObjectID, false);
+		ecsPtr->SetActive(acidModelObjectID, true);
+
+	}
+	else if (newPowerup == Powerup::LIGHTNING) {
+		ecsPtr->SetActive(pistolModelID, false);
+		ecsPtr->SetActive(fireSwordModelID, false);
+		ecsPtr->SetActive(lightningModelObjectID, true);
+		ecsPtr->SetActive(acidModelObjectID, false);
 	}
 	else {
 		ecsPtr->SetActive(pistolModelID, true);
 		ecsPtr->SetActive(fireSwordModelID, false);
+		ecsPtr->SetActive(lightningModelObjectID, false);
+		ecsPtr->SetActive(acidModelObjectID, false);
 	}
 }
