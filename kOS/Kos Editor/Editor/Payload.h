@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Config/pch.h"
+#include "ECS/ECS.h"
 
 struct EntityPayload {
     ecs::EntityID id;

@@ -88,7 +88,7 @@
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.0,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -162,7 +162,7 @@
                         "cone_Radius": 0.0,
                         "circle_Radius": 1.0,
                         "circle_Arc": 360.0,
-                        "emit_From_Edge": false,
+                        "emit_From_Edge": true,
                         "edge_Length": 0.0,
                         "random_Direction_Amount": 0.0
                     },
@@ -272,7 +272,16 @@
                         }
                     },
                     "emissionInterval": 0.0010000000474974513,
-                    "no_Of_Particles": 100
+                    "no_Of_Particles": 100,
+                    "dynamicTrailingEnabled": false,
+                    "trail_Color": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0,
+                        "w": 1.0
+                    },
+                    "trailLifeTime": 2.0,
+                    "trailWidth": 0.20000000298023224
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -374,7 +383,7 @@
                         "cone_Radius": 0.0,
                         "circle_Radius": 2.0,
                         "circle_Arc": 360.0,
-                        "emit_From_Edge": false,
+                        "emit_From_Edge": true,
                         "edge_Length": 0.0,
                         "random_Direction_Amount": 0.0
                     },
@@ -484,7 +493,16 @@
                         }
                     },
                     "emissionInterval": 0.0010000000474974513,
-                    "no_Of_Particles": 100
+                    "no_Of_Particles": 100,
+                    "dynamicTrailingEnabled": false,
+                    "trail_Color": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0,
+                        "w": 1.0
+                    },
+                    "trailLifeTime": 2.0,
+                    "trailWidth": 0.20000000298023224
                 },
                 "TransformComponent": {
                     "WorldTransformation": {

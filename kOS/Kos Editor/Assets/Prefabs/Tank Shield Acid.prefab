@@ -8,74 +8,21 @@
         }
     },
     {
-        "entityGUID": "dae4442d-0453-6517-9851-a87288e9367e",
-        "AudioComponent": {
-            "audioFiles": [
-                {
-                    "audioGUID": "70b03236-6b3c-6cf5-aab8-390de14ef6a2",
-                    "volume": 1.0,
-                    "loop": false,
-                    "playOnStart": false,
-                    "hasPlayed": false,
-                    "pan": 0.0,
-                    "isBGM": false,
-                    "isSFX": true,
-                    "use3D": false,
-                    "minDistance": 1.0,
-                    "maxDistance": 20.0,
-                    "sourceType": 0,
-                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
-                    "studioEventPath": ""
-                },
-                {
-                    "audioGUID": "566fd594-d00c-b31e-ed77-b57eef9af2dd",
-                    "volume": 1.0,
-                    "loop": false,
-                    "playOnStart": false,
-                    "hasPlayed": false,
-                    "pan": 0.0,
-                    "isBGM": false,
-                    "isSFX": true,
-                    "use3D": false,
-                    "minDistance": 1.0,
-                    "maxDistance": 20.0,
-                    "sourceType": 0,
-                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
-                    "studioEventPath": ""
-                }
-            ]
-        },
+        "entityGUID": "5e917c79-38dc-bb71-7658-08a4a74df7a0",
         "NameComponent": {
-            "entityName": "Tank Hurtbox AOE",
+            "entityName": "Tank Shield Acid",
             "Layer": 0,
             "entityTag": "Default",
             "isPrefab": true,
             "isStatic": false,
-            "prefabName": "Tank Hurtbox AOE.prefab",
+            "prefabName": "Tank Shield Acid.prefab",
             "hide": false
-        },
-        "SphereColliderComponent": {
-            "isTrigger": true,
-            "sphere": {
-                "center": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "radius": 2.0
-            }
-        },
-        "TankAOEScript": {
-            "aoeDamage": 15,
-            "timeBeforeDeath": 0.5,
-            "playerHurtSfxGUID_1": "70b03236-6b3c-6cf5-aab8-390de14ef6a2",
-            "playerHurtSfxGUID_2": "566fd594-d00c-b31e-ed77-b57eef9af2dd"
         },
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": 0.0,
-                    "y": 0.0,
+                    "x": -10.4549560546875,
+                    "y": 27.543546676635742,
                     "z": 0.0
                 },
                 "rotation": {
@@ -91,8 +38,8 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": 0.0,
-                    "y": 0.0,
+                    "x": -10.4549560546875,
+                    "y": 27.543546676635742,
                     "z": 0.0
                 },
                 "rotation": {
@@ -109,23 +56,23 @@
         },
         "children": [
             {
-                "entityGUID": "159542c9-b505-af85-9734-5696eb05f5b3",
+                "entityGUID": "8f3e6427-5d53-952d-7868-38e4588d601f",
                 "NameComponent": {
-                    "entityName": "Tank Hurtbox AOE Particles",
+                    "entityName": "Tank Shield Acid Particles",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
                     "hide": false
                 },
                 "ParticleComponent": {
                     "particleType": 0,
-                    "duration": 1.0,
-                    "looping": false,
+                    "duration": 0.25,
+                    "looping": true,
                     "play_On_Awake": true,
-                    "start_Lifetime": 1.0,
-                    "end_Lifetime": 1.0,
+                    "start_Lifetime": 0.25,
+                    "end_Lifetime": 0.25,
                     "lifetime_Random_Enable": true,
                     "textureGUID": "00000000-0000-0000-0000-000000000000",
                     "start_Velocity": 0.0,
@@ -169,7 +116,7 @@
                             "z": 0.0
                         },
                         "cone_Radius": 0.0,
-                        "circle_Radius": 2.5,
+                        "circle_Radius": 1.75,
                         "circle_Arc": 360.0,
                         "emit_From_Edge": true,
                         "edge_Length": 0.0,
@@ -178,37 +125,37 @@
                     "colorModule": {
                         "enabled": false,
                         "start_Color": {
-                            "x": 0.75,
-                            "y": 0.75,
-                            "z": 0.0,
+                            "x": 0.0,
+                            "y": 0.6499999761581421,
+                            "z": 0.44999998807907104,
                             "w": 1.0
                         },
                         "end_Color": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0,
-                            "w": 0.0
+                            "x": 0.75,
+                            "y": 0.25,
+                            "z": 0.25,
+                            "w": 1.0
                         }
                     },
                     "sizeModule": {
                         "enabled": false,
-                        "start_Size": 0.25,
-                        "end_Size": 1.0
+                        "start_Size": 0.3499999940395355,
+                        "end_Size": 0.5
                     },
                     "rotationModule": {
-                        "enabled": false,
+                        "enabled": true,
                         "start_Rotation": {
                             "x": 0.0,
                             "y": 0.0,
                             "z": 0.0
                         },
                         "end_Rotation": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
+                            "x": 360.0,
+                            "y": 360.0,
+                            "z": 360.0
                         },
                         "rotation_Modifier": {
-                            "x": 0.0,
+                            "x": 45.0,
                             "y": 0.0,
                             "z": 0.0
                         }
@@ -280,8 +227,8 @@
                             "z": 0.0
                         }
                     },
-                    "emissionInterval": 0.0010000000474974513,
-                    "no_Of_Particles": 75,
+                    "emissionInterval": 0.009999999776482582,
+                    "no_Of_Particles": 15,
                     "dynamicTrailingEnabled": false,
                     "trail_Color": {
                         "x": 1.0,
@@ -295,8 +242,8 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 0.0,
-                            "y": 0.0,
+                            "x": -10.4549560546875,
+                            "y": 27.623098373413086,
                             "z": 0.0
                         },
                         "rotation": {
@@ -313,12 +260,12 @@
                     "LocalTransformation": {
                         "position": {
                             "x": 0.0,
-                            "y": 0.0,
+                            "y": 0.07955169677734375,
                             "z": 0.0
                         },
                         "rotation": {
                             "x": 0.0,
-                            "y": 0.0,
+                            "y": -0.0,
                             "z": 0.0
                         },
                         "scale": {
@@ -330,42 +277,42 @@
                 }
             },
             {
-                "entityGUID": "a451da52-ddfa-dbbb-a724-0e34afd718e6",
+                "entityGUID": "02ab6a30-3011-3535-c71a-4816851ec7c2",
                 "NameComponent": {
-                    "entityName": "Tank Hurtbox AOE Particles",
+                    "entityName": "Tank Shield Acid Particles",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
                     "hide": false
                 },
                 "ParticleComponent": {
                     "particleType": 0,
-                    "duration": 2.0,
+                    "duration": 0.25,
                     "looping": true,
                     "play_On_Awake": true,
-                    "start_Lifetime": 2.0,
-                    "end_Lifetime": 2.0,
+                    "start_Lifetime": 0.25,
+                    "end_Lifetime": 0.25,
                     "lifetime_Random_Enable": true,
                     "textureGUID": "00000000-0000-0000-0000-000000000000",
-                    "start_Velocity": 3.5,
+                    "start_Velocity": 0.0,
                     "playback_State": 0,
-                    "particleFade": 1,
+                    "particleFade": 0,
                     "velocityModule": {
                         "enabled": false,
                         "mode": 0,
                         "velocity_Modifier": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     },
                     "forceModule": {
-                        "enabled": true,
+                        "enabled": false,
                         "force": {
                             "x": 0.0,
-                            "y": 85.0,
+                            "y": 0.0,
                             "z": 0.0
                         }
                     },
@@ -390,55 +337,55 @@
                             "z": 0.0
                         },
                         "cone_Radius": 0.0,
-                        "circle_Radius": 2.5,
+                        "circle_Radius": 2.0,
                         "circle_Arc": 360.0,
-                        "emit_From_Edge": false,
+                        "emit_From_Edge": true,
                         "edge_Length": 0.0,
                         "random_Direction_Amount": 0.0
                     },
                     "colorModule": {
                         "enabled": false,
                         "start_Color": {
-                            "x": 0.25,
-                            "y": 0.25,
-                            "z": 0.15000000596046448,
+                            "x": 0.20000000298023224,
+                            "y": 0.75,
+                            "z": 0.44999998807907104,
                             "w": 1.0
                         },
                         "end_Color": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0,
-                            "w": 0.0
+                            "x": 0.75,
+                            "y": 0.25,
+                            "z": 0.25,
+                            "w": 1.0
                         }
                     },
                     "sizeModule": {
                         "enabled": false,
-                        "start_Size": 0.25,
-                        "end_Size": 1.0
+                        "start_Size": 0.5,
+                        "end_Size": 0.5
                     },
                     "rotationModule": {
-                        "enabled": false,
+                        "enabled": true,
                         "start_Rotation": {
                             "x": 0.0,
                             "y": 0.0,
                             "z": 0.0
                         },
                         "end_Rotation": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
+                            "x": 360.0,
+                            "y": 360.0,
+                            "z": 360.0
                         },
                         "rotation_Modifier": {
-                            "x": 0.0,
+                            "x": 45.0,
                             "y": 0.0,
                             "z": 0.0
                         }
                     },
                     "gravityModule": {
-                        "enabled": true,
+                        "enabled": false,
                         "gravity": {
                             "x": 0.0,
-                            "y": -100.0,
+                            "y": -9.800000190734863,
                             "z": 0.0
                         }
                     },
@@ -501,7 +448,7 @@
                             "z": 0.0
                         }
                     },
-                    "emissionInterval": 0.0010000000474974513,
+                    "emissionInterval": 0.009999999776482582,
                     "no_Of_Particles": 25,
                     "dynamicTrailingEnabled": false,
                     "trail_Color": {
@@ -516,8 +463,8 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 0.0,
-                            "y": 0.0,
+                            "x": -10.4549560546875,
+                            "y": 27.543546676635742,
                             "z": 0.0
                         },
                         "rotation": {
@@ -539,7 +486,7 @@
                         },
                         "rotation": {
                             "x": 0.0,
-                            "y": 0.0,
+                            "y": -0.0,
                             "z": 0.0
                         },
                         "scale": {
