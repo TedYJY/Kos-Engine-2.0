@@ -353,7 +353,7 @@ namespace gui {
 		}
 
 		//Duplicate Entity
-		if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsKeyReleased(ImGuiKey_D)) {
+		if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsKeyPressed(ImGuiKey_D, false)) {
 			if (m_lastClickedEntityId >= 0 && !m_prefabSceneMode) {
 				onDuplicate.Invoke();
 			}
