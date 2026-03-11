@@ -1304,9 +1304,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -0.29545021057128906,
-                            "y": 28.04388427734375,
-                            "z": -15.340328216552734
+                            "x": -11.596426963806152,
+                            "y": 8.358521461486816,
+                            "z": 0.9696283340454102
                         },
                         "rotation": {
                             "x": 0.0,
@@ -1321,9 +1321,9 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": -0.29545021057128906,
-                            "y": 28.04388427734375,
-                            "z": -15.340328216552734
+                            "x": -11.596426963806152,
+                            "y": 8.358521461486816,
+                            "z": 0.9696283340454102
                         },
                         "rotation": {
                             "x": 0.0,
@@ -1374,9 +1374,9 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -0.29545021057128906,
-                                    "y": 29.651578903198242,
-                                    "z": -15.340328216552734
+                                    "x": -11.596426963806152,
+                                    "y": 9.966216087341309,
+                                    "z": 0.9696283340454102
                                 },
                                 "rotation": {
                                     "x": 0.0,
@@ -1423,9 +1423,9 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -0.29545021057128906,
-                                    "y": 25.8116512298584,
-                                    "z": -15.340328216552734
+                                    "x": -11.596426963806152,
+                                    "y": 6.126288414001465,
+                                    "z": 0.9696283340454102
                                 },
                                 "rotation": {
                                     "x": 0.0,
@@ -1471,9 +1471,9 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": 0.7045497894287109,
-                                    "y": 28.79388427734375,
-                                    "z": -15.340328216552734
+                                    "x": -10.596426963806152,
+                                    "y": 9.108521461486816,
+                                    "z": 0.9696283340454102
                                 },
                                 "rotation": {
                                     "x": 0.0,
@@ -5233,7 +5233,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -5307,7 +5307,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -5825,7 +5825,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -6417,7 +6417,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -6861,7 +6861,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -6935,7 +6935,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -7009,7 +7009,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -7601,7 +7601,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -8045,7 +8045,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -8267,7 +8267,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -9377,7 +9377,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -9673,7 +9673,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -9969,7 +9969,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -10043,7 +10043,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -10117,7 +10117,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -10191,7 +10191,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -10265,7 +10265,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -10413,7 +10413,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -10729,13 +10729,13 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -32.0,
+                            "x": -23.0,
                             "y": 6.484733581542969,
-                            "z": -144.0
+                            "z": -180.0
                         },
                         "rotation": {
-                            "x": -0.00013482577924150974,
-                            "y": -0.0001676779065746814,
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
                             "z": 90.00308227539063
                         },
                         "scale": {
@@ -10746,13 +10746,13 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": -32.0,
+                            "x": -23.0,
                             "y": 6.484733581542969,
-                            "z": -144.0
+                            "z": -180.0
                         },
                         "rotation": {
-                            "x": -0.0001348258083453402,
-                            "y": -0.0001676779065746814,
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
                             "z": 90.00308227539063
                         },
                         "scale": {
@@ -10857,7 +10857,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -11079,7 +11079,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -12707,7 +12707,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -12855,7 +12855,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -13299,7 +13299,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -13521,7 +13521,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -13891,7 +13891,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -14039,7 +14039,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -14113,7 +14113,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -14187,7 +14187,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -14335,7 +14335,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -14409,7 +14409,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -14483,7 +14483,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -15371,7 +15371,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -15908,7 +15908,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -16381,7 +16381,7 @@
                     "WorldTransformation": {
                         "position": {
                             "x": -64.0,
-                            "y": 18.0,
+                            "y": 0.0,
                             "z": -28.0
                         },
                         "rotation": {
@@ -16398,7 +16398,7 @@
                     "LocalTransformation": {
                         "position": {
                             "x": -64.0,
-                            "y": 18.0,
+                            "y": 0.0,
                             "z": -28.0
                         },
                         "rotation": {
@@ -16708,7 +16708,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -16782,7 +16782,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -17119,7 +17119,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -19931,7 +19931,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -20005,7 +20005,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -20079,7 +20079,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -20597,7 +20597,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21008,7 +21008,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21082,7 +21082,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21156,7 +21156,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21230,7 +21230,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21304,7 +21304,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21378,7 +21378,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21600,7 +21600,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21674,7 +21674,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21748,7 +21748,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21822,7 +21822,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21896,7 +21896,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -21970,7 +21970,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -22044,7 +22044,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -22118,7 +22118,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -22192,7 +22192,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -22921,7 +22921,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23354,7 +23354,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23428,7 +23428,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23502,7 +23502,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23576,7 +23576,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23650,7 +23650,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23724,7 +23724,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23798,7 +23798,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23872,7 +23872,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -23946,7 +23946,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24020,7 +24020,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24094,7 +24094,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24168,7 +24168,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24242,7 +24242,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24316,7 +24316,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24390,7 +24390,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24464,7 +24464,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -24538,7 +24538,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -28483,7 +28483,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -28557,7 +28557,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -28694,7 +28694,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -28768,7 +28768,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -28842,7 +28842,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -28916,7 +28916,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -28990,7 +28990,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -31016,35 +31016,35 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 16.0,
-                            "y": 10.143386840820313,
+                            "x": -9.0,
+                            "y": 22.143386840820313,
                             "z": -125.0
                         },
                         "rotation": {
                             "x": 0.0,
                             "y": -0.0,
-                            "z": 0.0
+                            "z": 90.0341796875
                         },
                         "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
+                            "x": 0.010001765564084053,
+                            "y": 0.010001765564084053,
                             "z": 0.009999999776482582
                         }
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 16.0,
-                            "y": 10.143386840820313,
+                            "x": -9.0,
+                            "y": 22.143386840820313,
                             "z": -125.0
                         },
                         "rotation": {
                             "x": 0.0,
                             "y": -0.0,
-                            "z": 0.0
+                            "z": 90.0341796875
                         },
                         "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
+                            "x": 0.010001765564084053,
+                            "y": 0.010001765564084053,
                             "z": 0.009999999776482582
                         }
                     }
@@ -31070,7 +31070,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -31277,7 +31277,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31340,7 +31340,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31403,7 +31403,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31466,7 +31466,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31529,7 +31529,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31592,7 +31592,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31655,7 +31655,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31718,7 +31718,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31781,7 +31781,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31844,7 +31844,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31907,7 +31907,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -31970,7 +31970,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -32033,7 +32033,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -32096,7 +32096,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -32159,7 +32159,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -32222,7 +32222,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -32285,7 +32285,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -32348,7 +32348,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "e75fdcb9-e909-710e-ca5c-80764d16e309"
+                            "materialGUID": "5d51dc45-842a-001e-0baa-d14e3083546c"
                         }
                     ]
                 },
@@ -36470,154 +36470,6 @@
                 }
             },
             {
-                "entityGUID": "ee7e302c-f366-0a64-3a37-20883ca86f24",
-                "BoxColliderComponent": {
-                    "isTrigger": false,
-                    "box": {
-                        "center": {
-                            "x": 0.0,
-                            "y": 900.0,
-                            "z": 0.0
-                        },
-                        "size": {
-                            "x": 200.0,
-                            "y": 1800.0,
-                            "z": 200.0
-                        }
-                    }
-                },
-                "MaterialComponent": {
-                    "materialGUID": [
-                        {
-                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
-                        }
-                    ]
-                },
-                "MeshFilterComponent": {
-                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
-                },
-                "NameComponent": {
-                    "entityName": "M5_Modular_Pillar_18M_D",
-                    "Layer": 0,
-                    "entityTag": "Default",
-                    "isPrefab": true,
-                    "isStatic": false,
-                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
-                    "hide": false
-                },
-                "NavMeshComponent": {},
-                "TransformComponent": {
-                    "WorldTransformation": {
-                        "position": {
-                            "x": -64.0,
-                            "y": -18.0,
-                            "z": -164.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": -64.0,
-                            "y": -18.0,
-                            "z": -164.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
-                        }
-                    }
-                }
-            },
-            {
-                "entityGUID": "af37d73a-7bc0-2b54-7e69-b3ccab5c7a8e",
-                "BoxColliderComponent": {
-                    "isTrigger": false,
-                    "box": {
-                        "center": {
-                            "x": 0.0,
-                            "y": 900.0,
-                            "z": 0.0
-                        },
-                        "size": {
-                            "x": 200.0,
-                            "y": 1800.0,
-                            "z": 200.0
-                        }
-                    }
-                },
-                "MaterialComponent": {
-                    "materialGUID": [
-                        {
-                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
-                        }
-                    ]
-                },
-                "MeshFilterComponent": {
-                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
-                },
-                "NameComponent": {
-                    "entityName": "M5_Modular_Pillar_18M_D",
-                    "Layer": 0,
-                    "entityTag": "Default",
-                    "isPrefab": true,
-                    "isStatic": false,
-                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
-                    "hide": false
-                },
-                "NavMeshComponent": {},
-                "TransformComponent": {
-                    "WorldTransformation": {
-                        "position": {
-                            "x": -56.0,
-                            "y": -18.0,
-                            "z": -164.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": -56.0,
-                            "y": -18.0,
-                            "z": -164.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
-                        }
-                    }
-                }
-            },
-            {
                 "entityGUID": "1769beb7-758d-8e8a-100a-dd6826441622",
                 "BoxColliderComponent": {
                     "isTrigger": false,
@@ -38315,7 +38167,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -38833,7 +38685,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -39192,7 +39044,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -39329,7 +39181,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -41231,80 +41083,6 @@
                 }
             },
             {
-                "entityGUID": "59bcd705-6989-e2a4-4e25-9fe9b7364f85",
-                "BoxColliderComponent": {
-                    "isTrigger": false,
-                    "box": {
-                        "center": {
-                            "x": 0.0,
-                            "y": 900.0,
-                            "z": 0.0
-                        },
-                        "size": {
-                            "x": 200.0,
-                            "y": 1800.0,
-                            "z": 200.0
-                        }
-                    }
-                },
-                "MaterialComponent": {
-                    "materialGUID": [
-                        {
-                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
-                        }
-                    ]
-                },
-                "MeshFilterComponent": {
-                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
-                },
-                "NameComponent": {
-                    "entityName": "M5_Modular_Pillars_18M",
-                    "Layer": 0,
-                    "entityTag": "Default",
-                    "isPrefab": true,
-                    "isStatic": false,
-                    "prefabName": "M5_Modular_Pillars_18M.prefab",
-                    "hide": false
-                },
-                "NavMeshComponent": {},
-                "TransformComponent": {
-                    "WorldTransformation": {
-                        "position": {
-                            "x": -8.0,
-                            "y": -7.8566131591796875,
-                            "z": -125.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": -8.0,
-                            "y": -7.8566131591796875,
-                            "z": -125.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
-                        }
-                    }
-                }
-            },
-            {
                 "entityGUID": "eb1a641f-f674-cf70-d888-7ba7aab1974c",
                 "BoxColliderComponent": {
                     "isTrigger": false,
@@ -41872,7 +41650,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -42242,7 +42020,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -42316,7 +42094,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -42390,7 +42168,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -42686,7 +42464,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -42760,7 +42538,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -42834,7 +42612,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -42908,7 +42686,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -49851,7 +49629,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -51286,7 +51064,7 @@
                 "MaterialComponent": {
                     "materialGUID": [
                         {
-                            "materialGUID": "35ad7074-7a4f-3b56-9cbf-0477d4e55639"
+                            "materialGUID": "462c0a6e-6106-c2ba-dacb-e519f3b0bc82"
                         }
                     ]
                 },
@@ -51422,36 +51200,36 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 27.0,
-                            "y": -9.0,
-                            "z": -177.5
+                            "x": -27.0,
+                            "y": 14.0,
+                            "z": -144.03219604492188
                         },
                         "rotation": {
-                            "x": 179.9654541015625,
-                            "y": 0.00006686448614345863,
-                            "z": -90.0198974609375
+                            "x": -0.03442913666367531,
+                            "y": -0.00019779700960498303,
+                            "z": -89.97966003417969
                         },
                         "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999998845160007,
-                            "z": 0.009999998845160007
+                            "x": 0.010000046342611313,
+                            "y": 0.009994490072131157,
+                            "z": 0.00999452080577612
                         }
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 27.0,
-                            "y": -9.0,
-                            "z": -177.5
+                            "x": -27.0,
+                            "y": 14.0,
+                            "z": -144.03219604492188
                         },
                         "rotation": {
-                            "x": 179.9654541015625,
-                            "y": 0.00006686448614345863,
-                            "z": -90.0198974609375
+                            "x": -0.03442913293838501,
+                            "y": -0.00019780034199357033,
+                            "z": -89.97966003417969
                         },
                         "scale": {
-                            "x": 0.009999999776482582,
-                            "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
+                            "x": 0.010000046342611313,
+                            "y": 0.009994490072131157,
+                            "z": 0.00999452080577612
                         }
                     }
                 }
@@ -54485,6 +54263,2500 @@
                             "x": -4.0,
                             "y": -15.0,
                             "z": -188.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "37c3286f-5071-6341-b8f2-7bb340ae5f96",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -8.0,
+                            "y": -7.8566131591796875,
+                            "z": -125.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -8.0,
+                            "y": -7.8566131591796875,
+                            "z": -125.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "f7b41bfc-83a0-b127-54e6-1ef733d2f112",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -124.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -124.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "eb5b7941-b89b-66fe-7797-7990f33cd942",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "8a1fb8b9-be87-45fe-9713-1983d1cd15d9",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "0016dfb6-5768-dc68-0303-9913c651e5d0",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 22.143386840820313,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "e9f6be1a-ebb3-a12c-c59f-bce82f7d75bd",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "19f2cbec-26f4-accb-42cc-24ce9566bc60",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "3a9d9ee2-ac61-a236-6f27-1c6e025d052a",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "b37718de-a52b-c988-bb1b-7196ccd915b2",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -124.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999998845160007
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -124.0
+                        },
+                        "rotation": {
+                            "x": -89.99993896484375,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "b06360ce-ea06-4641-8436-e611a4138453",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 16.0,
+                            "y": 10.143386840820313,
+                            "z": -125.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 16.0,
+                            "y": 10.143386840820313,
+                            "z": -125.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "cb5a3c8d-4430-836e-27d5-56f3c1df2425",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -125.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 90.0341796875
+                        },
+                        "scale": {
+                            "x": 0.010001343674957752,
+                            "y": 0.010001343674957752,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 22.143386840820313,
+                            "z": -125.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 90.0341796875
+                        },
+                        "scale": {
+                            "x": 0.010001343674957752,
+                            "y": 0.010001343674957752,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "85ed495c-4c6c-9133-dd75-0c7a11386625",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 50.0,
+                            "y": 250.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 100.00003051757813,
+                            "y": 500.0,
+                            "z": 800.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b080d4-74e7-2884-5752-f8a71fcb2630"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "909cc2a3-8261-8d7f-7375-8c4fd46db547"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Floors_5M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Floors_5M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -32.0,
+                            "y": 6.484733581542969,
+                            "z": -144.0
+                        },
+                        "rotation": {
+                            "x": -0.00013482582289725542,
+                            "y": -0.00016767787747085094,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999998845160007,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -32.0,
+                            "y": 6.484733581542969,
+                            "z": -144.0
+                        },
+                        "rotation": {
+                            "x": -0.00013482583744917065,
+                            "y": -0.00016767787747085094,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "0bbd4993-2c8d-238c-afcc-4b45369e998a",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 50.0,
+                            "y": 250.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 100.00003051757813,
+                            "y": 500.0,
+                            "z": 800.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b080d4-74e7-2884-5752-f8a71fcb2630"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "909cc2a3-8261-8d7f-7375-8c4fd46db547"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Floors_5M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Floors_5M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -15.0,
+                            "y": 29.48473358154297,
+                            "z": -146.53219604492188
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999998845160007,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -15.0,
+                            "y": 29.48473358154297,
+                            "z": -146.53219604492188
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "a4e91c23-9e57-e8ba-6d1e-d99a238a47c6",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 50.0,
+                            "y": 250.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 100.00003051757813,
+                            "y": 500.0,
+                            "z": 800.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b080d4-74e7-2884-5752-f8a71fcb2630"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "909cc2a3-8261-8d7f-7375-8c4fd46db547"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Floors_5M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Floors_5M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -23.0,
+                            "y": 6.484733581542969,
+                            "z": -162.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999998845160007,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -23.0,
+                            "y": 6.484733581542969,
+                            "z": -162.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "a351bc9e-f45d-bfba-4902-5775c35bb14a",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 50.0,
+                            "y": 250.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 100.00003051757813,
+                            "y": 500.0,
+                            "z": 800.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b080d4-74e7-2884-5752-f8a71fcb2630"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "909cc2a3-8261-8d7f-7375-8c4fd46db547"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Floors_5M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Floors_5M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 36.0,
+                            "y": 6.484733581542969,
+                            "z": -180.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999998845160007,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 36.0,
+                            "y": 6.484733581542969,
+                            "z": -180.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "9e171bae-e4eb-09e2-168e-b7027a376a7c",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 50.0,
+                            "y": 250.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 100.00003051757813,
+                            "y": 500.0,
+                            "z": 800.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b080d4-74e7-2884-5752-f8a71fcb2630"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "909cc2a3-8261-8d7f-7375-8c4fd46db547"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Floors_5M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Floors_5M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 36.0,
+                            "y": 6.484733581542969,
+                            "z": -162.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999998845160007,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 36.0,
+                            "y": 6.484733581542969,
+                            "z": -162.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "17f3e1ac-55a3-b8b2-b778-565c40cac31c",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 50.0,
+                            "y": 250.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 100.00003051757813,
+                            "y": 500.0,
+                            "z": 800.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b080d4-74e7-2884-5752-f8a71fcb2630"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "909cc2a3-8261-8d7f-7375-8c4fd46db547"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Floors_5M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Floors_5M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 36.0,
+                            "y": 6.484733581542969,
+                            "z": -144.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999998845160007,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 36.0,
+                            "y": 6.484733581542969,
+                            "z": -144.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "1e01b794-60ea-e6a0-6a0b-ee04f527408d",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 50.0,
+                            "y": 250.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 100.00003051757813,
+                            "y": 500.0,
+                            "z": 800.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "74b080d4-74e7-2884-5752-f8a71fcb2630"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "909cc2a3-8261-8d7f-7375-8c4fd46db547"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Floors_5M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Floors_5M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -23.0,
+                            "y": 6.484733581542969,
+                            "z": -144.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999998845160007,
+                            "y": 0.009999998845160007,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -23.0,
+                            "y": 6.484733581542969,
+                            "z": -144.0
+                        },
+                        "rotation": {
+                            "x": -0.0001348260120721534,
+                            "y": -0.00016767763008829206,
+                            "z": 90.00308227539063
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "ac38d1e4-3948-3f2b-a162-0ab5134c369f",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "ecfb8242-aeb2-1a35-0690-d4e0c0305036"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "62eda833-a747-1567-1551-f7b927ec272f"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_PipeBigEnd",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_PipeBigEnd.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 27.0,
+                            "y": -9.0,
+                            "z": -177.5
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999965317547321,
+                            "z": 0.009999965317547321
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 27.0,
+                            "y": -9.0,
+                            "z": -177.5
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999966248869896,
+                            "z": 0.009999966248869896
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "8dcb1df1-8e13-1481-3b66-06fcc3e16cf6",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "ecfb8242-aeb2-1a35-0690-d4e0c0305036"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "62eda833-a747-1567-1551-f7b927ec272f"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_PipeBigEnd",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_PipeBigEnd.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 14.0,
+                            "z": -180.03219604492188
+                        },
+                        "rotation": {
+                            "x": -0.06245344132184982,
+                            "y": -0.00012368045281618834,
+                            "z": -89.9799575805664
+                        },
+                        "scale": {
+                            "x": 0.010000457987189293,
+                            "y": 0.009995516389608383,
+                            "z": 0.009995096363127232
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 14.0,
+                            "z": -180.03219604492188
+                        },
+                        "rotation": {
+                            "x": -0.06245344132184982,
+                            "y": -0.00012368045281618834,
+                            "z": -89.9799575805664
+                        },
+                        "scale": {
+                            "x": 0.010000457055866718,
+                            "y": 0.009995515458285809,
+                            "z": 0.009995096363127232
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "e7849172-86ee-fe22-6fdb-a04b6b6b90fb",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "ecfb8242-aeb2-1a35-0690-d4e0c0305036"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "62eda833-a747-1567-1551-f7b927ec272f"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_PipeBigEnd",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_PipeBigEnd.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 14.0,
+                            "z": -162.03219604492188
+                        },
+                        "rotation": {
+                            "x": -0.03455432876944542,
+                            "y": -0.00011039693345082924,
+                            "z": -89.97972106933594
+                        },
+                        "scale": {
+                            "x": 0.010000078938901424,
+                            "y": 0.0099936006590724,
+                            "z": 0.009994973428547382
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -27.0,
+                            "y": 14.0,
+                            "z": -162.03219604492188
+                        },
+                        "rotation": {
+                            "x": -0.03455432876944542,
+                            "y": -0.00011039693345082924,
+                            "z": -89.97972106933594
+                        },
+                        "scale": {
+                            "x": 0.010000078938901424,
+                            "y": 0.009993601590394974,
+                            "z": 0.009994973428547382
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "01b62e18-e181-5c84-17e2-9ef093a235f8",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "ecfb8242-aeb2-1a35-0690-d4e0c0305036"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "62eda833-a747-1567-1551-f7b927ec272f"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_PipeBigEnd",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_PipeBigEnd.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 14.0,
+                            "z": -180.03219604492188
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009995686821639538,
+                            "z": 0.009995686821639538
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 14.0,
+                            "z": -180.03219604492188
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009995687752962112,
+                            "z": 0.009995687752962112
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "c494b2c8-f3ff-aea8-33d5-23ebf7e251c4",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "ecfb8242-aeb2-1a35-0690-d4e0c0305036"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "62eda833-a747-1567-1551-f7b927ec272f"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_PipeBigEnd",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_PipeBigEnd.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 14.0,
+                            "z": -162.03219604492188
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009995230473577976,
+                            "z": 0.009995230473577976
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 14.0,
+                            "z": -162.03219604492188
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.00999523140490055,
+                            "z": 0.00999523140490055
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "395da0a0-2d53-98cb-7995-a409dd1459d6",
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "ecfb8242-aeb2-1a35-0690-d4e0c0305036"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "62eda833-a747-1567-1551-f7b927ec272f"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_PipeBigEnd",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_PipeBigEnd.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 14.0,
+                            "z": -144.03219604492188
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.00999478530138731,
+                            "z": 0.00999478530138731
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 35.0,
+                            "y": 14.0,
+                            "z": -144.03219604492188
+                        },
+                        "rotation": {
+                            "x": 179.9654541015625,
+                            "y": 0.00006686448614345863,
+                            "z": -90.0198974609375
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009994786232709885,
+                            "z": 0.009994786232709885
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "c76d5fd3-7a46-6169-84f3-c3271345f867",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "3184479e-1e3f-db59-7258-fa74eb851eb0",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -18.0,
+                            "z": -164.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -18.0,
+                            "z": -164.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "7691d3e0-a6f6-2fd9-51be-1cdb999fdc1f",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -18.0,
+                            "z": -164.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -18.0,
+                            "z": -164.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "dcdf6351-0f66-5b7a-e996-38c5650836e5",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -108.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -108.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "0718d386-513b-7bfd-2329-f39c1cf71121",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "040b0600-7ece-1c74-9c76-b3ca54a0eb50",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": -8.0,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "e4fc1256-7329-e60c-d4de-37a4cbda82d5",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -178.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "661f1710-b111-97c0-089f-2c69b9421e34",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -160.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "4c6db7a9-53fb-f7d5-65e9-f9ba0e74c7c4",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -142.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "69df3262-ed77-61fc-9900-b9dfda54599c",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "9b1b014a-0e83-6402-ff4b-28b2aba7d5f1"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillar_18M_D",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillar_18M_D.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -108.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -56.0,
+                            "y": -8.0,
+                            "z": -108.0
+                        },
+                        "rotation": {
+                            "x": 90.01972961425781,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "fa673c13-f4c4-6d27-c1d9-c885b444878e",
+                "BoxColliderComponent": {
+                    "isTrigger": false,
+                    "box": {
+                        "center": {
+                            "x": 0.0,
+                            "y": 900.0,
+                            "z": 0.0
+                        },
+                        "size": {
+                            "x": 200.0,
+                            "y": 1800.0,
+                            "z": 200.0
+                        }
+                    }
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "3723a1be-a2d7-2e89-211c-0073c73a76b2"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "f84cabb2-3277-9d67-9939-804df95b3a1d"
+                },
+                "NameComponent": {
+                    "entityName": "M5_Modular_Pillars_18M",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "M5_Modular_Pillars_18M.prefab",
+                    "hide": false
+                },
+                "NavMeshComponent": {},
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": 18.0,
+                            "z": -28.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -64.0,
+                            "y": 18.0,
+                            "z": -28.0
                         },
                         "rotation": {
                             "x": 0.0,

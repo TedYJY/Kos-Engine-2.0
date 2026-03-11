@@ -185,7 +185,16 @@
                 }
             },
             "emissionInterval": 0.0010000000474974513,
-            "no_Of_Particles": 35
+            "no_Of_Particles": 35,
+            "dynamicTrailingEnabled": false,
+            "trail_Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "trailLifeTime": 2.0,
+            "trailWidth": 0.20000000298023224
         },
         "SphereColliderComponent": {
             "isTrigger": true,
