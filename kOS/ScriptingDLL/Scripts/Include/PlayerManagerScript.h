@@ -236,6 +236,13 @@ public:
 	glm::vec3 cameraShakeOriginalPos = glm::vec3(0.f);
 	glm::vec3 cameraShakeOffset = glm::vec3(0.f);
 
+	//Weapon spawn here
+	utility::GUID pistolModelObject;
+	utility::GUID fireSwordModelObject;
+
+	ecs::EntityID pistolModelID = 0;
+	ecs::EntityID fireSwordModelID = 0;
+
 
 	inline int GetMaxBulletsForCurrentWeapon() const {
 		switch (playerPowerupHeld) {
@@ -340,6 +347,7 @@ public:
 	void PlayerCameraControls();
 	void PlayerCombatControls();
 	void CameraShake(float intensity, float duration);
+	void SwapWeaponModel(Powerup newPowerup);
 
 	bool GroundCheck();
 	//void TakeDamage(int amount); // Commented out in original
@@ -355,8 +363,9 @@ public:
 
 	REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
 		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab, airBlastPrefab,
-		gunSfxGUID_1, gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, lightningSlowSfxGUID, lightningGunSfxGUID, acidGrenadeGunSfxGUID,pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject, 
-		winScreenCanvasObject, absorbFireVFXPrefab, absorbLightningVFXPrefab, absorbAcidVFXPrefab, absorbingVFXSpawnPoint, muzzleFlashGUID);
+		gunSfxGUID_1, gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, lightningSlowSfxGUID, lightningGunSfxGUID, acidGrenadeGunSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject,
+		winScreenCanvasObject, absorbFireVFXPrefab, absorbLightningVFXPrefab, absorbAcidVFXPrefab, absorbingVFXSpawnPoint, muzzleFlashGUID, pistolModelObject, fireSwordModelObject)
+	
 };
 
 // --- LATE INCLUDES & IMPLEMENTATION ---
@@ -383,6 +392,12 @@ inline void PlayerManagerScript::Start() {
 	playerArmModelObjectID = ecsPtr->GetEntityIDFromGUID(playerArmModelObject);
 	playerGroundCheckObjectID = ecsPtr->GetEntityIDFromGUID(playerGroundCheckObject);
 	absorbVFXSpawnObjectID = ecsPtr->GetEntityIDFromGUID(absorbingVFXSpawnPoint);
+	pistolModelID = ecsPtr->GetEntityIDFromGUID(pistolModelObject);
+	fireSwordModelID = ecsPtr->GetEntityIDFromGUID(fireSwordModelObject);
+
+	// Start with pistol visible, sword hidden
+	ecsPtr->SetActive(pistolModelID, true);
+	ecsPtr->SetActive(fireSwordModelID, false);
 
 	currPlayerHitPoints = maxPlayerHitPoints;
 	currPlayerMovSpeed = maxPlayerMovSpeed;
@@ -1362,6 +1377,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 		if (currMana <= 0.0f){
 			currMana = 0.0f;
+			SwapWeaponModel(Powerup::NONE);
 			playerPowerupHeld = Powerup::NONE;
 		}
 	}
@@ -1385,8 +1401,8 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 				if (powerupComp->powerupType == "FIRE") {
 					playerPowerupHeld = Powerup::FIRE;
+					SwapWeaponModel(Powerup::FIRE);
 
-					//ecsPtr->SetActive()
 				}
 				else if (powerupComp->powerupType == "ACID") {
 					playerPowerupHeld = Powerup::ACID;
@@ -1954,4 +1970,17 @@ inline void PlayerManagerScript::CameraShake(float intensity, float duration) {
 	cameraShakeElapsed = 0.f;
 	cameraShakeOffset = glm::vec3(0.f);
 	isCameraShaking = true;
+}
+
+inline void  PlayerManagerScript::SwapWeaponModel(Powerup newPowerup) {
+	if (pistolModelID == 0 || fireSwordModelID == 0) return;
+
+	if (newPowerup == Powerup::FIRE) {
+		ecsPtr->SetActive(pistolModelID, false);
+		ecsPtr->SetActive(fireSwordModelID, true);
+	}
+	else {
+		ecsPtr->SetActive(pistolModelID, true);
+		ecsPtr->SetActive(fireSwordModelID, false);
+	}
 }
