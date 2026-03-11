@@ -107,6 +107,9 @@ namespace gui {
 
 		m_imgui_layout = imguiINI;
 
+		//initialize reflectable
+		LoadPtrIntoReflection(&m_assetManager, &m_ecs);
+
 		
 		//Initialize Debug Systems
 		m_ecs.RegisterSystem<DebugBoxColliderRenderSystem, TransformComponent, BoxColliderComponent>(0);
