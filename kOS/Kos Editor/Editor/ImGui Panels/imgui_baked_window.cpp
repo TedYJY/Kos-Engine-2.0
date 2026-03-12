@@ -153,32 +153,63 @@ void gui::ImGuiHandler::DrawBakedWindow() {
 			}
 		}
 
+
+		//if (ImGui::Button("Save DCM")) {
+		//	auto sceneData = m_ecs.GetSceneData(m_activeScene);
+		//	int i = 0;
+		//	for (auto& lcComp : m_graphicsManager.lightRenderer.pointLightsToDraw) {
+		//		i++;
+		//		std::string filepath = m_assetManager.GetAssetManagerDirectory() + "/DepthMap/" + std::to_string(lcComp.position.x + lcComp.position.y + lcComp.position.z) + ".dcm";
+
+		//		if (!lcComp.bakedCon)continue;;
+		//		m_graphicsManager.lightRenderer.dcm[i - 1].SaveDepthCubeMap(filepath);
+
+
+		//		//Add and load asset and assign it to light component
+		//		//Need to change entity itself
+		//		//std::cout << lcComp << '\n';
+		//		lcComp.bakedmapGUID.SetFromString(m_assetManager.RegisterAsset(filepath).GetToString());
+		//		//std::cout << "Depth map GUID " << m_ecs.GetComponent<ecs::LightComponent>(lcComp)->depthMapGUID.GetToString();
+		//		m_assetManager.Compilefile(filepath);
+		//		//break;;
+		//		//Retrieve GUID from file path
+		//	}
+		//	for (auto& lcComp : sceneData.sceneIDs)
+		//	{
+		//	}
+		//}
 		if (ImGui::Button("Save DCM")) {
 			auto sceneData = m_ecs.GetSceneData(m_activeScene);
+			int i = 0;
 			for (auto& lcComp : sceneData.sceneIDs)
 			{
-				if (!m_ecs.HasComponent<LightComponent>(lcComp))continue;;
-				//std::cout << lcComp << "<- LIGHT ENTITY\n";
-				//std::cout << "INDEX: " << i << '\n';
-				//Add shadow setting later as well
-				//Asset creation
-				//Generate GUID
-				// Attach name
-				//KEEP THIS
-				//Save ALL DCMS
-				
-				std::string filepath = m_assetManager.GetAssetManagerDirectory() + "/DepthMap/" + std::to_string(lcComp) + ".dcm";
-				if (!m_ecs.GetComponent<ecs::LightComponent>(lcComp)->bakedLighting)continue;;
-				m_graphicsManager.lightRenderer.dcm[0].SaveDepthCubeMap(filepath);
+				if (m_ecs.HasComponent<LightComponent>(lcComp) && m_ecs.GetComponent<ecs::LightComponent>(lcComp)->lightType==1&& !m_ecs.GetComponent<NameComponent>(lcComp)->hide) {
+					//std::cout << m_ecs.GetComponent<ecs::LightComponent>(lcComp)->lightType << "<- LIGHT ENTITY\n";
+					//std::cout << "INDEX: " << i << '\n';
+					//Add shadow setting later as well
+					//Asset creation
+					//Generate GUID
+					// Attach name
+					//KEEP THIS
+					//Save ALL DCMS
+					//std::cout << "TEST TEST\n";
+					i++;
+					std::string filepath = m_assetManager.GetAssetManagerDirectory() + "/DepthMap/" + std::to_string(lcComp) + ".dcm";
+
+					if (!m_ecs.GetComponent<ecs::LightComponent>(lcComp)->bakedLighting)continue;;
+
+					std::cout << i - 1 << '\n';
+					m_graphicsManager.lightRenderer.dcm[i - 1].SaveDepthCubeMap(filepath);
 
 
-				//Add and load asset and assign it to light component
-				//Need to change entity itself
-				//std::cout << lcComp << '\n';
-				m_ecs.GetComponent<ecs::LightComponent>(lcComp)->depthMapGUID.SetFromString(m_assetManager.RegisterAsset(filepath).GetToString());
-				//std::cout << "Depth map GUID " << m_ecs.GetComponent<ecs::LightComponent>(lcComp)->depthMapGUID.GetToString();
-				m_assetManager.Compilefile(filepath);
-
+					//Add and load asset and assign it to light component
+					//Need to change entity itself
+					//std::cout << lcComp << '\n';
+					m_ecs.GetComponent<ecs::LightComponent>(lcComp)->depthMapGUID.SetFromString(m_assetManager.RegisterAsset(filepath).GetToString());
+					//std::cout << "Depth map GUID " << m_ecs.GetComponent<ecs::LightComponent>(lcComp)->depthMapGUID.GetToString();
+					m_assetManager.Compilefile(filepath);
+				}
+				//break;;
 				//Retrieve GUID from file path
 			}
 		}

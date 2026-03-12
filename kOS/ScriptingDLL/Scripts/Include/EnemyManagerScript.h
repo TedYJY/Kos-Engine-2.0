@@ -328,9 +328,6 @@ inline void EnemyManagerScript::Update() {
 		}
 	}
 
-	// FUCK
-	enemyHurtboxPositionTransform->LocalTransformation.position.z = 1.f;
-
 	// CONSTANTLY LOOK AT PLAYER
 	glm::vec3 direction = playerTransform->LocalTransformation.position - enemyTransform->LocalTransformation.position;
 	if (glm::length(direction) > 0.001f) direction = glm::normalize(direction);
@@ -377,43 +374,20 @@ inline void EnemyManagerScript::Update() {
 		// SWITCH DISTANCE BASED ON STRING
 		float currentActiveRange = (enemyType == "Ranged") ? enemyRangedAttackRange : enemyAttackRange;
 
-		if (glm::distance(enemyTransform->LocalTransformation.position, playerTransform->LocalTransformation.position) <= currentActiveRange && currentAttackCooldown <= 0.f) {
+		bool forceTankCommit = (enemyType == "Tank" && enemyIsAttacking);
 
-			// DONT UNCOMMENT THIS
-			//if (!enemyIsAttacking) {
-			//	std::shared_ptr<R_Scene> enemyHurtbox = resource->GetResource<R_Scene>(enemyHurtboxPrefab);
+		if ((glm::distance(enemyTransform->LocalTransformation.position, playerTransform->LocalTransformation.position) <= currentActiveRange && currentAttackCooldown <= 0.f) || forceTankCommit) {
 
-			//	if (enemyHurtbox) {
-			//		std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
-			//		ecs::EntityID enemyHurtboxID = DuplicatePrefabIntoScene<R_Scene>(currentScene, enemyHurtboxPrefab);
-
-			//		if (auto* enemyHurtboxTransform = ecsPtr->GetComponent<TransformComponent>(enemyHurtboxID)) {
-			//			enemyHurtboxTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(enemyHurtboxPositionID)->WorldTransformation.position;
-			//		}
-			//	}
-			//}
-			//if (!enemyIsAttacking) {
-			//	std::shared_ptr<R_Scene> enemyHurtbox = resource->GetResource<R_Scene>(enemyHurtboxPrefab);
-
-			//	if (enemyHurtbox) {
-			//		std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
-			//		ecs::EntityID enemyHurtboxID = DuplicatePrefabIntoScene<R_Scene>(currentScene, enemyHurtboxPrefab);
-
-			//		if (auto* enemyHurtboxTransform = ecsPtr->GetComponent<TransformComponent>(enemyHurtboxID)) {
-			//			enemyHurtboxTransform->LocalTransformation.position = enemyTransform->LocalTransformation.position + direction;
-			//		}
-			//	}
-			//}
-			enemyIsAttacking = true;
-			if (animComp)
-			{
-				if (animComp->m_currentStateID)
+			if (!enemyIsAttacking || enemyType != "Tank") {
+				enemyIsAttacking = true;
+				if (animComp)
 				{
-					enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("AttackingPlayer", animComp, enemyController);
+					if (animComp->m_currentStateID)
+					{
+						enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("AttackingPlayer", animComp, enemyController);
+					}
 				}
-
 			}
-
 
 		}
 		//For crouching enemy
@@ -426,7 +400,6 @@ inline void EnemyManagerScript::Update() {
 			}
 			
 		}
-				
 
 		if (enemyIsAttacking) {
 			// NAVMESH STOP FOLLOWING
@@ -498,27 +471,41 @@ inline void EnemyManagerScript::Update() {
 								std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
 								ecs::EntityID bulletID = DuplicatePrefabIntoScene<R_Scene>(currentScene, enemyBulletPrefab);
 
+								glm::vec3 spawnPos = enemyHurtboxPositionTransform->WorldTransformation.position;
+
 								if (auto* bulletTransform = ecsPtr->GetComponent<TransformComponent>(bulletID)) {
-									// CHEESE WAY TO LOWER SHOT HEIGHT FOR NOW THE PLAYER TOO SHORTO
-									bulletTransform->LocalTransformation.position = enemyHurtboxPositionTransform->WorldTransformation.position - glm::vec3(0.0f, 1.0f, 0.0f);
+									bulletTransform->LocalTransformation.position = spawnPos;
 								}
 
 								if (auto* bulletScript = ecsPtr->GetComponent<EnemyBulletLogic>(bulletID)) {
-									bulletScript->direction = direction;
+
+									// Target the player's World Position, plus an offset to aim at their chest
+									glm::vec3 targetPos = playerTransform->WorldTransformation.position;
+									targetPos.y += 1.0f; // Dis number to aim higher/lower on the player's body if needed
+
+									glm::vec3 trueDirection = targetPos - spawnPos;
+
+									if (glm::length(trueDirection) > 0.001f) {
+										trueDirection = glm::normalize(trueDirection);
+									}
+
+									bulletScript->direction = trueDirection;
 								}
 							}
 						}
 						else if (enemyType == "Tank" && stateName == "Attacking") {
+
+							// Reset cooldown
+							currentAttackCooldown = attackCooldown;
+
 							std::shared_ptr<R_Scene> tankAOE = resource->GetResource<R_Scene>(tankAoePrefab);
 							if (tankAOE) {
 								std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
 								ecs::EntityID aoeID = DuplicatePrefabIntoScene<R_Scene>(currentScene, tankAoePrefab);
 
-								// 1. PARENT THE AOE TO THE TANK! (false = don't keep world transform)
 								ecsPtr->SetParent(entity, aoeID, false);
 
 								if (auto* aoeTransform = ecsPtr->GetComponent<TransformComponent>(aoeID)) {
-									// 2. Since it's a child now, 0,0,0 means it's perfectly centered on the Tank!
 									aoeTransform->LocalTransformation.position = glm::vec3(0.f, 0.f, 0.f);
 								}
 
