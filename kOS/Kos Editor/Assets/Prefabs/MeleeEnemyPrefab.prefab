@@ -125,9 +125,9 @@
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
+                    "x": 23.768556594848633,
+                    "y": 4.835694789886475,
+                    "z": -14.537531852722168
                 },
                 "rotation": {
                     "x": 0.0,
@@ -142,9 +142,9 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
+                    "x": 23.768556594848633,
+                    "y": 4.835694789886475,
+                    "z": -14.537531852722168
                 },
                 "rotation": {
                     "x": 0.0,
@@ -173,9 +173,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 0.0,
-                            "y": 1.5,
-                            "z": 0.0
+                            "x": 23.768556594848633,
+                            "y": 6.335694789886475,
+                            "z": -14.537531852722168
                         },
                         "rotation": {
                             "x": 0.0,
@@ -227,15 +227,15 @@
                     "hide": false
                 },
                 "SkinnedMeshRendererComponent": {
-                    "skinnedMeshGUID": "aff9862f-c4b8-036e-21c8-0c9d156121bb",
+                    "skinnedMeshGUID": "5c628160-06f2-ca8d-46b2-57bdf211fe36",
                     "materialGUID": "23e7b1cb-3d50-e7e5-20f9-515b8bddebf5"
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
+                            "x": 23.768556594848633,
+                            "y": 4.835694789886475,
+                            "z": -14.537531852722168
                         },
                         "rotation": {
                             "x": 0.0,
@@ -281,9 +281,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 0.0,
-                            "y": 3.0201239585876465,
-                            "z": 0.0
+                            "x": 23.768556594848633,
+                            "y": 7.855818748474121,
+                            "z": -14.537531852722168
                         },
                         "rotation": {
                             "x": 0.0,
