@@ -70,6 +70,14 @@ public:
 
 	bool attackHurtboxIsSpawn = false;
 
+	utility::GUID enemyHurtVFXPrefab;
+	utility::GUID enemyHurtVFXPosition;
+	ecs::EntityID enemyHurtVFXPositionID;
+
+	utility::GUID enemyAttackSfxGUID;
+	utility::GUID enemyWalkSfxGUID;
+	std::vector<utility::GUID> enemyHurtSfxPool;
+
 	// Declarations Only
 	void Start() override;
 	void Update() override;
@@ -78,7 +86,9 @@ public:
 	void TakeDamage(int damage, const std::string& element);
 	void Die();
 
-	REFLECTABLE(EnemyManagerScript, enemyHealth, enemyMovementSpeed, enemyType, enemyAttackRange, enemyRangedAttackRange, enemyChaseRange, playerToChase, enemyHurtboxPrefab, enemyBulletPrefab, enemyHurtboxPosition, shieldHealth, shieldElement, shieldVisualObject, tankAoePrefab, isLunging, lungeDuration, lungeForwardSpeed, lungeUpwardSpeed, lungeGravity, attackCooldown);
+	REFLECTABLE(EnemyManagerScript, enemyHealth, enemyMovementSpeed, enemyType, enemyAttackRange, enemyRangedAttackRange, enemyChaseRange, playerToChase, 
+		enemyHurtboxPrefab, enemyBulletPrefab, enemyHurtboxPosition, shieldHealth, shieldElement, shieldVisualObject, tankAoePrefab, isLunging, lungeDuration,
+		lungeForwardSpeed, lungeUpwardSpeed, lungeGravity, attackCooldown, enemyHurtVFXPrefab, enemyHurtVFXPosition, enemyAttackSfxGUID,enemyWalkSfxGUID, enemyHurtSfxPool);
 };
 
 // --- IMPLEMENTATION ---
@@ -108,16 +118,14 @@ inline void EnemyManagerScript::Start() {
 		}
 	}
 
+	enemyHurtVFXPositionID = ecsPtr->GetEntityIDFromGUID(enemyHurtVFXPosition);
+
 	//enemyModelID = ecsPtr->GetEntityIDFromGUID(enemyModel);
 	if (animComp = ecsPtr->GetComponent<ecs::AnimatorComponent>(enemyModelID))
 	{
 		enemyController = resource->GetResource<R_AnimController>(animComp->controllerGUID).get();
 		if (enemyController)
 		{
-			// COMMENTED OUT FOR ANIM
-			/*currAnimationState = *enemyController->m_EnterState;
-			anim->m_currentState = &currAnimationState;
-			static_cast<AnimState*>(anim->m_currentState)->SetTrigger("ForcedEntry");*/
 			animComp->m_currentStateID = enemyController->m_EnterState->id;
 			if (auto* currAnimState = enemyController->RetrieveStateByID(animComp->m_currentStateID))
 				currAnimState->Trigger("ForcedEntry", animComp, enemyController);
@@ -135,14 +143,7 @@ inline void EnemyManagerScript::Update() {
 		return;
 	}
 
-	//Copy state from controller
-	if (enemyController)
-	{
-		//if (anim->m_currentState != &currAnimationState) {
-		//	currAnimationState = *static_cast<AnimState*>(anim->m_currentState);
-		//	anim->m_currentState = &currAnimationState;
-		//}
-	}
+	
 
 	//Entity deletion fix for animation
 	animComp = ecsPtr->GetComponent<ecs::AnimatorComponent>(enemyModelID);
@@ -154,7 +155,8 @@ inline void EnemyManagerScript::Update() {
 			if (animComp->m_currentStateID) {
 				if (R_Animation* currAnim = resource->GetResource<R_Animation>(enemyController->RetrieveStateByID(animComp->m_currentStateID)->animationGUID).get()) {
 					float animDuration = currAnim->GetDuration();
-					if (animComp->m_CurrentTime >= animDuration) {
+					if (animComp->m_CurrentTime >= anim
+) {
 						ecsPtr->DeleteEntity(entity);
 					}
 				}
@@ -299,14 +301,6 @@ inline void EnemyManagerScript::Update() {
 			enemyIsAttacking = true;
 			if (animComp)
 			{
-				// COMMENTED OUT FOR ANIM
-				/*
-				if (anim->m_currentState)
-				{
-					//This will transition into attacking state
-					static_cast<AnimState*>(anim->m_currentState)->SetTrigger("AttackingPlayer");
-				}
-				*/
 				if (animComp->m_currentStateID)
 				{
 					enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("AttackingPlayer", animComp, enemyController);
@@ -354,10 +348,11 @@ inline void EnemyManagerScript::Update() {
 
 					//CHECK IF ANIMATION OF THE ENEMY IS AFTER THE ENEMY CLAWED OR SOME SHIT(e.g: ANIMATION TIMER IS AT 2s MARK
 					//Simulating 2 secconds, you might wanna change this
-					if (animComp->m_CurrentTime >= animDuration * 0.5f && enemyController->RetrieveStateByID(animComp->m_currentStateID)->name == "Attacking")
+					if (animComp->m_CurrentTime >= animDuration * 0.5f)
 					{
+						std::string stateName = enemyController->RetrieveStateByID(animComp->m_currentStateID)->name;
 						// SWITCH SPAWN BEHAVIOR BASED ON STRING
-						if (enemyType == "Ranged")
+						if (enemyType == "Ranged" && stateName == "Attacking")
 						{
 							// Ranged: Spawn Bullet
 							std::shared_ptr<R_Scene> bullet = resource->GetResource<R_Scene>(enemyBulletPrefab);
@@ -376,7 +371,7 @@ inline void EnemyManagerScript::Update() {
 								}
 							}
 						}
-						else if (enemyType == "Tank") {
+						else if (enemyType == "Tank" && stateName == "Attacking") {
 							std::shared_ptr<R_Scene> tankAOE = resource->GetResource<R_Scene>(tankAoePrefab);
 							if (tankAOE) {
 								std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
@@ -396,7 +391,7 @@ inline void EnemyManagerScript::Update() {
 								}
 							}
 						}
-						else
+						else if (stateName == "Crouching")
 						{
 							// Melee lunge logic
 							isLunging = true;
@@ -433,9 +428,9 @@ inline void EnemyManagerScript::Update() {
 								}
 							}
 
-							// --- JUMP ANIM TRIGGER ---
+							// --- LUNGE ANIM TRIGGER ---
 							if (animComp && animComp->m_currentStateID) {
-								enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Jump", animComp, enemyController);
+								enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Lunge", animComp, enemyController);
 							}
 						}
 
@@ -453,20 +448,10 @@ inline void EnemyManagerScript::Update() {
 			// ADD ENEMY RUNNING ANIMATION
 			if (animComp)
 			{
-				// COMMENTED OUT FOR ANIM
-				/*
-				if (anim->m_currentState)
-				{
-					//This will transition into chasing state
-					static_cast<AnimState*>(anim->m_currentState)->SetTrigger("PlayerDetected");
-				}
-				*/
 				if (animComp->m_currentStateID)
 				{
 					enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("PlayerDetected", animComp, enemyController);
 				}
-
-
 			}
 		}
 	}
@@ -487,6 +472,14 @@ inline void EnemyManagerScript::TriggerStagger(float duration) {
 	currentStaggerTimer = duration;
 
 	// ADD STAGGER ANIM HERE
+	if (animComp)
+	{
+		if (animComp->m_currentStateID)
+		{
+			//enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Staggered", animComp, enemyController);
+			enemyController->PlayOverlay("Stagger", animComp, 0.2f, 0.8f);
+		}
+	}
 
 	enemyIsAttacking = false;
 	attackHurtboxIsSpawn = false;
@@ -500,6 +493,30 @@ inline void EnemyManagerScript::ApplyPushback(glm::vec3 dir, float force) {
 }
 
 inline void EnemyManagerScript::TakeDamage(int damage, const std::string& element) {
+	
+	//Enemy Hurt sfx
+	if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
+		std::vector<ecs::AudioFile*> hurtSfxMatches;
+
+		for (auto& af : ac->audioFiles) {
+			if (!af.isSFX) continue;
+
+			for (const auto& poolGUID : enemyHurtSfxPool) {
+				if (af.audioGUID == poolGUID) {
+					hurtSfxMatches.push_back(&af);
+					break;
+				}
+			}
+		}
+
+		//Random Play 
+		if (!hurtSfxMatches.empty()) {
+			int idx = rand() % static_cast<int>(hurtSfxMatches.size());
+			hurtSfxMatches[idx]->requestPlay = true;
+		}
+	}
+
+
 	if (shieldHealth > 0 && shieldElement != "NONE") {
 
 		if (element == shieldElement) {
@@ -519,6 +536,15 @@ inline void EnemyManagerScript::TakeDamage(int damage, const std::string& elemen
 		}
 	}
 	else {
+		std::shared_ptr<R_Scene> enemyHurtVFX = resource->GetResource<R_Scene>(enemyHurtVFXPrefab);
+		if (enemyHurtVFX) {
+			std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
+			ecs::EntityID enemyHurtVFXID = DuplicatePrefabIntoScene<R_Scene>(currentScene, enemyHurtVFXPrefab);
+
+			if (auto* enemyHurtVFXTransform = ecsPtr->GetComponent<TransformComponent>(enemyHurtVFXID))
+				enemyHurtVFXTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(enemyHurtVFXPositionID)->WorldTransformation.position;
+		}
+
 		// Normal health damage (Shield is gone or never existed)
 		enemyHealth -= damage;
 
@@ -532,6 +558,16 @@ inline void EnemyManagerScript::Die() {
 	if (isDead) return;
 
 	// ADD DEATH ANIM HERE
+	if (animComp)
+	{
+		/*if (animComp->m_currentStateID)
+		{
+			enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Dead", animComp, enemyController);
+		}*/
+		enemyController->SetState("Death", animComp);
+	}
+
+	
 
 	isDead = true;
 

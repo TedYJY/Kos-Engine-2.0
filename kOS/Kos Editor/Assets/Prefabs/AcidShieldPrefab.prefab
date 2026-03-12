@@ -16,7 +16,28 @@
             "slowMultiplier": 0.6000000238418579,
             "enemyDeathSfxGUID_1": "00000000-0000-0000-0000-000000000000",
             "enemyDeathSfxGUID_2": "00000000-0000-0000-0000-000000000000",
-            "enemyDeathSfxGUID_3": "00000000-0000-0000-0000-000000000000"
+            "enemyDeathSfxGUID_3": "00000000-0000-0000-0000-000000000000",
+            "acidShieldSfxGUID": "5fd1e778-8f0e-5687-8d82-b7c864715e61"
+        },
+        "AudioComponent": {
+            "audioFiles": [
+                {
+                    "audioGUID": "5fd1e778-8f0e-5687-8d82-b7c864715e61",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": false,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                }
+            ]
         },
         "NameComponent": {
             "entityName": "AcidShieldPrefab",
@@ -118,7 +139,7 @@
                     "textureGUID": "00000000-0000-0000-0000-000000000000",
                     "start_Velocity": 5.0,
                     "playback_State": 0,
-                    "particleFade": 1,
+                    "particleFade": 0,
                     "velocityModule": {
                         "enabled": true,
                         "mode": 0,
@@ -169,12 +190,12 @@
                             "x": 0.0,
                             "y": 1.0,
                             "z": 0.25,
-                            "w": 1.0
+                            "w": 0.6499999761581421
                         },
                         "end_Color": {
-                            "x": 0.75,
-                            "y": 1.0,
-                            "z": 0.5,
+                            "x": 0.0,
+                            "y": 0.75,
+                            "z": 0.25,
                             "w": 0.0
                         }
                     },
@@ -184,19 +205,19 @@
                         "end_Size": 0.0
                     },
                     "rotationModule": {
-                        "enabled": false,
+                        "enabled": true,
                         "start_Rotation": {
                             "x": 0.0,
                             "y": 0.0,
                             "z": 0.0
                         },
                         "end_Rotation": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
+                            "x": 360.0,
+                            "y": 360.0,
+                            "z": 360.0
                         },
                         "rotation_Modifier": {
-                            "x": 0.0,
+                            "x": 45.0,
                             "y": 0.0,
                             "z": 0.0
                         }
@@ -268,8 +289,17 @@
                             "z": 0.0
                         }
                     },
-                    "emissionInterval": 0.02500000037252903,
-                    "no_Of_Particles": 100
+                    "emissionInterval": 0.019999999552965164,
+                    "no_Of_Particles": 100,
+                    "dynamicTrailingEnabled": false,
+                    "trail_Color": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0,
+                        "w": 1.0
+                    },
+                    "trailLifeTime": 2.0,
+                    "trailWidth": 0.20000000298023224
                 },
                 "TransformComponent": {
                     "WorldTransformation": {

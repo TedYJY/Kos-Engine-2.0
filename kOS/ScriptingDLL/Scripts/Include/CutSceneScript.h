@@ -62,13 +62,14 @@ inline void CutSceneScript::Update() {
 	if (timer > 5.f) {
 		ecsPtr->SetActive(canva, true);
 		vc->pause = true;
+		Input->HideCursor(false);
 		//Pause the audioW
 	}
 
 
 	if (start_isClicked) {
 		//Turn mouse back on
-		Input->HideCursor(false);
+		//Input->HideCursor(false);
 		vc->pause = false;
 		EntityID canva = ecsPtr->GetEntityIDFromGUID(button_canva);
 		ecsPtr->SetActive(canva, false);

@@ -9,6 +9,42 @@
     },
     {
         "entityGUID": "463b7459-4d6c-c883-a7bb-df083a8a9def",
+        "AudioComponent": {
+            "audioFiles": [
+                {
+                    "audioGUID": "2afcabc1-3d62-bb0b-f484-598f81dff049",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": true,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "c5405e79-b219-7670-1235-e1482aae4941",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": true,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                }
+            ]
+        },
         "CapsuleColliderComponent": {
             "isTrigger": false,
             "capsule": {
@@ -17,7 +53,7 @@
                     "y": 2.0999999046325684,
                     "z": 0.0
                 },
-                "radius": 0.6000000238418579,
+                "radius": 1.2000000476837158,
                 "height": 4.800000190734863,
                 "capsuleDirection": 1
             }
@@ -36,7 +72,25 @@
             "shieldHealth": 30,
             "shieldElement": "NONE",
             "shieldVisualObject": "00000000-0000-0000-0000-000000000000",
-            "tankAoePrefab": "00000000-0000-0000-0000-000000000000"
+            "tankAoePrefab": "00000000-0000-0000-0000-000000000000",
+            "isLunging": false,
+            "lungeDuration": 0.800000011920929,
+            "lungeForwardSpeed": 12.0,
+            "lungeUpwardSpeed": 5.0,
+            "lungeGravity": 15.0,
+            "attackCooldown": 2.0,
+            "enemyHurtVFXPrefab": "06c198bd-19c0-0432-e746-c72bbca505e7",
+            "enemyHurtVFXPosition": "da448f82-04d5-6e25-1df0-21906029affd",
+            "enemyAttackSfxGUID": "00000000-0000-0000-0000-000000000000",
+            "enemyWalkSfxGUID": "00000000-0000-0000-0000-000000000000",
+            "enemyHurtSfxPool": [
+                {
+                    "enemyHurtSfxPool": "2afcabc1-3d62-bb0b-f484-598f81dff049"
+                },
+                {
+                    "enemyHurtSfxPool": "c5405e79-b219-7670-1235-e1482aae4941"
+                }
+            ]
         },
         "NameComponent": {
             "entityName": "EnemyPrefab",
@@ -72,7 +126,7 @@
             "WorldTransformation": {
                 "position": {
                     "x": 23.768556594848633,
-                    "y": 3.9802656173706055,
+                    "y": 4.835694789886475,
                     "z": -14.537531852722168
                 },
                 "rotation": {
@@ -89,12 +143,12 @@
             "LocalTransformation": {
                 "position": {
                     "x": 23.768556594848633,
-                    "y": 3.9802656173706055,
+                    "y": 4.835694789886475,
                     "z": -14.537531852722168
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.0,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -120,7 +174,7 @@
                     "WorldTransformation": {
                         "position": {
                             "x": 23.768556594848633,
-                            "y": 5.4802656173706055,
+                            "y": 6.335694789886475,
                             "z": -14.537531852722168
                         },
                         "rotation": {
@@ -180,7 +234,7 @@
                     "WorldTransformation": {
                         "position": {
                             "x": 23.768556594848633,
-                            "y": 3.9802656173706055,
+                            "y": 4.835694789886475,
                             "z": -14.537531852722168
                         },
                         "rotation": {
@@ -209,6 +263,54 @@
                             "x": 0.019999999552965164,
                             "y": 0.019999999552965164,
                             "z": 0.019999999552965164
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "da448f82-04d5-6e25-1df0-21906029affd",
+                "NameComponent": {
+                    "entityName": "Enemy Hurt VFX Position",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": false,
+                    "isStatic": false,
+                    "prefabName": "",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 23.768556594848633,
+                            "y": 7.855818748474121,
+                            "z": -14.537531852722168
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 0.0,
+                            "y": 3.0201239585876465,
+                            "z": 0.0
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": -0.0,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
                         }
                     }
                 }

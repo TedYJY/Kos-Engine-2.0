@@ -9,9 +9,29 @@
     },
     {
         "entityGUID": "c969341b-a2df-583a-d82d-ab2de34d598e",
+        "AudioComponent": {
+            "audioFiles": [
+                {
+                    "audioGUID": "4a90aa61-f365-1d8e-03c1-b2c3f7ef052e",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": false,
+                    "minDistance": 1.8930000066757202,
+                    "maxDistance": 162.14500427246094,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                }
+            ]
+        },
         "FireballSplash": {
             "splashDamage": 40,
-            "splashSfxGUID": "00000000-0000-0000-0000-000000000000",
+            "splashSfxGUID": "4a90aa61-f365-1d8e-03c1-b2c3f7ef052e",
             "scoreValue": 200,
             "timeBeforeDeath": 2.0
         },
@@ -35,7 +55,7 @@
             "textureGUID": "00000000-0000-0000-0000-000000000000",
             "start_Velocity": 17.5,
             "playback_State": 0,
-            "particleFade": 1,
+            "particleFade": 0,
             "velocityModule": {
                 "enabled": false,
                 "mode": 0,
@@ -86,13 +106,13 @@
                     "x": 1.0,
                     "y": 0.0,
                     "z": 0.0,
-                    "w": 1.0
+                    "w": 0.75
                 },
                 "end_Color": {
                     "x": 1.0,
                     "y": 1.0,
                     "z": 0.0,
-                    "w": 1.0
+                    "w": 0.3499999940395355
                 }
             },
             "sizeModule": {
@@ -186,7 +206,16 @@
                 }
             },
             "emissionInterval": 0.0010000000474974513,
-            "no_Of_Particles": 200
+            "no_Of_Particles": 100,
+            "dynamicTrailingEnabled": false,
+            "trail_Color": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.6499999761581421
+            },
+            "trailLifeTime": 0.5,
+            "trailWidth": 0.20000000298023224
         },
         "RigidbodyComponent": {
             "mass": 1.0,
