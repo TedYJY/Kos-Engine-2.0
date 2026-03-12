@@ -12,7 +12,7 @@
         "AudioComponent": {
             "audioFiles": [
                 {
-                    "audioGUID": "4a90aa61-f365-1d8e-03c1-b2c3f7ef052e",
+                    "audioGUID": "7460cccf-9904-4e74-cb4b-9bca6b57519e",
                     "volume": 1.0,
                     "loop": false,
                     "playOnStart": false,
@@ -31,7 +31,7 @@
         },
         "FireballSplash": {
             "splashDamage": 40,
-            "splashSfxGUID": "4a90aa61-f365-1d8e-03c1-b2c3f7ef052e",
+            "splashSfxGUID": "7460cccf-9904-4e74-cb4b-9bca6b57519e",
             "scoreValue": 200,
             "timeBeforeDeath": 2.0
         },
