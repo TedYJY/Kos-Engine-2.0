@@ -3058,7 +3058,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "Enemy HUD.prefab",
-                    "hide": false
+                    "hide": true
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -3106,7 +3106,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "a8994653-aaa4-b27c-5a0b-70a872e07c56",
@@ -3172,7 +3172,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "c05af7da-ba16-6799-ba38-e2a4dd1ef801",
@@ -3238,7 +3238,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "be4c377f-b20f-8427-1b36-cc10f902e296",
@@ -3304,7 +3304,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e7cea814-4cbb-3b00-1a41-5f2f601c0341",
@@ -3370,7 +3370,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e4bbb1ae-5147-cc65-f18d-7e0a8b10cd5b",
@@ -3436,7 +3436,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e4bbb1ae-5147-cc65-f18d-7e0a8b10cd5b",
@@ -3502,7 +3502,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e4bbb1ae-5147-cc65-f18d-7e0a8b10cd5b",
@@ -3573,7 +3573,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "Pause Screen Canvas.prefab",
-                    "hide": false
+                    "hide": true
                 },
                 "PauseMenuScript": {
                     "pauseMenuCanvasGUID": "53f83bac-2058-5939-b2a8-134497980574",
@@ -3634,7 +3634,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "6988c495-899e-e79d-0cb8-3cc55bceeedd",
@@ -3700,7 +3700,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "1432a2fc-cfcb-05ad-493f-84aeed00ce8d",
@@ -3766,7 +3766,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e115a1eb-7c39-2bfa-75bc-c019179fc084",
@@ -3858,7 +3858,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "00594efd-b6f0-489e-7c7f-c985999f4823",
@@ -3957,7 +3957,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "45ba81de-a257-60bb-653d-ec7a7776be0e",
@@ -4056,7 +4056,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "c4e6323c-49f8-6914-17c8-48e7e8ea4374",
@@ -4155,7 +4155,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "3efb3936-4a9f-1129-c2a6-db5bb3dd92c1",
@@ -4248,7 +4248,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "Lose Screen Canvas.prefab",
-                    "hide": false
+                    "hide": true
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -4296,7 +4296,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -4354,7 +4354,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -4412,7 +4412,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -4470,7 +4470,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -4528,7 +4528,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -4586,7 +4586,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -4670,7 +4670,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "a6918fdc-bfcb-feab-5f96-86e8d9485e45",
@@ -4761,7 +4761,7 @@
                     "isPrefab": false,
                     "isStatic": false,
                     "prefabName": "Level Complete Canvas.prefab",
-                    "hide": false
+                    "hide": true
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -4809,7 +4809,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "6988c495-899e-e79d-0cb8-3cc55bceeedd",
@@ -4875,7 +4875,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "d198064c-9163-4676-1140-bc1dc97ce847",
@@ -4941,7 +4941,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "af1dadc5-efbb-c724-a131-6e10fe338758",
@@ -5007,7 +5007,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "5ff7b122-936f-8e72-4ad7-047d88f31b90",
@@ -5099,7 +5099,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": false
+                            "hide": true
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e7ac63e2-dc50-c7e5-f42a-8c2d3db5eccc",
@@ -6736,7 +6736,43 @@
         }
     },
     {
-        "entityGUID": "239390d4-520c-1c97-5d83-501277869419",
+        "entityGUID": "cb0412bf-0966-1cb8-2336-845a88d83928",
+        "AudioComponent": {
+            "audioFiles": [
+                {
+                    "audioGUID": "2afcabc1-3d62-bb0b-f484-598f81dff049",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": true,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "c5405e79-b219-7670-1235-e1482aae4941",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": true,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                }
+            ]
+        },
         "CapsuleColliderComponent": {
             "isTrigger": false,
             "capsule": {
@@ -6760,7 +6796,7 @@
             "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
             "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
             "enemyBulletPrefab": "66adf257-5e24-d6e6-4321-1cf241444414",
-            "enemyHurtboxPosition": "570fa653-ab37-c9f9-82c3-bdb66764b658",
+            "enemyHurtboxPosition": "96f1fb69-3907-f145-e582-9adea5010634",
             "shieldHealth": 30,
             "shieldElement": "NONE",
             "shieldVisualObject": "00000000-0000-0000-0000-000000000000",
@@ -6772,7 +6808,17 @@
             "lungeGravity": 15.0,
             "attackCooldown": 2.0,
             "enemyHurtVFXPrefab": "06c198bd-19c0-0432-e746-c72bbca505e7",
-            "enemyHurtVFXPosition": "da448f82-04d5-6e25-1df0-21906029affd"
+            "enemyHurtVFXPosition": "5ca5da39-faff-2299-5c97-ad4184195a5f",
+            "enemyAttackSfxGUID": "00000000-0000-0000-0000-000000000000",
+            "enemyWalkSfxGUID": "00000000-0000-0000-0000-000000000000",
+            "enemyHurtSfxPool": [
+                {
+                    "enemyHurtSfxPool": "2afcabc1-3d62-bb0b-f484-598f81dff049"
+                },
+                {
+                    "enemyHurtSfxPool": "c5405e79-b219-7670-1235-e1482aae4941"
+                }
+            ]
         },
         "NameComponent": {
             "entityName": "EnemyPrefab",
@@ -6807,9 +6853,9 @@
         "TransformComponent": {
             "WorldTransformation": {
                 "position": {
-                    "x": 23.768556594848633,
-                    "y": 24.800189971923828,
-                    "z": -14.537531852722168
+                    "x": 19.818471908569336,
+                    "y": 25.59993553161621,
+                    "z": -5.152132987976074
                 },
                 "rotation": {
                     "x": 0.0,
@@ -6824,9 +6870,9 @@
             },
             "LocalTransformation": {
                 "position": {
-                    "x": 23.768556594848633,
-                    "y": 24.800189971923828,
-                    "z": -14.537531852722168
+                    "x": 19.818471908569336,
+                    "y": 25.59993553161621,
+                    "z": -5.152132987976074
                 },
                 "rotation": {
                     "x": 0.0,
@@ -6842,22 +6888,22 @@
         },
         "children": [
             {
-                "entityGUID": "854088ae-ace1-bb6f-6e45-d5f6e1f4ee14",
+                "entityGUID": "96f1fb69-3907-f145-e582-9adea5010634",
                 "NameComponent": {
                     "entityName": "Enemy Hurtbox Position",
                     "Layer": 0,
                     "entityTag": "Default",
                     "isPrefab": true,
                     "isStatic": false,
-                    "prefabName": "EnemyPrefab.prefab",
+                    "prefabName": "MeleeEnemyPrefab.prefab",
                     "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 23.768556594848633,
-                            "y": 26.300189971923828,
-                            "z": -14.537531852722168
+                            "x": 19.818471908569336,
+                            "y": 27.09993553161621,
+                            "z": -5.152132987976074
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6890,7 +6936,7 @@
                 }
             },
             {
-                "entityGUID": "ea911035-671b-861f-b05b-6fcc442cbe47",
+                "entityGUID": "3c17c162-d059-69ab-dfe3-02e969918730",
                 "AnimatorComponent": {
                     "controllerGUID": "959228b7-3789-fba1-c60f-18a77dc3fc15",
                     "m_PlaybackSpeed": 1.0,
@@ -6905,7 +6951,7 @@
                     "entityTag": "Default",
                     "isPrefab": true,
                     "isStatic": false,
-                    "prefabName": "EnemyPrefab.prefab",
+                    "prefabName": "MeleeEnemyPrefab.prefab",
                     "hide": false
                 },
                 "SkinnedMeshRendererComponent": {
@@ -6915,9 +6961,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 23.768556594848633,
-                            "y": 24.800189971923828,
-                            "z": -14.537531852722168
+                            "x": 19.818471908569336,
+                            "y": 25.59993553161621,
+                            "z": -5.152132987976074
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6950,22 +6996,22 @@
                 }
             },
             {
-                "entityGUID": "aeeead1d-8e33-6938-d729-5cf2484ad054",
+                "entityGUID": "5ca5da39-faff-2299-5c97-ad4184195a5f",
                 "NameComponent": {
                     "entityName": "Enemy Hurt VFX Position",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "isStatic": false,
-                    "prefabName": "",
+                    "prefabName": "MeleeEnemyPrefab.prefab",
                     "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 23.768556594848633,
-                            "y": 27.820314407348633,
-                            "z": -14.537531852722168
+                            "x": 19.818471908569336,
+                            "y": 28.620059967041016,
+                            "z": -5.152132987976074
                         },
                         "rotation": {
                             "x": 0.0,
@@ -6987,328 +7033,6 @@
                         "rotation": {
                             "x": 0.0,
                             "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        }
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "entityGUID": "2c32fa8b-71ca-b46c-9fd6-87fd482760d8",
-        "CapsuleColliderComponent": {
-            "isTrigger": false,
-            "capsule": {
-                "center": {
-                    "x": 0.0,
-                    "y": 2.299999952316284,
-                    "z": 0.0
-                },
-                "radius": 1.600000023841858,
-                "height": 5.0,
-                "capsuleDirection": 1
-            }
-        },
-        "EnemyManagerScript": {
-            "enemyHealth": 60,
-            "enemyMovementSpeed": 3.0,
-            "enemyType": "Tank",
-            "enemyAttackRange": 2.5,
-            "enemyRangedAttackRange": 15.0,
-            "enemyChaseRange": 25.0,
-            "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
-            "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
-            "enemyBulletPrefab": "66adf257-5e24-d6e6-4321-1cf241444414",
-            "enemyHurtboxPosition": "239a2a55-7b16-a67e-b034-dabdac495a1d",
-            "shieldHealth": 30,
-            "shieldElement": "FIRE",
-            "shieldVisualObject": "0f6defc1-8c38-49d9-65b0-091f11064913",
-            "tankAoePrefab": "668543d2-276e-3941-8542-55d0401797a4",
-            "isLunging": false,
-            "lungeDuration": 0.800000011920929,
-            "lungeForwardSpeed": 12.0,
-            "lungeUpwardSpeed": 5.0,
-            "lungeGravity": 15.0,
-            "attackCooldown": 2.0,
-            "enemyHurtVFXPrefab": "06c198bd-19c0-0432-e746-c72bbca505e7",
-            "enemyHurtVFXPosition": "822ea27b-ddae-fa3c-523e-5c95dfb7aa4f"
-        },
-        "NameComponent": {
-            "entityName": "TankEnemyPrefab",
-            "Layer": 0,
-            "entityTag": "Enemy",
-            "isPrefab": true,
-            "isStatic": false,
-            "prefabName": "TankEnemyPrefab.prefab",
-            "hide": false
-        },
-        "RigidbodyComponent": {
-            "mass": 1.0,
-            "drag": 0.0,
-            "angularDrag": 0.05000000074505806,
-            "useGravity": true,
-            "isKinematic": true,
-            "interpolation": 0,
-            "collisionDetection": 0,
-            "constraints": 11,
-            "speed": 0.0,
-            "velocity": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "angularVelocity": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            }
-        },
-        "TransformComponent": {
-            "WorldTransformation": {
-                "position": {
-                    "x": 0.0,
-                    "y": 25.36013412475586,
-                    "z": 8.560098648071289
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": -0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                }
-            },
-            "LocalTransformation": {
-                "position": {
-                    "x": 0.0,
-                    "y": 25.36013412475586,
-                    "z": 8.560098648071289
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": -0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                }
-            }
-        },
-        "children": [
-            {
-                "entityGUID": "5ed923ef-22f6-b738-3495-4125c4443533",
-                "NameComponent": {
-                    "entityName": "Enemy Hurtbox Position",
-                    "Layer": 0,
-                    "entityTag": "Default",
-                    "isPrefab": true,
-                    "isStatic": false,
-                    "prefabName": "EnemyPrefab.prefab",
-                    "hide": false
-                },
-                "TransformComponent": {
-                    "WorldTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 26.86013412475586,
-                            "z": 8.560098648071289
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 1.5,
-                            "z": 0.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        }
-                    }
-                }
-            },
-            {
-                "entityGUID": "f04bddd2-57ab-d0bb-43e3-94dcec176b32",
-                "AnimatorComponent": {
-                    "controllerGUID": "959228b7-3789-fba1-c60f-18a77dc3fc15",
-                    "m_PlaybackSpeed": 1.0,
-                    "m_CurrentTime": 0.0,
-                    "m_IsPlaying": true,
-                    "m_currentStateID": 0,
-                    "m_transitioningStateID": 0
-                },
-                "NameComponent": {
-                    "entityName": "Enemy Model",
-                    "Layer": 0,
-                    "entityTag": "Default",
-                    "isPrefab": true,
-                    "isStatic": false,
-                    "prefabName": "EnemyPrefab.prefab",
-                    "hide": false
-                },
-                "SkinnedMeshRendererComponent": {
-                    "skinnedMeshGUID": "a6aa8f2d-fa87-1e2c-abc3-482c45c287dd",
-                    "materialGUID": "eb634c86-0002-7c8b-9f8e-2b128f11f57c"
-                },
-                "TransformComponent": {
-                    "WorldTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 25.36013412475586,
-                            "z": 8.560098648071289
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.019999999552965164,
-                            "y": 0.019999999552965164,
-                            "z": 0.019999999552965164
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.019999999552965164,
-                            "y": 0.019999999552965164,
-                            "z": 0.019999999552965164
-                        }
-                    }
-                }
-            },
-            {
-                "entityGUID": "6efab6cc-72e2-4797-8427-0d552798cee9",
-                "MaterialComponent": {
-                    "materialGUID": [
-                        {
-                            "materialGUID": "2e16031c-9593-31cb-ec41-58220ebbb736"
-                        }
-                    ]
-                },
-                "MeshFilterComponent": {
-                    "meshGUID": "4a1d4e3a-edc7-fcaa-f0c1-24ef1b8e630c"
-                },
-                "NameComponent": {
-                    "entityName": "FireShieldPrefab",
-                    "Layer": 0,
-                    "entityTag": "Default",
-                    "isPrefab": true,
-                    "isStatic": false,
-                    "prefabName": "TankFireShieldPrefab.prefab",
-                    "hide": false
-                },
-                "TransformComponent": {
-                    "WorldTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 29.36013412475586,
-                            "z": 8.560098648071289
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.5,
-                            "y": 0.5,
-                            "z": 0.5
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 4.0,
-                            "z": 0.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 0.5,
-                            "y": 0.5,
-                            "z": 0.5
-                        }
-                    }
-                }
-            },
-            {
-                "entityGUID": "656c8820-1abf-3961-5468-e422ed096743",
-                "NameComponent": {
-                    "entityName": "Enemy Hurt VFX Position",
-                    "Layer": 0,
-                    "entityTag": "Default",
-                    "isPrefab": false,
-                    "isStatic": false,
-                    "prefabName": "",
-                    "hide": false
-                },
-                "TransformComponent": {
-                    "WorldTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 25.36013412475586,
-                            "z": 8.560098648071289
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": -0.0,
-                            "z": 0.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        }
-                    },
-                    "LocalTransformation": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "rotation": {
-                            "x": 0.0,
-                            "y": 0.0,
                             "z": 0.0
                         },
                         "scale": {
