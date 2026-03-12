@@ -504,6 +504,12 @@ inline void PlayerManagerScript::Start() {
 	vig->color = glm::vec3(0.f, 0.f, 0.f);
 	vig->extent = 0.03f;
 	vig->intensity = 7.3f;
+	ChromaticAberration* chro = reinterpret_cast<ChromaticAberration*>(profile->GetEffect(PPT_ChromaticAbberation));
+	chro->redOffset = 0.f;
+	chro->greenOffset = 0.f;
+	chro->blueOffset = 0.f;
+	Blur* blur = reinterpret_cast<Blur*>(profile->GetEffect(PPT_Blur));
+	blur->radius = 0.01f;
 }
 
 inline void PlayerManagerScript::Update() {
@@ -735,6 +741,8 @@ inline void PlayerManagerScript::Update() {
 			vig->color = glm::vec3(0.f, 0.f, 0.f);
 			vig->extent = 0.03f;
 			vig->intensity = 7.3f;
+			Blur* blur = reinterpret_cast<Blur*>(profile->GetEffect(PPT_Blur));
+			blur->radius = 0.01f;
 		}
 	}
 }
@@ -881,6 +889,7 @@ inline void PlayerManagerScript::PlayerMovementControls()
 
 		RaycastHit hitInfo;
 		float rayDistance = (playerCollider->capsule.height / 2.f) + 0.1f;
+
 		grounded = physicsPtr->Raycast(
 			playerPos,
 			glm::vec3(0.f, -1.f, 0.f),
@@ -1598,6 +1607,12 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			///PLAY SWAP TO DEFAULT WEAPON ANIMATION HERE
 			playerPowerupHeld = Powerup::NONE;
 			pendingPowerup = Powerup::NONE;
+
+			auto& profile = graphics->postProcessProfile;
+			ChromaticAberration* chro = reinterpret_cast<ChromaticAberration*>(profile->GetEffect(PPT_ChromaticAbberation));
+			chro->redOffset = 0.f;
+			chro->greenOffset = 0.f;
+			chro->blueOffset = 0.f;
 		}
 	}
 
@@ -1635,6 +1650,10 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						vig->color = glm::vec3(0.6f, 0.15f, 0.15f);
 						vig->extent = 0.025f;
 						vig->intensity = 0.05f;
+						ChromaticAberration* chro = reinterpret_cast<ChromaticAberration*>(profile->GetEffect(PPT_ChromaticAbberation));
+						chro->redOffset = 0.015f;
+						chro->greenOffset = -0.015f;
+						chro->blueOffset = 0.f;
 					}
 					else if (powerupComp->powerupType == "ACID") {
 						playerPowerupHeld = Powerup::ACID;//DELETE THIS WHEN ANIM FINISH
@@ -1654,6 +1673,10 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						vig->color = glm::vec3(0.15f, 0.6f, 0.15f);
 						vig->extent = 0.025f;
 						vig->intensity = 0.05f;
+						ChromaticAberration* chro = reinterpret_cast<ChromaticAberration*>(profile->GetEffect(PPT_ChromaticAbberation));
+						chro->redOffset = 0.015f;
+						chro->greenOffset = -0.015f;
+						chro->blueOffset = 0.f;
 					}
 
 					else if (powerupComp->powerupType == "LIGHTNING")
@@ -1676,6 +1699,10 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						vig->color = glm::vec3(0.15f, 0.15f, 0.6f);
 						vig->extent = 0.025f;
 						vig->intensity = 0.05f;
+						ChromaticAberration* chro = reinterpret_cast<ChromaticAberration*>(profile->GetEffect(PPT_ChromaticAbberation));
+						chro->redOffset = 0.015f;
+						chro->greenOffset = -0.015f;
+						chro->blueOffset = 0.f;
 					}
 
 
@@ -2336,4 +2363,6 @@ inline void PlayerManagerScript::TakeDamage(int damage) {
 	vig->color = glm::vec3(0.6f, 0.15f, 0.15f);
 	vig->extent = 0.125f;
 	vig->intensity = 0.45f;
+	Blur* blur = reinterpret_cast<Blur*>(profile->GetEffect(PPT_Blur));
+	blur->radius = 2.5f;
 }
