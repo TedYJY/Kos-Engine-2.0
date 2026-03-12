@@ -63,6 +63,7 @@ inline void FireLMB::Start() {
 				}
 
 				ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->TriggerStagger(1.f);
+				enemyScript->Die();
 
 			}
 		}

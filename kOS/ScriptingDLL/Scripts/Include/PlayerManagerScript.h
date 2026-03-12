@@ -1226,13 +1226,6 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			float animDuration = currAnim->GetDuration();
 			std::string stateName = playerController->RetrieveStateByID(animComp->m_currentStateID)->name;
 
-			//Anim finish trigger
-			if (animComp->m_CurrentTime >= animDuration)
-			{
-				playerController->RetrieveStateByID(animComp->m_currentStateID)
-					->Trigger("animationFinished", animComp, playerController);
-			}
-
 
 			// Absorb anim finish then trigger swap out anim
 			if (animComp->m_CurrentTime >= animDuration && stateName == "Absorbing")
@@ -1257,38 +1250,6 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			if (animComp->m_CurrentTime >= animDuration && stateName == "Swap In")
 			{
 				std::cout << "[WeaponSwap] Swap In done > going Idle\n";
-
-				if (playerPowerupHeld == Powerup::FIRE) {
-					if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
-						for (auto& af : ac->audioFiles) {
-							if (af.audioGUID == fireEquipSfxGUID && af.isSFX) {
-								af.requestPlay = true;
-								break;
-							}
-						}
-					}
-				}
-				else if (playerPowerupHeld == Powerup::LIGHTNING) {
-					if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
-						for (auto& af : ac->audioFiles) {
-							if (af.audioGUID == lightningEquipSfxGUID && af.isSFX) {
-								af.requestPlay = true;
-								break;
-							}
-						}
-					}
-				}
-
-				else if (playerPowerupHeld == Powerup::ACID) {
-					if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
-						for (auto& af : ac->audioFiles) {
-							if (af.audioGUID == acidEquipSfxGUID && af.isSFX) {
-								af.requestPlay = true;
-								break;
-							}
-						}
-					}
-				}
 
 				playerController->RetrieveStateByID(animComp->m_currentStateID)
 					->Trigger("animationFinished", animComp, playerController);
@@ -2084,7 +2045,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					}
 				}
 
-				currMana -= acidAbilityCost;
+				currMana = 0.0f;
 
 				/// ADD ACID RIGHT CLOCK ANIMATION HERE
 
@@ -2367,10 +2328,33 @@ inline void  PlayerManagerScript::SwapWeaponModel(Powerup newPowerup) {
 		playerController = resource->GetResource<R_AnimController>(animComp->controllerGUID).get();
 		if (playerController)
 		{
-			//animComp->m_currentStateID = playerController->m_EnterState->id;
 			playerController->SetState("Swap In", animComp);
+
+			utility::GUID equipSfx{};
+
+			if (newPowerup == Powerup::FIRE)
+				equipSfx = fireEquipSfxGUID;
+			else if (newPowerup == Powerup::LIGHTNING)
+				equipSfx = lightningEquipSfxGUID;
+			else if (newPowerup == Powerup::ACID)
+				equipSfx = acidEquipSfxGUID;
+
+			if (!equipSfx.Empty())
+			{
+				if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity))
+				{
+					for (auto& af : ac->audioFiles)
+					{
+						if (af.audioGUID == equipSfx && af.isSFX)
+						{
+							af.requestPlay = true;
+							break;
+						}
+					}
+				}
+			}
 		}
-	};
+	}
 }
 
 inline void PlayerManagerScript::TakeDamage(int damage) {
