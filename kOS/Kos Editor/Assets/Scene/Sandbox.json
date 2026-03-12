@@ -7951,6 +7951,70 @@
                     "sourceType": 0,
                     "audioBankGUID": "00000000-0000-0000-0000-000000000000",
                     "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "4c22dc8a-e591-ba31-2b6a-6371e04c4da5",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": false,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "a7d1eb15-af1b-237a-3826-769f73fe51eb",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": false,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "c359948d-d497-0f68-21b0-81b61af1d63f",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": false,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
+                },
+                {
+                    "audioGUID": "373786d3-b5fc-0d5e-d12b-75f2fa91882c",
+                    "volume": 1.0,
+                    "loop": false,
+                    "playOnStart": false,
+                    "hasPlayed": false,
+                    "pan": 0.0,
+                    "isBGM": false,
+                    "isSFX": true,
+                    "use3D": false,
+                    "minDistance": 1.0,
+                    "maxDistance": 20.0,
+                    "sourceType": 0,
+                    "audioBankGUID": "00000000-0000-0000-0000-000000000000",
+                    "studioEventPath": ""
                 }
             ]
         },
@@ -8022,7 +8086,20 @@
                     "tankEnemyDeathSfxGUID": "e6d00138-66ba-d9f5-40fd-0ce2f528f9ed"
                 }
             ],
-            "tankShieldBlockSfxGUID": []
+            "tankShieldBlockSfxGUID": [
+                {
+                    "tankShieldBlockSfxGUID": "ec251d64-509b-1b9f-d4c7-877144c5535b"
+                },
+                {
+                    "tankShieldBlockSfxGUID": "e6d00138-66ba-d9f5-40fd-0ce2f528f9ed"
+                },
+                {
+                    "tankShieldBlockSfxGUID": "ec251d64-509b-1b9f-d4c7-877144c5535b"
+                },
+                {
+                    "tankShieldBlockSfxGUID": "ec251d64-509b-1b9f-d4c7-877144c5535b"
+                }
+            ]
         },
         "NameComponent": {
             "entityName": "TankEnemyPrefab",
@@ -8092,7 +8169,7 @@
         },
         "children": [
             {
-                "entityGUID": "8ec53f44-c859-27ac-fded-1579dd2cd0e2",
+                "entityGUID": "37beda73-8739-e273-caa6-9a61e9870f9f",
                 "NameComponent": {
                     "entityName": "Enemy Hurtbox Position",
                     "Layer": 0,
@@ -8140,11 +8217,11 @@
                 }
             },
             {
-                "entityGUID": "ec1fccf0-8e9a-b012-324f-098f2c8efbd4",
+                "entityGUID": "6c831c89-ed46-11e2-0ab0-a71d48aa9c72",
                 "AnimatorComponent": {
                     "controllerGUID": "a8151059-f46f-1edd-8b81-a36f705c15fb",
                     "m_PlaybackSpeed": 1.0,
-                    "m_CurrentTime": 13.439529418945313,
+                    "m_CurrentTime": 9.439529418945313,
                     "m_IsPlaying": true,
                     "m_currentStateID": 4,
                     "m_transitioningStateID": 0
@@ -8200,7 +8277,7 @@
                 }
             },
             {
-                "entityGUID": "1d7b47f5-b231-5d4b-a2d5-0cb91d338907",
+                "entityGUID": "d2c3cb21-5046-efac-1e97-cad6ec0b4a07",
                 "NameComponent": {
                     "entityName": "Tank Shield Fire",
                     "Layer": 0,
@@ -8248,7 +8325,7 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "19368ddd-7821-dd86-462f-db3dac435616",
+                        "entityGUID": "29cb672e-7679-2245-3063-bf0bca87954b",
                         "NameComponent": {
                             "entityName": "Tank Shield Fire Particles",
                             "Layer": 0,
@@ -8469,7 +8546,7 @@
                         }
                     },
                     {
-                        "entityGUID": "05fdcbb5-fc0b-0f09-3695-d59d33a86663",
+                        "entityGUID": "c0b681be-17ce-5dd6-c14c-81edc5651510",
                         "NameComponent": {
                             "entityName": "Tank Shield Fire Particles",
                             "Layer": 0,
