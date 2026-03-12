@@ -3,7 +3,7 @@
         "SceneData": {
             "skyBoxGUID": [],
             "NavMeshGuid": "d6e16184-02fd-605f-64eb-f59784fe61c0",
-            "postProcessingProfile": "c3a79a26-21f4-7f96-81b0-a3d406909579",
+            "postProcessingProfile": "b773310d-91c5-cbfb-ceda-2538c8cb7b4f",
             "ambientIntensity": 1.0
         }
     },
@@ -173,7 +173,7 @@
                         },
                         "rotation": {
                             "x": 0.0,
-                            "y": -0.0,
+                            "y": 5.099999904632568,
                             "z": 0.0
                         },
                         "scale": {
@@ -190,7 +190,7 @@
                         },
                         "rotation": {
                             "x": 0.0,
-                            "y": -0.0,
+                            "y": 5.099999904632568,
                             "z": 0.0
                         },
                         "scale": {
@@ -1186,7 +1186,8 @@
                 "GameManager": {
                     "enemyObjectPrefab": "a3a69a24-9a78-f0fd-f0a9-744fc055ecb2",
                     "enemySpawnpoint": "5e385a2b-11e6-5250-a413-342a15395ff1",
-                    "gameBGM": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58"
+                    "gameBGM": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
+                    "ambienceBGM": "00000000-0000-0000-0000-000000000000"
                 },
                 "NameComponent": {
                     "entityName": "Game Manager",
@@ -1792,7 +1793,8 @@
                     "pistolModelObject": "1361fd6e-b3e0-48f2-5ab3-1599fcc561a4",
                     "fireSwordModelObject": "97f3df14-8a82-5e80-3c27-f1cf8b91d87e",
                     "lightningModelObject": "8b880c16-1807-cd1e-54c3-42cdda789d3a",
-                    "acidModelObject": "37d48ab0-2443-b791-a713-ce7ad50f353e"
+                    "acidModelObject": "37d48ab0-2443-b791-a713-ce7ad50f353e",
+                    "gameUICanvasObject": "00000000-0000-0000-0000-000000000000"
                 },
                 "RigidbodyComponent": {
                     "mass": 1.0,
@@ -1818,9 +1820,9 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -10.419305801391602,
-                            "y": 26.126291275024414,
-                            "z": -0.3374052941799164
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
                         "rotation": {
                             "x": 0.0,
@@ -1835,13 +1837,13 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": -10.419305801391602,
-                            "y": 26.126291275024414,
-                            "z": -0.3374052941799164
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
                         "rotation": {
                             "x": 0.0,
-                            "y": -0.0,
+                            "y": 0.0,
                             "z": 0.0
                         },
                         "scale": {
@@ -1888,9 +1890,9 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -10.419305801391602,
-                                    "y": 27.733985900878906,
-                                    "z": -0.3374052941799164
+                                    "x": 0.0,
+                                    "y": 1.6076946258544922,
+                                    "z": 0.0
                                 },
                                 "rotation": {
                                     "x": 0.0,
@@ -1937,9 +1939,9 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -10.419305801391602,
-                                    "y": 23.894058227539063,
-                                    "z": -0.3374052941799164
+                                    "x": 0.0,
+                                    "y": -2.2322330474853516,
+                                    "z": 0.0
                                 },
                                 "rotation": {
                                     "x": 0.0,
@@ -1985,9 +1987,9 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -9.419305801391602,
-                                    "y": 26.876291275024414,
-                                    "z": -0.3374052941799164
+                                    "x": 1.0,
+                                    "y": 0.75,
+                                    "z": 0.0
                                 },
                                 "rotation": {
                                     "x": 0.0,
@@ -70099,8 +70101,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "c88b194c-6351-5f44-a7c0-024e10c1d1a4"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70188,8 +70190,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "53b93ae0-ba87-5972-c2bd-6f021a552176"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70277,8 +70279,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "7122d201-f296-b460-8d2c-984461f7cccd"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70366,8 +70368,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "f48ba5b6-45d4-d0a1-6138-56b17ef02c32"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70455,8 +70457,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "f27ea897-42c7-f38f-ec38-2d049dfeaa44"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70544,8 +70546,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "7d660e9d-53c5-2a80-9476-1a87da0b6afd"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70633,8 +70635,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "cab75867-a096-7a3a-80b5-8546859cf952"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70722,8 +70724,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "efe106c3-cbfe-bbe1-71c5-ae5d9f583602"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70811,8 +70813,8 @@
                     "outerCutOff": 10.5,
                     "intesnity": 41.400001525878906,
                     "shadowCast": false,
-                    "bakedLighting": false,
-                    "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+                    "bakedLighting": true,
+                    "depthMapGUID": "760e70e2-9bac-94a8-38cb-ecf2d00f4513"
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -70911,7 +70913,17 @@
             "enemyHurtVFXPrefab": "00000000-0000-0000-0000-000000000000",
             "enemyAttackSfxGUID": "00000000-0000-0000-0000-000000000000",
             "enemyWalkSfxGUID": "00000000-0000-0000-0000-000000000000",
-            "enemyHurtSfxPool": []
+            "enemyHurtSfxPool": [],
+            "meleeEnemyAttackSfxGUID": [],
+            "rangeEnemyAttackSfxGUID": [],
+            "tankEnemyAttackSfxGUID": [],
+            "meleeEnemyHurtSfxGUID": [],
+            "rangedEnemyHurtSfxGUID": [],
+            "tankEnemyHurtSfxGUID": [],
+            "meleeEnemyDeathSfxGUID": [],
+            "rangedEnemyDeathSfxGUID": [],
+            "tankEnemyDeathSfxGUID": [],
+            "tankShieldBlockSfxGUID": []
         },
         "NameComponent": {
             "entityName": "EnemyPrefab",
@@ -71552,7 +71564,17 @@
                 {
                     "enemyHurtSfxPool": "c5405e79-b219-7670-1235-e1482aae4941"
                 }
-            ]
+            ],
+            "meleeEnemyAttackSfxGUID": [],
+            "rangeEnemyAttackSfxGUID": [],
+            "tankEnemyAttackSfxGUID": [],
+            "meleeEnemyHurtSfxGUID": [],
+            "rangedEnemyHurtSfxGUID": [],
+            "tankEnemyHurtSfxGUID": [],
+            "meleeEnemyDeathSfxGUID": [],
+            "rangedEnemyDeathSfxGUID": [],
+            "tankEnemyDeathSfxGUID": [],
+            "tankShieldBlockSfxGUID": []
         },
         "NameComponent": {
             "entityName": "EnemyPrefab",
@@ -72051,7 +72073,17 @@
                 {
                     "enemyHurtSfxPool": "c5405e79-b219-7670-1235-e1482aae4941"
                 }
-            ]
+            ],
+            "meleeEnemyAttackSfxGUID": [],
+            "rangeEnemyAttackSfxGUID": [],
+            "tankEnemyAttackSfxGUID": [],
+            "meleeEnemyHurtSfxGUID": [],
+            "rangedEnemyHurtSfxGUID": [],
+            "tankEnemyHurtSfxGUID": [],
+            "meleeEnemyDeathSfxGUID": [],
+            "rangedEnemyDeathSfxGUID": [],
+            "tankEnemyDeathSfxGUID": [],
+            "tankShieldBlockSfxGUID": []
         },
         "NameComponent": {
             "entityName": "EnemyPrefab",
