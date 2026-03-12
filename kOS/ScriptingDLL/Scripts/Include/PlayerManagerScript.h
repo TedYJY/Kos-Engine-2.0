@@ -2122,7 +2122,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				vfxTf->LocalTransformation.position = glm::vec3(1.f, 1.f, 0.f);  // offset
 				vfxTf->LocalTransformation.rotation = glm::vec3(0.f, 0.f, 0.f);
 			}
-
+				
 			//fireDashVfxTimer = fireDashVfxDuration;
 			//ecsPtr->SetActive(fireDashID, true);
 
