@@ -69,7 +69,7 @@
                 "ParticleComponent": {
                     "particleType": 0,
                     "duration": 2.0,
-                    "looping": true,
+                    "looping": false,
                     "play_On_Awake": true,
                     "start_Lifetime": 2.0,
                     "end_Lifetime": 2.0,
