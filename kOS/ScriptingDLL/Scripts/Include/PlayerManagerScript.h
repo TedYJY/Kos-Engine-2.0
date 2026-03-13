@@ -324,6 +324,11 @@ public:
 
 		isReloading = false;
 		currentReloadTimer = 0.0f;
+
+		if (animComp && playerController) {
+			playerController->SetState("Idle", animComp);
+			animComp->m_CurrentTime = 0.0f;
+		}
 	}
 
 	// Normal SFX
@@ -426,6 +431,7 @@ public:
 #include "LightningAcidPowerupManagerScript.h"
 
 inline void PlayerManagerScript::Start() {
+	ecsPtr->SetTimeScale(1.0f);
 	playerCameraObjectID = ecsPtr->GetEntityIDFromGUID(playerCameraObject);
 	playerGunCameraObjectID = ecsPtr->GetEntityIDFromGUID(playerGunCameraObject);
 	playerProjectilePointObjectID = ecsPtr->GetEntityIDFromGUID(playerProjectilePointObject);

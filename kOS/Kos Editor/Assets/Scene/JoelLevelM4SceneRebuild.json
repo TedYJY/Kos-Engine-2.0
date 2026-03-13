@@ -1070,7 +1070,8 @@
                 "GameManager": {
                     "enemyObjectPrefab": "a3a69a24-9a78-f0fd-f0a9-744fc055ecb2",
                     "enemySpawnpoint": "5e385a2b-11e6-5250-a413-342a15395ff1",
-                    "gameBGM": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58"
+                    "gameBGM": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
+                    "ambienceBGM": "00000000-0000-0000-0000-000000000000"
                 },
                 "NameComponent": {
                     "entityName": "Game Manager",
@@ -1261,11 +1262,21 @@
                     "airBlastPrefab": "b5cac5b3-11a2-d3ac-b9b8-28ec7838b3a2",
                     "gunSfxGUID_1": "f73fbd2e-15e7-5d4b-1662-91a2f4132644",
                     "gunReloadSfxGUID": "c93d030f-e7bf-2ee7-0425-c1f5f04d6483",
-                    "fireSlashSfxGUID": "690a4f94-6928-a1a0-d76c-2e8f12929489",
+                    "fireSlashSfxGUID": [],
                     "fireDashSfxGUID": "4ef03ed6-765a-ed95-b9bb-eafe53b75669",
-                    "lightningSlowSfxGUID": "00000000-0000-0000-0000-000000000000",
-                    "lightningGunSfxGUID": "d461f812-5e6f-d941-fb84-4f07f11f56dc",
-                    "acidGrenadeGunSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "fireEquipSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "fireAbsorbSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "acidEquipSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "acidShieldSfxGuid": "00000000-0000-0000-0000-000000000000",
+                    "lightningSlowStartSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "lightningSlowEndSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "lightningGunSfxGUID": [],
+                    "lightningAbsorbSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "lightningEquipSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "acidGrenadeGunSfxGUID": [],
+                    "acidAbsorbSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "pauseMenuOpenSfxGUID": "00000000-0000-0000-0000-000000000000",
+                    "pauseMenuCloseSfxGUID": "00000000-0000-0000-0000-000000000000",
                     "pauseMenuManagerObject": "53f83bac-2058-5939-b2a8-134497980574",
                     "healthUIObject": "00000000-0000-0000-0000-000000000000",
                     "loseScreenCanvasObject": "dee61752-b669-2e75-a66d-ee0be6621e13",
@@ -1278,7 +1289,8 @@
                     "pistolModelObject": "1361fd6e-b3e0-48f2-5ab3-1599fcc561a4",
                     "fireSwordModelObject": "97f3df14-8a82-5e80-3c27-f1cf8b91d87e",
                     "lightningModelObject": "97f3df14-8a82-5e80-3c27-f1cf8b91d87e",
-                    "acidModelObject": "97f3df14-8a82-5e80-3c27-f1cf8b91d87e"
+                    "acidModelObject": "97f3df14-8a82-5e80-3c27-f1cf8b91d87e",
+                    "gameUICanvasObject": "00000000-0000-0000-0000-000000000000"
                 },
                 "RigidbodyComponent": {
                     "mass": 1.0,
@@ -3228,7 +3240,10 @@
                             "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "useKeyboardShortcuts": true,
-                            "wasPressed": false
+                            "wasPressed": false,
+                            "resumeSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "selectSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "hoverSfxGUID": "00000000-0000-0000-0000-000000000000"
                         }
                     },
                     {
@@ -3327,7 +3342,10 @@
                             "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "useKeyboardShortcuts": true,
-                            "wasPressed": false
+                            "wasPressed": false,
+                            "resumeSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "selectSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "hoverSfxGUID": "00000000-0000-0000-0000-000000000000"
                         }
                     },
                     {
@@ -3426,7 +3444,10 @@
                             "currentSceneGUID": "ca193a98-4c22-da6d-5823-dc3256a568d3",
                             "targetSceneGUID": "873145a3-c01e-82b3-a4f5-d837cb0a0c51",
                             "useKeyboardShortcuts": true,
-                            "wasPressed": false
+                            "wasPressed": false,
+                            "resumeSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "selectSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "hoverSfxGUID": "00000000-0000-0000-0000-000000000000"
                         }
                     },
                     {
@@ -3525,7 +3546,10 @@
                             "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "useKeyboardShortcuts": true,
-                            "wasPressed": false
+                            "wasPressed": false,
+                            "resumeSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "selectSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "hoverSfxGUID": "00000000-0000-0000-0000-000000000000"
                         }
                     }
                 ]
@@ -4040,7 +4064,10 @@
                             "currentSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "targetSceneGUID": "00000000-0000-0000-0000-000000000000",
                             "useKeyboardShortcuts": true,
-                            "wasPressed": false
+                            "wasPressed": false,
+                            "resumeSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "selectSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "hoverSfxGUID": "00000000-0000-0000-0000-000000000000"
                         }
                     }
                 ]
@@ -4466,10 +4493,13 @@
                         },
                         "UIButtonScript": {
                             "actionType": 1,
-                            "currentSceneGUID": "32e2f200-5b07-e5ca-62a0-e638c6b786c4",
-                            "targetSceneGUID": "ca193a98-4c22-da6d-5823-dc3256a568d3",
+                            "currentSceneGUID": "3340bc3d-ca6f-b3cd-b15c-265523f696c5",
+                            "targetSceneGUID": "7d1be7c7-26e7-58c8-67b5-c3640955da4c",
                             "useKeyboardShortcuts": false,
-                            "wasPressed": false
+                            "wasPressed": false,
+                            "resumeSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "selectSfxGUID": "00000000-0000-0000-0000-000000000000",
+                            "hoverSfxGUID": "00000000-0000-0000-0000-000000000000"
                         }
                     }
                 ]
