@@ -90159,7 +90159,7 @@
             }
         },
         "RoomLockScript": {
-            "enemyCountToKill": 3,
+            "enemyCountToKill": 6,
             "doorPrefabA": "2a0ea1a6-6d22-051b-191a-0e5ac364ea6e",
             "doorPrefabB": "2a0ea1a6-6d22-051b-191a-0e5ac364ea6e",
             "doorSpawnPointA": "0f038438-2d30-c224-da41-6f779d4777bf",

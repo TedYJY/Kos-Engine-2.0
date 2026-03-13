@@ -47,7 +47,7 @@
             "isPrefab": false,
             "isStatic": false,
             "prefabName": "",
-            "hide": false
+            "hide": true
         },
         "TransformComponent": {
             "WorldTransformation": {
@@ -70231,9 +70231,9 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70320,9 +70320,9 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70409,9 +70409,9 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70459,36 +70459,36 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -99.36064910888672,
-                            "y": 17.80119514465332,
+                            "x": -64.21805572509766,
+                            "y": -1.7384891510009766,
                             "z": -55.966697692871094
                         },
                         "rotation": {
-                            "x": 0.0,
-                            "y": 89.98021697998047,
-                            "z": 0.0
+                            "x": -179.8583984375,
+                            "y": -89.91606903076172,
+                            "z": 179.8576202392578
                         },
                         "scale": {
-                            "x": 0.009999999776482582,
+                            "x": 0.010000286623835564,
                             "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
+                            "z": 0.010000286623835564
                         }
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": -99.36064910888672,
-                            "y": 17.80119514465332,
+                            "x": -64.21805572509766,
+                            "y": -1.7384891510009766,
                             "z": -55.966697692871094
                         },
                         "rotation": {
-                            "x": 0.0,
-                            "y": 89.98021697998047,
-                            "z": 0.0
+                            "x": -179.8583984375,
+                            "y": -89.91606903076172,
+                            "z": 179.8576202392578
                         },
                         "scale": {
-                            "x": 0.009999999776482582,
+                            "x": 0.010000286623835564,
                             "y": 0.009999999776482582,
-                            "z": 0.009999999776482582
+                            "z": 0.010000286623835564
                         }
                     }
                 }
@@ -70498,9 +70498,9 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70587,9 +70587,9 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70676,9 +70676,9 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70726,12 +70726,12 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": -59.832923889160156,
+                            "x": -55.449127197265625,
                             "y": -2.066378355026245,
                             "z": -225.70989990234375
                         },
                         "rotation": {
-                            "x": -5.0890257341507095e-8,
+                            "x": -5.090066679258598e-8,
                             "y": -0.048396773636341095,
                             "z": 0.0001305854821112007
                         },
@@ -70743,12 +70743,12 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": -59.832923889160156,
+                            "x": -55.449127197265625,
                             "y": -2.066378355026245,
                             "z": -225.70989990234375
                         },
                         "rotation": {
-                            "x": -5.0890253788793416e-8,
+                            "x": -5.090065968715862e-8,
                             "y": -0.048396773636341095,
                             "z": 0.0001305854821112007
                         },
@@ -70765,9 +70765,9 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70854,9 +70854,454 @@
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "efe106c3-cbfe-bbe1-71c5-ae5d9f583602"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -59.98343276977539,
+                            "y": 22.701553344726563,
+                            "z": -131.3548583984375
+                        },
+                        "rotation": {
+                            "x": 89.9999008178711,
+                            "y": -0.00026341501506976783,
+                            "z": -0.019785156473517418
+                        },
+                        "scale": {
+                            "x": 0.010003214702010155,
+                            "y": 0.010000021196901798,
+                            "z": 0.010003321804106236
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -59.98343276977539,
+                            "y": 22.701553344726563,
+                            "z": -131.3548583984375
+                        },
+                        "rotation": {
+                            "x": 89.9999008178711,
+                            "y": -0.00026341169723309577,
+                            "z": -0.01978515461087227
+                        },
+                        "scale": {
+                            "x": 0.010003214702010155,
+                            "y": 0.010000021196901798,
+                            "z": 0.010003321804106236
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "71018758-b550-4897-4d59-95815aa66564",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "7122d201-f296-b460-8d2c-984461f7cccd"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -99.36064910888672,
+                            "y": 17.80119514465332,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": 89.98021697998047,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -99.36064910888672,
+                            "y": 17.80119514465332,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": 89.98021697998047,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "0265622a-c45c-9cbf-da25-7de131d992c4",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "7122d201-f296-b460-8d2c-984461f7cccd"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -99.36064910888672,
+                            "y": -1.7384891510009766,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": 89.98021697998047,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -99.36064910888672,
+                            "y": -1.7384891510009766,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": 89.98021697998047,
+                            "z": 0.0
+                        },
+                        "scale": {
+                            "x": 0.009999999776482582,
+                            "y": 0.009999999776482582,
+                            "z": 0.009999999776482582
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "2a94c9c4-8cf5-4403-625f-e44f8c0fd5fb",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "7122d201-f296-b460-8d2c-984461f7cccd"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -20.325441360473633,
+                            "y": -1.7384891510009766,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -74.9802474975586,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.010000001639127731,
+                            "y": 0.009999999776482582,
+                            "z": 0.010000001639127731
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -20.325441360473633,
+                            "y": -1.7384891510009766,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 179.99989318847656,
+                            "y": -74.98023223876953,
+                            "z": 179.99989318847656
+                        },
+                        "scale": {
+                            "x": 0.010000001639127731,
+                            "y": 0.009999999776482582,
+                            "z": 0.010000001639127731
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "b9e4229c-4842-fd26-9db0-d65c185d580a",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "7122d201-f296-b460-8d2c-984461f7cccd"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -55.738643646240234,
+                            "y": -1.7384891510009766,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 0.24128566682338715,
+                            "y": 89.95154571533203,
+                            "z": 0.24197599291801453
+                        },
+                        "scale": {
+                            "x": 0.010000239126384258,
+                            "y": 0.009999999776482582,
+                            "z": 0.010000239126384258
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -55.738643646240234,
+                            "y": -1.7384891510009766,
+                            "z": -55.966697692871094
+                        },
+                        "rotation": {
+                            "x": 0.24120719730854034,
+                            "y": 89.95576477050781,
+                            "z": 0.24189750850200653
+                        },
+                        "scale": {
+                            "x": 0.010000237263739109,
+                            "y": 0.009999999776482582,
+                            "z": 0.010000237263739109
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "d28af0b8-38b9-9c00-57ed-c2ab2ba93cdd",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -70939,13 +71384,191 @@
                 }
             },
             {
-                "entityGUID": "0edd7464-7e94-a3b5-b82c-6c9812231710",
+                "entityGUID": "f6dba551-098e-ac90-2681-fc7934dcc270",
                 "LightComponent": {
                     "lightType": 1,
                     "color": {
-                        "x": 2.0,
-                        "y": 2.0,
-                        "z": 4.0
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "efe106c3-cbfe-bbe1-71c5-ae5d9f583602"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -59.98343276977539,
+                            "y": 11.210363388061523,
+                            "z": -165.51034545898438
+                        },
+                        "rotation": {
+                            "x": 0.000040927730879047886,
+                            "y": -0.01978517509996891,
+                            "z": 0.00026344519574195147
+                        },
+                        "scale": {
+                            "x": 0.010003214702010155,
+                            "y": 0.009999999776482582,
+                            "z": 0.010003214702010155
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -59.98343276977539,
+                            "y": 11.210363388061523,
+                            "z": -165.51034545898438
+                        },
+                        "rotation": {
+                            "x": 0.00004092772724106908,
+                            "y": -0.01978517509996891,
+                            "z": 0.000263445166638121
+                        },
+                        "scale": {
+                            "x": 0.010003214702010155,
+                            "y": 0.009999999776482582,
+                            "z": 0.010003214702010155
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "c101caf3-dd07-28d6-52b1-ae4af82f432b",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "7d660e9d-53c5-2a80-9476-1a87da0b6afd"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": -61.05998611450195,
+                            "y": -2.066378355026245,
+                            "z": -225.70989990234375
+                        },
+                        "rotation": {
+                            "x": -5.0896563408286966e-8,
+                            "y": -0.048396773636341095,
+                            "z": 0.0001305854821112007
+                        },
+                        "scale": {
+                            "x": 0.01000332273542881,
+                            "y": 0.009999999776482582,
+                            "z": 0.01000332273542881
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": -61.05998611450195,
+                            "y": -2.066378355026245,
+                            "z": -225.70989990234375
+                        },
+                        "rotation": {
+                            "x": -5.089655630285961e-8,
+                            "y": -0.048396773636341095,
+                            "z": 0.0001305854821112007
+                        },
+                        "scale": {
+                            "x": 0.01000332273542881,
+                            "y": 0.009999999776482582,
+                            "z": 0.01000332273542881
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "ae4f6b42-db34-1821-78bf-0a73822707fc",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
                     },
                     "diffuseStrength": {
                         "x": 36.099998474121094,
@@ -71016,6 +71639,95 @@
                         },
                         "rotation": {
                             "x": -5.088177346124212e-8,
+                            "y": -0.048396773636341095,
+                            "z": 0.0001305854821112007
+                        },
+                        "scale": {
+                            "x": 0.01000332273542881,
+                            "y": 0.009999999776482582,
+                            "z": 0.01000332273542881
+                        }
+                    }
+                }
+            },
+            {
+                "entityGUID": "a5ea0649-39d7-55fe-efd1-af264fe5223b",
+                "LightComponent": {
+                    "lightType": 1,
+                    "color": {
+                        "x": 6.0,
+                        "y": 0.0,
+                        "z": 2.0
+                    },
+                    "diffuseStrength": {
+                        "x": 36.099998474121094,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "specularStrength": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "linear": 0.09000000357627869,
+                    "quadratic": 0.03200000151991844,
+                    "direction": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    },
+                    "cutOff": 5.5,
+                    "outerCutOff": 10.5,
+                    "intesnity": 41.400001525878906,
+                    "shadowCast": false,
+                    "bakedLighting": true,
+                    "depthMapGUID": "760e70e2-9bac-94a8-38cb-ecf2d00f4513"
+                },
+                "MaterialComponent": {
+                    "materialGUID": [
+                        {
+                            "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                        }
+                    ]
+                },
+                "MeshFilterComponent": {
+                    "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+                },
+                "NameComponent": {
+                    "entityName": "Point Light Prop",
+                    "Layer": 0,
+                    "entityTag": "Default",
+                    "isPrefab": true,
+                    "isStatic": false,
+                    "prefabName": "Point Light Prop.prefab",
+                    "hide": false
+                },
+                "TransformComponent": {
+                    "WorldTransformation": {
+                        "position": {
+                            "x": 4.5382513999938965,
+                            "y": 13.198992729187012,
+                            "z": -201.61428833007813
+                        },
+                        "rotation": {
+                            "x": -5.088522669893791e-8,
+                            "y": -0.048396773636341095,
+                            "z": 0.0001305854821112007
+                        },
+                        "scale": {
+                            "x": 0.01000332273542881,
+                            "y": 0.009999999776482582,
+                            "z": 0.01000332273542881
+                        }
+                    },
+                    "LocalTransformation": {
+                        "position": {
+                            "x": 4.5382513999938965,
+                            "y": 13.198992729187012,
+                            "z": -201.61428833007813
+                        },
+                        "rotation": {
+                            "x": -5.0885219593510556e-8,
                             "y": -0.048396773636341095,
                             "z": 0.0001305854821112007
                         },
@@ -97201,5 +97913,1073 @@
                 ]
             }
         ]
+    },
+    {
+        "entityGUID": "e1b65018-e401-8f07-eac0-51378b9d4d2b",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 13.831901550292969,
+                    "y": 14.80119514465332,
+                    "z": -193.47183227539063
+                },
+                "rotation": {
+                    "x": 0.00029363748035393655,
+                    "y": -0.019805027171969414,
+                    "z": -0.0002638351870700717
+                },
+                "scale": {
+                    "x": 0.010000007227063179,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000007227063179
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 13.831901550292969,
+                    "y": 14.80119514465332,
+                    "z": -193.47183227539063
+                },
+                "rotation": {
+                    "x": 0.00029363742214627564,
+                    "y": -0.019805027171969414,
+                    "z": -0.00026383515796624124
+                },
+                "scale": {
+                    "x": 0.010000007227063179,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000007227063179
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "4e41b983-3788-5a06-0254-3b566f5df7f8",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 10.1717529296875,
+                    "y": 5.80119514465332,
+                    "z": -125.47183227539063
+                },
+                "rotation": {
+                    "x": -179.99989318847656,
+                    "y": 0.000004002062723884592,
+                    "z": -179.99989318847656
+                },
+                "scale": {
+                    "x": 0.010000001639127731,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000001639127731
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 10.1717529296875,
+                    "y": 5.80119514465332,
+                    "z": -125.47183227539063
+                },
+                "rotation": {
+                    "x": -179.99989318847656,
+                    "y": 0.000004002062723884592,
+                    "z": -179.99989318847656
+                },
+                "scale": {
+                    "x": 0.010000001639127731,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000001639127731
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "78408796-0001-27fb-85b4-5b1c6e0f4a9d",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -2.8282470703125,
+                    "y": 5.80119514465332,
+                    "z": -125.47183227539063
+                },
+                "rotation": {
+                    "x": -179.99989318847656,
+                    "y": 0.000004002062723884592,
+                    "z": -179.99989318847656
+                },
+                "scale": {
+                    "x": 0.010000001639127731,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000001639127731
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -2.8282470703125,
+                    "y": 5.80119514465332,
+                    "z": -125.47183227539063
+                },
+                "rotation": {
+                    "x": -179.99989318847656,
+                    "y": 0.000004002062723884592,
+                    "z": -179.99989318847656
+                },
+                "scale": {
+                    "x": 0.010000001639127731,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000001639127731
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "6fc53764-ac40-63d2-0259-b611746960de",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -26.8282470703125,
+                    "y": 14.80119514465332,
+                    "z": -153.47183227539063
+                },
+                "rotation": {
+                    "x": -0.7626363039016724,
+                    "y": 89.98021697998047,
+                    "z": -0.7629297971725464
+                },
+                "scale": {
+                    "x": 0.01000000536441803,
+                    "y": 0.009999999776482582,
+                    "z": 0.01000000536441803
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -26.8282470703125,
+                    "y": 14.80119514465332,
+                    "z": -153.47183227539063
+                },
+                "rotation": {
+                    "x": -0.7627018690109253,
+                    "y": 89.98018646240234,
+                    "z": -0.7629954814910889
+                },
+                "scale": {
+                    "x": 0.01000000536441803,
+                    "y": 0.009999999776482582,
+                    "z": 0.01000000536441803
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "b485a018-1cf1-5f3d-e91e-0b8c8697810c",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 35.283287048339844,
+                    "y": 14.80119514465332,
+                    "z": -153.47183227539063
+                },
+                "rotation": {
+                    "x": 84.79657745361328,
+                    "y": -89.98021697998047,
+                    "z": -84.79664611816406
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 35.283287048339844,
+                    "y": 14.80119514465332,
+                    "z": -153.47183227539063
+                },
+                "rotation": {
+                    "x": 84.49235534667969,
+                    "y": -89.99967956542969,
+                    "z": -84.49235534667969
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "6c2f1670-a839-5afe-7fef-0031930d132c",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -5.8282470703125,
+                    "y": 14.80119514465332,
+                    "z": -193.47183227539063
+                },
+                "rotation": {
+                    "x": 0.00029363748035393655,
+                    "y": -0.019805027171969414,
+                    "z": -0.0002638351870700717
+                },
+                "scale": {
+                    "x": 0.010000007227063179,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000007227063179
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -5.8282470703125,
+                    "y": 14.80119514465332,
+                    "z": -193.47183227539063
+                },
+                "rotation": {
+                    "x": 0.00029363742214627564,
+                    "y": -0.019805027171969414,
+                    "z": -0.00026383515796624124
+                },
+                "scale": {
+                    "x": 0.010000007227063179,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000007227063179
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "5c6d0cc7-357c-7678-cf1d-3d59c42d2365",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -26.8282470703125,
+                    "y": 14.80119514465332,
+                    "z": -171.47183227539063
+                },
+                "rotation": {
+                    "x": -0.7626363039016724,
+                    "y": 89.98021697998047,
+                    "z": -0.7629297971725464
+                },
+                "scale": {
+                    "x": 0.01000000536441803,
+                    "y": 0.009999999776482582,
+                    "z": 0.01000000536441803
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -26.8282470703125,
+                    "y": 14.80119514465332,
+                    "z": -171.47183227539063
+                },
+                "rotation": {
+                    "x": -0.7627018690109253,
+                    "y": 89.98018646240234,
+                    "z": -0.7629954814910889
+                },
+                "scale": {
+                    "x": 0.01000000536441803,
+                    "y": 0.009999999776482582,
+                    "z": 0.01000000536441803
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "e2dde392-151f-46b8-8327-cd8a6884779b",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -19.638031005859375,
+                    "y": -8.19880485534668,
+                    "z": -172.1149139404297
+                },
+                "rotation": {
+                    "x": -1.3434908390045166,
+                    "y": 89.98021697998047,
+                    "z": -1.3434327840805054
+                },
+                "scale": {
+                    "x": 0.010000107809901237,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000107809901237
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -19.638031005859375,
+                    "y": -8.19880485534668,
+                    "z": -172.1149139404297
+                },
+                "rotation": {
+                    "x": -1.3439480066299438,
+                    "y": 89.97933959960938,
+                    "z": -1.3438899517059326
+                },
+                "scale": {
+                    "x": 0.010000108741223812,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000108741223812
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "12cba556-e88d-6026-d5c0-aa623f6f042e",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 35.283287048339844,
+                    "y": 14.80119514465332,
+                    "z": -171.47183227539063
+                },
+                "rotation": {
+                    "x": 84.79657745361328,
+                    "y": -89.98021697998047,
+                    "z": -84.79664611816406
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 35.283287048339844,
+                    "y": 14.80119514465332,
+                    "z": -171.47183227539063
+                },
+                "rotation": {
+                    "x": 84.49235534667969,
+                    "y": -89.99967956542969,
+                    "z": -84.49235534667969
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "0f869ba9-fdf7-96c2-250e-c6bdbfcf658c",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 27.68089485168457,
+                    "y": -8.19880485534668,
+                    "z": -172.1149139404297
+                },
+                "rotation": {
+                    "x": 84.79657745361328,
+                    "y": -89.98021697998047,
+                    "z": -84.79664611816406
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 27.68089485168457,
+                    "y": -8.19880485534668,
+                    "z": -172.1149139404297
+                },
+                "rotation": {
+                    "x": 84.49235534667969,
+                    "y": -89.99967956542969,
+                    "z": -84.49235534667969
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "061919bd-0b9f-1a74-abbe-ce19e2b56da3",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": 27.68089485168457,
+                    "y": -8.19880485534668,
+                    "z": -161.1149139404297
+                },
+                "rotation": {
+                    "x": 84.79657745361328,
+                    "y": -89.98021697998047,
+                    "z": -84.79664611816406
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": 27.68089485168457,
+                    "y": -8.19880485534668,
+                    "z": -161.1149139404297
+                },
+                "rotation": {
+                    "x": 84.49235534667969,
+                    "y": -89.99967956542969,
+                    "z": -84.49235534667969
+                },
+                "scale": {
+                    "x": 0.009999996051192284,
+                    "y": 0.009999999776482582,
+                    "z": 0.009999996051192284
+                }
+            }
+        }
+    },
+    {
+        "entityGUID": "4d33cfd3-5931-b0bf-6f81-79cb40a8cd69",
+        "LightComponent": {
+            "lightType": 1,
+            "color": {
+                "x": 6.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "diffuseStrength": {
+                "x": 36.099998474121094,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "specularStrength": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "linear": 0.09000000357627869,
+            "quadratic": 0.03200000151991844,
+            "direction": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "cutOff": 5.5,
+            "outerCutOff": 10.5,
+            "intesnity": 41.400001525878906,
+            "shadowCast": false,
+            "bakedLighting": false,
+            "depthMapGUID": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaterialComponent": {
+            "materialGUID": [
+                {
+                    "materialGUID": "645a692f-2804-6805-33c3-969ec31e8389"
+                }
+            ]
+        },
+        "MeshFilterComponent": {
+            "meshGUID": "448ff5ff-3732-73c6-9a7d-622633b24227"
+        },
+        "NameComponent": {
+            "entityName": "Point Light Prop",
+            "Layer": 0,
+            "entityTag": "Default",
+            "isPrefab": true,
+            "isStatic": false,
+            "prefabName": "Point Light Prop.prefab",
+            "hide": false
+        },
+        "TransformComponent": {
+            "WorldTransformation": {
+                "position": {
+                    "x": -19.638031005859375,
+                    "y": -8.19880485534668,
+                    "z": -161.1149139404297
+                },
+                "rotation": {
+                    "x": -1.3434908390045166,
+                    "y": 89.98021697998047,
+                    "z": -1.3434327840805054
+                },
+                "scale": {
+                    "x": 0.010000107809901237,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000107809901237
+                }
+            },
+            "LocalTransformation": {
+                "position": {
+                    "x": -19.638031005859375,
+                    "y": -8.19880485534668,
+                    "z": -161.1149139404297
+                },
+                "rotation": {
+                    "x": -1.3439480066299438,
+                    "y": 89.97933959960938,
+                    "z": -1.3438899517059326
+                },
+                "scale": {
+                    "x": 0.010000108741223812,
+                    "y": 0.009999999776482582,
+                    "z": 0.010000108741223812
+                }
+            }
+        }
     }
 ]
