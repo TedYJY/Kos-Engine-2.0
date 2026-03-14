@@ -76778,9 +76778,9 @@
                             "z": -109.83927154541016
                         },
                         "scale": {
-                            "x": 0.9999972581863403,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999971985816956
+                            "z": 0.9999999403953552
                         }
                     },
                     "LocalTransformation": {
@@ -76795,15 +76795,15 @@
                             "z": -109.837890625
                         },
                         "scale": {
-                            "x": 0.9999972581863403,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999972581863403
+                            "z": 1.0
                         }
                     }
                 },
                 "children": [
                     {
-                        "entityGUID": "43437792-da52-6517-7777-24245949add6",
+                        "entityGUID": "fe4663da-a0be-6eda-1b04-f7f4e39075d4",
                         "BoxColliderComponent": {
                             "isTrigger": false,
                             "box": {
@@ -76834,7 +76834,7 @@
                             "entityName": "Lightning Prop",
                             "Layer": 0,
                             "entityTag": "Powerup",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
                             "hide": false
@@ -76851,13 +76851,13 @@
                                 },
                                 "rotation": {
                                     "x": -179.98138427734375,
-                                    "y": 0.0130695765838027,
+                                    "y": 0.013069577515125275,
                                     "z": 179.9999542236328
                                 },
                                 "scale": {
-                                    "x": 0.01999993808567524,
+                                    "x": 0.019999992102384567,
                                     "y": 0.019999997690320015,
-                                    "z": 0.01999993994832039
+                                    "z": 0.019999993965029716
                                 }
                             },
                             "LocalTransformation": {
@@ -76880,12 +76880,12 @@
                         }
                     },
                     {
-                        "entityGUID": "2dffa1e8-ae5a-7121-6b59-cfb01ec5bb93",
+                        "entityGUID": "9bc91c8e-b90e-5c84-2c1d-b0223cbc4465",
                         "NameComponent": {
                             "entityName": "Lightning Prop Particles",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
                             "hide": false
@@ -77066,7 +77066,7 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": 28.00326156616211,
+                                    "x": 28.003263473510742,
                                     "y": -9.410301208496094,
                                     "z": -149.32212829589844
                                 },
@@ -77076,9 +77076,9 @@
                                     "z": -109.83927154541016
                                 },
                                 "scale": {
-                                    "x": 0.9999972581863403,
+                                    "x": 1.0,
                                     "y": 1.0,
-                                    "z": 0.9999971985816956
+                                    "z": 0.9999999403953552
                                 }
                             },
                             "LocalTransformation": {
@@ -79030,9 +79030,9 @@
                             "z": -109.83927154541016
                         },
                         "scale": {
-                            "x": 0.9999972581863403,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999971985816956
+                            "z": 0.9999999403953552
                         }
                     },
                     "LocalTransformation": {
@@ -79047,15 +79047,15 @@
                             "z": -109.837890625
                         },
                         "scale": {
-                            "x": 0.9999972581863403,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999972581863403
+                            "z": 1.0
                         }
                     }
                 },
                 "children": [
                     {
-                        "entityGUID": "ce2e22aa-a4f8-ffb9-7202-70648fa5ead8",
+                        "entityGUID": "0034b18a-e540-5b26-da3d-a576f1020d32",
                         "BoxColliderComponent": {
                             "isTrigger": false,
                             "box": {
@@ -79086,13 +79086,13 @@
                             "entityName": "Lightning Prop",
                             "Layer": 0,
                             "entityTag": "Powerup",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
                             "hide": false
                         },
                         "PowerupManagerScript": {
-                            "powerupType": "lightning"
+                            "powerupType": "LIGHTNING"
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -79103,13 +79103,13 @@
                                 },
                                 "rotation": {
                                     "x": -179.98138427734375,
-                                    "y": 0.0130695765838027,
+                                    "y": 0.013069577515125275,
                                     "z": 179.9999542236328
                                 },
                                 "scale": {
-                                    "x": 0.01999993808567524,
+                                    "x": 0.019999992102384567,
                                     "y": 0.019999997690320015,
-                                    "z": 0.01999993994832039
+                                    "z": 0.019999993965029716
                                 }
                             },
                             "LocalTransformation": {
@@ -79132,12 +79132,12 @@
                         }
                     },
                     {
-                        "entityGUID": "682d6a16-86cd-694e-7f93-23b47f66b0f1",
+                        "entityGUID": "8e05dd24-ada8-3278-4c8f-a6e23160d21f",
                         "NameComponent": {
                             "entityName": "Lightning Prop Particles",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
                             "hide": false
@@ -79328,9 +79328,9 @@
                                     "z": -109.83927154541016
                                 },
                                 "scale": {
-                                    "x": 0.9999972581863403,
+                                    "x": 1.0,
                                     "y": 1.0,
-                                    "z": 0.9999971985816956
+                                    "z": 0.9999999403953552
                                 }
                             },
                             "LocalTransformation": {
@@ -79378,9 +79378,9 @@
                             "z": -109.83927154541016
                         },
                         "scale": {
-                            "x": 0.9999972581863403,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999971985816956
+                            "z": 0.9999999403953552
                         }
                     },
                     "LocalTransformation": {
@@ -79395,15 +79395,15 @@
                             "z": -109.837890625
                         },
                         "scale": {
-                            "x": 0.9999972581863403,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999972581863403
+                            "z": 1.0
                         }
                     }
                 },
                 "children": [
                     {
-                        "entityGUID": "346fc3dc-2367-fdf3-79ac-43268af00c18",
+                        "entityGUID": "e4babab9-30a3-5ebc-f63e-a35332d9e0a6",
                         "BoxColliderComponent": {
                             "isTrigger": false,
                             "box": {
@@ -79434,13 +79434,13 @@
                             "entityName": "Lightning Prop",
                             "Layer": 0,
                             "entityTag": "Powerup",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
                             "hide": false
                         },
                         "PowerupManagerScript": {
-                            "powerupType": "lightning"
+                            "powerupType": "LIGHTNING"
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -79451,13 +79451,13 @@
                                 },
                                 "rotation": {
                                     "x": -179.98138427734375,
-                                    "y": 0.0130695765838027,
+                                    "y": 0.013069577515125275,
                                     "z": 179.9999542236328
                                 },
                                 "scale": {
-                                    "x": 0.01999993808567524,
+                                    "x": 0.019999992102384567,
                                     "y": 0.019999997690320015,
-                                    "z": 0.01999993994832039
+                                    "z": 0.019999993965029716
                                 }
                             },
                             "LocalTransformation": {
@@ -79480,12 +79480,12 @@
                         }
                     },
                     {
-                        "entityGUID": "efdbf1e7-ba9e-32ea-19b6-598f6320f19a",
+                        "entityGUID": "fbc0f76c-7b73-0c53-18d8-11a592c4c65e",
                         "NameComponent": {
                             "entityName": "Lightning Prop Particles",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
                             "hide": false
@@ -79676,9 +79676,9 @@
                                     "z": -109.83927154541016
                                 },
                                 "scale": {
-                                    "x": 0.9999972581863403,
+                                    "x": 1.0,
                                     "y": 1.0,
-                                    "z": 0.9999971985816956
+                                    "z": 0.9999999403953552
                                 }
                             },
                             "LocalTransformation": {
@@ -79726,9 +79726,9 @@
                             "z": -0.00023695584968663752
                         },
                         "scale": {
-                            "x": 0.9999967217445374,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999967217445374
+                            "z": 1.0
                         }
                     },
                     "LocalTransformation": {
@@ -79743,15 +79743,15 @@
                             "z": -0.00023695582058280706
                         },
                         "scale": {
-                            "x": 0.9999967217445374,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999967217445374
+                            "z": 1.0
                         }
                     }
                 },
                 "children": [
                     {
-                        "entityGUID": "23c0a732-41d2-da8e-db8d-72917ef3403d",
+                        "entityGUID": "ac63e99d-b57f-c963-7f50-a3a09659e1a8",
                         "BoxColliderComponent": {
                             "isTrigger": false,
                             "box": {
@@ -79788,7 +79788,7 @@
                             "hide": false
                         },
                         "PowerupManagerScript": {
-                            "powerupType": "lightning"
+                            "powerupType": "LIGHTNING"
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -79800,12 +79800,12 @@
                                 "rotation": {
                                     "x": -179.96568298339844,
                                     "y": 89.98021697998047,
-                                    "z": -179.96591186523438
+                                    "z": -179.9658966064453
                                 },
                                 "scale": {
-                                    "x": 0.019999928772449493,
+                                    "x": 0.019999993965029716,
                                     "y": 0.019999999552965164,
-                                    "z": 0.019999928772449493
+                                    "z": 0.019999993965029716
                                 }
                             },
                             "LocalTransformation": {
@@ -79828,7 +79828,7 @@
                         }
                     },
                     {
-                        "entityGUID": "14736466-b56f-1e9e-13c9-62b2ac2fe4a9",
+                        "entityGUID": "fd89cc81-9ebf-1d95-2567-d8a01213ef9f",
                         "NameComponent": {
                             "entityName": "Lightning Prop Particles",
                             "Layer": 0,
@@ -80024,9 +80024,9 @@
                                     "z": -0.00023695584968663752
                                 },
                                 "scale": {
-                                    "x": 0.9999967217445374,
+                                    "x": 1.0,
                                     "y": 1.0,
-                                    "z": 0.9999967217445374
+                                    "z": 1.0
                                 }
                             },
                             "LocalTransformation": {
@@ -83743,9 +83743,9 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.9999983906745911,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999983906745911
+                            "z": 1.0
                         }
                     },
                     "LocalTransformation": {
@@ -83760,15 +83760,15 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.9999983906745911,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999983906745911
+                            "z": 1.0
                         }
                     }
                 },
                 "children": [
                     {
-                        "entityGUID": "7e10758a-314c-7782-8146-6cead3fb9d9e",
+                        "entityGUID": "ea6c2170-cd0a-b2d1-9570-d8aab54376e3",
                         "BoxColliderComponent": {
                             "isTrigger": false,
                             "box": {
@@ -83801,7 +83801,7 @@
                             "entityTag": "Powerup",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "Lightning Powerup.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "PowerupManagerScript": {
@@ -83820,9 +83820,9 @@
                                     "z": 180.0
                                 },
                                 "scale": {
-                                    "x": 0.01999996416270733,
+                                    "x": 0.019999995827674866,
                                     "y": 0.019999999552965164,
-                                    "z": 0.01999996416270733
+                                    "z": 0.019999995827674866
                                 }
                             },
                             "LocalTransformation": {
@@ -83845,14 +83845,14 @@
                         }
                     },
                     {
-                        "entityGUID": "be2153bb-fa24-fe44-def0-c07aceade699",
+                        "entityGUID": "7f4d0f84-1d36-81db-b1ae-e7eb210b74bf",
                         "NameComponent": {
                             "entityName": "Lightning Prop Particles",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "Lightning Powerup.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "ParticleComponent": {
@@ -84041,9 +84041,9 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.9999983906745911,
+                                    "x": 1.0,
                                     "y": 1.0,
-                                    "z": 0.9999983906745911
+                                    "z": 1.0
                                 }
                             },
                             "LocalTransformation": {
@@ -84091,9 +84091,9 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.9999988675117493,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999988675117493
+                            "z": 1.0
                         }
                     },
                     "LocalTransformation": {
@@ -84108,15 +84108,15 @@
                             "z": 0.0
                         },
                         "scale": {
-                            "x": 0.9999988675117493,
+                            "x": 1.0,
                             "y": 1.0,
-                            "z": 0.9999988675117493
+                            "z": 1.0
                         }
                     }
                 },
                 "children": [
                     {
-                        "entityGUID": "3e2c22f3-75ae-165b-c564-5b0312df777e",
+                        "entityGUID": "8abcb233-989c-1be3-7d4a-589fb523f522",
                         "BoxColliderComponent": {
                             "isTrigger": false,
                             "box": {
@@ -84147,9 +84147,9 @@
                             "entityName": "Lightning Prop",
                             "Layer": 0,
                             "entityTag": "Powerup",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "Lightning Powerup.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "PowerupManagerScript": {
@@ -84168,9 +84168,9 @@
                                     "z": 180.0
                                 },
                                 "scale": {
-                                    "x": 0.019999973475933075,
+                                    "x": 0.019999995827674866,
                                     "y": 0.019999999552965164,
-                                    "z": 0.019999973475933075
+                                    "z": 0.019999995827674866
                                 }
                             },
                             "LocalTransformation": {
@@ -84193,14 +84193,14 @@
                         }
                     },
                     {
-                        "entityGUID": "44ed2dc5-e955-e661-65a8-ea808eb88853",
+                        "entityGUID": "03f56b90-1c8f-a9b6-2c7c-e9e81a4c1e40",
                         "NameComponent": {
                             "entityName": "Lightning Prop Particles",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "Lightning Powerup.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "ParticleComponent": {
@@ -84389,9 +84389,9 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.9999988675117493,
+                                    "x": 1.0,
                                     "y": 1.0,
-                                    "z": 0.9999988675117493
+                                    "z": 1.0
                                 }
                             },
                             "LocalTransformation": {
@@ -84464,7 +84464,7 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "662e6896-637c-b4e3-afee-a61a1bb18d68",
+                        "entityGUID": "11c53be5-3bc5-1852-7966-33c6d127c95f",
                         "BoxColliderComponent": {
                             "isTrigger": false,
                             "box": {
@@ -84495,9 +84495,9 @@
                             "entityName": "Lightning Prop",
                             "Layer": 0,
                             "entityTag": "Powerup",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "Lightning Powerup.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "PowerupManagerScript": {
@@ -84541,14 +84541,14 @@
                         }
                     },
                     {
-                        "entityGUID": "47a7a27b-3fdf-8e1f-acc2-d359ea0b269a",
+                        "entityGUID": "f2c33333-02b9-6711-c9bb-224a571d8f56",
                         "NameComponent": {
                             "entityName": "Lightning Prop Particles",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "Lightning Powerup.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "ParticleComponent": {
