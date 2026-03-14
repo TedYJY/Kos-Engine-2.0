@@ -1193,8 +1193,8 @@
                 "AudioComponent": {
                     "audioFiles": [
                         {
-                            "audioGUID": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
-                            "volume": 0.0820000022649765,
+                            "audioGUID": "7121b44c-93a1-b046-503e-2b0a0f2c9e02",
+                            "volume": 1.0,
                             "loop": true,
                             "playOnStart": true,
                             "hasPlayed": false,
@@ -1229,7 +1229,7 @@
                 "GameManager": {
                     "enemyObjectPrefab": "a3a69a24-9a78-f0fd-f0a9-744fc055ecb2",
                     "enemySpawnpoint": "5e385a2b-11e6-5250-a413-342a15395ff1",
-                    "gameBGM": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
+                    "gameBGM": "7121b44c-93a1-b046-503e-2b0a0f2c9e02",
                     "ambienceBGM": "8530d606-2ec9-2a44-665d-b50a4a24153f"
                 },
                 "NameComponent": {

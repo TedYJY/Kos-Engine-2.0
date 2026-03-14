@@ -1193,8 +1193,8 @@
                 "AudioComponent": {
                     "audioFiles": [
                         {
-                            "audioGUID": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
-                            "volume": 0.0820000022649765,
+                            "audioGUID": "bb4e9d90-5c9b-facb-16ec-4ac515015082",
+                            "volume": 1.0,
                             "loop": true,
                             "playOnStart": true,
                             "hasPlayed": false,
@@ -1229,7 +1229,7 @@
                 "GameManager": {
                     "enemyObjectPrefab": "a3a69a24-9a78-f0fd-f0a9-744fc055ecb2",
                     "enemySpawnpoint": "5e385a2b-11e6-5250-a413-342a15395ff1",
-                    "gameBGM": "2a0dbdbb-d496-2457-2c1c-f2953b1eee58",
+                    "gameBGM": "bb4e9d90-5c9b-facb-16ec-4ac515015082",
                     "ambienceBGM": "8530d606-2ec9-2a44-665d-b50a4a24153f"
                 },
                 "NameComponent": {
@@ -85506,7 +85506,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -85522,7 +85522,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -85538,7 +85538,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -85657,7 +85657,7 @@
                     "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                     "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
                     "enemyBulletPrefab": "8393af65-4300-ebba-36fa-0720e42087f2",
-                    "enemyHurtboxPosition": "7ce6aa17-16f9-c939-fa59-9a97445eaf9e",
+                    "enemyHurtboxPosition": "6ac4caf1-1df9-0909-bbf9-fe20ccb6c10f",
                     "shieldHealth": 30,
                     "shieldElement": "NONE",
                     "shieldVisualObject": "00000000-0000-0000-0000-000000000000",
@@ -85778,14 +85778,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "7ce6aa17-16f9-c939-fa59-9a97445eaf9e",
+                        "entityGUID": "f7020fd8-a202-012e-391e-23186ee49adb",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -85826,7 +85826,7 @@
                         }
                     },
                     {
-                        "entityGUID": "34e9c2df-f6eb-92de-1910-5024d98dcefd",
+                        "entityGUID": "3d0375e3-beeb-910e-8522-eec6da89fe7d",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -85841,7 +85841,7 @@
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -85886,14 +85886,14 @@
                         }
                     },
                     {
-                        "entityGUID": "b2b34ce1-0eed-a63b-50ea-2a70607f224d",
+                        "entityGUID": "b1e3d4c4-edd0-83a1-3a1f-5a6238246759",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": true,
+                            "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -86325,7 +86325,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -86341,7 +86341,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -86357,7 +86357,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -86476,7 +86476,7 @@
                     "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                     "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
                     "enemyBulletPrefab": "8393af65-4300-ebba-36fa-0720e42087f2",
-                    "enemyHurtboxPosition": "b4d037b3-0a4b-e6d8-5973-13a774cc6630",
+                    "enemyHurtboxPosition": "6ac4caf1-1df9-0909-bbf9-fe20ccb6c10f",
                     "shieldHealth": 30,
                     "shieldElement": "NONE",
                     "shieldVisualObject": "00000000-0000-0000-0000-000000000000",
@@ -86597,14 +86597,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "b4d037b3-0a4b-e6d8-5973-13a774cc6630",
+                        "entityGUID": "3a3f21c8-b7fe-fa1b-5ae8-78fb22e680ae",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -86645,7 +86645,7 @@
                         }
                     },
                     {
-                        "entityGUID": "b6d09f94-3b35-adfb-9ca7-5fc075fb7e27",
+                        "entityGUID": "20f43a69-6ec6-9d2f-380b-668ba875551d",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -86660,7 +86660,7 @@
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -86705,14 +86705,14 @@
                         }
                     },
                     {
-                        "entityGUID": "4d02984d-498b-b05e-59b1-7b4a0f445538",
+                        "entityGUID": "5d532c8e-52d3-feae-9cd4-6d61c29da112",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": true,
+                            "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -86760,7 +86760,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -86776,7 +86776,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -86792,7 +86792,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -86911,7 +86911,7 @@
                     "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                     "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
                     "enemyBulletPrefab": "8393af65-4300-ebba-36fa-0720e42087f2",
-                    "enemyHurtboxPosition": "9eb62e83-be27-53a2-49b6-9ece0a250472",
+                    "enemyHurtboxPosition": "6ac4caf1-1df9-0909-bbf9-fe20ccb6c10f",
                     "shieldHealth": 30,
                     "shieldElement": "NONE",
                     "shieldVisualObject": "00000000-0000-0000-0000-000000000000",
@@ -87032,14 +87032,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "9eb62e83-be27-53a2-49b6-9ece0a250472",
+                        "entityGUID": "2f950e67-b237-989a-798b-21a1bc5edf1d",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -87080,7 +87080,7 @@
                         }
                     },
                     {
-                        "entityGUID": "427586ea-1240-d142-81da-0269b9684d00",
+                        "entityGUID": "6d31732b-79af-79b7-234f-fa8b9aa44826",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -87095,7 +87095,7 @@
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -87140,14 +87140,14 @@
                         }
                     },
                     {
-                        "entityGUID": "918cfca7-60ce-934b-b31c-1cca01bb60a9",
+                        "entityGUID": "ca967487-15fb-3b1e-0f49-a16f84ad05ee",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": true,
+                            "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -87195,7 +87195,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -87211,7 +87211,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -87227,7 +87227,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -87346,7 +87346,7 @@
                     "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                     "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
                     "enemyBulletPrefab": "8393af65-4300-ebba-36fa-0720e42087f2",
-                    "enemyHurtboxPosition": "9b22886f-5718-4850-ba07-07485883f6cd",
+                    "enemyHurtboxPosition": "6ac4caf1-1df9-0909-bbf9-fe20ccb6c10f",
                     "shieldHealth": 30,
                     "shieldElement": "NONE",
                     "shieldVisualObject": "00000000-0000-0000-0000-000000000000",
@@ -87467,14 +87467,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "9b22886f-5718-4850-ba07-07485883f6cd",
+                        "entityGUID": "5314f73a-d904-aaba-2995-856a17ac8a56",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -87515,7 +87515,7 @@
                         }
                     },
                     {
-                        "entityGUID": "65266722-a3b7-3085-2aca-6bbfa9a810db",
+                        "entityGUID": "73e316af-12d8-d065-c8a2-d97af9104c8d",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -87530,7 +87530,7 @@
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -87575,14 +87575,14 @@
                         }
                     },
                     {
-                        "entityGUID": "48f06c4d-b2e5-e32b-e357-ff3e580811bc",
+                        "entityGUID": "eb147588-169e-5a1e-7da5-c6cec923c2c5",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": true,
+                            "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -87630,7 +87630,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -87646,7 +87646,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -87662,7 +87662,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -87781,7 +87781,7 @@
                     "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                     "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
                     "enemyBulletPrefab": "8393af65-4300-ebba-36fa-0720e42087f2",
-                    "enemyHurtboxPosition": "b4d037b3-0a4b-e6d8-5973-13a774cc6630",
+                    "enemyHurtboxPosition": "6ac4caf1-1df9-0909-bbf9-fe20ccb6c10f",
                     "shieldHealth": 30,
                     "shieldElement": "NONE",
                     "shieldVisualObject": "00000000-0000-0000-0000-000000000000",
@@ -87902,14 +87902,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "73271058-56fb-74e9-33fc-8d722bcb12e4",
+                        "entityGUID": "e9a40f84-1de8-76f5-7af3-12bfe0d831d0",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -87950,7 +87950,7 @@
                         }
                     },
                     {
-                        "entityGUID": "5bc04927-d5b1-119c-e68c-433dc762fbcd",
+                        "entityGUID": "ee85c796-101c-4e80-ca4b-c5f7e0214515",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -87963,9 +87963,9 @@
                             "entityName": "Enemy Model",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -88010,14 +88010,14 @@
                         }
                     },
                     {
-                        "entityGUID": "8c5bda41-90b9-ba3d-84b7-280088be32c8",
+                        "entityGUID": "67c51bf4-e2ae-5475-0ecf-81d61bf567ba",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -91013,7 +91013,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91029,7 +91029,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91045,7 +91045,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91285,14 +91285,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "38655f14-ea9c-f1a4-d16f-003d2fc630dd",
+                        "entityGUID": "607dc74e-e09c-d66d-8144-e85d4ad084c0",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -91333,7 +91333,7 @@
                         }
                     },
                     {
-                        "entityGUID": "e499ce31-958a-dc05-cf7b-781a21cc335e",
+                        "entityGUID": "4f5909d6-cdbf-4142-5fb6-a4a508fe6d8f",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -91348,7 +91348,7 @@
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -91393,14 +91393,14 @@
                         }
                     },
                     {
-                        "entityGUID": "ab3e5ed1-0ca7-0396-bfd1-a62c1bb5c2a0",
+                        "entityGUID": "e7666ec6-c7d9-2c25-97c8-513457b66d55",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": true,
+                            "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -91448,7 +91448,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91464,7 +91464,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91480,7 +91480,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91720,14 +91720,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "877af6ee-ec95-dc86-da6b-40c2dd2c9ff8",
+                        "entityGUID": "e7d2c88e-cdd1-3202-613e-65082a5146da",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -91768,7 +91768,7 @@
                         }
                     },
                     {
-                        "entityGUID": "a281e471-53ef-db52-9dff-afa397be93f7",
+                        "entityGUID": "c7f37bf9-bb5e-3b24-f0d7-e8612cbbd541",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -91781,9 +91781,9 @@
                             "entityName": "Enemy Model",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -91828,14 +91828,14 @@
                         }
                     },
                     {
-                        "entityGUID": "22ab1278-b35a-7f7d-37e2-4f4fd04ac4b2",
+                        "entityGUID": "eab483cf-02ea-4b69-4182-61a34fe3df5e",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -91883,7 +91883,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91899,7 +91899,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -91915,7 +91915,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -92155,14 +92155,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "623d6060-fa69-00c7-318b-b00e7ad29fa8",
+                        "entityGUID": "25007942-f1c7-75db-4366-1a7602c4ed2f",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -92203,7 +92203,7 @@
                         }
                     },
                     {
-                        "entityGUID": "118a507d-c8c6-3367-2ab8-9a2ce8169ab4",
+                        "entityGUID": "700f6ebd-eb85-8276-f60c-9db1e11268b0",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -92216,9 +92216,9 @@
                             "entityName": "Enemy Model",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -92263,14 +92263,14 @@
                         }
                     },
                     {
-                        "entityGUID": "2b69db93-2ae1-b832-5452-0ecdcc2e0bd6",
+                        "entityGUID": "bdfe2471-a819-2ca4-2f3e-b5487d4ae467",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -92318,7 +92318,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -92334,7 +92334,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -92350,7 +92350,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -92590,14 +92590,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "90fa276d-b791-3c69-1314-922bccb21a61",
+                        "entityGUID": "81e98c7d-c459-5cef-3925-994c78899a4a",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -92638,7 +92638,7 @@
                         }
                     },
                     {
-                        "entityGUID": "f12f9dfa-eb8e-b417-a2bf-4676eaf4bee9",
+                        "entityGUID": "fd3ce631-f6a8-d522-4738-edaaa44d1355",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -92651,9 +92651,9 @@
                             "entityName": "Enemy Model",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -92698,14 +92698,14 @@
                         }
                     },
                     {
-                        "entityGUID": "559a859c-51f8-e596-ae38-ed2ad20877cb",
+                        "entityGUID": "fdbc5d84-ae8a-ef9f-d736-f4f1343045dd",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -92753,7 +92753,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -92769,7 +92769,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -92785,7 +92785,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -93025,14 +93025,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "6cc71e04-c8a7-8766-191d-cc6f284e16bf",
+                        "entityGUID": "34ac3cb5-4529-a353-fca6-27164f778cda",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -93073,7 +93073,7 @@
                         }
                     },
                     {
-                        "entityGUID": "136990aa-710f-1e6d-3a49-e80cc79114c5",
+                        "entityGUID": "b90bd329-8d74-022e-5f3e-599b57b9c9b7",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -93086,9 +93086,9 @@
                             "entityName": "Enemy Model",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -93133,14 +93133,14 @@
                         }
                     },
                     {
-                        "entityGUID": "84f89793-7ade-a993-ef92-59f8921abebc",
+                        "entityGUID": "9951bfb6-0bad-5903-d710-5c43e5e18c92",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -93188,7 +93188,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -93204,7 +93204,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -93220,7 +93220,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -93460,14 +93460,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "d2ff0442-4387-6f3a-2894-cd39cbd7f319",
+                        "entityGUID": "3c00f1f1-4833-39d3-e2e7-0511a0fab150",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -93508,7 +93508,7 @@
                         }
                     },
                     {
-                        "entityGUID": "61fb8220-00a3-47c2-6f97-92d6099eeb52",
+                        "entityGUID": "c3f98450-8ae9-9cdb-d86b-03c407f708ab",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -93521,9 +93521,9 @@
                             "entityName": "Enemy Model",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": false,
+                            "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -93568,14 +93568,14 @@
                         }
                     },
                     {
-                        "entityGUID": "ef9b346f-4ab8-72a3-2b05-9652dc064d9d",
+                        "entityGUID": "0a147ea3-0272-8c8f-cccb-64df8c46da56",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -96152,7 +96152,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -96168,7 +96168,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -96184,7 +96184,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -96424,14 +96424,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "a536a890-c8d8-a15b-c54e-8b9b89db2904",
+                        "entityGUID": "867de84f-92c5-f2e8-487b-68a4ef4570f9",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -96472,7 +96472,7 @@
                         }
                     },
                     {
-                        "entityGUID": "eb541460-ca98-0049-e6b4-89bff0a29034",
+                        "entityGUID": "cd6aeda1-c135-ce8e-d06e-b89989a2328b",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -96487,7 +96487,7 @@
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -96532,14 +96532,14 @@
                         }
                     },
                     {
-                        "entityGUID": "b228f584-5b51-cabc-0c28-294439db97fa",
+                        "entityGUID": "7dc84a85-e38e-c160-6fc2-ba6b47139f2c",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": true,
+                            "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -96587,7 +96587,7 @@
                     "audioFiles": [
                         {
                             "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                            "volume": 1.0,
+                            "volume": 0.6579999923706055,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -96603,7 +96603,7 @@
                         },
                         {
                             "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                            "volume": 1.0,
+                            "volume": 0.6389999985694885,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -96619,7 +96619,7 @@
                         },
                         {
                             "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                            "volume": 1.0,
+                            "volume": 0.6620000004768372,
                             "loop": false,
                             "playOnStart": false,
                             "hasPlayed": false,
@@ -96859,14 +96859,14 @@
                 },
                 "children": [
                     {
-                        "entityGUID": "955213b8-08b9-9610-3b7c-c70be116989d",
+                        "entityGUID": "680d49c8-e2ef-3fb8-6e54-8a4a56a0e04f",
                         "NameComponent": {
                             "entityName": "Enemy Hurtbox Position",
                             "Layer": 0,
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
@@ -96907,7 +96907,7 @@
                         }
                     },
                     {
-                        "entityGUID": "54b91500-e11d-e8ff-fd79-0f857e97f545",
+                        "entityGUID": "5bbf810c-c29e-8afe-3ad2-46e20d2c9e2e",
                         "AnimatorComponent": {
                             "controllerGUID": "baa80405-5c48-fba2-0cde-edc56c8d415d",
                             "m_PlaybackSpeed": 1.0,
@@ -96922,7 +96922,7 @@
                             "entityTag": "Default",
                             "isPrefab": true,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
@@ -96967,14 +96967,14 @@
                         }
                     },
                     {
-                        "entityGUID": "de1aedea-cbac-d815-b9f3-764219eed8bf",
+                        "entityGUID": "3aa23e09-5141-e246-0c10-a2db79c507e2",
                         "NameComponent": {
                             "entityName": "Enemy Hurt VFX Position",
                             "Layer": 0,
                             "entityTag": "Default",
-                            "isPrefab": true,
+                            "isPrefab": false,
                             "isStatic": false,
-                            "prefabName": "RangedEnemyPrefab.prefab",
+                            "prefabName": "",
                             "hide": false
                         },
                         "TransformComponent": {
