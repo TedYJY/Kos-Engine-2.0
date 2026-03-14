@@ -23,6 +23,9 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 #include "Reflection/Field.h"
 #include "Scene/SceneManager.h"
 #include "Pathfinding/NavMesh.h"
+#include "Audio/AudioManager.h"
+#include <FMOD/fmod.hpp>
+#include <FMOD/fmod_studio.hpp>
 
 namespace scenes {
 	class SceneManager;
@@ -39,6 +42,7 @@ struct StaticVariableManager {
 	void* resource;
 	void* navMesh;
 	void* grpahics;
+	void* audio;
 	std::vector<std::string>* scriptNames;
 };
 
@@ -51,6 +55,7 @@ class ScriptManager {
 	Fields& m_field;
 	NavMeshManager& m_navmesh;
 	GraphicsManager& m_graphics;
+	audio::AudioManager& m_audio;
 
 
 public: 
@@ -62,7 +67,9 @@ public:
 		ResourceManager& rm,
 		Fields& field,
 		NavMeshManager& nm,
-		GraphicsManager& graphics
+		GraphicsManager& graphics,
+		audio::AudioManager& audio
+
 	)
 		: m_ecs(ecs)
 		, m_input(slm)
@@ -72,6 +79,8 @@ public:
 		, m_field(field)
 		, m_navmesh(nm)
 		, m_graphics(graphics)
+		, m_audio(audio)
+
 	{
 		hInstDLL = nullptr;
 	}

@@ -49,6 +49,11 @@ namespace audio {
         s_paused = false;
         m_studio = studio;
 
+        // Create named groups for independent volume control
+        FMOD::ChannelGroup* musicGroup = nullptr;
+        FMOD::ChannelGroup* sfxGroup = nullptr;
+        s_fmod->createChannelGroup("Music", &musicGroup);
+        s_fmod->createChannelGroup("SFX", &sfxGroup);
     }
 
     void AudioManager::Update() {
@@ -92,5 +97,43 @@ namespace audio {
         if (s_fmod->getMasterChannelGroup(&master) == FMOD_OK && master) {
             master->stop();
         }
+    }
+
+    void AudioManager::SetMasterVolume(float volume) {
+        // Clamp between 0 and 1
+        if (volume < 0.0f) volume = 0.0f;
+        if (volume > 1.0f) volume = 1.0f;
+
+        m_masterVolume = volume;
+
+        // Set on FMOD Studio master bus (covers all studio events)
+        if (m_studio) {
+            FMOD::Studio::Bus* masterBus = nullptr;
+            if (m_studio->getBus("bus:/", &masterBus) == FMOD_OK && masterBus) {
+                masterBus->setVolume(volume);
+            }
+        }
+
+        // Set on core master channel group (covers all raw createSound calls)
+        if (s_fmod) {
+            FMOD::ChannelGroup* master = nullptr;
+            if (s_fmod->getMasterChannelGroup(&master) == FMOD_OK && master) {
+                master->setVolume(volume);
+            }
+        }
+    }
+
+    void AudioManager::SetMusicVolume(float volume) {
+        if (volume < 0.f) volume = 0.f;
+        if (volume > 1.f) volume = 1.f;
+        m_musicVolume = volume;
+        if (m_musicGroup) m_musicGroup->setVolume(volume);
+    }
+
+    void AudioManager::SetSFXVolume(float volume) {
+        if (volume < 0.f) volume = 0.f;
+        if (volume > 1.f) volume = 1.f;
+        m_sfxVolume = volume;
+        if (m_sfxGroup) m_sfxGroup->setVolume(volume);
     }
 } 

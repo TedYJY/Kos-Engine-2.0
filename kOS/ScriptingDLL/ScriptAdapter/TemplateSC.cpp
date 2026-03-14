@@ -6,3 +6,4 @@ physics::PhysicsManager* TemplateSC::physicsPtr{ nullptr };
 NavMeshManager* TemplateSC::navMeshPtr{ nullptr };
 ResourceManager* TemplateSC::resource{nullptr};
 GraphicsManager* TemplateSC::graphics{ nullptr };
+audio::AudioManager* TemplateSC::audioManager{ nullptr };

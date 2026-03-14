@@ -94,6 +94,13 @@ private:
     std::unique_ptr<Watcher> m_assetWatcher;
 	//std::unique_ptr<Watcher> m_scriptWatcher;
 
+
+    mutable std::shared_mutex m_mapMutex;
+    std::mutex m_compilationMutex;
+    std::vector<std::future<void>> m_activeCompilations;
+    void CleanupFinishedCompilations();
+
+
     //Compiler Data
     struct CompilerD{
         std::string type;

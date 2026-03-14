@@ -59,7 +59,7 @@ namespace Application {
 			, layersManager(ecs)
 			, serialization(ecs)
 			, sceneManager(ecs, serialization, resourceManager)
-			, scriptManager(ecs, sceneManager, input, physicsManager, resourceManager, reflectionField, navMeshManager,graphicsManager)
+			, scriptManager(ecs, sceneManager, input, physicsManager, resourceManager, reflectionField, navMeshManager,graphicsManager, audioManager)
 			, audioManager()
 		{
 		}
@@ -81,10 +81,10 @@ namespace Application {
 		ResourceManager resourceManager;
 		physics::PhysicsManager physicsManager;
 		serialization::Serialization serialization;
+		audio::AudioManager audioManager;
 		ScriptManager scriptManager;
 		Fields reflectionField;
 		layer::LayerStack layersManager;
-		audio::AudioManager audioManager;
 		NavMeshManager navMeshManager;
 	};
 }
