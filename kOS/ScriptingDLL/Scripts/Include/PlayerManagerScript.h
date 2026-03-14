@@ -376,6 +376,11 @@ public:
 
 	// Absorb post process
 
+	//TESTING MASTER VOLUEM
+	//UI SFX
+\
+	// VOLUME
+	float masterVolume = 1.0f; // 0.0 = mute, 1.0 = full
 
 	// --- FUNCTION DECLARATIONS ONLY --
 	// Implementations are moved to the bottom of the file
@@ -395,6 +400,7 @@ public:
 	void UpdateHealthUI();
 
 	void TakeDamage(int damage);
+	void SetMasterVolume(float volume);
 
 	// HELPER FUNCTIONS
 	glm::vec3 GetPlayerCameraFrontDirection();
@@ -675,6 +681,14 @@ inline void PlayerManagerScript::Update() {
 		CameraShake(10.0f, 6.0f);   // nicki minaj ass heavy shake
 	}
 
+	if (Input->IsKeyTriggered(keys::I)) {
+		SetMasterVolume(masterVolume + 0.1f);
+		std::cout << "[Volume] Master: " << masterVolume << "\n";
+	}
+	if (Input->IsKeyTriggered(keys::O)) {
+		SetMasterVolume(masterVolume - 0.1f);
+		std::cout << "[Volume] Master: " << masterVolume << "\n";
+	}
 
 	// PlayerMovementControls(); I removed dis to disable movement while dashing, if anyone wants there to be more control during a dash need to look here
 	PlayerCameraControls();
@@ -2409,4 +2423,13 @@ inline void PlayerManagerScript::TakeDamage(int damage) {
 	vig->intensity = 0.45f;
 	Blur* blur = reinterpret_cast<Blur*>(profile->GetEffect(PPT_Blur));
 	blur->radius = 2.5f;
+}
+
+inline void PlayerManagerScript::SetMasterVolume(float volume) {
+	masterVolume = glm::clamp(volume, 0.0f, 1.0f);
+
+	FMOD::ChannelGroup* master = nullptr;
+	if (audioManager->GetCore()->getMasterChannelGroup(&master) == FMOD_OK && master) {
+		master->setVolume(masterVolume);
+	}
 }

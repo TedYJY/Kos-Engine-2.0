@@ -10,6 +10,7 @@
 #include "Physics/PhysicsManager.h"
 #include "Resources/ResourceManager.h"
 #include "Pathfinding/NavMesh.h"
+#include "Audio/AudioManager.h"
 
 class TemplateSC :public ecs::Component, public ScriptClass {
 public:
@@ -21,6 +22,8 @@ public:
 	static ResourceManager* resource;
 	static NavMeshManager* navMeshPtr;
 	static GraphicsManager* graphics;
+	static audio::AudioManager* audioManager;
+
 private:
 };
 
