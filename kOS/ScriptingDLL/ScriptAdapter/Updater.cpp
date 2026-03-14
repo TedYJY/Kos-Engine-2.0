@@ -32,6 +32,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	TemplateSC::resource = static_cast<ResourceManager*>(svm->resource);
 	TemplateSC::navMeshPtr = static_cast<NavMeshManager*>(svm->navMesh);
 	TemplateSC::graphics = static_cast<GraphicsManager*>(svm->grpahics);
+	TemplateSC::audioManager = static_cast<audio::AudioManager*>(svm->audio);
 
 	RegisterScript<BulletLogic>(TemplateSC::ecsPtr);
 	RegisterScript<FireLMB>(TemplateSC::ecsPtr);
@@ -88,6 +89,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<RoomLockScript>(TemplateSC::ecsPtr);
 
 	RegisterScript<EnemyHurtVFX>(TemplateSC::ecsPtr);
+	RegisterScript<Deathzone>(TemplateSC::ecsPtr);
 
 	FieldComponentTypeRegistry::CreateAllDrawers(static_cast<Fields*>(svm->field)->GetAction());
 }

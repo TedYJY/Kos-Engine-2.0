@@ -58,11 +58,9 @@ inline void FireLMB::Start() {
 
 			std::cout << "Being hit, HP left:" << ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->enemyHealth << "\n";
 			if (ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->enemyHealth <= 0) {
-				if (scoreManager) {
-					scoreManager->AddScore(scoreValue); // or whatever value you want per kill
-				}
 
 				ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID)->TriggerStagger(1.f);
+				enemyScript->Die();
 
 			}
 		}

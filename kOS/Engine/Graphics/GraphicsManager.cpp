@@ -176,9 +176,7 @@ void GraphicsManager::gm_InitializeMeshes()
 
 void GraphicsManager::gm_RenderToEditorFrameBuffer()
 {
-	editorCamera.ComputeFustrum();
 	gm_FillDataBuffers(editorCamera);
-	//lightRenderer.dcm[0]=lightRenderer.testDCM;
 	framebufferManager.sceneBuffer.BindForDrawing();
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, framebufferManager.gBuffer.RetrieveBuffer());
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, framebufferManager.sceneBuffer.fbo);
@@ -227,7 +225,6 @@ void GraphicsManager::gm_RenderToGameFrameBuffer()
 	framebufferManager.sceneBuffer.BindForDrawing();
 	//gm_RenderCubeMap(cd);
 	for (CameraData& cd : gameCameras) {
-		cd.ComputeFustrum();
 		//Clear G buffer at the start maybe
 		//Bind and clear g buffer
 		if (!cd.culling) {
@@ -492,6 +489,7 @@ void GraphicsManager::gm_FillDepthCube(const CameraData& camera) {
 
 	for (int i{ 0 }; i < lightRenderer.pointLightsToDraw.size(); i++) {
 		if (!lightRenderer.pointLightsToDraw[i].shadowCon)continue;;
+		//std::cout << i << '\n';
 		glViewport(0, 0, static_cast<GLsizei>(1024.f), static_cast<GLsizei>(1024.f));
 		glBindFramebuffer(GL_FRAMEBUFFER, lightRenderer.dcm[i].GetFBO());
 		glClear(GL_DEPTH_BUFFER_BIT);
@@ -535,6 +533,7 @@ void GraphicsManager::gm_FillDepthCube(const CameraData& camera, int index,glm::
 	glBindFramebuffer(GL_FRAMEBUFFER, lightRenderer.dcm[index].GetFBO());
 	glClear(GL_DEPTH_BUFFER_BIT);
 	pointShadowShader->Use();
+	std::cout << index << '\n';
 	lightRenderer.dcm[index].FillMap(lighPos);
 	for (unsigned int j = 0; j < 6; ++j) {
 		pointShadowShader->SetMat4("shadowMatrices[" + std::to_string(j) + "]", lightRenderer.dcm[index].shadowTransforms[j]);
@@ -694,7 +693,7 @@ void GraphicsManager::gm_RenderDeferredObjects(const CameraData& camera)
 	deferredPBRShader->SetTrans("view", camera.GetViewMtx());
 
 
-	deferredPBRShader->SetInt("pointLightNo", static_cast<int>(lightRenderer.pointLightsToDraw.size()));
+	deferredPBRShader->SetInt("pointLightNo", static_cast<int>(lightRenderer.actualPointLightsToDraw.size()));
 	deferredPBRShader->SetInt("dirLightNo", static_cast<int>(lightRenderer.directionLightsToDraw.size()));
 	deferredPBRShader->SetInt("spotLightNo", static_cast<int>(lightRenderer.spotLightsToDraw.size()));
 
@@ -706,8 +705,10 @@ void GraphicsManager::gm_RenderDeferredObjects(const CameraData& camera)
 	glActiveTexture(GL_TEXTURE6);
 	glBindTexture(GL_TEXTURE_2D, framebufferManager.depthBuffer.RetrieveBuffer());
 
+	//Compute fustrum and ONLY render lights in fustrum
+	
 	//Fill point shadow stuff
-	for (int i = 0; i < lightRenderer.pointLightsToDraw.size(); i++) {
+	for (int i = 0; i < lightRenderer.actualPointLightsToDraw.size(); i++) {
 		//if (lightRenderer.pointLightsToDraw[i].bakedCon&& !lightRenderer.pointLightsToDraw[i].bakedmapGUID.Empty()) {
 		//	std::shared_ptr<R_DepthMapCube> dmc = ResourceManager::GetInstance()->GetResource<R_DepthMapCube>(lightRenderer.pointLightsToDraw[i].bakedmapGUID);
 		//	std::cout << "RENDERING DCM\n";
@@ -715,12 +716,33 @@ void GraphicsManager::gm_RenderDeferredObjects(const CameraData& camera)
 		//	glBindTexture(GL_TEXTURE_CUBE_MAP, dmc->dcm.RetrieveID());
 		//	deferredPBRShader->SetFloat("far_plane", dmc->dcm.far_plane);
 		//}
-		if (!lightRenderer.pointLightsToDraw[i].shadowCon&&!lightRenderer.pointLightsToDraw[i].bakedCon)continue;;
+		if (!lightRenderer.actualPointLightsToDraw[i]->shadowCon&&!lightRenderer.actualPointLightsToDraw[i]->bakedCon)continue;;
+		
+		//std::cout << " NEW Point lighty index" << i<<' '<< lightRenderer.actualPointLightsToDraw.size() << '\n';
+
 		glActiveTexture(GL_TEXTURE7 + i);
-		glBindTexture(GL_TEXTURE_CUBE_MAP, lightRenderer.dcm[i].RetrieveID());
-		deferredPBRShader->SetFloat("far_plane", lightRenderer.dcm[i].far_plane);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, lightRenderer.actualDcm[i]->RetrieveID());
+		deferredPBRShader->SetFloat("far_plane", lightRenderer.actualDcm[i]->far_plane);
 
 	}
+	//std::cout << " END" << '\n';
+
+	//for (int i = 0; i < lightRenderer.pointLightsToDraw.size(); i++) {
+	//	//if (lightRenderer.pointLightsToDraw[i].bakedCon&& !lightRenderer.pointLightsToDraw[i].bakedmapGUID.Empty()) {
+	//	//	std::shared_ptr<R_DepthMapCube> dmc = ResourceManager::GetInstance()->GetResource<R_DepthMapCube>(lightRenderer.pointLightsToDraw[i].bakedmapGUID);
+	//	//	std::cout << "RENDERING DCM\n";
+	//	//	glActiveTexture(GL_TEXTURE7 + i);
+	//	//	glBindTexture(GL_TEXTURE_CUBE_MAP, dmc->dcm.RetrieveID());
+	//	//	deferredPBRShader->SetFloat("far_plane", dmc->dcm.far_plane);
+	//	//}
+	//	if (!lightRenderer.pointLightsToDraw[i].shadowCon && !lightRenderer.pointLightsToDraw[i].bakedCon)continue;;
+
+
+	//	glActiveTexture(GL_TEXTURE7 + i);
+	//	glBindTexture(GL_TEXTURE_CUBE_MAP, lightRenderer.dcm[i].RetrieveID());
+	//	deferredPBRShader->SetFloat("far_plane", lightRenderer.dcm[i].far_plane);
+
+	//}
 	GLint samplerUnits[16];
 	for (int i = 0; i < 16; i++) {
 		samplerUnits[i] = 7 + i; // Texture units starting from 7

@@ -13,7 +13,7 @@
             "audioFiles": [
                 {
                     "audioGUID": "71d58ef2-b4f6-e065-2971-d8c866fb55c3",
-                    "volume": 1.0,
+                    "volume": 0.6579999923706055,
                     "loop": false,
                     "playOnStart": false,
                     "hasPlayed": false,
@@ -29,7 +29,7 @@
                 },
                 {
                     "audioGUID": "7d95194c-3dcb-71fc-709a-8a60513409d6",
-                    "volume": 1.0,
+                    "volume": 0.6389999985694885,
                     "loop": false,
                     "playOnStart": false,
                     "hasPlayed": false,
@@ -45,7 +45,7 @@
                 },
                 {
                     "audioGUID": "1d543759-364b-8abe-dd87-be492dba4527",
-                    "volume": 1.0,
+                    "volume": 0.6620000004768372,
                     "loop": false,
                     "playOnStart": false,
                     "hasPlayed": false,
@@ -159,7 +159,7 @@
             "enemyMovementSpeed": 5.0,
             "enemyType": "Ranged",
             "enemyAttackRange": 2.5,
-            "enemyRangedAttackRange": 10.0,
+            "enemyRangedAttackRange": 20.0,
             "enemyChaseRange": 25.0,
             "playerToChase": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
             "enemyHurtboxPrefab": "bfbe5968-8f63-b074-ac3f-5597fcc00dd1",
@@ -214,7 +214,8 @@
                     "rangedEnemyDeathSfxGUID": "9b92cc4a-4162-7052-297a-bc7a5c59fc26"
                 }
             ],
-            "tankEnemyDeathSfxGUID": []
+            "tankEnemyDeathSfxGUID": [],
+            "tankShieldBlockSfxGUID": []
         },
         "NameComponent": {
             "entityName": "RangedEnemyPrefab",
@@ -297,8 +298,8 @@
                 "TransformComponent": {
                     "WorldTransformation": {
                         "position": {
-                            "x": 23.768556594848633,
-                            "y": 5.6792802810668945,
+                            "x": 22.918556213378906,
+                            "y": 7.120265960693359,
                             "z": -30.937253952026367
                         },
                         "rotation": {
@@ -314,8 +315,8 @@
                     },
                     "LocalTransformation": {
                         "position": {
-                            "x": 0.0,
-                            "y": 1.699014663696289,
+                            "x": -0.8500000238418579,
+                            "y": 3.140000104904175,
                             "z": 0.0
                         },
                         "rotation": {
@@ -352,7 +353,7 @@
                 },
                 "SkinnedMeshRendererComponent": {
                     "skinnedMeshGUID": "0c44c479-520e-8c24-acf1-0ef17cfe8e58",
-                    "materialGUID": "23e7b1cb-3d50-e7e5-20f9-515b8bddebf5"
+                    "materialGUID": "f1b9bde6-c466-e0fd-0906-2f78d0241c5b"
                 },
                 "TransformComponent": {
                     "WorldTransformation": {

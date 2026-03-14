@@ -5,7 +5,6 @@
 #include "ECS/ECS.h"
 
 
-
 AssetManager::AssetManager()
 {
 
@@ -22,103 +21,125 @@ AssetManager::AssetManager()
 }
 
 AssetManager::~AssetManager() {
+    if (m_assetWatcher) {
+        m_assetWatcher->Stop();
+    }
 
+    std::lock_guard<std::mutex> lock(m_compilationMutex);
+    for (auto& future : m_activeCompilations) {
+        if (future.valid()) {
+            future.wait();
+        }
+    }
 }
 
 
 void AssetManager::Init(const std::string& assetDirectory, const std::string& resourceDirectory)
 {
-	m_assetDirectory = assetDirectory;
+    m_assetDirectory = assetDirectory;
     m_resourceDirectory = resourceDirectory;
 
-    std::function<void(const std::string&)> readDirectory;
-    std::vector<std::future<void>> compilingAsync;
+    std::vector<std::future<void>> initTasks;
 
-    readDirectory = [&](const std::string& Dir) {
-        int count = 0;
-        for (const auto& entry : std::filesystem::directory_iterator(Dir)) {
-            std::string filepath = entry.path().string();
+    // Determine a safe number of concurrent threads based on the CPU
+    const size_t maxConcurrentTasks = std::thread::hardware_concurrency();
 
-            if (entry.is_directory()) {
-                readDirectory(filepath); 
-            }
-            else {
-                RegisterAsset(entry.path());
+    for (const auto& entry : std::filesystem::recursive_directory_iterator(m_assetDirectory))
+    {
+        if (entry.is_directory()) continue;
+        std::filesystem::path filePath = entry.path();
+        if (filePath.extension() == ".meta") continue;
 
-                //test if resource is already in the resource folder
-                std::filesystem::path metaPath = filepath + ".meta";
+        std::string inputExtension = filePath.extension().string();
+        if (m_compilerMap.find(inputExtension) == m_compilerMap.end()) continue;
 
+        RegisterAsset(filePath);
 
-                if (std::filesystem::exists(metaPath)) {
-                    AssetData data = serialization::ReadJsonFile<AssetData>(metaPath.string());
-                    const auto& map = m_compilerMap.at(entry.path().filename().extension().string());
-                    for (const auto& compilerData : map)
-                    {
-                        std::string outputResourcePath = std::filesystem::absolute(m_resourceDirectory).string() + "/" + data.GUID.GetToString() + compilerData.outputExtension;
-                        if (!std::filesystem::exists(outputResourcePath)) {
-                            std::cout << ++count << std::endl;
-                            compilingAsync.push_back(Compilefile(filepath));
-                        }
-
+        // --- THROTTLING LOGIC ---
+        // If we hit our CPU limit, wait for at least one task to finish before spawning a new one
+        if (initTasks.size() >= maxConcurrentTasks) {
+            bool taskFinished = false;
+            while (!taskFinished) {
+                for (auto it = initTasks.begin(); it != initTasks.end(); ++it) {
+                    if (it->wait_for(std::chrono::milliseconds(0)) == std::future_status::ready) {
+                        initTasks.erase(it);
+                        taskFinished = true;
+                        break;
                     }
                 }
-                else {
-                    continue;
+                if (!taskFinished) {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(5)); // Prevent CPU pegging
                 }
-
-
             }
         }
-        };
 
+        initTasks.push_back(std::async(std::launch::async, [this, filePath, inputExtension]() {
+            std::filesystem::path metaPath = filePath;
+            metaPath += ".meta";
 
-	readDirectory(m_assetDirectory);
+            if (!std::filesystem::exists(metaPath)) {
+                Compilefile(filePath).wait();
+                return;
+            }
 
-    for (size_t i = 0; i < compilingAsync.size(); ) {
-        if (compilingAsync[i].wait_for(std::chrono::seconds(0)) == std::future_status::ready) {
-            compilingAsync[i].get();
-            compilingAsync.erase(compilingAsync.begin() + i);
-        }
-        else {
-            ++i;
-        }
+            AssetData data = serialization::ReadJsonFile<AssetData>(metaPath.string());
+            const auto& compilers = m_compilerMap.at(inputExtension);
+            bool needsCompilation = false;
+
+            for (const auto& compilerData : compilers) {
+                std::filesystem::path outputResourcePath = std::filesystem::absolute(m_resourceDirectory) / (data.GUID.GetToString() + compilerData.outputExtension);
+                if (!std::filesystem::exists(outputResourcePath)) {
+                    needsCompilation = true;
+                    break;
+                }
+            }
+
+            if (needsCompilation) {
+                Compilefile(filePath).wait();
+            }
+            }));
     }
 
-
-    //Setup Watchers
+    // Wait for the remaining tail-end tasks to finish
+    for (auto& task : initTasks) {
+        if (task.valid()) {
+            task.get();
+        }
+    }
 
     m_assetWatcher = std::make_unique<Watcher>(m_assetDirectory, std::chrono::milliseconds(1000));
 
     m_assetWatcher->SetCallback([&](ACTION action, const std::filesystem::path& filePath) {
 
+        CleanupFinishedCompilations();
+
         switch (action)
         {
-		case ADDED:
+        case ADDED: {
             LOGGING_INFO("Watcher: Added - " + filePath.string());
             RegisterAsset(filePath);
-            Compilefile(filePath);
 
-			break;
-		case MODIFIED:
-            LOGGING_INFO("Watcher: Modified - " + filePath.string());
-            Compilefile(filePath);
-
-			break;
-		case REMOVED:
-            LOGGING_INFO("Watcher: Removed - " + filePath.string());
-			break;
-		default:
-			break;
+            std::lock_guard<std::mutex> lock(m_compilationMutex);
+            m_activeCompilations.push_back(Compilefile(filePath));
+            break;
         }
+        case MODIFIED: {
+            LOGGING_INFO("Watcher: Modified - " + filePath.string());
 
-       
+            std::lock_guard<std::mutex> lock(m_compilationMutex);
+            m_activeCompilations.push_back(Compilefile(filePath));
+            break;
+        }
+        case REMOVED:
+            LOGGING_INFO("Watcher: Removed - " + filePath.string());
+            break;
+        default:
+            break;
+        }
         });
 
-    //Ignore all .meta files
     m_assetWatcher->SetIgnoreExtension(".meta");
-
     m_assetWatcher->Start();
-
 
     folderTexture = std::make_unique<R_Texture>(configpath::folderIconPath);
     fileTexture = std::make_unique<R_Texture>(configpath::fileIconPath);
@@ -141,6 +162,7 @@ utility::GUID AssetManager::RegisterAsset(const std::filesystem::path& filePath)
 
     utility::GUID GUID = m_dataBase.ImportAsset(filePath, type);
 
+    std::unique_lock lock(m_mapMutex);
     m_GUIDtoFilePath[GUID] = filePath;
     return GUID;
 }
@@ -153,87 +175,65 @@ std::future<void> AssetManager::Compilefile(const std::filesystem::path& filePat
     }
 
     std::string inputExtension = filePath.extension().string();
-	//check if compiler have been registered
-	if (m_compilerMap.find(inputExtension) == m_compilerMap.end()) {
-		//LOGGING_WARN("Compile File: " + inputExtension + "not found");
-		return std::async(std::launch::deferred, []() {});
-		
-        //just copy the file over to the resource
+    if (m_compilerMap.find(inputExtension) == m_compilerMap.end()) {
+        return std::async(std::launch::deferred, []() {});
+    }
 
-	}
-    
-	//check if file meta exist
-	std::filesystem::path metaPath = filePath.string() + ".meta";
+    std::filesystem::path metaPath = filePath;
+    metaPath += ".meta";
 
-	if (!std::filesystem::exists(metaPath)) {
-        //Import asset and create meta file
+    if (!std::filesystem::exists(metaPath)) {
         RegisterAsset(filePath);
-
         if (!std::filesystem::exists(metaPath)) {
-			LOGGING_WARN("Compile File: Meta file does not exist after registering asset");
-			return std::async(std::launch::deferred, []() {});
+            LOGGING_WARN("Compile File: Meta file does not exist after registering asset");
+            return std::async(std::launch::deferred, []() {});
         }
-	}
-    //get file type from meta
-    AssetData data = serialization::ReadJsonFile<AssetData>(metaPath.string());
+    }
 
+    AssetData data = serialization::ReadJsonFile<AssetData>(metaPath.string());
     const auto& map = m_compilerMap.at(inputExtension);
-    for(const auto& compilerData : map)
+
+    // Store all tasks for THIS file here
+    std::vector<std::future<void>> compilerTasks;
+
+    for (const auto& compilerData : map)
     {
         std::string guid = data.GUID.GetToString();
-
         std::string inputPath = std::filesystem::absolute(filePath).string();
-        std::string outputResourcePath =
-            std::filesystem::absolute(m_resourceDirectory).string() + "\\" +
-            guid + compilerData.outputExtension;
+        std::string outputResourcePath = std::filesystem::absolute(m_resourceDirectory).string() + "\\" + guid + compilerData.outputExtension;
 
-
-        //assets that have a compiler
         if (compilerData.compilerFilePath != "null")
         {
-            //COMPILING CODE HERE
             std::string compilerPath = std::filesystem::absolute(compilerData.compilerFilePath).string();
             std::string absmetaPath = std::filesystem::absolute(metaPath).string();
-
-            // Wrap the ENTIRE command in an extra set of quotes to prevent cmd.exe from stripping them
             std::string command = "\"\"" + compilerPath + "\" \"" + inputPath + "\" \"" + absmetaPath + "\" \"" + outputResourcePath + "\"\"";
 
-            // Run the command directly
-            auto runSystemAsync = [](const std::string& cmd)
-                {
-                    auto future = std::async(std::launch::async, [cmd]() {
-                        int result = std::system(cmd.c_str());
-                        if (result != 0) {
-                            std::cerr << "Command failed with code: " << result << "\nCommand: " << cmd << std::endl;
-                        }
-                        });
-
-                    return future;
-                };
-
-            return runSystemAsync(command);
-        }
-        else {
-            //assets without
-
-            //check if directory exist, if not create one
-
-            std::filesystem::path dir = std::filesystem::path(outputResourcePath).parent_path();
-
-            if (!std::filesystem::exists(dir)) {
-                if (!std::filesystem::create_directories(dir)) {
-                    LOGGING_ERROR("Fail to create directory");
+            compilerTasks.push_back(std::async(std::launch::async, [command]() {
+                int result = std::system(command.c_str());
+                if (result != 0) {
+                    // LOGGING_ERROR instead of std::cerr is usually better here
+                    std::cerr << "Command failed with code: " << result << "\nCommand: " << command << std::endl;
                 }
-            }
-
-
-            std::filesystem::copy_file(inputPath, outputResourcePath, std::filesystem::copy_options::overwrite_existing);
-
+                }));
         }
+        else
+        {
+            std::filesystem::path dir = std::filesystem::path(outputResourcePath).parent_path();
+            if (!std::filesystem::exists(dir)) {
+                std::filesystem::create_directories(dir);
+            }
+            std::filesystem::copy_file(inputPath, outputResourcePath, std::filesystem::copy_options::overwrite_existing);
+        }
+    }
 
-        return std::async(std::launch::deferred, []() {});
-	}
-    return std::async(std::launch::deferred, []() {});
+    // Return a single future that waits for all compilers to finish on this specific file
+    return std::async(std::launch::async, [tasks = std::move(compilerTasks)]() mutable {
+        for (auto& t : tasks) {
+            if (t.valid()) {
+                t.wait();
+            }
+        }
+        });
 }
 
 void AssetManager::RenameFile(const std::filesystem::path& oldFile, const std::filesystem::path& newFile) {
@@ -266,4 +266,17 @@ void AssetManager::RenameFile(const std::filesystem::path& oldFile, const std::f
     LOGGING_INFO("Rename Successful");
 }
 
+void AssetManager::CleanupFinishedCompilations() {
+    std::lock_guard<std::mutex> lock(m_compilationMutex);
+
+    // Erase-remove idiom to filter out finished futures
+    m_activeCompilations.erase(
+        std::remove_if(m_activeCompilations.begin(), m_activeCompilations.end(),
+            [](const std::future<void>& f) {
+                // Check if the future is ready without actually waiting
+                return f.wait_for(std::chrono::seconds(0)) == std::future_status::ready;
+            }),
+        m_activeCompilations.end()
+    );
+}
 

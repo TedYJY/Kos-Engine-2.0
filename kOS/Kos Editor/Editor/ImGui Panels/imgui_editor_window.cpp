@@ -115,10 +115,6 @@ void gui::ImGuiHandler::DrawRenderScreenWindow(unsigned int windowWidth, unsigne
             ImVec2(0, 1), ImVec2(1, 0));
 
         DrawGizmo(pos.x, pos.y, imageSize.x, imageSize.y);
-        if (!ImGui::IsWindowFocused()) {
-            ImGui::End();
-            return;;
-        }
         //Get mouse position
         static bool lAltPressed{false};
         ImVec2 mousePos = ImGui::GetIO().MousePos;
