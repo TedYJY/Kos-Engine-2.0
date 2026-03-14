@@ -26,6 +26,7 @@ public:
 
 
 inline void EndSceneScript::Start() {
+    ecsPtr->SetTimeScale(1.0f);
     v_ID = ecsPtr->GetEntityIDFromGUID(video_GUID);
     quit_ButtonID = ecsPtr->GetEntityIDFromGUID(quit_Button);
     canva = ecsPtr->GetEntityIDFromGUID(button_canva);
