@@ -2554,12 +2554,12 @@
                             "defaultSprite": "00000000-0000-0000-0000-000000000000",
                             "baseActiveSprite": "00000000-0000-0000-0000-000000000000",
                             "baseInactiveSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireActiveSprite": "2a0a15fd-ef55-f2c9-0aad-90ea75e1846b",
-                            "fireInactiveSprite": "9473b153-a2ce-b062-1dde-512047582a2b",
-                            "acidActiveSprite": "56ee0fc9-04df-4ef2-9d7c-e5f2071717af",
-                            "acidInactiveSprite": "d824da45-1909-34c2-df7b-be7b3fbee6d7",
-                            "lightningActiveSprite": "8b8791dd-f49e-a551-953b-f2fdd7b570af",
-                            "lightningInactiveSprite": "45801c20-431f-c025-6143-1c7b5e158ee1"
+                            "fireActiveSprite": "f71d35ca-7df5-d76d-e9ab-1a860048a85d",
+                            "fireInactiveSprite": "d3c28f71-9498-a34f-4678-39f2830da51e",
+                            "acidActiveSprite": "d9979be1-347a-5873-f605-0f3bc9fcc991",
+                            "acidInactiveSprite": "d6c4c9fd-0993-1b9c-5c0b-c2106b1599b2",
+                            "lightningActiveSprite": "a5433183-cbb6-23ec-67e1-94d0c937733d",
+                            "lightningInactiveSprite": "5c61d865-973a-8445-3ab3-4873ca640dbf"
                         },
                         "NameComponent": {
                             "entityName": "Ability 1",
@@ -2592,7 +2592,7 @@
                             "WorldTransformation": {
                                 "position": {
                                     "x": -0.23606544733047485,
-                                    "y": -0.682867169380188,
+                                    "y": -0.6700000166893005,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2601,15 +2601,15 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             },
                             "LocalTransformation": {
                                 "position": {
                                     "x": -0.23606544733047485,
-                                    "y": -0.682867169380188,
+                                    "y": -0.6700000166893005,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2618,8 +2618,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             }
@@ -2634,12 +2634,12 @@
                             "defaultSprite": "00000000-0000-0000-0000-000000000000",
                             "baseActiveSprite": "00000000-0000-0000-0000-000000000000",
                             "baseInactiveSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireActiveSprite": "de851943-035a-eda7-919b-8336d9a8eaf8",
-                            "fireInactiveSprite": "de851943-035a-eda7-919b-8336d9a8eaf8",
-                            "acidActiveSprite": "00dd5591-298c-f373-996a-ff02a197cd36",
-                            "acidInactiveSprite": "00dd5591-298c-f373-996a-ff02a197cd36",
-                            "lightningActiveSprite": "2e02b31c-e74e-d1e1-3386-984bb567192e",
-                            "lightningInactiveSprite": "2e02b31c-e74e-d1e1-3386-984bb567192e"
+                            "fireActiveSprite": "110609c0-b3a2-4206-d5a4-d49818879db4",
+                            "fireInactiveSprite": "110609c0-b3a2-4206-d5a4-d49818879db4",
+                            "acidActiveSprite": "97a23dfc-f993-4072-0d51-0c6204073625",
+                            "acidInactiveSprite": "97a23dfc-f993-4072-0d51-0c6204073625",
+                            "lightningActiveSprite": "d521c504-6c91-0239-207a-e78895019135",
+                            "lightningInactiveSprite": "d521c504-6c91-0239-207a-e78895019135"
                         },
                         "NameComponent": {
                             "entityName": "Ability 2",
@@ -2714,12 +2714,12 @@
                             "defaultSprite": "00000000-0000-0000-0000-000000000000",
                             "baseActiveSprite": "00000000-0000-0000-0000-000000000000",
                             "baseInactiveSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireActiveSprite": "047d0373-a1b3-2cb0-0bca-a4376e6b72e8",
-                            "fireInactiveSprite": "fe3f2389-442e-3a6a-06fc-9c20ac75f95d",
-                            "acidActiveSprite": "ad5c96b9-2e80-939d-b443-756523f6e0ba",
-                            "acidInactiveSprite": "f3f71581-ae33-30ca-8ff1-7b2aa99ad23d",
-                            "lightningActiveSprite": "a53240f2-b7d1-d960-b529-b707ee9a3f5d",
-                            "lightningInactiveSprite": "407f009c-3717-6aab-0a9d-0b73c1eeb134"
+                            "fireActiveSprite": "54044dee-5b51-99b1-c747-1b8b681a0080",
+                            "fireInactiveSprite": "26d1e139-dcf8-5df9-1c69-3a5a58fee0c9",
+                            "acidActiveSprite": "216e1815-9b4c-f2ee-f6c7-1b0904204191",
+                            "acidInactiveSprite": "dd322a5e-a43e-dd47-e929-059f130c90fb",
+                            "lightningActiveSprite": "9847f7f4-b1ed-2707-d33d-0722c8c2a7e7",
+                            "lightningInactiveSprite": "22818ec9-2c10-c454-4fad-c6f691633409"
                         },
                         "NameComponent": {
                             "entityName": "Ability 3",
@@ -2761,8 +2761,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             },
@@ -2778,8 +2778,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             }
@@ -2857,9 +2857,9 @@
                             "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                             "playerObjectID": 0,
                             "noneSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireSprite": "9f0ad91c-72f9-804e-2642-475080d2e54d",
-                            "lightningSprite": "e76a7398-7c0f-cd5d-a276-15420d3991a0",
-                            "acidSprite": "f184fa8e-c58e-54a4-6d89-e2d8924fd4ec"
+                            "fireSprite": "6377a300-df4b-682d-a9c7-5aefb0bb2128",
+                            "lightningSprite": "da60e477-c6ef-a2f8-ba75-a80a6c88a2b5",
+                            "acidSprite": "b69b5f2e-baaa-736a-794c-fb5c1cc60575"
                         },
                         "NameComponent": {
                             "entityName": "Element",
@@ -2891,8 +2891,8 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -0.7256829738616943,
-                                    "y": -0.7972077131271362,
+                                    "x": -0.7300000190734863,
+                                    "y": -0.800000011920929,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2901,15 +2901,15 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.12999999523162842,
-                                    "y": 0.12999999523162842,
+                                    "x": 0.15000000596046448,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             },
                             "LocalTransformation": {
                                 "position": {
-                                    "x": -0.7256829738616943,
-                                    "y": -0.7972077131271362,
+                                    "x": -0.7300000190734863,
+                                    "y": -0.800000011920929,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2918,8 +2918,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.12999999523162842,
-                                    "y": 0.12999999523162842,
+                                    "x": 0.15000000596046448,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             }
@@ -2998,7 +2998,7 @@
                         },
                         "EnemyHealthScript": {
                             "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
-                            "raycastRange": 30.0,
+                            "raycastRange": 1000.0,
                             "showDebugRay": true,
                             "healthBarFillEntity": "fcdccb14-b029-3752-38b6-8276375ce41c",
                             "healthBarFullEntity": "e736b2e7-d848-f9f7-cf08-b4d5951197dc",

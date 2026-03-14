@@ -22,7 +22,8 @@
                     "y": 2000.0,
                     "z": 2000.0
                 }
-            }
+            },
+            "autoFit": true
         },
         "MaterialComponent": {
             "materialGUID": [
