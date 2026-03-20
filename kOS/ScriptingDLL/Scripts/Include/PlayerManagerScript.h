@@ -2173,7 +2173,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			//fireDashVfxTimer = fireDashVfxDuration;
 			//ecsPtr->SetActive(fireDashID, true);
 
-			physicsPtr->AddForce(playerRigidbody->actor, GetPlayerFrontDirection() * 50.f, ForceMode::Impulse);
+			physicsPtr->AddForce(playerRigidbody->actor, GetPlayerFrontDirection() * 50.f, ForceMode::VelocityChange);
 
 			isDashing = true;
 			currentDashTimer = dashDuration;

@@ -304,14 +304,15 @@
                         "center": {
                             "x": 0.0,
                             "y": 0.0,
-                            "z": -12.5
+                            "z": -50.0
                         },
                         "size": {
                             "x": 2.0,
                             "y": 2.0,
-                            "z": 25.0
+                            "z": 100.0
                         }
-                    }
+                    },
+                    "autoFit": false
                 },
                 "LightningPowerupManagerScript": {
                     "lightningDamage": 100,

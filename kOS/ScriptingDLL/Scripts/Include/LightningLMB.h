@@ -19,7 +19,10 @@ public:
 	// needler stacking
 	int lightningLMBDamage = 1;         
 	int stacksPerExplode = 3; //stacks before BOMB
-	int explodeDamage = 5; // big PP damage
+	int explodeDamage = 50; // big PP damage
+
+	bool hasHit = false;
+
 
 	ScoreManagerScript* scoreManager = nullptr;
 	int scoreValue = 100;
@@ -60,22 +63,22 @@ inline void LightningLMB::Start() {
 
 	physicsPtr->GetEventCallback()->OnTriggerEnter(entity, [this](const physics::Collision& col) {
 
+		if (hasHit) return;
+		hasHit = true;
+
 		if (ecsPtr->GetComponent<NameComponent>(col.otherEntityID)->entityTag == "Enemy") {
 
 			// FETCH ENEMY SCRIPT ONCE
 			auto* enemyScript = ecsPtr->GetComponent<EnemyManagerScript>(col.otherEntityID);
 			if (!enemyScript) return;
 
+			enemyScript->lightningStack ++;
+			std::cout << "[LightningLMB] Stack is now: " << enemyScript->lightningStack << "\n";
+
 			// Lightning stack less than stacks per explode
-			if (enemyScript->lightningStack < stacksPerExplode) {
-				// APPLY DAMAGE VIA TAKEDAMAGE
-				enemyScript->TakeDamage(lightningLMBDamage, "LIGHTNING");
-				enemyScript->lightningStack += lightningLMBDamage;
-				if (enemyScript->shieldHealth <= 0) {
-					enemyScript->TriggerStagger(0.5f);
-				}
-			}
-			else {
+			if (enemyScript->lightningStack >= stacksPerExplode) {
+				enemyScript->lightningStack = 0;
+
 				if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
 
 					for (auto& af : ac->audioFiles) {
@@ -86,22 +89,27 @@ inline void LightningLMB::Start() {
 					}
 				}
 
-				// EXPLOSION DAMAGE
+				// APPLY DAMAGE VIA TAKEDAMAGE
 				enemyScript->TakeDamage(explodeDamage, "LIGHTNING");
-				enemyScript->lightningStack = 0;
 				if (enemyScript->shieldHealth <= 0) {
 					enemyScript->TriggerStagger(0.5f);
 				}
 			}
+			else {
+				// EXPLOSION DAMAGE
+				enemyScript->TakeDamage(lightningLMBDamage, "LIGHTNING");
+				if (enemyScript->shieldHealth <= 0) {
+					enemyScript->TriggerStagger(0.5f);
+				}
+			}
+			ecsPtr->DeleteEntity(entity);
 
 			if (enemyScript->enemyHealth <= 0) {
 				// ADD SFX OF ENEMY DEATH HERE - DONE
 				PlayRandomEnemyDeathSFX();
-
-
 				enemyScript->Die();
 			}
-			else if (enemyScript->shieldHealth <= 0 && enemyScript->lightningStack == 0) {
+			else if (enemyScript->shieldHealth <= 0 && enemyScript->lightningStack != 0) {
 				// I changed to only stagger when blow up can revert if yall want
 				enemyScript->TriggerStagger(0.5f);
 			}

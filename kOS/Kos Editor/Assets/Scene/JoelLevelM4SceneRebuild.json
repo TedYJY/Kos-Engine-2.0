@@ -95,7 +95,7 @@
             "isPrefab": true,
             "isStatic": false,
             "prefabName": "Game Package.prefab",
-            "hide": true
+            "hide": false
         },
         "TransformComponent": {
             "WorldTransformation": {
@@ -162,7 +162,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
-                    "hide": true
+                    "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -210,7 +210,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
-                    "hide": true
+                    "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -273,7 +273,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
                             "skinnedMeshGUID": "a74f5446-cca5-3f6a-259a-f13ac2757b50",
@@ -325,7 +325,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "TransformComponent": {
                                     "WorldTransformation": {
@@ -373,7 +373,7 @@
                                             "isPrefab": false,
                                             "isStatic": false,
                                             "prefabName": "",
-                                            "hide": true
+                                            "hide": false
                                         },
                                         "ParticleComponent": {
                                             "particleType": 0,
@@ -594,7 +594,7 @@
                                             "isPrefab": false,
                                             "isStatic": false,
                                             "prefabName": "",
-                                            "hide": true
+                                            "hide": false
                                         },
                                         "ParticleComponent": {
                                             "particleType": 0,
@@ -850,7 +850,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -898,7 +898,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -961,7 +961,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
                             "skinnedMeshGUID": "90acbe4c-6122-905e-d09e-9fdf8b654aba",
@@ -1028,7 +1028,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
                             "skinnedMeshGUID": "df5619cb-87e1-b4f8-8c75-957d62f00eae",
@@ -1095,7 +1095,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SkinnedMeshRendererComponent": {
                             "skinnedMeshGUID": "ecd8276e-2da8-2e23-6c30-b8d563b368ec",
@@ -1149,7 +1149,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
-                    "hide": true
+                    "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -1239,7 +1239,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
-                    "hide": true
+                    "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -1752,7 +1752,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
-                    "hide": true
+                    "hide": false
                 },
                 "PlayerManagerScript": {
                     "playerCameraObject": "401c12be-d52c-d521-768f-a871850b8151",
@@ -1928,7 +1928,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -1977,7 +1977,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -2025,7 +2025,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -2078,7 +2078,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "Game UI Canvas.prefab",
-                    "hide": true
+                    "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -2126,7 +2126,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e351c60b-1901-61b9-c552-3f646f787f21",
@@ -2192,7 +2192,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "76b092fd-5118-402b-1a16-8b7d628d7286",
@@ -2274,7 +2274,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "0dfd8ac3-6851-9f65-35ce-31279894850c",
@@ -2340,7 +2340,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "85954e03-c605-181a-72de-0e8df4a355ad",
@@ -2422,7 +2422,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "1776dd9e-9311-f406-80a6-a74993197923",
@@ -2488,7 +2488,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "318d7588-5596-eca6-ca7e-5d7af5d9a875",
@@ -2554,12 +2554,12 @@
                             "defaultSprite": "00000000-0000-0000-0000-000000000000",
                             "baseActiveSprite": "00000000-0000-0000-0000-000000000000",
                             "baseInactiveSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireActiveSprite": "2a0a15fd-ef55-f2c9-0aad-90ea75e1846b",
-                            "fireInactiveSprite": "9473b153-a2ce-b062-1dde-512047582a2b",
-                            "acidActiveSprite": "56ee0fc9-04df-4ef2-9d7c-e5f2071717af",
-                            "acidInactiveSprite": "d824da45-1909-34c2-df7b-be7b3fbee6d7",
-                            "lightningActiveSprite": "8b8791dd-f49e-a551-953b-f2fdd7b570af",
-                            "lightningInactiveSprite": "45801c20-431f-c025-6143-1c7b5e158ee1"
+                            "fireActiveSprite": "f71d35ca-7df5-d76d-e9ab-1a860048a85d",
+                            "fireInactiveSprite": "d3c28f71-9498-a34f-4678-39f2830da51e",
+                            "acidActiveSprite": "d9979be1-347a-5873-f605-0f3bc9fcc991",
+                            "acidInactiveSprite": "d6c4c9fd-0993-1b9c-5c0b-c2106b1599b2",
+                            "lightningActiveSprite": "a5433183-cbb6-23ec-67e1-94d0c937733d",
+                            "lightningInactiveSprite": "5c61d865-973a-8445-3ab3-4873ca640dbf"
                         },
                         "NameComponent": {
                             "entityName": "Ability 1",
@@ -2568,7 +2568,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "00000000-0000-0000-0000-000000000000",
@@ -2592,7 +2592,7 @@
                             "WorldTransformation": {
                                 "position": {
                                     "x": -0.23606544733047485,
-                                    "y": -0.682867169380188,
+                                    "y": -0.6700000166893005,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2601,15 +2601,15 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             },
                             "LocalTransformation": {
                                 "position": {
                                     "x": -0.23606544733047485,
-                                    "y": -0.682867169380188,
+                                    "y": -0.6700000166893005,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2618,8 +2618,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             }
@@ -2634,12 +2634,12 @@
                             "defaultSprite": "00000000-0000-0000-0000-000000000000",
                             "baseActiveSprite": "00000000-0000-0000-0000-000000000000",
                             "baseInactiveSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireActiveSprite": "de851943-035a-eda7-919b-8336d9a8eaf8",
-                            "fireInactiveSprite": "de851943-035a-eda7-919b-8336d9a8eaf8",
-                            "acidActiveSprite": "00dd5591-298c-f373-996a-ff02a197cd36",
-                            "acidInactiveSprite": "00dd5591-298c-f373-996a-ff02a197cd36",
-                            "lightningActiveSprite": "2e02b31c-e74e-d1e1-3386-984bb567192e",
-                            "lightningInactiveSprite": "2e02b31c-e74e-d1e1-3386-984bb567192e"
+                            "fireActiveSprite": "110609c0-b3a2-4206-d5a4-d49818879db4",
+                            "fireInactiveSprite": "110609c0-b3a2-4206-d5a4-d49818879db4",
+                            "acidActiveSprite": "97a23dfc-f993-4072-0d51-0c6204073625",
+                            "acidInactiveSprite": "97a23dfc-f993-4072-0d51-0c6204073625",
+                            "lightningActiveSprite": "d521c504-6c91-0239-207a-e78895019135",
+                            "lightningInactiveSprite": "d521c504-6c91-0239-207a-e78895019135"
                         },
                         "NameComponent": {
                             "entityName": "Ability 2",
@@ -2648,7 +2648,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "00000000-0000-0000-0000-000000000000",
@@ -2714,12 +2714,12 @@
                             "defaultSprite": "00000000-0000-0000-0000-000000000000",
                             "baseActiveSprite": "00000000-0000-0000-0000-000000000000",
                             "baseInactiveSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireActiveSprite": "047d0373-a1b3-2cb0-0bca-a4376e6b72e8",
-                            "fireInactiveSprite": "fe3f2389-442e-3a6a-06fc-9c20ac75f95d",
-                            "acidActiveSprite": "ad5c96b9-2e80-939d-b443-756523f6e0ba",
-                            "acidInactiveSprite": "f3f71581-ae33-30ca-8ff1-7b2aa99ad23d",
-                            "lightningActiveSprite": "a53240f2-b7d1-d960-b529-b707ee9a3f5d",
-                            "lightningInactiveSprite": "407f009c-3717-6aab-0a9d-0b73c1eeb134"
+                            "fireActiveSprite": "54044dee-5b51-99b1-c747-1b8b681a0080",
+                            "fireInactiveSprite": "26d1e139-dcf8-5df9-1c69-3a5a58fee0c9",
+                            "acidActiveSprite": "216e1815-9b4c-f2ee-f6c7-1b0904204191",
+                            "acidInactiveSprite": "dd322a5e-a43e-dd47-e929-059f130c90fb",
+                            "lightningActiveSprite": "9847f7f4-b1ed-2707-d33d-0722c8c2a7e7",
+                            "lightningInactiveSprite": "22818ec9-2c10-c454-4fad-c6f691633409"
                         },
                         "NameComponent": {
                             "entityName": "Ability 3",
@@ -2728,7 +2728,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "00000000-0000-0000-0000-000000000000",
@@ -2761,8 +2761,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             },
@@ -2778,8 +2778,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.41999998688697815,
-                                    "y": 0.10999999940395355,
+                                    "x": 0.4300000071525574,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             }
@@ -2794,7 +2794,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "26b06809-cebf-df1a-80c1-6782c4366403",
@@ -2857,9 +2857,9 @@
                             "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
                             "playerObjectID": 0,
                             "noneSprite": "00000000-0000-0000-0000-000000000000",
-                            "fireSprite": "9f0ad91c-72f9-804e-2642-475080d2e54d",
-                            "lightningSprite": "e76a7398-7c0f-cd5d-a276-15420d3991a0",
-                            "acidSprite": "f184fa8e-c58e-54a4-6d89-e2d8924fd4ec"
+                            "fireSprite": "6377a300-df4b-682d-a9c7-5aefb0bb2128",
+                            "lightningSprite": "da60e477-c6ef-a2f8-ba75-a80a6c88a2b5",
+                            "acidSprite": "b69b5f2e-baaa-736a-794c-fb5c1cc60575"
                         },
                         "NameComponent": {
                             "entityName": "Element",
@@ -2868,7 +2868,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "00000000-0000-0000-0000-000000000000",
@@ -2891,8 +2891,8 @@
                         "TransformComponent": {
                             "WorldTransformation": {
                                 "position": {
-                                    "x": -0.7256829738616943,
-                                    "y": -0.7972077131271362,
+                                    "x": -0.7300000190734863,
+                                    "y": -0.800000011920929,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2901,15 +2901,15 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.12999999523162842,
-                                    "y": 0.12999999523162842,
+                                    "x": 0.15000000596046448,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             },
                             "LocalTransformation": {
                                 "position": {
-                                    "x": -0.7256829738616943,
-                                    "y": -0.7972077131271362,
+                                    "x": -0.7300000190734863,
+                                    "y": -0.800000011920929,
                                     "z": 0.0
                                 },
                                 "rotation": {
@@ -2918,8 +2918,8 @@
                                     "z": 0.0
                                 },
                                 "scale": {
-                                    "x": 0.12999999523162842,
-                                    "y": 0.12999999523162842,
+                                    "x": 0.15000000596046448,
+                                    "y": 0.15000000596046448,
                                     "z": 1.0
                                 }
                             }
@@ -2934,7 +2934,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "956ebc81-6f4d-b2c4-a208-9f949489add7",
@@ -2998,7 +2998,7 @@
                         },
                         "EnemyHealthScript": {
                             "playerObject": "dc3cc8b0-f51e-12d5-0ab2-8c8d690d90e8",
-                            "raycastRange": 30.0,
+                            "raycastRange": 1000.0,
                             "showDebugRay": true,
                             "healthBarFillEntity": "fcdccb14-b029-3752-38b6-8276375ce41c",
                             "healthBarFullEntity": "e736b2e7-d848-f9f7-cf08-b4d5951197dc",
@@ -3021,7 +3021,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Enemy HUD.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "TransformComponent": {
                             "WorldTransformation": {
@@ -3069,7 +3069,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "Enemy HUD.prefab",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "SpriteComponent": {
                                     "spriteGUID": "a8994653-aaa4-b27c-5a0b-70a872e07c56",
@@ -3135,7 +3135,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "Enemy HUD.prefab",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "SpriteComponent": {
                                     "spriteGUID": "c05af7da-ba16-6799-ba38-e2a4dd1ef801",
@@ -3201,7 +3201,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "Enemy HUD.prefab",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "SpriteComponent": {
                                     "spriteGUID": "0dfd8ac3-6851-9f65-35ce-31279894850c",
@@ -3267,7 +3267,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "Enemy HUD.prefab",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "SpriteComponent": {
                                     "spriteGUID": "e7cea814-4cbb-3b00-1a41-5f2f601c0341",
@@ -3333,7 +3333,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "Enemy HUD.prefab",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "SpriteComponent": {
                                     "spriteGUID": "e4bbb1ae-5147-cc65-f18d-7e0a8b10cd5b",
@@ -3399,7 +3399,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "Enemy HUD.prefab",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "SpriteComponent": {
                                     "spriteGUID": "e4bbb1ae-5147-cc65-f18d-7e0a8b10cd5b",
@@ -3465,7 +3465,7 @@
                                     "isPrefab": false,
                                     "isStatic": false,
                                     "prefabName": "Enemy HUD.prefab",
-                                    "hide": true
+                                    "hide": false
                                 },
                                 "SpriteComponent": {
                                     "spriteGUID": "e4bbb1ae-5147-cc65-f18d-7e0a8b10cd5b",
@@ -3538,7 +3538,7 @@
                     "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "Pause Screen Canvas.prefab",
-                    "hide": true
+                    "hide": false
                 },
                 "PauseMenuScript": {
                     "pauseMenuCanvasGUID": "53f83bac-2058-5939-b2a8-134497980574",
@@ -3599,7 +3599,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "6988c495-899e-e79d-0cb8-3cc55bceeedd",
@@ -3665,7 +3665,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "1432a2fc-cfcb-05ad-493f-84aeed00ce8d",
@@ -3731,7 +3731,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e115a1eb-7c39-2bfa-75bc-c019179fc084",
@@ -3875,7 +3875,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "00594efd-b6f0-489e-7c7f-c985999f4823",
@@ -4029,7 +4029,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "7ad55f44-7c75-51aa-c145-4b7af063d811",
@@ -4183,7 +4183,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "c4e6323c-49f8-6914-17c8-48e7e8ea4374",
@@ -4337,7 +4337,7 @@
                             "isPrefab": true,
                             "isStatic": false,
                             "prefabName": "Pause Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "3efb3936-4a9f-1129-c2a6-db5bb3dd92c1",
@@ -4436,7 +4436,7 @@
                     "isPrefab": false,
                     "isStatic": false,
                     "prefabName": "Level Complete Canvas.prefab",
-                    "hide": true
+                    "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -4484,7 +4484,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "6988c495-899e-e79d-0cb8-3cc55bceeedd",
@@ -4550,7 +4550,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "d198064c-9163-4676-1140-bc1dc97ce847",
@@ -4616,7 +4616,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "af1dadc5-efbb-c724-a131-6e10fe338758",
@@ -4682,7 +4682,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "5ff7b122-936f-8e72-4ad7-047d88f31b90",
@@ -4826,7 +4826,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Level Complete Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "e7ac63e2-dc50-c7e5-f42a-8c2d3db5eccc",
@@ -4884,8 +4884,8 @@
                         },
                         "UIButtonScript": {
                             "actionType": 1,
-                            "currentSceneGUID": "7d1be7c7-26e7-58c8-67b5-c3640955da4c",
-                            "targetSceneGUID": "8b1b25ff-568a-5bb5-d5d7-c6fd2f0a8905",
+                            "currentSceneGUID": "8b1b25ff-568a-5bb5-d5d7-c6fd2f0a8905",
+                            "targetSceneGUID": "3340bc3d-ca6f-b3cd-b15c-265523f696c5",
                             "useKeyboardShortcuts": false,
                             "wasPressed": false,
                             "resumeSfxGUID": "2638a282-e5e5-deb0-7317-617b459e0780",
@@ -4902,7 +4902,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -4960,7 +4960,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5018,7 +5018,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5076,7 +5076,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5134,7 +5134,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5192,7 +5192,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5250,7 +5250,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5308,7 +5308,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5366,7 +5366,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5424,7 +5424,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5505,7 +5505,7 @@
                     "isPrefab": false,
                     "isStatic": false,
                     "prefabName": "Lose Screen Canvas.prefab",
-                    "hide": true
+                    "hide": false
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -5553,7 +5553,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5611,7 +5611,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5669,7 +5669,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5727,7 +5727,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5785,7 +5785,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5843,7 +5843,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5901,7 +5901,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -5959,7 +5959,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -6017,7 +6017,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -6075,7 +6075,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -6133,7 +6133,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "",
-                            "hide": true
+                            "hide": false
                         },
                         "TextComponent": {
                             "fontGUID": "7c849437-f520-f246-6742-d47c3e0d9657",
@@ -6269,7 +6269,7 @@
                             "isPrefab": false,
                             "isStatic": false,
                             "prefabName": "Lose Screen Canvas.prefab",
-                            "hide": true
+                            "hide": false
                         },
                         "SpriteComponent": {
                             "spriteGUID": "f08012fe-fdce-8122-e84a-04c32e8a3828",
@@ -6466,7 +6466,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -6729,7 +6730,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -8819,7 +8821,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -8893,7 +8896,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -9030,7 +9034,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -9230,7 +9235,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -10375,7 +10381,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -10575,7 +10582,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -11405,7 +11413,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -12172,7 +12181,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -12246,7 +12256,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -12320,7 +12331,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -12394,7 +12406,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -14673,7 +14686,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -14747,7 +14761,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -16144,7 +16159,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -18045,7 +18061,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -18119,7 +18136,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -18319,7 +18337,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19212,7 +19231,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19286,7 +19306,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19360,7 +19381,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19434,7 +19456,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19508,7 +19531,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19582,7 +19606,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19656,7 +19681,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -19856,7 +19882,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -20056,7 +20083,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -20193,7 +20221,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -20267,7 +20296,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -20341,7 +20371,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -20415,7 +20446,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -20489,7 +20521,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -20563,7 +20596,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22212,7 +22246,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22286,7 +22321,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22360,7 +22396,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22434,7 +22471,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22508,7 +22546,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22582,7 +22621,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22656,7 +22696,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22730,7 +22771,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -22804,7 +22846,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -23382,7 +23425,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -25472,7 +25516,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -25546,7 +25591,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -25620,7 +25666,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -25883,7 +25930,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -25957,7 +26005,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26031,7 +26080,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26105,7 +26155,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26179,7 +26230,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26379,7 +26431,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26453,7 +26506,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26527,7 +26581,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26601,7 +26656,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26675,7 +26731,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26749,7 +26806,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26823,7 +26881,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -26897,7 +26956,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -27349,7 +27409,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -27423,7 +27484,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -27497,7 +27559,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -27571,7 +27634,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -28149,7 +28213,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -28223,7 +28288,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -28990,7 +29056,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29064,7 +29131,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29138,7 +29206,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29212,7 +29281,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29286,7 +29356,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29360,7 +29431,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29434,7 +29506,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29508,7 +29581,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29771,7 +29845,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29845,7 +29920,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29919,7 +29995,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -29993,7 +30070,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30067,7 +30145,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30141,7 +30220,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30215,7 +30295,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30289,7 +30370,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30363,7 +30445,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30437,7 +30520,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30637,7 +30721,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -30963,7 +31048,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -31037,7 +31123,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -31111,7 +31198,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -31563,7 +31651,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -31637,7 +31726,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -32782,7 +32872,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -32856,7 +32947,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -33938,7 +34030,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -34012,7 +34105,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -34086,7 +34180,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -41090,7 +41185,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -41164,7 +41260,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -41931,7 +42028,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -42005,7 +42103,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -42142,7 +42241,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -42216,7 +42316,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -42290,7 +42391,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -42364,7 +42466,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -42438,7 +42541,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -42512,7 +42616,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49075,7 +49180,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49149,7 +49255,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49223,7 +49330,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49297,7 +49405,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49497,7 +49606,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49634,7 +49744,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49708,7 +49819,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49782,7 +49894,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49856,7 +49969,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -49930,7 +50044,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -50004,7 +50119,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51212,7 +51328,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51286,7 +51403,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51360,7 +51478,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51434,7 +51553,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51508,7 +51628,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51582,7 +51703,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51656,7 +51778,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -51730,7 +51853,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53064,7 +53188,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53138,7 +53263,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53212,7 +53338,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53286,7 +53413,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53360,7 +53488,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53434,7 +53563,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53508,7 +53638,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53582,7 +53713,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53656,7 +53788,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53730,7 +53863,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -53930,7 +54064,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -54004,7 +54139,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -54078,7 +54214,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -54152,7 +54289,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -54226,7 +54364,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -54300,7 +54439,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -56390,7 +56530,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -56905,7 +57046,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -56979,7 +57121,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -57053,7 +57196,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -57127,7 +57271,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -57201,7 +57346,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -57275,7 +57421,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -57853,7 +58000,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -57927,7 +58075,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -58001,7 +58150,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -58075,7 +58225,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -58149,7 +58300,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -58223,7 +58375,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -58738,7 +58891,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -58875,7 +59029,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -59138,7 +59293,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -59842,7 +59998,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -59916,7 +60073,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -59990,7 +60148,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60064,7 +60223,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60138,7 +60298,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60212,7 +60373,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60286,7 +60448,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60360,7 +60523,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60434,7 +60598,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60508,7 +60673,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60582,7 +60748,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60656,7 +60823,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60730,7 +60898,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60804,7 +60973,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60878,7 +61048,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -60952,7 +61123,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61026,7 +61198,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61100,7 +61273,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61174,7 +61348,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61248,7 +61423,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61322,7 +61498,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61396,7 +61573,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61470,7 +61648,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61544,7 +61723,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61618,7 +61798,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61692,7 +61873,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61766,7 +61948,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61840,7 +62023,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61914,7 +62098,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -61988,7 +62173,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62062,7 +62248,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62136,7 +62323,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62210,7 +62398,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62284,7 +62473,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62358,7 +62548,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62432,7 +62623,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62506,7 +62698,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62580,7 +62773,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62654,7 +62848,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62728,7 +62923,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62802,7 +62998,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62876,7 +63073,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -62950,7 +63148,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63024,7 +63223,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63098,7 +63298,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63172,7 +63373,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63246,7 +63448,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63320,7 +63523,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63394,7 +63598,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63468,7 +63673,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63542,7 +63748,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63616,7 +63823,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63690,7 +63898,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63764,7 +63973,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63838,7 +64048,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63912,7 +64123,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -63986,7 +64198,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64060,7 +64273,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64134,7 +64348,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64208,7 +64423,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64282,7 +64498,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64356,7 +64573,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64430,7 +64648,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64504,7 +64723,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64578,7 +64798,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64652,7 +64873,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64726,7 +64948,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64800,7 +65023,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64874,7 +65098,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -64948,7 +65173,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65022,7 +65248,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65096,7 +65323,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65170,7 +65398,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65244,7 +65473,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65318,7 +65548,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65392,7 +65623,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65466,7 +65698,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65540,7 +65773,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65614,7 +65848,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65688,7 +65923,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65762,7 +65998,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65836,7 +66073,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65910,7 +66148,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -65984,7 +66223,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66058,7 +66298,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66132,7 +66373,8 @@
                             "y": 800.0,
                             "z": 800.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66206,7 +66448,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66280,7 +66523,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66354,7 +66598,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66428,7 +66673,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66502,7 +66748,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -66639,7 +66886,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -67217,7 +67465,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -67291,7 +67540,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -67806,7 +68056,8 @@
                             "y": 1800.0,
                             "z": 200.0
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [
@@ -77033,7 +77284,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -78936,7 +79188,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -79283,7 +79536,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -82300,7 +82554,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -82647,7 +82902,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -82994,7 +83250,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -86011,7 +86268,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -87914,7 +88172,8 @@
                                     "y": 217.58926391601563,
                                     "z": 75.29580688476563
                                 }
-                            }
+                            },
+                            "autoFit": true
                         },
                         "MaterialComponent": {
                             "materialGUID": [
@@ -90935,7 +91194,8 @@
                     "y": 2.799999952316284,
                     "z": 11.699999809265137
                 }
-            }
+            },
+            "autoFit": false
         },
         "EventColliderScript": {
             "eventType": 1,
@@ -91004,7 +91264,8 @@
                     "y": 11.300000190734863,
                     "z": 8.399999618530273
                 }
-            }
+            },
+            "autoFit": false
         },
         "NameComponent": {
             "entityName": "LockRoomPrefab",
@@ -94188,7 +94449,8 @@
                     "y": 16.799999237060547,
                     "z": 2.5
                 }
-            }
+            },
+            "autoFit": false
         },
         "NameComponent": {
             "entityName": "LockRoomPrefab",

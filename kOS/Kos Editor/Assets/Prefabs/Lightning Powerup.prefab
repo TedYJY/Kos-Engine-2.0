@@ -70,7 +70,8 @@
                             "y": 217.58926391601563,
                             "z": 75.29580688476563
                         }
-                    }
+                    },
+                    "autoFit": true
                 },
                 "MaterialComponent": {
                     "materialGUID": [

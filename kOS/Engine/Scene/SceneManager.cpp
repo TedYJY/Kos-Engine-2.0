@@ -325,14 +325,14 @@ namespace scenes {
 		}
     }
 
-    // Files will be cached in the same location with added "filename[Cached].json" label
+    // Files will be cached in the same location with added "filename[Cached].cache" label
     void SceneManager::CacheCurrentScene(){
 
         for (auto [fileName, path] : loadScenePath) {
             auto iter = m_ecs.sceneMap.find(fileName);
             if (iter != m_ecs.sceneMap.end()) {
                 if (iter->second.isPrefab) continue;
-                std::string newPath = path.parent_path().string() + '\\' + path.stem().string() + "[Cached]" + path.extension().string();
+                std::string newPath = path.parent_path().string() + '\\' + path.stem().string() + ".cache";
                 if (std::filesystem::exists(newPath)) {
                     std::filesystem::remove(newPath);
                     std::string metaPath = newPath + ".meta";
