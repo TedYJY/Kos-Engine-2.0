@@ -97,7 +97,7 @@ namespace ecs {
 
                         //Sprite Part
                         
-                        if (!spriteComp->spriteGUID.empty() && !spriteComp->spriteGUID[spriteComp->currentFrame].Empty())
+                        if (!spriteComp->spriteGUID.empty() && spriteComp->spriteGUID.size() > spriteComp->currentFrame && !spriteComp->spriteGUID[spriteComp->currentFrame].Empty())
                         {
                             std::shared_ptr<R_Texture> fontResource = m_resourceManager.GetResource<R_Texture>(spriteComp->spriteGUID[spriteComp->currentFrame]);
 
@@ -128,11 +128,45 @@ namespace ecs {
             for (EntityID childID : childEntities.value())
             {
 
-                if (m_ecs.HasComponent<AnimatedSpriteComponent>(childID))
+                if (m_ecs.HasComponent<AnimatedSpriteComponent>(childID) && m_ecs.HasComponent<AnimatorComponent>(childID))
                 {
+                    AnimatorComponent* animComp = m_ecs.GetComponent<AnimatorComponent>(childID);
                     AnimatedSpriteComponent* spriteComp = m_ecs.GetComponent<AnimatedSpriteComponent>(childID);
                     TransformComponent* childTransform = m_ecs.GetComponent<TransformComponent>(childID);
-                    if (!spriteComp->spriteGUID.empty() && !spriteComp->spriteGUID[spriteComp->currentFrame].Empty())
+
+
+                    if (animComp->m_IsPlaying)
+                    {
+                        int steps = m_physicsManager.FrameCount();
+
+                        for (int i = 0; i < steps; i++)
+                        {
+                            float delta = m_physicsManager.FixedDeltaTime() * animComp->m_PlaybackSpeed;
+
+                            float totalDuration = static_cast<float>(static_cast<float>(spriteComp->spriteGUID.size()) / static_cast<float>(spriteComp->framesPerSecond));
+
+                            animComp->m_CurrentTime += delta;
+
+                            if (spriteComp->isLooping)
+                            {
+                                if (totalDuration > 0.0f)
+                                    animComp->m_CurrentTime = fmod(animComp->m_CurrentTime, totalDuration);
+                                
+                                
+                            }
+
+
+                            spriteComp->currentFrame = static_cast<int>(
+                                animComp->m_CurrentTime * spriteComp->framesPerSecond
+                                );
+
+                            if (animComp->m_CurrentTime > totalDuration && !spriteComp->isLooping)
+                                spriteComp->currentFrame = spriteComp->spriteGUID.size() - 1;
+
+                            
+                        }
+                    }
+                    if (!spriteComp->spriteGUID.empty() && spriteComp->spriteGUID.size() > spriteComp->currentFrame && !spriteComp->spriteGUID[spriteComp->currentFrame].Empty())
                     {
                         std::shared_ptr<R_Texture> fontResource = m_resourceManager.GetResource<R_Texture>(spriteComp->spriteGUID[spriteComp->currentFrame]);
 

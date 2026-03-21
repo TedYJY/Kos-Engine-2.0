@@ -72,7 +72,7 @@ namespace ecs{
 		RegisterSystem<AudioSystem, TransformComponent, AudioComponent>(0);
 		RegisterSystem<ParticleSystem, TransformComponent, ParticleComponent>(0);
 		RegisterSystem<VideoSystem, TransformComponent, VideoComponent>(0, RUNNING);
-		RegisterSystem<CanvasAnimatedSpriteRenderSystem, TransformComponent, AnimatedSpriteComponent, AnimatorComponent>(0);
+		RegisterSystem<CanvasAnimatedSpriteRenderSystem, TransformComponent, CanvasRendererComponent>(0);
 
 
 	}
