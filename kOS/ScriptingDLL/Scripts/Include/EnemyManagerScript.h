@@ -70,6 +70,7 @@ public:
 	ecs::EntityID enemyHurtboxPositionID;
 
 	ecs::EntityID enemyModelID;
+	ecs::EntityID currentHurtboxID = 0;
 
 	bool attackHurtboxIsSpawn = false;
 
@@ -553,6 +554,8 @@ inline void EnemyManagerScript::Update() {
 								std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
 								ecs::EntityID enemyHurtboxID = DuplicatePrefabIntoScene<R_Scene>(currentScene, enemyHurtboxPrefab);
 
+								currentHurtboxID = enemyHurtboxID;
+
 								ecsPtr->SetParent(entity, enemyHurtboxID, false);
 
 								if (auto* enemyHurtboxTransform = ecsPtr->GetComponent<TransformComponent>(enemyHurtboxID)) {
@@ -757,4 +760,12 @@ inline void EnemyManagerScript::Die() {
 	if (!isStaggered) {
 		navMeshPtr->RemoveAgent(agentid);
 	}
+
+	if (currentHurtboxID != 0) {
+		ecsPtr->DeleteEntity(currentHurtboxID);
+		currentHurtboxID = 0; // Clear it out
+	}
+
+	ecsPtr->RemoveComponent<CapsuleColliderComponent>(entity);
+	ecsPtr->RemoveComponent<RigidbodyComponent>(entity);
 }
