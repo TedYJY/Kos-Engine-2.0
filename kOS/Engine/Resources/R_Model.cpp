@@ -473,6 +473,15 @@ void R_Model::DrawAnimation(Shader& shader, std::shared_ptr<PBRMaterial> const& 
 
     }
 
+    //if (!boneMatrices.empty())
+    //{
+    //    //for (int i = 0; i < boneMatrices.size(); i++)
+    //    //{
+    //    //    shader.SetMat4("bones[" + std::to_string(i) + "]", boneMatrices[i]);
+    //    //}
+    //    std::string loc{ "bones" };
+    //    shader.SetMat4(loc, boneMatrices, boneMatrices.size());
+    //}
     std::vector<PBRMaterial>& pbr = reinterpret_cast<PBRMaterialList*>(pbrMat.get())->pbrMatList;
     for (unsigned int i = 0, j = 0; i < meshes.size(); i++) {
         j = j < pbr.size() - 1 ? j + 1 : j;
