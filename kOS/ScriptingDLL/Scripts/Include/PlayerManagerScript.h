@@ -169,8 +169,6 @@ public:
 	float muzzleTimer = 0.35f;
 	float muzzleCurrTimer = muzzleTimer;
 	
-	utility::GUID projSpawnPointGUID;
-	ecs::EntityID projSpawnPointID;
 
 	// BACKEND PLAYER DETAILS
 	float playerRotationX = 0.f, playerRotationY = 0.f;
@@ -417,7 +415,7 @@ public:
 		gunSfxGUID_1, gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, fireEquipSfxGUID, fireAbsorbSfxGUID, acidEquipSfxGUID, acidShieldSfxGuid, lightningSlowStartSfxGUID,lightningSlowEndSfxGUID, lightningGunSfxGUID,
 		lightningAbsorbSfxGUID, lightningEquipSfxGUID, acidGrenadeGunSfxGUID, acidAbsorbSfxGUID, pauseMenuOpenSfxGUID, pauseMenuCloseSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject,
 		winScreenCanvasObject, absorbFireVFXPrefab, absorbLightningVFXPrefab, absorbAcidVFXPrefab, absorbingVFXSpawnPoint, muzzleFlashGUID, pistolModelObject,
-		fireSwordModelObject, lightningModelObject, acidModelObject, gameUICanvasObject, projSpawnPointGUID)
+		fireSwordModelObject, lightningModelObject, acidModelObject, gameUICanvasObject)
 
 		/*REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
 			bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab, airBlastPrefab,
@@ -455,7 +453,6 @@ inline void PlayerManagerScript::Start() {
 	playerArmModelObjectID = ecsPtr->GetEntityIDFromGUID(playerArmModelObject);
 	playerGroundCheckObjectID = ecsPtr->GetEntityIDFromGUID(playerGroundCheckObject);
 	absorbVFXSpawnObjectID = ecsPtr->GetEntityIDFromGUID(absorbingVFXSpawnPoint);
-	projSpawnPointID = ecsPtr->GetEntityIDFromGUID(projSpawnPointGUID);
 
 	// PISTOL
 	if (pistolModelObject != utility::GUID{}) {
@@ -1241,14 +1238,27 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 	//projectilePointTransform->LocalTransformation.position = cameraTransform->LocalTransformation.position + GetPlayerCameraFrontDirection() * 1.5f;
 
-	if (projSpawnPointID != 0) {
-		auto* muzzleTf = ecsPtr->GetComponent<TransformComponent>(projSpawnPointID);
-		if (muzzleTf)
-			projectilePointTransform->WorldTransformation.position = muzzleTf->WorldTransformation.position;
-	}
-	else {
-		projectilePointTransform->LocalTransformation.position = cameraTransform->LocalTransformation.position + GetPlayerCameraFrontDirection() * 1.5f;
-	}
+	//projectilePointTransform->LocalTransformation.position = cameraTransform->LocalTransformation.position + GetPlayerCameraFrontDirection() * 1.5f;
+	// 
+	projectilePointTransform->LocalTransformation.position = cameraTransform->LocalTransformation.position
+		+ GetPlayerCameraFrontDirection() * 4.0f   // forward distance
+		+ GetPlayerCameraRightDirection() * -0.5f   // shift right (negative = left)
+		+ GetPlayerCameraUpDirection() * -1.f;    // shift up/down
+
+	auto GetConvergedDirection = [&]() -> glm::vec3 {
+		glm::vec3 spawnPos = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
+		glm::vec3 aimTarget = cameraTransform->WorldTransformation.position + GetPlayerCameraFrontDirection() * 100.f;
+		return glm::normalize(aimTarget - spawnPos);
+	};
+
+	//if (projSpawnPointID != 0) {
+	//	auto* muzzleTf = ecsPtr->GetComponent<TransformComponent>(projSpawnPointID);
+	//	if (muzzleTf)
+	//		projectilePointTransform->WorldTransformation.position = muzzleTf->WorldTransformation.position;
+	//}
+	//else {
+	//	projectilePointTransform->LocalTransformation.position = cameraTransform->LocalTransformation.position + GetPlayerCameraFrontDirection() * 1.5f;
+	//}
 
 	//Animation Handling
 	//if (animComp)
@@ -1820,7 +1830,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				bulletTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
 
 			if (auto* bulletScript = ecsPtr->GetComponent<BulletLogic>(bulletID))
-				bulletScript->direction = GetPlayerCameraFrontDirection();
+				bulletScript->direction = GetConvergedDirection();
 
 			ecsPtr->SetActive(muzzleFlashID, true);
 			muzzleCurrTimer = muzzleTimer;
@@ -1976,7 +1986,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				acidLMBTf->LocalTransformation.position = spawnTf->WorldTransformation.position;
 
 				if (auto* acidLMBScript = ecsPtr->GetComponent<AcidLMB>(acidLMBID)) {
-					glm::vec3 launchVel = GetPlayerCameraFrontDirection() * acidLMBScript->launchSpeed;
+					glm::vec3 launchVel = GetConvergedDirection() * acidLMBScript->launchSpeed;
 					launchVel.y += acidLMBScript->arcUpwardKick;
 					acidLMBScript->velocity = launchVel;
 				}
@@ -2001,7 +2011,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 
 				if (auto* lightningLMBScript = ecsPtr->GetComponent<LightningLMB>(lightningLMBID)) {
-					lightningLMBScript->direction = GetPlayerCameraFrontDirection();
+					lightningLMBScript->direction = GetConvergedDirection();
 				}
 			}
 
@@ -2042,7 +2052,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				}
 
 				if (auto* fireballScript = ecsPtr->GetComponent<FirePowerupManagerScript>(fireballID)) {
-					fireballScript->direction = GetPlayerCameraFrontDirection();
+					fireballScript->direction = GetConvergedDirection();
 				}
 
 				currMana -= fireAbilityCost;
@@ -2079,8 +2089,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 					airBlastTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(playerProjectilePointObjectID)->WorldTransformation.position;
 
-					glm::vec3 dir = glm::normalize(GetPlayerCameraFrontDirection());
-					float yaw = glm::degrees(atan2(dir.x, dir.z)) + 90.f;
+					glm::vec3 dir = GetConvergedDirection();					float yaw = glm::degrees(atan2(dir.x, dir.z)) + 90.f;
 					float pitch = glm::degrees(asin(-dir.y));
 					float roll = 0.f;
 
@@ -2141,7 +2150,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				//	railgunScript->direction = GetPlayerCameraFrontDirection();
 				//}
 
-				glm::vec3 dir = glm::normalize(GetPlayerCameraFrontDirection());
+				glm::vec3 dir = GetConvergedDirection();				
 				float yaw = glm::degrees(atan2(dir.x, dir.z)) + 180.f;
 				float pitch = glm::degrees(asin(-dir.y));
 				float roll = 0.f;
@@ -2299,10 +2308,9 @@ inline glm::vec3 PlayerManagerScript::GetPlayerCameraRightDirection() {
 	glm::vec3 dir;
 	dir.x = std::sin(yaw);
 	dir.y = 0.f;
-	dir.z = -std::sin(yaw);
+	dir.z = -std::cos(yaw);
 
 	dir = glm::normalize(dir);
-
 	return dir;
 }
 
