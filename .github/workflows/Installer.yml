@@ -1,0 +1,30 @@
+name: Build and Package Installer
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-package-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # 1. Compile your engine/game (Example using CMake)
+      - name: Configure with CMake
+        run: cmake -S kOS -B kOS/build
+        shell: powershell
+        
+      - name: Build (Release)
+        run: cmake --build kOS/build --config Release -- /m
+        shell: powershell
+
+      # 1.5 Compile Assets to Resource Folder
+      - name: Compile Assets via KosEngine
+        shell: bash
+        run: .kOS/bin/Release/Kos_Editor.exe --pack-assets
