@@ -104,8 +104,9 @@ int main(int argc, char* argv[])
 	flags<<"\" -ft DDS -f BC3_UNORM ";
 	if(hf)flags << "-hflip ";
 	if (vf)flags << "-vflip ";
-	if(width)flags << "-w " << width << " ";
-	if(height)flags << "-h " << height << " ";
+	if (width > 0)  flags << "-w " << (int)width << " ";
+	if (height > 0) flags << "-h " << (int)height << " ";
+	if (mipLevel > 0) flags << "-m " << (int)mipLevel << " ";
 	flags << "-m " << mipLevel << " ";
 	flags << srgbSetting << " ";
 	if (wrapSetting) {
