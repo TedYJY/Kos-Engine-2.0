@@ -15,9 +15,10 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 /********************************************************************/
 
 #include "Application.h"
+#include "Configs/ConfigPath.h"
 #include <filesystem>
 
-    int main()
+    int main(int argc, char* argv[])
     {
         
         // Enable run-time memory check for debug builds.
@@ -29,15 +30,29 @@ prior written consent of DigiPen Institute of Technology is prohibited.
         std::filesystem::path root = exePath.parent_path().parent_path(); // up two levels
         std::filesystem::current_path(root);
 
+        for (int i = 1; i < argc; ++i) {
+            std::string arg = argv[i];
+            if (arg == "--pack-assets") {
+                std::cout << "[KosEngine] Running in headless asset packing mode..." << std::endl;
+
+                AssetManager assetManager;
+                try {
+                    assetManager.Init(configpath::assetFilePath, configpath::resourceFilePath);
+                }
+                catch(...){
+                    return 1;
+                }
+
+                // Return 0 on success, 1 on failure so GitHub Actions knows if it crashed
+                return 0;
+            }
+        }
+
+
         Application::Application app{};
-
 		app.exePath = exePath;
-       
         app.Init();
-       
-
         app.Run();
-
         app.m_Cleanup();
 
 
