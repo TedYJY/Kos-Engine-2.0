@@ -27,5 +27,7 @@ jobs:
 
       # 1.5 Compile Assets to Resource Folder
       - name: Compile Assets via KosEngine
-        shell: bash
-        run: .kOS/bin/Release/Kos_Editor.exe --pack-assets
+        working-directory: .\kOS
+        run: .\bin\Release\Kos_Editor.exe --pack-assets
+        shell: powershell
+        
