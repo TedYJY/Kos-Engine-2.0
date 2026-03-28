@@ -8,25 +8,13 @@ on:
 
 jobs:
   build-and-package-windows:
-    runs-on: windows-latest
+    runs-on: self-hosted
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          
-      - name: Install Visual C++ Redistributable
-        run: choco install vcredist-all -y
-
-      - name: Setup DirectX Software Rendering
-        run: |
-          setx DIRECT3D_DEVICE WARP
-    
-      - name: Enable graphics for compilers
-        run: |
-          # Ensure DirectX is available
-          Get-WindowsCapability -Online | Where-Object {$_.Name -like "*Graphics*"} | Add-WindowsCapability -Online  
           
       # 1. Compile your engine/game (Example using CMake)
       - name: Configure with CMake
