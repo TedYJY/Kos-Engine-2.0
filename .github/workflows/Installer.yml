@@ -19,6 +19,11 @@ jobs:
       - name: Install Visual C++ Redistributable
         run: choco install vcredist-all -y
         
+      - name: Enable graphics for compilers
+        run: |
+          # Ensure DirectX is available
+          Get-WindowsCapability -Online | Where-Object {$_.Name -like "*Graphics*"} | Add-WindowsCapability -Online  
+          
       # 1. Compile your engine/game (Example using CMake)
       - name: Configure with CMake
         run: cmake -S kOS -B kOS/build
