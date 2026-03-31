@@ -63,7 +63,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: Installer/INSTALLER/Alchemication_Setup.exe # Point exactly to your generated installer
+          tag_name: v1.0.${{ github.run_number }}
+          files: Installer/INSTALLER/Alchemication_Setup.exe
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
