@@ -246,7 +246,7 @@ std::future<void> AssetManager::Compilefile(const std::filesystem::path& filePat
 
             // CLEAN STRING BUILDING: Just the arguments, no outer wrapper quotes needed!
             std::string arguments = "\"" + inputPath + "\" \"" + absmetaPath + "\" \"" + outputResourcePath + "\"";
-
+			std::cout << "COMMAND DEBUG: " << arguments << std::endl; 
             compilerTasks.push_back(std::async(std::launch::async, [compilerPath, arguments]() {
 
                 // Call our robust native Windows API helper
