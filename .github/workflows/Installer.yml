@@ -74,11 +74,12 @@ jobs:
 
       # 5. Update README and push
       - name: Update README with Latest Release Link
+        shell: bash
         run: |
           TAG_NAME="v1.0.${{ github.run_number }}"
           REPO_URL="https://github.com/jazwinn/Kos-Engine-2.0/releases/tag/$TAG_NAME"
           
-          # Delete the old automated link line if it exists (so they don't stack up)
+          # Delete the old automated link line if it exists
           sed -i '/\[🎉 Download Latest kOS Engine Release/d' README.md
           
           # Append the new versioned link to the bottom of the file
@@ -88,7 +89,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
-          # Only commit if there are actually changes to avoid workflow errors
           git diff --quiet && git diff --staged --quiet || git commit -m "docs: auto-update release link to $TAG_NAME"
           git push
         env:
