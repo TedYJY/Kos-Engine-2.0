@@ -1,4 +1,4 @@
-# 👾 KosEngine 2.0  
+﻿# 太 KosEngine 2.0  
 
 ![C++](https://img.shields.io/badge/C%2B%2B-20-blue.svg)
 ![CMake](https://img.shields.io/badge/Build-CMake-green.svg)
@@ -14,7 +14,7 @@ This release focuses on **performance, scalability**, and **automated testing** 
 ## Preview
 <img width="1898" height="1000" alt="Screenshot 2025-10-26 010148" src="https://github.com/user-attachments/assets/f41733e9-afb0-4b02-86b4-5d602736ff25" />
 
-## 📂 Repository Structure
+## 唐 Repository Structure
 
 The repository is organized into several key components:
 
@@ -27,25 +27,25 @@ The repository is organized into several key components:
 - **Compiler Solutions/**: Standalone tools for compiling assets (Fonts, Meshes, Textures, Videos).
 - **bin/**: Output directory for compiled binaries and required DLLs.
 
-## 🚀 Features  
+## 噫 Features  
 
-### 🧱 Core Architecture  
+### ｧｱ Core Architecture  
 - **Entity-Component-System (ECS)**: Modular and efficient gameplay logic.
 - **Compile-Time Reflection**: For serialization, editor integration, and metadata generation.
 - **Field Metadata System**: Enabling safe introspection and manipulation of class fields.
 - **C++ Scripting**: Hot-reloadable scripting system for rapid gameplay iteration.
 
-### 🖥️ Graphics  
+### 箕・・Graphics  
 - **Modern 3D Rendering Pipeline**: Support for materials, meshes, lighting, and cameras.
 - **GPU Resource Management**: Optimized GPU resource and draw call management.
 - **Shader System**: Built-in support for advanced shaders and materials.
 
-### 📦 Asset & Resource System  
+### 逃 Asset & Resource System  
 - **Asset Pipeline**: Specialized compilers handled via `Compiler Solutions`.
 - **Centralized Asset Manager**: Caching, reference counting, and hot-reloading.
 - **JSON-based Definitions**: Easy editing and tool integration for scenes and prefabs.
 
-## ⚙️ Build & Run
+## 笞呻ｸ・Build & Run
 
 ### Prerequisites
 - **Windows 10/11**
@@ -68,7 +68,8 @@ The repository is organized into several key components:
    ./Kos_Editor.exe
    ```
 
-## 🧪 Testing  
+## ｧｪ Testing  
 - **GoogleTest**: Comprehensive unit testing for core systems.
 - **CI/CD**: Automated builds and test validation via Bitbucket Pipelines.
 
+[脂 Download Latest kOS Engine Release (v1.0.28)](https://github.com/jazwinn/Kos-Engine-2.0/releases/tag/v1.0.28)
