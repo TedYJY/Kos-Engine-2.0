@@ -16,6 +16,23 @@ std::string getShortPath(const std::string& longPath) {
 	}
 	return longPath; // fallback
 }
+bool GetPNGDimensions(const std::string& filepath, uint32_t& outWidth, uint32_t& outHeight) {
+	std::ifstream file(filepath, std::ios::binary);
+	if (!file) return false;
+
+	unsigned char header[24];
+	if (!file.read(reinterpret_cast<char*>(header), 24)) return false;
+
+	// Verify it's actually a PNG (Magic Number check)
+	if (header[0] != 0x89 || header[1] != 0x50 || header[2] != 0x4E || header[3] != 0x47) {
+		return false;
+	}
+
+	// Extract width and height from the IHDR chunk (Big Endian)
+	outWidth = (header[16] << 24) | (header[17] << 16) | (header[18] << 8) | header[19];
+	outHeight = (header[20] << 24) | (header[21] << 16) | (header[22] << 8) | header[23];
+	return true;
+}
 int main(int argc, char* argv[])
 {
 	std::string texturePath{ std::filesystem::absolute(argv[1]).string() };
@@ -120,19 +137,33 @@ int main(int argc, char* argv[])
 	std::string command = "\"\"" + exePath + flags.str() + outputFilePath + "\" \"" + texturePath + "\"\"";
 	/*command += outputFilePath + "\" \"" + texturePath + "\"";*/
 	std::cout <<"COMMAND: " << command << '\n';
+
 	int result = std::system(command.c_str());
 	if (result != 0) {
 		std::cerr << "Command failed with code: " << result << std::endl;
 	}
-	// Delete the temporary batch file
-	//std::filesystem::remove(tempBatch);
-	//Rename the file
+
+	// Construct the expected output path
 	outputFilePath += '\\';
 	outputFilePath += fileName;
 	outputFilePath += ".dds";
-	std::cout<<"Output file path" << outputFilePath << '\n';
-	std::cout<<"New file path" << outputPath << '\n';
-	std::filesystem::rename(outputFilePath, outputPath);
+	std::cout << "Expected output file path: " << outputFilePath << '\n';
+	std::cout << "New file path: " << outputPath << '\n';
 
-	return 0;;
+	// 1. Check if texconv actually created the file
+	if (!std::filesystem::exists(outputFilePath)) {
+		std::cerr << "ERROR: Texture compiler failed to generate " << fileName << ".dds! (Check image dimensions or format)" << std::endl;
+		return -1; // Exit gracefully instead of crashing
+	}
+
+	// 2. Use std::error_code to prevent unhandled exception crashes
+	std::error_code ec;
+	std::filesystem::rename(outputFilePath, outputPath, ec);
+
+	if (ec) {
+		std::cerr << "ERROR: Failed to rename file: " << ec.message() << std::endl;
+		return -1;
+	}
+
+	return 0;
 }
