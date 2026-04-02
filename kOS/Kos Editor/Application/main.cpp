@@ -26,32 +26,38 @@ prior written consent of DigiPen Institute of Technology is prohibited.
                 _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
         #endif
 
+        std::filesystem::path exePath = std::filesystem::current_path();
+        std::filesystem::path root = exePath.parent_path().parent_path(); // up two levels
+        std::filesystem::current_path(root);
+
         for (int i = 1; i < argc; ++i) {
             std::string arg = argv[i];
             if (arg == "--pack-assets") {
                 std::cout << "[KosEngine] Running in headless asset packing mode..." << std::endl;
 
-                AssetManager assetManager;
-                try {
-                    assetManager.Init(configpath::assetFilePath, configpath::resourceFilePath);
-                }
-                catch (const std::exception& e) {
-                    std::cerr << "[KosEngine Fatal] AssetManager failed: " << e.what() << std::endl;
-                    return 1;
-                }
-                catch (...) {
-                    std::cerr << "[KosEngine Fatal] AssetManager failed with unknown exception." << std::endl;
-                    return 1;
-                }
+				// do it twice in case it missed any assets in the first
+				
+				for (int n = 0; n < 2; ++n){
+	                AssetManager assetManager;
+	                try {
+	                    assetManager.Init(configpath::assetFilePath, configpath::resourceFilePath);
+	                }
+	                catch (const std::exception& e) {
+	                    std::cerr << "[KosEngine Fatal] AssetManager failed: " << e.what() << std::endl;
+	                    return 1;
+	                }
+	                catch (...) {
+	                    std::cerr << "[KosEngine Fatal] AssetManager failed with unknown exception." << std::endl;
+	                    return 1;
+	                }
+				}
 
                 // Return 0 on success, 1 on failure so GitHub Actions knows if it crashed
                 return 0;
             }
         }
 
-        std::filesystem::path exePath = std::filesystem::current_path();
-        std::filesystem::path root = exePath.parent_path().parent_path(); // up two levels
-        std::filesystem::current_path(root);
+
 
         Application::Application app{};
 		app.exePath = exePath;

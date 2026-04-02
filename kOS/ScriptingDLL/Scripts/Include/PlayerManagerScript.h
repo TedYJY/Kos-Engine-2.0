@@ -5,6 +5,7 @@
 #include "WinScreenScript.h"
 #include "LevelCompleteScript.h"
 #include "ScoreManagerScript.h"
+#include "RoomLockScript.h"
 
 // --- FORWARD DECLARATIONS ---
 // Tell the compiler these classes exist first, preventing circular dependency crashes
@@ -17,6 +18,7 @@ class AcidPowerupManagerScript;
 class LightningPowerupManagerScript;
 class PowerupManagerScript;
 class GroundCheckScript;
+class RoomLockScript;
 
 class PlayerManagerScript : public TemplateSC {
 public:
@@ -70,9 +72,9 @@ public:
 	float lightningCurrMovementCooldown = 0.f;
 
 	// ACID PREFS
-	int acidMaxBullets = 3;
-	int acidCurrBullets = 3;
-	float acidShootCooldown = 0.75f;
+	int acidMaxBullets = 6;
+	int acidCurrBullets = 6;
+	float acidShootCooldown = 0.45f;
 	float acidCurrShootCooldown = 0.f;
 
 	float acidAbilityCost = 20.f;
@@ -289,7 +291,8 @@ public:
 	}
 
 	inline void StartReload() {
-		if (playerPowerupHeld != Powerup::NONE)
+
+		if (playerPowerupHeld == Powerup::FIRE || playerPowerupHeld == Powerup::LIGHTNING)
 			return;
 
 		if (isReloading) return;
@@ -823,6 +826,15 @@ inline void PlayerManagerScript::Update() {
 	}
 	else {
 		isRegening = false;
+	}
+
+	for (const auto& [entityID, signature] : ecsPtr->GetEntitySignatureData()) {
+		if (auto* roomLock = ecsPtr->GetComponent<RoomLockScript>(entityID)) {
+			if (roomLock->requestShake) {
+				CameraShake(roomLock->requestShakeIntensity, roomLock->requestShakeDuration); // both args
+				roomLock->requestShake = false;
+			}
+		}
 	}
 
 }
@@ -1902,11 +1914,13 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			fireCurrComboTimer = fireSlashComboWindow;
 
 			std::cout << "[FireSlash] Combo Hit: " << fireSlashComboCount << "\n";
-
+			std::cout << "[FireSlash] About to trigger anim, comboCount: " << fireSlashComboCount << "\n";
 			// SEAN DEAR PUT YOUR ANIM HERE FOR FIRE SLASH
 			if (animComp && animComp->m_currentStateID) {
 				if (fireSlashComboCount == 1) {
 					// TODO: FIRE SLASH ANIM 1
+					std::cout << "[FireSlash] Triggering FirstSlash, stateID: " << animComp->m_currentStateID << "\n"; // ← ADD
+
 						playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("FirstSlash", animComp, playerController);
 				}
 				else if (fireSlashComboCount == 2) {
@@ -1990,9 +2004,17 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			// ADD SFX
 		}
 		else if (playerPowerupHeld == Powerup::ACID) {
+			if (isReloading) return;
+
 			float& cd = GetCurrShootCooldownForCurrentWeapon();
 			if (cd > 0.0f) return;
 			cd = GetShootCooldownForCurrentWeapon();
+			
+			int& currBullets = GetCurrBulletsForCurrentWeapon();
+			currBullets -= 1;
+			if (currBullets <= 0)
+				StartReload();
+
 
 			ScoreManagerScript::AddAbilityUsed();
 			std::shared_ptr<R_Scene> acidLMB = resource->GetResource<R_Scene>(acidLMBPrefab);
