@@ -37,6 +37,7 @@
 #include "TankAOEScript.h"
 
 #include "Deathzone.h"
+#include "MuzzleFlash.h"
 
 #include "EnemyHealthScript.h"
 #include "AnimationTestScript.h"
