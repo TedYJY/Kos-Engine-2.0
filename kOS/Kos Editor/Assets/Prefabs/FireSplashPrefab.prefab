@@ -56,9 +56,31 @@
             "playback_State": 0,
             "particleFade": 0,
             "animationModule": {
-                "textureGUID": [],
-                "framesPerSecond": 24,
-                "isLooping": false,
+                "textureGUID": [
+                    {
+                        "textureGUID": "e6456543-59c0-690a-fa17-6b08607cd83e"
+                    },
+                    {
+                        "textureGUID": "5e3606e5-d0f2-73b3-1037-885c8a816eed"
+                    },
+                    {
+                        "textureGUID": "d90eaf07-783a-2a6f-05fb-2c8b99bcf06f"
+                    },
+                    {
+                        "textureGUID": "86d9246b-8d68-c5ee-9709-57200be9c00c"
+                    },
+                    {
+                        "textureGUID": "c4c5fcbb-da1d-17b7-97ce-1de465f0971a"
+                    },
+                    {
+                        "textureGUID": "f8578859-e98e-2671-c6e6-600360818340"
+                    },
+                    {
+                        "textureGUID": "519f9cc3-a799-f2c5-25b0-aaf2594ff61b"
+                    }
+                ],
+                "framesPerSecond": 8,
+                "isLooping": true,
                 "isPlaying": true
             },
             "velocityModule": {
@@ -122,18 +144,18 @@
             },
             "sizeModule": {
                 "enabled": true,
-                "start_Size": 1.5,
-                "end_Size": 0.10000000149011612
+                "start_Size": 4.0,
+                "end_Size": 1.0
             },
             "rotationModule": {
-                "enabled": false,
+                "enabled": true,
                 "start_Rotation": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
                 },
                 "end_Rotation": {
-                    "x": 0.0,
+                    "x": 360.0,
                     "y": 0.0,
                     "z": 0.0
                 },

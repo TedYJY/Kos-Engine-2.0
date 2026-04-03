@@ -90,6 +90,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 
 	RegisterScript<EnemyHurtVFX>(TemplateSC::ecsPtr);
 	RegisterScript<Deathzone>(TemplateSC::ecsPtr);
+	RegisterScript<MuzzleFlash>(TemplateSC::ecsPtr);
 	RegisterScript<OptionsMenuScript>(TemplateSC::ecsPtr);
 
 

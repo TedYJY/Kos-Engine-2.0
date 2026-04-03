@@ -129,6 +129,7 @@ public:
 	utility::GUID healthUIObject;
 	utility::GUID loseScreenCanvasObject;
 	utility::GUID winScreenCanvasObject;
+	utility::GUID muzzleFlashLocationObject;
 
 	ecs::EntityID playerCameraObjectID;
 	ecs::EntityID playerGunCameraObjectID;
@@ -141,6 +142,7 @@ public:
 	ecs::EntityID loseScreenCanvasID;
 	ecs::EntityID winScreenCanvasID;
 	ecs::EntityID fireDashID;
+	ecs::EntityID muzzleFlashLocationID;
 
 	ecs::EntityID gameUICanvasID = -1;
 	utility::GUID gameUICanvasObject;
@@ -165,8 +167,7 @@ public:
 	utility::GUID absorbingVFXSpawnPoint;
 	ecs::EntityID absorbVFXSpawnObjectID;
 
-	utility::GUID muzzleFlashGUID;
-	ecs::EntityID muzzleFlashID;
+	utility::GUID muzzleFlashPrefab;
 	bool isMuzzleActive = false;
 	float muzzleTimer = 0.35f;
 	float muzzleCurrTimer = muzzleTimer;
@@ -439,8 +440,8 @@ public:
 		bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab, airBlastPrefab,
 		gunSfxGUID_1, gunReloadSfxGUID, fireSlashSfxGUID, fireDashSfxGUID, fireEquipSfxGUID, fireAbsorbSfxGUID, acidEquipSfxGUID, acidShieldSfxGuid, lightningSlowStartSfxGUID,lightningSlowEndSfxGUID, lightningGunSfxGUID,
 		lightningAbsorbSfxGUID, lightningEquipSfxGUID, acidGrenadeGunSfxGUID, acidAbsorbSfxGUID, pauseMenuOpenSfxGUID, pauseMenuCloseSfxGUID, pauseMenuManagerObject, healthUIObject, loseScreenCanvasObject,
-		winScreenCanvasObject, absorbFireVFXPrefab, absorbLightningVFXPrefab, absorbAcidVFXPrefab, absorbingVFXSpawnPoint, muzzleFlashGUID, pistolModelObject,
-		fireSwordModelObject, lightningModelObject, acidModelObject, gameUICanvasObject, cinematicWaypointObjects)
+		winScreenCanvasObject, absorbFireVFXPrefab, absorbLightningVFXPrefab, absorbAcidVFXPrefab, absorbingVFXSpawnPoint, muzzleFlashPrefab, pistolModelObject,
+		fireSwordModelObject, lightningModelObject, acidModelObject, gameUICanvasObject, cinematicWaypointObjects, muzzleFlashLocationObject)
 
 		/*REFLECTABLE(PlayerManagerScript, playerCameraObject, playerGunCameraObject, playerProjectilePointObject, playerGunModelPointObject, playerArmModelObject, playerGroundCheckObject,
 			bulletPrefab, fireLMBPrefab, acidLMBPrefab, lightningLMBPrefab, firePrefab, lightningPrefab, fireDashPrefab, lightningDashPrefab, acidShieldPrefab, airBlastPrefab,
@@ -478,6 +479,7 @@ inline void PlayerManagerScript::Start() {
 	playerArmModelObjectID = ecsPtr->GetEntityIDFromGUID(playerArmModelObject);
 	playerGroundCheckObjectID = ecsPtr->GetEntityIDFromGUID(playerGroundCheckObject);
 	absorbVFXSpawnObjectID = ecsPtr->GetEntityIDFromGUID(absorbingVFXSpawnPoint);
+	muzzleFlashLocationID = ecsPtr->GetEntityIDFromGUID(muzzleFlashLocationObject);
 
 	// PISTOL
 	if (pistolModelObject != utility::GUID{}) {
@@ -547,8 +549,6 @@ inline void PlayerManagerScript::Start() {
 				currAnimState->Trigger("ForcedEntry", animComp, playerController);
 		}
 	};
-
-	muzzleFlashID = ecsPtr->GetEntityIDFromGUID(muzzleFlashGUID);
 
 	auto& profile = graphics->postProcessProfile;
 	Vigniette* vig = reinterpret_cast<Vigniette*>(profile->GetEffect(PPT_Vigniette));
@@ -851,13 +851,13 @@ inline void PlayerManagerScript::Update() {
 		return; // Skip further processing while the timer is active
 	}
 
-	if (muzzleCurrTimer >= 0.f) {
-		muzzleCurrTimer -= ecsPtr->m_GetDeltaTime();
+	//if (muzzleCurrTimer >= 0.f) {
+	//	muzzleCurrTimer -= ecsPtr->m_GetDeltaTime();
 
-		if (muzzleCurrTimer <= 0.f) {
-			ecsPtr->SetActive(muzzleFlashID, false);
-		}
-	}
+	//	if (muzzleCurrTimer <= 0.f) {
+	//		ecsPtr->SetActive(muzzleFlashID, false);
+	//	}
+	//}
 
 	// Absorb VFX auto delete timer
 	if (absorbVFXTimer > 0.f) {
@@ -1979,8 +1979,18 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			if (auto* bulletScript = ecsPtr->GetComponent<BulletLogic>(bulletID))
 				bulletScript->direction = GetConvergedDirection();
 
-			ecsPtr->SetActive(muzzleFlashID, true);
-			muzzleCurrTimer = muzzleTimer;
+
+
+			//std::shared_ptr<R_Scene> muzzleFlash = resource->GetResource<R_Scene>(muzzleFlashPrefab);
+			//if (muzzleFlash) {
+			//	std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
+			//	ecs::EntityID muzzleFlashID = DuplicatePrefabIntoScene<R_Scene>(currentScene, muzzleFlashPrefab);
+
+			//	if (auto* muzzleFlashTransform = ecsPtr->GetComponent<TransformComponent>(muzzleFlashID))
+			//		muzzleFlashTransform->LocalTransformation.position = ecsPtr->GetComponent<TransformComponent>(muzzleFlashLocationID)->WorldTransformation.position;
+			//}
+
+
 
 			if (auto* ac = ecsPtr->GetComponent<ecs::AudioComponent>(entity)) {
 				for (auto& af : ac->audioFiles) {
