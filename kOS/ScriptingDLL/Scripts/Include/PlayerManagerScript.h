@@ -1824,8 +1824,10 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 			if (hit.entityID != 9999999 && ecsPtr->GetComponent<NameComponent>(hit.entityID)->entityTag == "Powerup") {
 				if (auto* powerupComp = ecsPtr->GetComponent<PowerupManagerScript>(hit.entityID)) {
-					hasAbsorbed = true;
-					ScoreManagerScript::AddElementAbsorbed();
+					if (powerupComp->powerupActive) {
+						hasAbsorbed = true;
+						ScoreManagerScript::AddElementAbsorbed();
+					}
 
 					//Absorb Particle Logic
 					/// Get position of hit entity iD
@@ -1833,7 +1835,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					/// Set end position every frame of particle component to be player hand model
 					/// Dynamic trail on by default
 					/// Speed should be relatively high
-					if (absorbParticles)
+					if (absorbParticles && powerupComp->powerupActive)
 					{
 						if (auto* absorbPosition = ecsPtr->GetComponent<TransformComponent>(hit.entityID))
 						{
@@ -1907,7 +1909,6 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 							absorbParticles->trail_Color = glm::vec4{ 0.f,1.f,0.f,1.f };
 						}
 					}
-
 					else if (powerupComp->powerupType == "LIGHTNING" && powerupComp->powerupActive)
 					{
 						//playerPowerupHeld = Powerup::LIGHTNING;//DELETE THIS WHEN ANIM FINISH
@@ -1990,17 +1991,18 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 							absorbVFXTimer = absorbVFXDuration;
 						}
 
-					if (animComp && hasAbsorbed)
-					{
-						if (animComp->m_currentStateID)
+						if (animComp && hasAbsorbed)
 						{
-							playerController->SetState("Absorbing",animComp);
-							hasAbsorbed = false;
+							if (animComp->m_currentStateID)
+							{
+								playerController->SetState("Absorbing", animComp);
+								hasAbsorbed = false;
+							}
 						}
-					}
 
-					// THIS LINE ALWAYS HAS TO BE LAST OK
-					powerupComp->TurnOffPowerup();
+						// THIS LINE ALWAYS HAS TO BE LAST OK
+						powerupComp->TurnOffPowerup();
+					}
 
 				}
 			}
@@ -2414,7 +2416,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 		if (playerPowerupHeld == Powerup::FIRE && fireCurrMovementCooldown <= 0.f) {
 			ScoreManagerScript::AddAbilityUsed();
-		
+
 			std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
 			ecs::EntityID fireDashID = DuplicatePrefabIntoScene<R_Scene>(currentScene, fireDashPrefab);
 			ecs::EntityID parentID = entity;
@@ -2424,7 +2426,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				vfxTf->LocalTransformation.position = glm::vec3(1.f, 1.f, 0.f);  // offset
 				vfxTf->LocalTransformation.rotation = glm::vec3(0.f, 0.f, 0.f);
 			}
-				
+
 			//fireDashVfxTimer = fireDashVfxDuration;
 			//ecsPtr->SetActive(fireDashID, true);
 
@@ -2447,9 +2449,9 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			}
 			// ADD SFX
 
-			
+
 		}
-		
+
 		//Acid SHield
 		else if (playerPowerupHeld == Powerup::ACID && acidCurrShieldCooldown <= 0.f) {
 			ScoreManagerScript::AddAbilityUsed();
