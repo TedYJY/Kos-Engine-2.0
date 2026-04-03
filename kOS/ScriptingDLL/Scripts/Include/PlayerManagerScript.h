@@ -1870,8 +1870,9 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 						if (absorbParticles)
 						{
-							absorbParticles->colorModule.start_Color = glm::vec4{ 1.f,0.8f,0.2f,1.f };
-							absorbParticles->colorModule.end_Color = glm::vec4{ 1.f,1.f,0.f,1.f };
+							absorbParticles->colorModule.start_Color = glm::vec4{ 1.f,0.2f,0.2f,1.f };
+							absorbParticles->colorModule.end_Color = glm::vec4{ 1.f,0.5f,0.f,1.f };
+							absorbParticles->trail_Color = glm::vec4{ 1.f,1.f,0.f,1.f };
 						}
 							
 					}
@@ -1897,6 +1898,14 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->redOffset = 0.015f;
 						chro->greenOffset = -0.015f;
 						chro->blueOffset = 0.f;
+
+
+						if (absorbParticles)
+						{
+							absorbParticles->colorModule.start_Color = glm::vec4{ 0.f,0.4f,0.2f,1.f };
+							absorbParticles->colorModule.end_Color = glm::vec4{ 0.f,0.6f,0.f,1.f };
+							absorbParticles->trail_Color = glm::vec4{ 0.f,1.f,0.f,1.f };
+						}
 					}
 
 					else if (powerupComp->powerupType == "LIGHTNING")
@@ -1923,6 +1932,14 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->redOffset = 0.015f;
 						chro->greenOffset = -0.015f;
 						chro->blueOffset = 0.f;
+
+
+						if (absorbParticles)
+						{
+							absorbParticles->colorModule.start_Color = glm::vec4{ 0.f,0.3f,0.3f,1.f };
+							absorbParticles->colorModule.end_Color = glm::vec4{ 0.f,0.6f,0.6f,1.f };
+							absorbParticles->trail_Color = glm::vec4{ 0.f,1.f,1.f,1.f };
+						}
 					}
 
 
