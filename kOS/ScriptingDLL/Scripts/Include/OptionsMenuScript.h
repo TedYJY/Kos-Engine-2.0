@@ -32,6 +32,28 @@ public:
     utility::GUID masterVolumePlusButtonGUID;
     ecs::EntityID masterVolumePlusButtonID = 0;
 
+    // BGM Slider
+    utility::GUID bgmVolumeSliderBarGUID;
+    ecs::EntityID bgmVolumeSliderBarID = 0;
+    utility::GUID bgmVolumeMinusButtonGUID;
+    ecs::EntityID bgmVolumeMinusButtonID = 0;
+    utility::GUID bgmVolumePlusButtonGUID;
+    ecs::EntityID bgmVolumePlusButtonID = 0;
+    static int bgmVolumeLevel;
+    bool wasBgmMinusPressed = false;
+    bool wasBgmPlusPressed = false;
+
+    // SFX Slider
+    utility::GUID sfxVolumeSliderBarGUID;
+    ecs::EntityID sfxVolumeSliderBarID = 0;
+    utility::GUID sfxVolumeMinusButtonGUID;
+    ecs::EntityID sfxVolumeMinusButtonID = 0;
+    utility::GUID sfxVolumePlusButtonGUID;
+    ecs::EntityID sfxVolumePlusButtonID = 0;
+    static int sfxVolumeLevel;
+    bool wasSfxMinusPressed = false;
+    bool wasSfxPlusPressed = false;
+
     // ---------------------------------------------------------------
     // State
     // ---------------------------------------------------------------
@@ -39,7 +61,7 @@ public:
     static bool isOptionsActive;
 
     // Volume level: 0 to 10  (each step = 10%)
-    int masterVolumeLevel = 10;  // default: full volume
+    static int masterVolumeLevel;  // default: full volume
 
     // ---------------------------------------------------------------
     // Hidden position (off-screen, same pattern as PauseMenuScript)
@@ -70,6 +92,14 @@ public:
         masterVolumeSliderBarID = ecsPtr->GetEntityIDFromGUID(masterVolumeSliderBarGUID);
         masterVolumeMinusButtonID = ecsPtr->GetEntityIDFromGUID(masterVolumeMinusButtonGUID);
         masterVolumePlusButtonID = ecsPtr->GetEntityIDFromGUID(masterVolumePlusButtonGUID);
+        
+        bgmVolumeSliderBarID = ecsPtr->GetEntityIDFromGUID(bgmVolumeSliderBarGUID);
+        bgmVolumeMinusButtonID = ecsPtr->GetEntityIDFromGUID(bgmVolumeMinusButtonGUID);
+        bgmVolumePlusButtonID = ecsPtr->GetEntityIDFromGUID(bgmVolumePlusButtonGUID);
+
+        sfxVolumeSliderBarID = ecsPtr->GetEntityIDFromGUID(sfxVolumeSliderBarGUID);
+        sfxVolumeMinusButtonID = ecsPtr->GetEntityIDFromGUID(sfxVolumeMinusButtonGUID);
+        sfxVolumePlusButtonID = ecsPtr->GetEntityIDFromGUID(sfxVolumePlusButtonGUID);
 
         // Cache original options canvas position
         if (auto* t = ecsPtr->GetComponent<ecs::TransformComponent>(optionsMenuCanvasID)) {
@@ -87,7 +117,18 @@ public:
         SetOptionsMenuActive(false);
 
         // Draw slider at default volume
+        //UpdateSliderBar(masterVolumeSliderBarID, masterVolumeLevel);
+
+        // Reapply saved volumes to FMOD
+        audioManager->SetMasterVolume(masterVolumeLevel / 10.0f);
+        audioManager->SetMusicVolume(bgmVolumeLevel / 10.0f);
+        audioManager->SetSFXVolume(sfxVolumeLevel / 10.0f);
+
+        // Redraw all sliders
         UpdateSliderBar(masterVolumeSliderBarID, masterVolumeLevel);
+        UpdateSliderBar(bgmVolumeSliderBarID, bgmVolumeLevel);
+        UpdateSliderBar(sfxVolumeSliderBarID, sfxVolumeLevel);
+
 
         std::cout << "[OptionsMenuScript] Start() complete.\n";
         std::cout << "  masterVolumeLevel = " << masterVolumeLevel << "/10\n";
@@ -114,6 +155,35 @@ public:
                 wasPlusPressed = btn->isPressed;
             }
         }
+
+        // BGM
+        if (bgmVolumeMinusButtonID != 0) {
+            if (auto* btn = ecsPtr->GetComponent<ecs::ButtonComponent>(bgmVolumeMinusButtonID)) {
+                if (btn->isPressed && !wasBgmMinusPressed) DecreaseBGMVolume();
+                wasBgmMinusPressed = btn->isPressed;
+            }
+        }
+        if (bgmVolumePlusButtonID != 0) {
+            if (auto* btn = ecsPtr->GetComponent<ecs::ButtonComponent>(bgmVolumePlusButtonID)) {
+                if (btn->isPressed && !wasBgmPlusPressed) IncreaseBGMVolume();
+                wasBgmPlusPressed = btn->isPressed;
+            }
+        }
+
+        // SFX
+        if (sfxVolumeMinusButtonID != 0) {
+            if (auto* btn = ecsPtr->GetComponent<ecs::ButtonComponent>(sfxVolumeMinusButtonID)) {
+                if (btn->isPressed && !wasSfxMinusPressed) DecreaseSFXVolume();
+                wasSfxMinusPressed = btn->isPressed;
+            }
+        }
+        if (sfxVolumePlusButtonID != 0) {
+            if (auto* btn = ecsPtr->GetComponent<ecs::ButtonComponent>(sfxVolumePlusButtonID)) {
+                if (btn->isPressed && !wasSfxPlusPressed) IncreaseSFXVolume();
+                wasSfxPlusPressed = btn->isPressed;
+            }
+        }
+
     }
 
     // ---------------------------------------------------------------
@@ -156,6 +226,8 @@ public:
     void IncreaseMasterVolume() {
         if (masterVolumeLevel < 10) {
             masterVolumeLevel++;
+            float volume = masterVolumeLevel / 10.0f;
+            audioManager->SetMasterVolume(volume);
             UpdateSliderBar(masterVolumeSliderBarID, masterVolumeLevel);
             std::cout << "[OptionsMenuScript] Master Volume: " << masterVolumeLevel << "/10\n";
         }
@@ -167,11 +239,50 @@ public:
     void DecreaseMasterVolume() {
         if (masterVolumeLevel > 0) {
             masterVolumeLevel--;
+            float volume = masterVolumeLevel / 10.0f;
+
+            audioManager->SetMasterVolume(volume);
             UpdateSliderBar(masterVolumeSliderBarID, masterVolumeLevel);
             std::cout << "[OptionsMenuScript] Master Volume: " << masterVolumeLevel << "/10\n";
         }
         else {
             std::cout << "[OptionsMenuScript] Master Volume already at min (0/10)\n";
+        }
+    }
+
+    void IncreaseBGMVolume() {
+        if (bgmVolumeLevel < 10) {
+            bgmVolumeLevel++;
+            audioManager->SetMusicVolume(bgmVolumeLevel / 10.0f);
+            UpdateSliderBar(bgmVolumeSliderBarID, bgmVolumeLevel);
+            std::cout << "[OptionsMenuScript] BGM Volume: " << bgmVolumeLevel << "/10\n";
+        }
+    }
+
+    void DecreaseBGMVolume() {
+        if (bgmVolumeLevel > 0) {
+            bgmVolumeLevel--;
+            audioManager->SetMusicVolume(bgmVolumeLevel / 10.0f);
+            UpdateSliderBar(bgmVolumeSliderBarID, bgmVolumeLevel);
+            std::cout << "[OptionsMenuScript] BGM Volume: " << bgmVolumeLevel << "/10\n";
+        }
+    }
+
+    void IncreaseSFXVolume() {
+        if (sfxVolumeLevel < 10) {
+            sfxVolumeLevel++;
+            audioManager->SetSFXVolume(sfxVolumeLevel / 10.0f);
+            UpdateSliderBar(sfxVolumeSliderBarID, sfxVolumeLevel);
+            std::cout << "[OptionsMenuScript] SFX Volume: " << sfxVolumeLevel << "/10\n";
+        }
+    }
+
+    void DecreaseSFXVolume() {
+        if (sfxVolumeLevel > 0) {
+            sfxVolumeLevel--;
+            audioManager->SetSFXVolume(sfxVolumeLevel / 10.0f);
+            UpdateSliderBar(sfxVolumeSliderBarID, sfxVolumeLevel);
+            std::cout << "[OptionsMenuScript] SFX Volume: " << sfxVolumeLevel << "/10\n";
         }
     }
 
@@ -234,3 +345,6 @@ public:
 
 inline OptionsMenuScript* OptionsMenuScript::instance = nullptr;
 inline bool OptionsMenuScript::isOptionsActive = false;
+inline int OptionsMenuScript::masterVolumeLevel = 10;
+inline int OptionsMenuScript::bgmVolumeLevel = 10;
+inline int OptionsMenuScript::sfxVolumeLevel = 10;
