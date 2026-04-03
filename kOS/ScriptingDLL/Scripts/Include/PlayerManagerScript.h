@@ -1804,7 +1804,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 					hasAbsorbed = true;
 					ScoreManagerScript::AddElementAbsorbed();
 
-					if (powerupComp->powerupType == "FIRE") {
+					if (powerupComp->powerupType == "FIRE" && powerupComp->powerupActive) {
 						//playerPowerupHeld = Powerup::FIRE; //DELETE THIS WHEN ANIM FINISH
 						//SwapWeaponModel(Powerup::FIRE); //DELETE THIS WHEN ANIM FINISH
 						pendingPowerup = Powerup::FIRE;
@@ -1828,7 +1828,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->greenOffset = -0.015f;
 						chro->blueOffset = 0.f;
 					}
-					else if (powerupComp->powerupType == "ACID") {
+					else if (powerupComp->powerupType == "ACID" && powerupComp->powerupActive) {
 						//playerPowerupHeld = Powerup::ACID;//DELETE THIS WHEN ANIM FINISH
 						//SwapWeaponModel(Powerup::ACID);//DELETE THIS WHEN ANIM FINISH
 						pendingPowerup = Powerup::ACID;
@@ -1852,7 +1852,7 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->blueOffset = 0.f;
 					}
 
-					else if (powerupComp->powerupType == "LIGHTNING")
+					else if (powerupComp->powerupType == "LIGHTNING" && powerupComp->powerupActive)
 					{
 						//playerPowerupHeld = Powerup::LIGHTNING;//DELETE THIS WHEN ANIM FINISH
 						//SwapWeaponModel(Powerup::LIGHTNING);//DELETE THIS WHEN ANIM FINISH
@@ -1878,9 +1878,6 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->blueOffset = 0.f;
 					}
 
-
-
-
 					//if (powerupComp->powerupType == "FIRE") {
 					//	playerPowerupHeld = Powerup::FIRE;
 					//	SwapWeaponModel(Powerup::FIRE);
@@ -1897,46 +1894,52 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 
 					//}
 
-					currMana = maxMana;
+					if (powerupComp->powerupActive) {
+						currMana = maxMana;
 
 
-					utility::GUID selectedVFX;
+						utility::GUID selectedVFX;
 
-					if (powerupComp->powerupType == "FIRE")
-						selectedVFX = absorbFireVFXPrefab;
-					else if (powerupComp->powerupType == "ACID")
-						selectedVFX = absorbAcidVFXPrefab;
-					else if (powerupComp->powerupType == "LIGHTNING")
-						selectedVFX = absorbLightningVFXPrefab;
+						if (powerupComp->powerupType == "FIRE")
+							selectedVFX = absorbFireVFXPrefab;
+						else if (powerupComp->powerupType == "ACID")
+							selectedVFX = absorbAcidVFXPrefab;
+						else if (powerupComp->powerupType == "LIGHTNING")
+							selectedVFX = absorbLightningVFXPrefab;
 
-					if (selectedVFX != utility::GUID{}) {
-						if (activeAbsorbVFXID != 0) {
-							ecsPtr->DeleteEntity(activeAbsorbVFXID);
-							activeAbsorbVFXID = 0;
+						if (selectedVFX != utility::GUID{}) {
+							if (activeAbsorbVFXID != 0) {
+								ecsPtr->DeleteEntity(activeAbsorbVFXID);
+								activeAbsorbVFXID = 0;
+							}
+
+							std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
+							ecs::EntityID absorbVFXID = DuplicatePrefabIntoScene<R_Scene>(currentScene, selectedVFX);
+
+							auto* spawnTf = ecsPtr->GetComponent<TransformComponent>(absorbVFXSpawnObjectID);
+							if (auto* vfxTf = ecsPtr->GetComponent<TransformComponent>(absorbVFXID)) {
+								vfxTf->LocalTransformation.position = spawnTf->WorldTransformation.position;
+								vfxTf->LocalTransformation.rotation = spawnTf->WorldTransformation.rotation;
+							}
+
+							activeAbsorbVFXID = absorbVFXID;
+							absorbVFXTimer = absorbVFXDuration;
 						}
 
-						std::string currentScene = ecsPtr->GetSceneByEntityID(entity);
-						ecs::EntityID absorbVFXID = DuplicatePrefabIntoScene<R_Scene>(currentScene, selectedVFX);
-
-						auto* spawnTf = ecsPtr->GetComponent<TransformComponent>(absorbVFXSpawnObjectID);
-						if (auto* vfxTf = ecsPtr->GetComponent<TransformComponent>(absorbVFXID)) {
-							vfxTf->LocalTransformation.position = spawnTf->WorldTransformation.position;
-							vfxTf->LocalTransformation.rotation = spawnTf->WorldTransformation.rotation;
-						}
-
-						activeAbsorbVFXID = absorbVFXID;
-						absorbVFXTimer = absorbVFXDuration;
-					}
-
-					if (animComp && hasAbsorbed)
-					{
-						if (animComp->m_currentStateID)
+						if (animComp && hasAbsorbed)
 						{
-							//playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("hasAbsorbed", animComp, playerController);
-							playerController->SetState("Absorbing",animComp);
-							hasAbsorbed = false;
+							if (animComp->m_currentStateID)
+							{
+								//playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("hasAbsorbed", animComp, playerController);
+								playerController->SetState("Absorbing", animComp);
+								hasAbsorbed = false;
+							}
 						}
+
+						// THIS LINE ALWAYS HAS TO BE LAST OK
+						powerupComp->TurnOffPowerup();
 					}
+
 				}
 			}
 		}

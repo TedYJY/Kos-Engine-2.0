@@ -93,7 +93,8 @@
                     "hide": false
                 },
                 "PowerupManagerScript": {
-                    "powerupType": "LIGHTNING"
+                    "powerupType": "LIGHTNING",
+                    "powerupParticlesGUID": "2350d319-db0e-e8bd-d10a-493b3bdbcd40"
                 },
                 "TransformComponent": {
                     "WorldTransformation": {
@@ -138,7 +139,7 @@
                     "entityName": "Lightning Prop Particles",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": true,
+                    "isPrefab": false,
                     "isStatic": false,
                     "prefabName": "",
                     "hide": false
@@ -151,10 +152,15 @@
                     "start_Lifetime": 3.0,
                     "end_Lifetime": 7.0,
                     "lifetime_Random_Enable": true,
-                    "textureGUID": "00000000-0000-0000-0000-000000000000",
                     "start_Velocity": 1.0,
                     "playback_State": 0,
                     "particleFade": 1,
+                    "animationModule": {
+                        "textureGUID": [],
+                        "framesPerSecond": 24,
+                        "isLooping": false,
+                        "isPlaying": true
+                    },
                     "velocityModule": {
                         "enabled": false,
                         "mode": 0,
