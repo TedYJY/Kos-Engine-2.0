@@ -202,6 +202,11 @@ public:
 
 	bool autoReload = true;
 
+	//Absorbing details
+	bool isAbsorbing = false;
+	float absorbResetDuration = 0.3f;
+	float absorbTimer = 0.f;
+
 	//Acid Shield Pref
 	float acidShieldCost = 10.f; 
 	float acidShieldCooldown = 6.f; 
@@ -1786,6 +1791,24 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 			chro->blueOffset = 0.f;
 		}
 	}
+	
+	//Absorb Frame Logic
+	auto* absorbParticles = ecsPtr->GetComponent<ParticleComponent>(absorbVFXSpawnObjectID);
+
+	if (absorbParticles)
+	{
+		absorbParticles->trailingModule.endPoint = projectilePointTransform->WorldTransformation.position;
+		
+		
+		if (absorbTimer >= absorbResetDuration)
+		{
+			absorbParticles->playback_State = PlayState::STOP;
+		}
+		else
+		{
+			absorbTimer += ecsPtr->m_GetDeltaTime();
+		}
+	}
 
 	// INTERACT
 	if (Input->IsKeyTriggered(keys::E)) {
@@ -1803,6 +1826,23 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 				if (auto* powerupComp = ecsPtr->GetComponent<PowerupManagerScript>(hit.entityID)) {
 					hasAbsorbed = true;
 					ScoreManagerScript::AddElementAbsorbed();
+
+					//Absorb Particle Logic
+					/// Get position of hit entity iD
+					/// Set start position of particle component of player to be hit 
+					/// Set end position every frame of particle component to be player hand model
+					/// Dynamic trail on by default
+					/// Speed should be relatively high
+					if (absorbParticles)
+					{
+						if (auto* absorbPosition = ecsPtr->GetComponent<TransformComponent>(hit.entityID))
+						{
+							absorbParticles->trailingModule.startPoint = absorbPosition->WorldTransformation.position;
+							absorbParticles->playback_State = PlayState::PLAY;
+							absorbTimer = 0.f;
+						}
+					}
+					
 
 					if (powerupComp->powerupType == "FIRE" && powerupComp->powerupActive) {
 						//playerPowerupHeld = Powerup::FIRE; //DELETE THIS WHEN ANIM FINISH
@@ -1827,6 +1867,14 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->redOffset = 0.015f;
 						chro->greenOffset = -0.015f;
 						chro->blueOffset = 0.f;
+
+						if (absorbParticles)
+						{
+							absorbParticles->colorModule.start_Color = glm::vec4{ 1.f,0.2f,0.2f,1.f };
+							absorbParticles->colorModule.end_Color = glm::vec4{ 1.f,0.5f,0.f,1.f };
+							absorbParticles->trail_Color = glm::vec4{ 1.f,1.f,0.f,1.f };
+						}
+							
 					}
 					else if (powerupComp->powerupType == "ACID" && powerupComp->powerupActive) {
 						//playerPowerupHeld = Powerup::ACID;//DELETE THIS WHEN ANIM FINISH
@@ -1850,6 +1898,14 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->redOffset = 0.015f;
 						chro->greenOffset = -0.015f;
 						chro->blueOffset = 0.f;
+
+
+						if (absorbParticles)
+						{
+							absorbParticles->colorModule.start_Color = glm::vec4{ 0.f,0.4f,0.2f,1.f };
+							absorbParticles->colorModule.end_Color = glm::vec4{ 0.f,0.6f,0.f,1.f };
+							absorbParticles->trail_Color = glm::vec4{ 0.f,1.f,0.f,1.f };
+						}
 					}
 
 					else if (powerupComp->powerupType == "LIGHTNING" && powerupComp->powerupActive)
@@ -1876,6 +1932,14 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 						chro->redOffset = 0.015f;
 						chro->greenOffset = -0.015f;
 						chro->blueOffset = 0.f;
+
+
+						if (absorbParticles)
+						{
+							absorbParticles->colorModule.start_Color = glm::vec4{ 0.f,0.3f,0.3f,1.f };
+							absorbParticles->colorModule.end_Color = glm::vec4{ 0.f,0.6f,0.6f,1.f };
+							absorbParticles->trail_Color = glm::vec4{ 0.f,1.f,1.f,1.f };
+						}
 					}
 
 					//if (powerupComp->powerupType == "FIRE") {
@@ -1926,19 +1990,17 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 							absorbVFXTimer = absorbVFXDuration;
 						}
 
-						if (animComp && hasAbsorbed)
+					if (animComp && hasAbsorbed)
+					{
+						if (animComp->m_currentStateID)
 						{
-							if (animComp->m_currentStateID)
-							{
-								//playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("hasAbsorbed", animComp, playerController);
-								playerController->SetState("Absorbing", animComp);
-								hasAbsorbed = false;
-							}
+							playerController->SetState("Absorbing",animComp);
+							hasAbsorbed = false;
 						}
-
-						// THIS LINE ALWAYS HAS TO BE LAST OK
-						powerupComp->TurnOffPowerup();
 					}
+
+					// THIS LINE ALWAYS HAS TO BE LAST OK
+					powerupComp->TurnOffPowerup();
 
 				}
 			}
