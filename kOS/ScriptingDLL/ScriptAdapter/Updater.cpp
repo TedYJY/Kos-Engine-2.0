@@ -81,6 +81,7 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<UIButtonScript>(TemplateSC::ecsPtr);
 	RegisterScript<NEWHealthBarScript>(TemplateSC::ecsPtr);
 	RegisterScript<CutSceneScript>(TemplateSC::ecsPtr);
+	RegisterScript<CutsceneAutoScript>(TemplateSC::ecsPtr);
 	RegisterScript<ManaUIScript>(TemplateSC::ecsPtr);
 	RegisterScript<AmmoUIScript>(TemplateSC::ecsPtr);
 	RegisterScript<NextSceneColliderScript>(TemplateSC::ecsPtr);
@@ -101,6 +102,9 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<MainMenuHandBlockScript>(TemplateSC::ecsPtr);
 	RegisterScript<FadeTransition>(TemplateSC::ecsPtr);
 	RegisterScript<SplashScreenScript>(TemplateSC::ecsPtr);
+	RegisterScript<QuitWindowConfirmScript>(TemplateSC::ecsPtr);
+	RegisterScript<QuitMenuConfirmScript>(TemplateSC::ecsPtr);
+
 
 	FieldComponentTypeRegistry::CreateAllDrawers(static_cast<Fields*>(svm->field)->GetAction());
 }
