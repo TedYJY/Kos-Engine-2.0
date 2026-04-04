@@ -11,7 +11,8 @@ permissions:
   
 jobs:
   build-and-package-windows:
-    runs-on: self-hosted
+    #runs-on: self-hosted
+    runs-on: windows-latest
     
     steps:
       - name: Checkout code
