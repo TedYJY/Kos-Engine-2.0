@@ -639,22 +639,38 @@ inline void EnemyManagerScript::Update() {
 inline void EnemyManagerScript::TriggerStagger(float duration) {
 	if (isDead) return;
 
-	// Prevent engine crash: Don't remove NavMesh if already lunging!
+	bool wasLunging = isLunging;
+
 	if (!isStaggered && !isLunging) {
 		navMeshPtr->AgentSetActive(agentid, false);
-		//navMeshPtr->RemoveAgent(agentid);
 	}
 
 	isStaggered = true;
 	isLunging = false; // Safely cancel the lunge mid-air
 	currentStaggerTimer = duration;
 
+	if (wasLunging) {
+
+		auto* rb = ecsPtr->GetComponent<ecs::RigidbodyComponent>(entity);
+		if (rb && rb->actor) {
+			rb->isKinematic = true;
+		}
+
+		if (currentHurtboxID != 0) {
+			ecsPtr->DeleteEntity(currentHurtboxID);
+			currentHurtboxID = 0;
+		}
+
+		if (animComp && animComp->m_currentStateID) {
+			enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Land", animComp, enemyController);
+		}
+	}
+
 	// ADD STAGGER ANIM HERE
 	if (animComp)
 	{
 		if (animComp->m_currentStateID)
 		{
-			//enemyController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Staggered", animComp, enemyController);
 			enemyController->PlayOverlay("Stagger", animComp, 0.2f, 0.8f);
 		}
 	}
