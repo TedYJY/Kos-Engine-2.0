@@ -49,6 +49,7 @@
 #include "UIButtonScript.h"
 #include "NEW_HealthBarUIScript.h"
 #include "CutSceneScript.h"
+#include "CutsceneAutoScript.h"
 #include "ManaUIScript.h"
 #include "AmmoUIScript.h"
 #include "NextSceneEventColliderScript.h"
@@ -62,3 +63,6 @@
 #include "FadeTransition.h"
 
 #include "SplashScreenScript.h"
+
+#include "QuitWindowConfirmScript.h"
+#include "QuitMenuConfirmScript.h"
