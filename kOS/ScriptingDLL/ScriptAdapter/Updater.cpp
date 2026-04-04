@@ -105,6 +105,11 @@ extern "C"  __declspec(dllexport) void UpdateStatic(StaticVariableManager* svm) 
 	RegisterScript<QuitWindowConfirmScript>(TemplateSC::ecsPtr);
 	RegisterScript<QuitMenuConfirmScript>(TemplateSC::ecsPtr);
 
+	RegisterScript<TurnOffLight>(TemplateSC::ecsPtr);
+
+	RegisterScript<CreditsScript>(TemplateSC::ecsPtr);
+	RegisterScript<MenuPt2Script>(TemplateSC::ecsPtr);
+
 
 	FieldComponentTypeRegistry::CreateAllDrawers(static_cast<Fields*>(svm->field)->GetAction());
 }
