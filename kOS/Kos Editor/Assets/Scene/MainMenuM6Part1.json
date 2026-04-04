@@ -475,12 +475,12 @@
             "isScreenSpace": true
         },
         "NameComponent": {
-            "entityName": "Screen Space Canvas",
+            "entityName": "Transition UI",
             "Layer": 0,
             "entityTag": "Default",
-            "isPrefab": false,
+            "isPrefab": true,
             "isStatic": false,
-            "prefabName": "",
+            "prefabName": "Transition UI.prefab",
             "hide": false
         },
         "TransformComponent": {
@@ -548,7 +548,7 @@
                     "entityName": "Fade Transition",
                     "Layer": 0,
                     "entityTag": "Default",
-                    "isPrefab": false,
+                    "isPrefab": true,
                     "isStatic": false,
                     "prefabName": "",
                     "hide": false
