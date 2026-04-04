@@ -11,7 +11,8 @@ permissions:
   
 jobs:
   build-and-package-windows:
-    runs-on: self-hosted
+    #runs-on: self-hosted
+    runs-on: windows-latest
     
     steps:
       - name: Checkout code
@@ -72,3 +73,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
+      # 5. Debugging Step (Triggers ONLY if a step above this one fails)
+      - name: Setup tmate session for debugging
+        uses: mxschmitt/action-tmate@v3
+        if: failure()

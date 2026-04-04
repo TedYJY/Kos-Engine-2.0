@@ -63,3 +63,6 @@
 #include "FadeTransition.h"
 
 #include "SplashScreenScript.h"
+
+#include "QuitWindowConfirmScript.h"
+#include "QuitMenuConfirmScript.h"
