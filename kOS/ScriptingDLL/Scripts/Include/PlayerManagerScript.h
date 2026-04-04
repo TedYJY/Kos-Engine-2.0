@@ -6,7 +6,10 @@
 #include "LevelCompleteScript.h"
 #include "ScoreManagerScript.h"
 #include "RoomLockScript.h"
-#include "OptionsMenuScript.h"
+
+extern bool gOptionsMenuActive;
+extern float gPlayerCameraSpeedX;
+extern float gPlayerCameraSpeedY;
 
 // --- FORWARD DECLARATIONS ---
 // Tell the compiler these classes exist first, preventing circular dependency crashes
@@ -214,7 +217,7 @@ public:
 	float acidCurrShieldCooldown = 0.f;
 
 	// LIGHTNING LMB - TIMESLOW PREFS
-	float lightningTimeslowDuration = 2.0f;
+	float lightningTimeslowDuration = 3.0f;
 	float lightningTimeslowCost = 10.0f;
 	float lightningTimeslowCooldown = 4.0f;
 	float lightningCurrTimeslowCooldown = 0.0f;
@@ -673,7 +676,7 @@ inline void PlayerManagerScript::Update() {
 		}
 
 	}
-	if (OptionsMenuScript::isOptionsActive) { return; }
+	if (gOptionsMenuActive) { return; }
 		if (Input->IsKeyTriggered(keys::ESC)) {
 			if (auto* pauseManager = ecsPtr->GetComponent<PauseMenuScript>(pauseMenuManagerID)) {
 				pauseManager->TogglePause();
@@ -771,6 +774,10 @@ inline void PlayerManagerScript::Update() {
 			fireCurrComboTimer = 0.f;
 			fireSlashComboCount = 0; // Reset combo if window expired
 			std::cout << "[FireSlash] Combo expired. Reset to 0.\n";
+
+			/*if (animComp && animComp->m_currentStateID)
+				playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("Reset", animComp, playerController);*/
+
 		}
 	}
 
@@ -1244,8 +1251,8 @@ inline void PlayerManagerScript::PlayerCameraControls() {
 		return;
 	}
 
-	float mouseRotationX = Input->GetAxisRaw("Mouse Y") * playerCameraSpeedX;
-	float mouseRotationY = Input->GetAxisRaw("Mouse X") * playerCameraSpeedY;
+	float mouseRotationX = Input->GetAxisRaw("Mouse Y") * gPlayerCameraSpeedX;
+	float mouseRotationY = Input->GetAxisRaw("Mouse X") * gPlayerCameraSpeedY;
 	playerRotationX += mouseRotationX;
 	playerRotationY += mouseRotationY;
 	playerRotationX = glm::clamp(playerRotationX, -90.f, 90.f);
@@ -1412,19 +1419,19 @@ inline void PlayerManagerScript::PlayerCombatControls() {
 	//}
 
 	//Animation Handling
-	//if (animComp)
-	//{
-	//	// COMMENTED OUT FOR ANIM
-	//	if (animComp->m_currentStateID)
-	//	{
-	//		R_Animation* currAnim = resource->GetResource<R_Animation>(playerController->RetrieveStateByID(animComp->m_currentStateID)->animationGUID).get();
-	//		if (animComp->m_CurrentTime >= currAnim->GetDuration())
-	//		{
-	//			playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("animationFinished", animComp, playerController);
-	//		}
-	//	}
-	//	
-	//}
+	if (animComp)
+	{
+		// COMMENTED OUT FOR ANIM
+		if (animComp->m_currentStateID)
+		{
+			R_Animation* currAnim = resource->GetResource<R_Animation>(playerController->RetrieveStateByID(animComp->m_currentStateID)->animationGUID).get();
+			if (animComp->m_CurrentTime >= currAnim->GetDuration())
+			{
+				playerController->RetrieveStateByID(animComp->m_currentStateID)->Trigger("animationFinished", animComp, playerController);
+			}
+		}
+		
+	}
 
 	//SEAN
 	if (animComp && animComp->m_currentStateID && playerController)
