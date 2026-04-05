@@ -43,11 +43,11 @@ prior written consent of DigiPen Institute of Technology is prohibited.
 	                    assetManager.Init(configpath::assetFilePath, configpath::resourceFilePath);
 	                }
 	                catch (const std::exception& e) {
-	                    std::cerr << "[KosEngine Fatal] AssetManager failed: " << e.what() << std::endl;
+	                    std::cout << "[KosEngine Fatal] AssetManager failed: " << e.what() << std::endl;
 	                    return 1;
 	                }
 	                catch (...) {
-	                    std::cerr << "[KosEngine Fatal] AssetManager failed with unknown exception." << std::endl;
+	                    std::cout << "[KosEngine Fatal] AssetManager failed with unknown exception." << std::endl;
 	                    return 1;
 	                }
 				}
